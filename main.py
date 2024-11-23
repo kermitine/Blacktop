@@ -50,10 +50,10 @@ class BasketballPlayer():
         else:
             return 'pass'
     
-    def action_success(self, decision):
+    def action_success(self, decision, defender_perd):
         if decision == '3pt':
             print(self.name, 'fires from three!')
-            make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1 + 0.1 ) * 1.5
+            make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1 + defender_perd ) * 1.5
             if make_chance > 4.5:
                 print('Bang! Bang!')
                 return True
@@ -64,14 +64,17 @@ class BasketballPlayer():
 
 
 
+d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", "Los Angeles Lakers", .461, 0.25, 0.521, 0.143, 0, 0, 0.04, 0.2, False, None)
 
 
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, none)
-d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", "Los Angeles Lakers", .461, 0.25, 0.052, 0.143, 0, 0, 0.04, 0.2, False)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, d_knecht)
 
 
 
 print(a_coffey.name)
+
 decision = a_coffey.decision()
+
 print(decision)
-print(a_coffey.action_success(decision))
+
+print(a_coffey.action_success(decision, d_knecht.perd))
