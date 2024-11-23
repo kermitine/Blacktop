@@ -20,11 +20,12 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 
 #amir coffey turnover stat derived from 7 possessions a game average, with 0.5 turnovers a game = 1/14 possesions turned over
 
+# PASSING STAT UNUSED
 
 import random
 
 class BasketballPlayer():
-    def __init__(self, name, position, team, threept, passing, drivinglay, tov, perd, intd, interception, threeptpref, passpref, laypref):
+    def __init__(self, name, position, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, posession, defender):
         self.name = name
         self.position = position
         self.team = team
@@ -35,9 +36,9 @@ class BasketballPlayer():
         self.perd = perd
         self.intd = intd
         self.interception = interception
-        self.threeptpref = threeptpref
         self.passpref = passpref
-        self.laypref = laypref
+        self.hasposession = posession
+        self.defender = defender
 
     def decision(self):
         generated_probability = random.randint(1, 100)
@@ -45,23 +46,32 @@ class BasketballPlayer():
         if 66.6 > modified_probability >= 33.3:
             return 'drive'
         elif 150 >= modified_probability >= 66.6:
-            return 'pass'
-        else:
             return '3pt'
+        else:
+            return 'pass'
     
-    def shot_is_make(self, decision):
+    def action_success(self, decision):
         if decision == '3pt':
             print(self.name, 'fires from three!')
+            make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1 + 0.1 ) * 1.5
+            if make_chance > 4.5:
+                print('Bang! Bang!')
+                return True
+            else:
+                print('Brick!')
+                return False
 
 
 
 
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", "Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.3, 0.1, 0.6)
 
+
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, none)
+d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", "Los Angeles Lakers", .461, 0.25, 0.052, 0.143, 0, 0, 0.04, 0.2, False)
 
 
 
 print(a_coffey.name)
 decision = a_coffey.decision()
 print(decision)
-a_coffey.shot_is_make(decision)
+print(a_coffey.action_success(decision))
