@@ -25,9 +25,10 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 import random
 
 class BasketballPlayer():
-    def __init__(self, name, position, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, posession, defender):
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, posession, defender, player):
         self.name = name
         self.position = position
+        self.positionnumber = positionnumber
         self.team = team
         self.threept = threept
         self.passing = passing
@@ -39,6 +40,7 @@ class BasketballPlayer():
         self.passpref = passpref
         self.hasposession = posession
         self.defender = defender
+        self.isplayer = player
 
     def decision(self):
         generated_probability = random.randint(1, 100)
@@ -60,21 +62,72 @@ class BasketballPlayer():
             else:
                 print('Brick!')
                 return False
+            
+        if decision == 'pass':
+            pass_receiver_position = random.randint(1,4)
+            if pass_receiver_position == 1:
+                if self.team == 'LA Clippers':
+                    for player in clippers_list:
+                        pass_receiver = player
+                        if pass_receiver.position == 'Point Guard':
+                            print('Passing to ' + pass_receiver.name)
+                            break
+                    if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                        print('Pass succesful! ' + pass_receiver.name + ' now has the ball!')
+                        pass_receiver.hasposession = True
+                        self.hasposession = False
+                    else:
+                        print('Oh no! Stolen by ' + pass_receiver.defender.name + '!')
+                        pass_receiver.defender.haspossesion = True
+                        self.hasposession = False
 
 
+     
+d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .461, 0.25, 0.521, 0.143, 0.25, 0, 0.04, 0.2, False, None, False)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+
+#placeholder stats for James Harden, Austin Reaves
+
+j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
 
 
-d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", "Los Angeles Lakers", .461, 0.25, 0.521, 0.143, 0, 0, 0.04, 0.2, False, None)
+#initializing defenders
+
+d_knecht.defender = a_coffey
+a_coffey.defender = d_knecht
+
+j_harden.defender = a_reaves
+a_reaves.defender = j_harden
+
+#adding to lists
+
+clippers_list = [j_harden, a_coffey]
+lakers_list = [a_reaves, d_knecht]
+
+# ------------------------------------------------------------------------------------------------------------------
+
+user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
+if user_team_input == '1':
+    user_team = 'LA Clippers'
+else:
+    user_team = 'Los Angeles Lakers'
 
 
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, d_knecht)
+print('Choose your player!')
+position_number = 0
+if user_team == 'LA Clippers':
 
-
-
-print(a_coffey.name)
-
-decision = a_coffey.decision()
-
-print(decision)
-
-print(a_coffey.action_success(decision, d_knecht.perd))
+    for player in clippers_list:
+        position_number += 1
+        print(player.name + ' -- ' + str(position_number))
+        
+    player_decision = int(input())\
+    
+    for bballplayer in clippers_list:
+        if player.positionnumber == player_decision:
+            player.isplayer == True
+            player.hasposession == True
+            print('Player selected: ' + player.name)
+            break
+            
