@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '1.1.3'
+version = '1.2.0'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player):
@@ -151,8 +151,10 @@ class BasketballPlayer():
                 return 'miss', 0
             
         if decision == 'pass':
+
+
             if pass_receiver_preset:
-                if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                     lastname = pass_receiver_preset.name.split(" ")[1]
                     announcer_call = random.randint(1, 5)
                     if announcer_call == 1:
@@ -193,7 +195,7 @@ class BasketballPlayer():
                     for pass_receiver in clippers_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
-                    if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                    if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                         lastname = pass_receiver.name.split(" ")[1]
                         announcer_call = random.randint(1, 5)
                         if announcer_call == 1:
@@ -231,7 +233,7 @@ class BasketballPlayer():
                     for pass_receiver in lakers_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
-                    if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                    if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                         lastname = pass_receiver.name.split(" ")[1]
                         announcer_call = random.randint(1, 5)
                         if announcer_call == 1:
@@ -317,7 +319,41 @@ combined_list = clippers_list + lakers_list
 
 # ------------------------------------------------------------------------------------------------------------------
 
+def calculate_turnover_chance(passer, receiver_defender):
+    base_chance = 0.10  # Base chance for turnover (10%)
+    
+    turnover_factor = passer.tov * 25
+    passing_factor = passer.passing * -7.8
+    interception_factor = receiver_defender.interception * 25
+    
+    turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
+    # Clamp the value between 0 and 1
+    turnover_chance = max(0.1, min(0.25, turnover_chance))
+    
+    # Generate a random number to determine if the pass is turned over
+    random_roll = random.random()  # Random number between 0 and 1
+    if random_roll < turnover_chance:
+        return True  # Pass is turned over
+    else:
+        return False  # Pass is successful
+
+
+def turn_over_chance(passer, receiver_defender):
+    base_chance = 0.10  # Base chance for turnover (10%)
+    
+    turnover_factor = passer.tov * 25
+    passing_factor = passer.passing * -7.8
+    interception_factor = receiver_defender.interception * 25
+    
+    turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
+    # Clamp the value between 0 and 1
+    turnover_chance = max(0.1, min(0.25, turnover_chance))
+    return turnover_chance * 100
+
+
+
 print('basketGame V' + version + '\n')
+
 while True:
     user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
 
@@ -354,11 +390,12 @@ if user_team == 'LA Clippers':
         print(player.name + ' -- ' + str(position_number))
 
     while True:
-        player_decision = int(input())
-
-        if player_decision < 0 or player_decision > 5:
+        player_decision = str(input())
+        if player_decision not in ['1', '2', '3', '4', '5']:
             print('Decision not recognized. Please try again.')
+            continue
         else:
+            player_decision = int(player_decision)
             break
     
     
@@ -386,9 +423,15 @@ else:
     for player in lakers_list:
         position_number += 1
         print(player.name + ' -- ' + str(position_number))
-
-    player_decision = int(input())
-    
+    while True:
+        player_decision = str(input())
+        if player_decision not in ['1', '2', '3', '4', '5']:
+            print('Decision not recognized. Please try again.')
+            continue
+        else:
+            player_decision = int(player_decision)
+            break
+        
     for player in lakers_list:
         if player.positionnumber == player_decision:
             player.isplayer = True
@@ -475,17 +518,18 @@ while True:
                             position_number += 1
                             continue
                         position_number += 1
-                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')')
+                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')', '(Chance of turnover:', str(turn_over_chance(current_player, player.defender)) + '%)' )
                 
                     while True:
-                        player_decision = int(input())
-                        if player_decision == current_player.positionnumber:
+                        player_decision = str(input())
+                        if player_decision == str(current_player.positionnumber):
                             print('Decision not recognized. Please try again')
                             continue
-                        elif player_decision < 1 or player_decision > 5:
+                        elif player_decision not in ['1', '2', '3', '4', '5']:
                             print('Decision not recognized. Please try again')
                             continue
                         else:
+                            player_decision = int(player_decision)
                             break
 
 
