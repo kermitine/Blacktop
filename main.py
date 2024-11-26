@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '1.1.2'
+version = '1.1.3'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player):
@@ -70,8 +70,8 @@ class BasketballPlayer():
                 print(self.name, 'steps back and pulls from three!')
             else:
                 print(self.name, 'pulls up from beyond the arc!')
-            make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1 + defender_perd ) * 1.5
-            if make_chance > 4.5:
+            make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
+            if make_chance > 4.8:
                 announcer_call = random.randint(1, 5)
                 if announcer_call == 1:
                     print('Count it!')
@@ -272,27 +272,25 @@ class BasketballPlayer():
 
 
                 
-        # must INCORPORATE NPC PASSING
 
 
 
+#placeholder stats for James Harden, Austin Reaves, Ivica Zubac, Anthony Davis, Rui Hachimura, Kawhi Leonard, Norman Powell and Lebron James
 
-#placeholder stats for James Harden, Austin Reaves, Ivica Zubac, Anthony Davis, Rui Hachimura, Kawhi Leonard, Norman Powell and Cam Reddish
+d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False)
 
-d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .461, 0.25, 0.521, 0.143, 0.25, 0, 0.04, 0.2, False, None, False)
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False)
+a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False)
 
-j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
-a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False)
+i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False)
 
-a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
-i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False)
+k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False)
 
-r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
-k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
-
-n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
-l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.2, False, None, False)
+n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False)
+l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False)
 
 #initializing defenders
 
