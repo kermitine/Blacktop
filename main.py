@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '1.1.1'
+version = '1.1.2'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player):
@@ -78,7 +78,7 @@ class BasketballPlayer():
                 elif announcer_call == 2:
                     print('Bang!')
                 elif announcer_call == 3:
-                    print('BANG! BANG! WHAT A SHOT FROM', self.name + '!')
+                    print('BANG! BANG! WHAT A SHOT FROM', self.name.upper() + '!')
                 elif announcer_call == 4:
                     print('And he sinks the three!')
                 else:
@@ -94,11 +94,11 @@ class BasketballPlayer():
                 elif announcer_call == 2:
                     print('And the shot is off the mark.')
                 elif announcer_call == 3:
-                    print('and he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
                 elif announcer_call == 4:
                     print('And he misfires.', self.defender.name, 'with the rebound.')
                 else:
-                    print('and the ball clanks off the rim.')
+                    print('And the ball clanks off the rim.')
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'miss', 0
@@ -120,15 +120,15 @@ class BasketballPlayer():
             if make_chance > 3.8:
                 announcer_call = random.randint(1, 5)
                 if announcer_call == 1:
-                    print('and he rattles it in!')
+                    print('And he rattles it in!')
                 elif announcer_call == 2:
                     print('AND HE SLAMS IT DOWN!')
                 elif announcer_call == 3:
-                    print('and he lays it up and in!')
+                    print('And he lays it up and in!')
                 elif announcer_call == 4:
-                    print('and he brings the house down!')
+                    print('And he brings the house down!')
                 else:
-                    print('and he kisses it off the glass!')
+                    print('And he kisses it off the glass!')
 
                 print(lebron_dwyane)
                 self.haspossession = False
@@ -141,11 +141,11 @@ class BasketballPlayer():
                 elif announcer_call == 2:
                     print('And the shot is off the mark.')
                 elif announcer_call == 3:
-                    print('and he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
                 elif announcer_call == 4:
                     print('And he misfires.', self.defender.name, 'with the rebound.')
                 else:
-                    print('and the ball clanks off the rim.')
+                    print('And the ball clanks off the rim.')
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'miss', 0
@@ -320,8 +320,14 @@ combined_list = clippers_list + lakers_list
 # ------------------------------------------------------------------------------------------------------------------
 
 print('basketGame V' + version + '\n')
+while True:
+    user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
 
-user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
+    if user_team_input not in ['1', '2']:
+        print('Decision not recognized. Please try again.')
+    else:
+        break
+
 print('\n')
 if user_team_input == '1':
     user_team = 'LA Clippers'
@@ -349,7 +355,13 @@ if user_team == 'LA Clippers':
         position_number += 1
         print(player.name + ' -- ' + str(position_number))
 
-    player_decision = int(input())\
+    while True:
+        player_decision = int(input())
+
+        if player_decision < 0 or player_decision > 5:
+            print('Decision not recognized. Please try again.')
+        else:
+            break
     
     
     for player in clippers_list:
@@ -445,7 +457,15 @@ while True:
             print(player.name, 'has the basketball!')
 
             if player.isplayer == True:
-                player_action_decision = input('What will you do? Pass, drive, or shoot a 3pt?' + '\n')
+                while True:
+                    player_action_decision = input('What will you do? Pass, drive, or shoot a 3pt?' + '\n')
+                    player_action_decision = player_action_decision.lower()
+
+                    if player_action_decision not in ['pass', 'drive', '3pt']:
+                        print('Decision not recognized. Please try again')
+                        continue
+                    else:
+                        break
                 print('\n' + '\n')
                 print
                 
@@ -458,8 +478,18 @@ while True:
                             continue
                         position_number += 1
                         print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')')
+                
+                    while True:
+                        player_decision = int(input())
+                        if player_decision == current_player.positionnumber:
+                            print('Decision not recognized. Please try again')
+                            continue
+                        elif player_decision < 1 or player_decision > 5:
+                            print('Decision not recognized. Please try again')
+                            continue
+                        else:
+                            break
 
-                    player_decision = int(input())
 
                     print('\n')
 
