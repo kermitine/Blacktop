@@ -23,6 +23,7 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 # PASSING STAT UNUSED
 
 import random
+import time
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, posession, defender, player):
@@ -52,7 +53,7 @@ class BasketballPlayer():
         else:
             return 'pass'
     
-    def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset):
+    def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
             print(self.name, 'fires from three!')
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1 + defender_perd ) * 1.5
@@ -61,6 +62,8 @@ class BasketballPlayer():
                 return True
             else:
                 print('Brick!')
+                self.hasposession = False
+                self.defender.haspossession = True
                 return False
 
         if decision == 'drive':
@@ -71,20 +74,70 @@ class BasketballPlayer():
                 return True
             else:
                 print('Boing!')
+                self.hasposession = False
+                self.defender.haspossession = True
                 return False
             
         if decision == 'pass':
             if pass_receiver_preset:
                 if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
-                        print('Pass succesful! ' + pass_receiver_preset.name + ' now has the ball!')
-                        pass_receiver_preset.hasposession = True
-                        self.hasposession = False
-                        return True
+                    print('Pass succesful! ' + pass_receiver_preset.name + ' now has the ball!')
+                    pass_receiver_preset.hasposession = True
+                    self.hasposession = False
+                    return True
                 else:
-                    print('Oh no! Stolen by ' + pass_receiver.defender.name + '!')
-                    pass_receiver.defender.haspossesion = True
+                    print('Oh no! Stolen by ' + pass_receiver_preset.defender.name + '!')
+                    pass_receiver_preset.defender.haspossesion = True
                     self.hasposession = False
                     return False
+            else:
+                while True:
+                    pass_receiver_position_number = random.randint(1, 5)
+                    if player.positionnumber == pass_receiver_position_number:
+                        continue
+                    else:
+                        break
+                if active_team == 'LA Clippers':
+                    for pass_receiver in clippers_list:
+                        if pass_receiver.positionnumber == pass_receiver_position_number:
+                            break
+                        if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                            print('Pass succesful! ' + pass_receiver.name + ' now has the ball!')
+                            pass_receiver.hasposession = True
+                            self.hasposession = False
+                            return True
+                        else:
+                            print('Oh no! Stolen by ' + pass_receiver.defender.name + '!')
+                            pass_receiver.defender.haspossesion = True
+                            self.hasposession = False
+                            print('returning')
+                            print(pass_receiver.defender.haspossession)
+                            return False
+
+                else:
+                    for pass_receiver in lakers_list:
+                        if pass_receiver.positionnumber == pass_receiver_position_number:
+                            break
+                        if random.randint(1, 100) < 90: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                            print('Pass succesful! ' + pass_receiver.name + ' now has the ball!')
+                            pass_receiver.hasposession = True
+                            self.hasposession = False
+                            return True
+                        else:
+                            print('Oh no! Stolen by ' + pass_receiver.defender.name + '!')
+                            pass_receiver.defender.haspossesion = True
+                            self.hasposession = False
+                            print('returning')
+                            print(pass_receiver.defender.haspossession)
+                            return False
+
+                            
+
+
+                                
+
+
+
                 
         # must INCORPORATE NPC PASSING
 
@@ -179,7 +232,10 @@ else:
 # -----------------------------------------------------------------------------------------
 
 while True:
+
     position_number = 0
+
+    time.sleep(1)
 
     for player in combined_list:
 
@@ -205,9 +261,13 @@ while True:
                             pass_receiver = player
                             break
                     print('Passing to ' + pass_receiver.name)
-                    current_player.action_success('pass', 0, 0, pass_receiver)
+                    current_player.action_success('pass', 0, 0, pass_receiver, current_player.team)
+                    break
             else:
-                player.action_success(player.decision())
+                decision = player.decision()
+                print(decision)
+                player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
+                break
 
                     
                             
