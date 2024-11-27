@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '1.2.0'
+version = '1.2.1'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player):
@@ -47,6 +47,120 @@ class BasketballPlayer():
         self.defender = defender
         self.isplayer = player
 
+
+
+    def commentator_randomizer(self, event, secondary_player):
+        if event == '3ptshot':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print(self.name, 'fires it from deep!')
+            elif announcer_call == 2:
+                print(self.name, 'lets it fly!')
+            elif announcer_call == 3:
+                print(self.name, 'from downtown!')
+            elif announcer_call == 4:
+                print(self.name, 'steps back and pulls from three!')
+            else:
+                print(self.name, 'pulls up from beyond the arc!')
+
+        elif event == '3ptmake':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('Count it!')
+            elif announcer_call == 2:
+                print('Bang!')
+            elif announcer_call == 3:
+                print('BANG! BANG! WHAT A SHOT FROM', self.name.upper() + '!')
+            elif announcer_call == 4:
+                print('And he sinks the three!')
+            else:
+                print('NOTHING BUT NET!')
+            print(harden_shooting)
+
+        elif event == '3ptmiss':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('Oof, an airball!')
+            elif announcer_call == 2:
+                print('And the shot is off the mark.')
+            elif announcer_call == 3:
+                print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+            elif announcer_call == 4:
+                print('And he misfires.', self.defender.name, 'with the rebound.')
+            else:
+                print('And the ball clanks off the rim.')
+
+        elif event == 'drive':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print(self.name, 'drives into the paint!')
+            elif announcer_call == 2:
+                print('Here comes ' + self.name + '!')
+            elif announcer_call == 3:
+                print(self.name, 'drives the lane!')
+            elif announcer_call == 4:
+                print(self.name, 'cuts to the hoop!')
+            else:
+                print(self.name, 'slashes to the basket!')
+        
+        elif event == 'drivemake':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('And he rattles it in!')
+            elif announcer_call == 2:
+                print('AND HE SLAMS IT DOWN!')
+            elif announcer_call == 3:
+                print('And he lays it up and in!')
+            elif announcer_call == 4:
+                print('And he brings the house down!')
+            else:
+                print('And he kisses it off the glass!')
+
+        elif event == 'miss':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('Oof, an airball!')
+            elif announcer_call == 2:
+                print('And the shot is off the mark.')
+            elif announcer_call == 3:
+                print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+            elif announcer_call == 4:
+                print('And he misfires.', self.defender.name, 'with the rebound.')
+            else:
+                print('And the ball clanks off the rim.')
+        
+        elif event == 'pass':
+            lastname = secondary_player.name.split(" ")[1]
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('And he kicks it out to ' + lastname + '!')
+            elif announcer_call == 2:
+                print('He swings it out to ' + secondary_player.name + '!')
+            elif announcer_call == 3:
+                print('Out to ' + lastname + '!')
+            elif announcer_call == 4:
+                print('And he feeds it to ' + secondary_player.name + '!')
+            else:
+                print('Bullet pass to ' + secondary_player.name + '!')
+        
+        elif event == 'stolen':
+            announcer_call = random.randint(1, 5)
+            if announcer_call == 1:
+                print('Stolen by ' + secondary_player.defender.name + '!')
+            elif announcer_call == 2:
+                print('Stripped away by ' + secondary_player.defender.name + '!')
+            elif announcer_call == 3:
+                print('Swiped away by ' + secondary_player.defender.name + '!')
+            elif announcer_call == 4:
+                print('And ' + secondary_player.defender.name + ' intercepts it!')
+            else:
+                print(self.name, 'turns it over!', secondary_player.defender.name, 'brings it back up the court!')
+
+
+
+
+
+
     def decision(self):
         generated_probability = random.randint(1, 100)
         modified_probability  = generated_probability * (1 + self.passpref)
@@ -59,93 +173,33 @@ class BasketballPlayer():
     
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
-            announcer_call = random.randint(1, 5)
-            if announcer_call == 1:
-                print(self.name, 'fires it from deep!')
-            elif announcer_call == 2:
-                print(self.name, 'lets it fly!')
-            elif announcer_call == 3:
-                print(self.name, 'from downtown!')
-            elif announcer_call == 4:
-                print(self.name, 'steps back and pulls from three!')
-            else:
-                print(self.name, 'pulls up from beyond the arc!')
+            self.commentator_randomizer('3ptshot', None)
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
-                announcer_call = random.randint(1, 5)
-                if announcer_call == 1:
-                    print('Count it!')
-                elif announcer_call == 2:
-                    print('Bang!')
-                elif announcer_call == 3:
-                    print('BANG! BANG! WHAT A SHOT FROM', self.name.upper() + '!')
-                elif announcer_call == 4:
-                    print('And he sinks the three!')
-                else:
-                    print('NOTHING BUT NET!')
+                self.commentator_randomizer('3ptmake', None)
                 print(harden_shooting)
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'shot', 3
             else:
-                announcer_call = random.randint(1, 5)
-                if announcer_call == 1:
-                    print('Oof, an airball!')
-                elif announcer_call == 2:
-                    print('And the shot is off the mark.')
-                elif announcer_call == 3:
-                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
-                elif announcer_call == 4:
-                    print('And he misfires.', self.defender.name, 'with the rebound.')
-                else:
-                    print('And the ball clanks off the rim.')
+                self.commentator_randomizer('3ptmiss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'miss', 0
 
         if decision == 'drive':
-            announcer_call = random.randint(1, 5)
-            if announcer_call == 1:
-                print(self.name, 'drives into the paint!')
-            elif announcer_call == 2:
-                print('Here comes ' + self.name + '!')
-            elif announcer_call == 3:
-                print(self.name, 'drives the lane!')
-            elif announcer_call == 4:
-                print(self.name, 'cuts to the hoop!')
-            else:
-                print(self.name, 'slashes to the basket!')
+            self.commentator_randomizer('drive', None)
                 
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
-                announcer_call = random.randint(1, 5)
-                if announcer_call == 1:
-                    print('And he rattles it in!')
-                elif announcer_call == 2:
-                    print('AND HE SLAMS IT DOWN!')
-                elif announcer_call == 3:
-                    print('And he lays it up and in!')
-                elif announcer_call == 4:
-                    print('And he brings the house down!')
-                else:
-                    print('And he kisses it off the glass!')
-
+                self.commentator_randomizer('drivemake', None)
                 print(lebron_dwyane)
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'shot', 2
             else:
                 announcer_call = random.randint(1, 5)
-                if announcer_call == 1:
-                    print('Oof, an airball!')
-                elif announcer_call == 2:
-                    print('And the shot is off the mark.')
-                elif announcer_call == 3:
-                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
-                elif announcer_call == 4:
-                    print('And he misfires.', self.defender.name, 'with the rebound.')
-                else:
-                    print('And the ball clanks off the rim.')
+                self.commentator_randomizer('miss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'miss', 0
@@ -155,34 +209,12 @@ class BasketballPlayer():
 
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
-                    lastname = pass_receiver_preset.name.split(" ")[1]
-                    announcer_call = random.randint(1, 5)
-                    if announcer_call == 1:
-                        print('And he kicks it out to ' + lastname + '!')
-                    elif announcer_call == 2:
-                        print('He swings it out to ' + pass_receiver_preset.name + '!')
-                    elif announcer_call == 3:
-                        print('Out to ' + lastname + '!')
-                    elif announcer_call == 4:
-                        print('And he feeds it to ' + pass_receiver_preset.name + '!')
-                    else:
-                        print('Bullet pass to ' + pass_receiver_preset.name + '!')
-                    print(haliburton)
+                    self.commentator_randomizer('pass', pass_receiver_preset)
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
                 else:
-                    announcer_call = random.randint(1, 5)
-                    if announcer_call == 1:
-                        print('Stolen by ' + pass_receiver_preset.defender.name + '!')
-                    elif announcer_call == 2:
-                        print('Stripped away by ' + pass_receiver_preset.defender.name + '!')
-                    elif announcer_call == 3:
-                        print('Swiped away by ' + pass_receiver_preset.defender.name + '!')
-                    elif announcer_call == 4:
-                        print('And ' + pass_receiver_preset.defender.name + ' intercepts it!')
-                    else:
-                        print(self.name, 'turns it over!', pass_receiver_preset.defender.name, 'brings it back up the court!')
+                    self.commentator_randomizer('stolen', pass_receiver_preset)
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
@@ -196,35 +228,13 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
-                        lastname = pass_receiver.name.split(" ")[1]
-                        announcer_call = random.randint(1, 5)
-                        if announcer_call == 1:
-                            print('And he kicks it out to ' + lastname + '!')
-                        elif announcer_call == 2:
-                            print('He swings it out to ' + pass_receiver.name + '!')
-                        elif announcer_call == 3:
-                            print('Out to ' + lastname + '!')
-                        elif announcer_call == 4:
-                            print('And he feeds it to ' + pass_receiver.name + '!')
-                        else:
-                            print('Bullet pass to ' + pass_receiver.name + '!')
-
+                        self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
                         pass_receiver.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        announcer_call = random.randint(1, 5)
-                        if announcer_call == 1:
-                            print('Stolen by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 2:
-                            print('Stripped away by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 3:
-                            print('Swiped away by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 4:
-                            print('And ' + pass_receiver.defender.name + ' intercepts it!')
-                        else:
-                            print(self.name, 'turns it over!', pass_receiver.defender.name, 'brings it back up the court!')
+                        self.commentator_randomizer('stolen', pass_receiver)
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
@@ -234,34 +244,14 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
-                        lastname = pass_receiver.name.split(" ")[1]
-                        announcer_call = random.randint(1, 5)
-                        if announcer_call == 1:
-                            print('And he kicks it out to ' + lastname + '!')
-                        elif announcer_call == 2:
-                            print('He swings it out to ' + pass_receiver.name + '!')
-                        elif announcer_call == 3:
-                            print('Out to ' + lastname + '!')
-                        elif announcer_call == 4:
-                            print('And he feeds it to ' + pass_receiver.name + '!')
-                        else:
-                            print('Bullet pass to ' + pass_receiver.name + '!')
+                        self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
                         pass_receiver.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
                     else:
                         announcer_call = random.randint(1, 5)
-                        if announcer_call == 1:
-                            print('Stolen by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 2:
-                            print('Stripped away by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 3:
-                            print('Swiped away by ' + pass_receiver.defender.name + '!')
-                        elif announcer_call == 4:
-                            print('And ' + pass_receiver.defender.name + ' intercepts it!')
-                        else:
-                            print(self.name, 'turns it over!', pass_receiver.defender.name, 'brings it back up the court!')
+                        self.commentator_randomizer('stolen', pass_receiver)
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
@@ -349,6 +339,10 @@ def turn_over_chance(passer, receiver_defender):
     # Clamp the value between 0 and 1
     turnover_chance = max(0.1, min(0.25, turnover_chance))
     return turnover_chance * 100
+
+
+
+
 
 
 
