@@ -27,10 +27,10 @@ import time
 from ascii import *
 ascii_run()
 
-version = '1.2.1'
+version = '1.3.0'
 
 class BasketballPlayer():
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player):
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -46,12 +46,16 @@ class BasketballPlayer():
         self.haspossession = possession
         self.defender = defender
         self.isplayer = player
+        self.pointsMade = points_made
+        self.passesMade = passes_made
+        self.interceptionsMade = interceptions_made
 
 
 
     def commentator_randomizer(self, event, secondary_player):
         if event == '3ptshot':
-            announcer_call = random.randint(1, 5)
+            last_name = self.name.split(" ")[1]
+            announcer_call = random.randint(1, 7)
             if announcer_call == 1:
                 print(self.name, 'fires it from deep!')
             elif announcer_call == 2:
@@ -60,6 +64,10 @@ class BasketballPlayer():
                 print(self.name, 'from downtown!')
             elif announcer_call == 4:
                 print(self.name, 'steps back and pulls from three!')
+            elif announcer_call == 5:
+                print('Corner three from', last_name + '!')
+            elif announcer_call == 6:
+                print(last_name, 'fires a three!')
             else:
                 print(self.name, 'pulls up from beyond the arc!')
 
@@ -75,7 +83,6 @@ class BasketballPlayer():
                 print('And he sinks the three!')
             else:
                 print('NOTHING BUT NET!')
-            print(harden_shooting)
 
         elif event == '3ptmiss':
             announcer_call = random.randint(1, 5)
@@ -130,16 +137,19 @@ class BasketballPlayer():
                 print('And the ball clanks off the rim.')
         
         elif event == 'pass':
-            lastname = secondary_player.name.split(" ")[1]
-            announcer_call = random.randint(1, 5)
+            last_name = self.name.split(" ")[1]
+            pass_receiver_last_name = secondary_player.name.split(" ")[1]
+            announcer_call = random.randint(1, 6)
             if announcer_call == 1:
-                print('And he kicks it out to ' + lastname + '!')
+                print('And he kicks it out to ' + pass_receiver_last_name + '!')
             elif announcer_call == 2:
                 print('He swings it out to ' + secondary_player.name + '!')
             elif announcer_call == 3:
-                print('Out to ' + lastname + '!')
+                print('Out to ' + pass_receiver_last_name + '!')
             elif announcer_call == 4:
                 print('And he feeds it to ' + secondary_player.name + '!')
+            elif announcer_call == 5:
+                print(last_name + ', bounce pass to', pass_receiver_last_name + '!')
             else:
                 print('Bullet pass to ' + secondary_player.name + '!')
         
@@ -178,6 +188,7 @@ class BasketballPlayer():
             if make_chance > 4.8:
                 self.commentator_randomizer('3ptmake', None)
                 print(harden_shooting)
+                self.pointsMade += 3
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'shot', 3
@@ -194,6 +205,7 @@ class BasketballPlayer():
             if make_chance > 3.8:
                 self.commentator_randomizer('drivemake', None)
                 print(lebron_dwyane)
+                self.pointsMade += 2
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'shot', 2
@@ -210,11 +222,15 @@ class BasketballPlayer():
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                     self.commentator_randomizer('pass', pass_receiver_preset)
+
+                    self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
                 else:
                     self.commentator_randomizer('stolen', pass_receiver_preset)
+
+                    pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
@@ -230,11 +246,15 @@ class BasketballPlayer():
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
+
+                        self.passesMade += 1
                         pass_receiver.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
                     else:
                         self.commentator_randomizer('stolen', pass_receiver)
+
+                        pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
@@ -246,12 +266,16 @@ class BasketballPlayer():
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
+
+                        self.passesMade += 1
                         pass_receiver.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
                     else:
                         announcer_call = random.randint(1, 5)
                         self.commentator_randomizer('stolen', pass_receiver)
+
+                        pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
@@ -269,20 +293,20 @@ class BasketballPlayer():
 
 #placeholder stats for James Harden, Austin Reaves, Ivica Zubac, Anthony Davis, Rui Hachimura, Kawhi Leonard, Norman Powell and Lebron James
 
-d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False)
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False)
+d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0)
 
-j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False)
-a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False)
+j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0)
+a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0)
 
-a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False)
-i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False)
+a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0)
+i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0)
 
-r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False)
-k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False)
+r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False, 0, 0, 0)
+k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0)
 
-n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False)
-l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False)
+n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0)
+l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0)
 
 #initializing defenders
 
@@ -455,6 +479,16 @@ while True:
         print('Clippers win! Final score:', clippers_score, '-', lakers_score)
         print('---------------------------------------------------------------------------------------------------------')
         print(clippers_logo)
+
+
+        highest_score = 0
+        highest_scorer = None
+        for player in combined_list:
+            if player.pointsMade > highest_score:
+                highest_score = player.pointsMade
+                highest_scorer = player
+        print('Most points scored:', highest_scorer.name, 'with', str(highest_score) + '!')
+
         time.sleep(5)
         break
     elif lakers_score >= end_score:
@@ -463,6 +497,31 @@ while True:
         print('Lakers win! Final score:', lakers_score, '-', clippers_score)
         print('---------------------------------------------------------------------------------------------------------')
         print(lakers_logo)
+
+
+        highest_score = 0
+        highest_scorer = None
+
+        highest_interceptions = 0
+        highest_interceptor = 0
+
+        highest_passes = 0
+        highest_passer = 0
+
+        for player in combined_list:
+            if player.pointsMade > highest_score:
+                highest_score = player.pointsMade
+                highest_scorer = player
+            if player.passesMade > highest_passes:
+                highest_passes = player.passesMade
+                highest_passer = player
+            if player.interceptionsMade > highest_interceptions:
+                highest_interceptions = player.interceptionsMade
+                highest_interceptor = player
+        print('Most points scored:', highest_scorer.name, 'with', str(highest_score) + '!')
+        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes) + '!')
+        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions) + '!')
+
         time.sleep(5)
         break
 
