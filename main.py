@@ -385,7 +385,7 @@ def turn_over_chance(passer, receiver_defender):
 
 
 
-print('basketGame V' + version + '\n')
+print('Blacktop V' + version , 'by Kermitine' + '\n')
 
 while True:
     user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
