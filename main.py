@@ -139,7 +139,7 @@ class BasketballPlayer():
         elif event == 'pass':
             last_name = self.name.split(" ")[1]
             pass_receiver_last_name = secondary_player.name.split(" ")[1]
-            announcer_call = random.randint(1, 6)
+            announcer_call = random.randint(1, 8)
             if announcer_call == 1:
                 print('And he kicks it out to ' + pass_receiver_last_name + '!')
             elif announcer_call == 2:
@@ -150,6 +150,10 @@ class BasketballPlayer():
                 print('And he feeds it to ' + secondary_player.name + '!')
             elif announcer_call == 5:
                 print(last_name + ', bounce pass to', pass_receiver_last_name + '!')
+            elif announcer_call == 6:
+                print(last_name + ' finds', pass_receiver_last_name + '!')
+            elif announcer_call == 7:
+                print('Bullet pass to ' + pass_receiver_last_name + '!')
             else:
                 print('Bullet pass to ' + secondary_player.name + '!')
         
@@ -334,17 +338,28 @@ combined_list = clippers_list + lakers_list
 # ------------------------------------------------------------------------------------------------------------------
 
 def calculate_turnover_chance(passer, receiver_defender):
-    base_chance = 0.10  # Base chance for turnover (10%)
+    """
+    Calculate the chance of a turnover during a pass.
+    Factors include passer's turnover tendency, passing skill, and receiver defender's interception skill.
+    """
+    # Adjusted base chance and scaling factors for better dynamics
+    base_chance = 0.05  # Lower base chance for turnover (5%)
     
-    turnover_factor = passer.tov * 25
-    passing_factor = passer.passing * -7.8
-    interception_factor = receiver_defender.interception * 25
+    # More fine-tuned weights for player attributes
+    turnover_factor = passer.tov * 15  # Passer's turnover tendency (scaled down)
+    passing_factor = passer.passing * -12  # Higher impact for good passing skills
+    interception_factor = receiver_defender.interception * 20  # Defender's interception skill (scaled to balance)
     
-    turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
-    # Clamp the value between 0 and 1
-    turnover_chance = max(0.1, min(0.25, turnover_chance))
+    # Adding a dynamic component for randomness within a range based on the passer's passing skill
+    dynamic_factor = random.uniform(-0.02, 0.02) * (1 - passer.passing)
     
-    # Generate a random number to determine if the pass is turned over
+    # Calculate turnover chance
+    turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor + dynamic_factor
+    
+    # Ensure the value stays within a meaningful range (0% to 40%)
+    turnover_chance = max(0.0, min(0.4, turnover_chance))
+    
+    # Determine if the pass is turned over
     random_roll = random.random()  # Random number between 0 and 1
     if random_roll < turnover_chance:
         return True  # Pass is turned over
@@ -503,10 +518,10 @@ while True:
         highest_scorer = None
 
         highest_interceptions = 0
-        highest_interceptor = 0
+        highest_interceptor = None
 
         highest_passes = 0
-        highest_passer = 0
+        highest_passer = None
 
         for player in combined_list:
             if player.pointsMade > highest_score:
@@ -518,9 +533,9 @@ while True:
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
-        print('Most points scored:', highest_scorer.name, 'with', str(highest_score) + '!')
-        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes) + '!')
-        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions) + '!')
+        print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
+        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
+        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
 
         time.sleep(5)
         break
