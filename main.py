@@ -232,7 +232,7 @@ class BasketballPlayer():
 
 
             if pass_receiver_preset:
-                if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
                     self.commentator_randomizer('pass', pass_receiver_preset)
 
                     self.passesMade += 1
@@ -286,7 +286,7 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        announcer_call = random.randint(1, 5)
+                        
                         self.commentator_randomizer('stolen', pass_receiver)
 
                         pass_receiver.defender.interceptionsMade += 1
