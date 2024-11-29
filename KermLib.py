@@ -40,7 +40,7 @@ class KermLib():
 
     def object_matcher(self, principal_object, list_of_potential_objects, target_attribute): # matches 2 objects based on a shared attribute
         for object in list_of_potential_objects:                                        # ATTRIBUTE MUST BE STR
-            if getattr(object, target_attribute) == getattr(principal_object, target_attribute):
+            if getattr(object, target_attribute) == getattr(principal_object, target_attribute) and object != principal_object:
                 return object
         return 'no matching objects found'
     
