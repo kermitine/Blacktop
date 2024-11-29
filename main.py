@@ -26,7 +26,6 @@ import random
 import time
 from KermLib import *
 from ascii import *
-ascii_run()
 
 version = '2024.11.28.1800.stable'
 
@@ -406,18 +405,11 @@ def turn_over_chance(passer, receiver_defender):
 
 
 
-
-
-
+KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-while True:
-    user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
-
-    if user_team_input not in ['1', '2']:
-        print('Decision not recognized. Please try again.')
-    else:
-        break
+print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!')
+user_team_input = KermLib.get_user_input(['1', '2'])
 
 print('\n')
 if user_team_input == '1':
