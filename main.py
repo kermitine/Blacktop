@@ -504,11 +504,27 @@ while True:
 
         highest_score = 0
         highest_scorer = None
+
+        highest_interceptions = 0
+        highest_interceptor = None
+
+        highest_passes = 0
+        highest_passer = None
+
         for player in combined_list:
             if player.pointsMade > highest_score:
                 highest_score = player.pointsMade
                 highest_scorer = player
-        print('Most points scored:', highest_scorer.name, 'with', str(highest_score) + '!')
+            if player.passesMade > highest_passes:
+                highest_passes = player.passesMade
+                highest_passer = player
+            if player.interceptionsMade > highest_interceptions:
+                highest_interceptions = player.interceptionsMade
+                highest_interceptor = player
+
+        print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
+        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
+        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
 
         time.sleep(5)
         break
