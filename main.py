@@ -255,7 +255,7 @@ class BasketballPlayer():
                     for pass_receiver in clippers_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
-                    if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                    if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
 
