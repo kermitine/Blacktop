@@ -451,91 +451,42 @@ for player in user_team_list:
 
 
 position_number = 0
-if user_team == 'LA Clippers':
 
+if user_team_list == clippers_list:
     print(clippers_logo)
-
-    print('\n' + '\n')
-
-    print('Team selected: LA Clippers')
-
-    print('\n')
-
-    print('Choose your player!')
-
-    for player in clippers_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
-
-    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
-    
-    
-    for player in clippers_list:
-        if player.positionnumber == player_decision:
-            player.isplayer = True
-            player.haspossession = True
-            current_player = player
-            print('\n')
-            print('Player selected: ' + player.name)
-            print('Your defender:', current_player.defender.name)
-            break
-
-elif user_team == 'Los Angeles Lakers':
-
+elif user_team_list == lakers_list:
     print(lakers_logo)
+elif user_team_list == celtics_list:
+    print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
 
-    print('\n' + '\n' )
 
-    print('Team selected: Los Angeles Lakers')
+print('\n' + '\n')
 
-    print('\n')
+print('Team selected:', user_team)
 
-    print('Choose your player!')
+print('\n')
 
-    for player in lakers_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
+print('Choose your player!')
 
-    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
-        
-    for player in lakers_list:
-        if player.positionnumber == player_decision:
-            player.isplayer = True
-            player.haspossession = True
-            current_player = player
-            print('\n')
-            print('Player selected: ' + current_player.name)
-            print('Your defender:', current_player.defender.name)
-            break
+for player in user_team_list:
+    position_number += 1
+    print(player.name + ' -- ' + str(position_number))
 
-else:
-    print(lakers_logo) #PLACEHOLDER NEEDS CELTICS LOGO
+player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
 
-    print('\n' + '\n' )
 
-    print('Team selected: Boston Celtics')
+for player in user_team_list:
+    if player.positionnumber == player_decision:
+        player.isplayer = True
+        player.haspossession = True
+        current_player = player
+        print('\n')
+        print('Player selected: ' + player.name)
+        print('Your defender:', current_player.defender.name)
+        break
 
-    print('\n')
 
-    print('Choose your player!')
 
-    for player in celtics_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
-
-    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
-        
-    for player in celtics_list:
-        if player.positionnumber == player_decision:
-            player.isplayer = True
-            player.haspossession = True
-            current_player = player
-            print('\n')
-            print('Player selected: ' + current_player.name)
-            print('Your defender:', current_player.defender.name)
-            break
-
-    
 print('Game start!')
 
 # -----------------------------------------------------------------------------------------
