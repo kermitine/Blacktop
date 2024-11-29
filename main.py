@@ -334,21 +334,6 @@ j_tatum = BasketballPlayer("Jayson Tatum", "Small Forward", 3, "Boston Celtics",
 #initializing defenders
 
 
-d_knecht.defender = a_coffey
-a_coffey.defender = d_knecht
-
-j_harden.defender = a_reaves
-a_reaves.defender = j_harden
-
-a_davis.defender = i_zubac
-i_zubac.defender = a_davis
-
-r_hachimura.defender = k_leonard
-k_leonard.defender = r_hachimura
-
-n_powell.defender = l_james
-l_james.defender = n_powell
-
 #adding to lists
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
@@ -408,16 +393,49 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!')
-user_team_input = KermLib.get_user_input(['1', '2'])
+print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
+user_team_input = KermLib.get_user_input(['1', '2', '3'])
 
 print('\n')
 if user_team_input == '1':
     user_team = 'LA Clippers'
     user_team_list = clippers_list
+elif user_team_input == '3':
+    user_team = 'Boston Celtics'
+    user_team_list = celtics_list
 else:
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
+
+
+if user_team == 'LA Clippers':
+    print('Select your opposing team! 2 for the Los Angeles Lakers, or 3 for the Boston Celtics.')
+    if KermLib.get_user_input(['2', '3']) == '2':
+        opposing_team = lakers_list
+    else:
+        opposing_team = celtics_list
+
+elif user_team == 'Los Angeles Lakers':
+    print('Select your opposing team! 1 for the LA Clippers, or 3 for the Boston Celtics.')
+    if KermLib.get_user_input(['1', '3']) == '1':
+        opposing_team = clippers_list
+    else:
+        opposing_team = celtics_list
+else:
+    print('Select your opposing team! 1 for the LA Clippers, or 2 for the Los Angeles Lakers.')
+    if KermLib.get_user_input(['1', '2']) == '1':
+        opposing_team = clippers_list
+    else:
+        opposing_team = lakers_list
+
+
+# DEFENDER INITILIAZTION (NEW)
+
+for x in range(5):
+    continue
+    KermLib.object_matcher()
+
+
 
 
 
@@ -457,7 +475,7 @@ if user_team == 'LA Clippers':
             print('Player selected: ' + player.name)
             print('Your defender:', current_player.defender.name)
             break
-else:
+elif user_team == 'Los Angeles Lakers':
 
     print(lakers_logo)
 
@@ -490,8 +508,42 @@ else:
             print('Player selected: ' + current_player.name)
             print('Your defender:', current_player.defender.name)
             break
+
+else:
+    print(lakers_logo) #PLACEHOLDER NEEDS CELTICS LOGO
+
+    print('\n' + '\n' )
+
+    print('Team selected: Boston Celtics')
+
+    print('\n')
+
+    print('Choose your player!')
+
+    for player in celtics_list:
+        position_number += 1
+        print(player.name + ' -- ' + str(position_number))
+    while True:
+        player_decision = str(input())
+        if player_decision not in ['1', '2', '3', '4', '5']:
+            print('Decision not recognized. Please try again.')
+            continue
+        else:
+            player_decision = int(player_decision)
+            break
+        
+    for player in celtics_list:
+        if player.positionnumber == player_decision:
+            player.isplayer = True
+            player.haspossession = True
+            current_player = player
+            print('\n')
+            print('Player selected: ' + current_player.name)
+            print('Your defender:', current_player.defender.name)
+            break
+
     
-    print('Game start!')
+print('Game start!')
 
 # -----------------------------------------------------------------------------------------
 
