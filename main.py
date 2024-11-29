@@ -341,7 +341,7 @@ lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
 
 
-combined_list = clippers_list + lakers_list
+combined_list = clippers_list + lakers_list + celtics_list
 
 # ------------------------------------------------------------------------------------------------------------------
 
@@ -431,9 +431,9 @@ else:
 
 # DEFENDER INITILIAZTION (NEW)
 
-for x in range(5):
-    continue
-    KermLib.object_matcher()
+for player in user_team_list:
+    defender = KermLib.object_matcher(player, opposing_team, 'positionnumber')
+    player.defender = defender
 
 
 
@@ -475,6 +475,7 @@ if user_team == 'LA Clippers':
             print('Player selected: ' + player.name)
             print('Your defender:', current_player.defender.name)
             break
+
 elif user_team == 'Los Angeles Lakers':
 
     print(lakers_logo)
