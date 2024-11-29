@@ -467,14 +467,7 @@ if user_team == 'LA Clippers':
         position_number += 1
         print(player.name + ' -- ' + str(position_number))
 
-    while True:
-        player_decision = str(input())
-        if player_decision not in ['1', '2', '3', '4', '5']:
-            print('Decision not recognized. Please try again.')
-            continue
-        else:
-            player_decision = int(player_decision)
-            break
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
     
     
     for player in clippers_list:
@@ -502,14 +495,8 @@ elif user_team == 'Los Angeles Lakers':
     for player in lakers_list:
         position_number += 1
         print(player.name + ' -- ' + str(position_number))
-    while True:
-        player_decision = str(input())
-        if player_decision not in ['1', '2', '3', '4', '5']:
-            print('Decision not recognized. Please try again.')
-            continue
-        else:
-            player_decision = int(player_decision)
-            break
+
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
         
     for player in lakers_list:
         if player.positionnumber == player_decision:
@@ -535,14 +522,8 @@ else:
     for player in celtics_list:
         position_number += 1
         print(player.name + ' -- ' + str(position_number))
-    while True:
-        player_decision = str(input())
-        if player_decision not in ['1', '2', '3', '4', '5']:
-            print('Decision not recognized. Please try again.')
-            continue
-        else:
-            player_decision = int(player_decision)
-            break
+
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
         
     for player in celtics_list:
         if player.positionnumber == player_decision:
@@ -672,15 +653,8 @@ while True:
             print(player.name, 'has the basketball!')
 
             if player.isplayer == True:
-                while True:
-                    player_action_decision = input('What will you do? (Pass), (drive), or shoot a (3pt)?' + '\n')
-                    player_action_decision = player_action_decision.lower()
-
-                    if player_action_decision not in ['pass', 'drive', '3pt']:
-                        print('Decision not recognized. Please try again')
-                        continue
-                    else:
-                        break
+                print('What will you do? (pass), (drive), or shoot a (3pt)?')
+                player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt'])
                 print('\n' + '\n')
                 print
                 
