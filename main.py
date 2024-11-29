@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '2024.11.28.1740.rc'
+version = '2024.11.28.1740.stable'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
