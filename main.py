@@ -457,7 +457,7 @@ if user_team_list == clippers_list:
 elif user_team_list == lakers_list:
     print(lakers_logo)
 elif user_team_list == celtics_list:
-    print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
+    print(celtics_logo) 
 
 
 print('\n' + '\n')
@@ -510,7 +510,7 @@ while True:
         elif opposing_team == 'Los Angeles Lakers':
             print(lakers_logo)
         elif opposing_team == 'Boston Celtics':
-            print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
+            print(celtics_logo) 
 
 
         highest_score = 0
@@ -549,7 +549,7 @@ while True:
         elif user_team == 'Los Angeles Lakers':
             print(lakers_logo)
         elif user_team == 'Boston Celtics':
-            print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
+            print(celtics_logo) 
 
 
         highest_score = 0
