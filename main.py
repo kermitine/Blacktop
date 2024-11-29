@@ -591,7 +591,7 @@ while True:
 
             if player.isplayer == True:
                 while True:
-                    player_action_decision = input('What will you do? Pass, drive, or shoot a 3pt?' + '\n')
+                    player_action_decision = input('What will you do? (Pass), (drive), or shoot a (3pt)?' + '\n')
                     player_action_decision = player_action_decision.lower()
 
                     if player_action_decision not in ['pass', 'drive', '3pt']:
