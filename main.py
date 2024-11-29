@@ -24,6 +24,7 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 
 import random
 import time
+from KermLib import *
 from ascii import *
 ascii_run()
 
