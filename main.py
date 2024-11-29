@@ -240,6 +240,7 @@ class BasketballPlayer():
                     self.haspossession = False
                     return 'miss', 0
                 else:
+                    self.commentator_randomizer('pass', pass_receiver_preset)
                     self.commentator_randomizer('stolen', pass_receiver_preset)
 
                     pass_receiver_preset.defender.interceptionsMade += 1
