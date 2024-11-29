@@ -730,8 +730,6 @@ while True:
 
         
             else:
-                print(player.name)
-                print(player.defender.name)
                 decision = player.decision()
                 outcome, points = player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
                 if outcome == 'shot' and player.team == 'LA Clippers':
