@@ -222,7 +222,6 @@ class BasketballPlayer():
                 self.defender.haspossession = True
                 return 'shot', 2
             else:
-                announcer_call = random.randint(1, 5)
                 self.commentator_randomizer('miss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
@@ -252,8 +251,8 @@ class BasketballPlayer():
                     pass_receiver_position_number = random.randint(1, 5)
                     if self.positionnumber != pass_receiver_position_number:
                         break
-                if active_team == 'LA Clippers':
-                    for pass_receiver in clippers_list:
+                if active_team == user_team:
+                    for pass_receiver in user_team_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
@@ -274,7 +273,7 @@ class BasketballPlayer():
                         return 'miss', 0
 
                 else:
-                    for pass_receiver in lakers_list:
+                    for pass_receiver in opposing_team_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
@@ -409,30 +408,41 @@ else:
 if user_team == 'LA Clippers':
     print('Select your opposing team! 2 for the Los Angeles Lakers, or 3 for the Boston Celtics.')
     if KermLib.get_user_input(['2', '3']) == '2':
-        opposing_team = lakers_list
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+
     else:
-        opposing_team = celtics_list
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+
 
 elif user_team == 'Los Angeles Lakers':
     print('Select your opposing team! 1 for the LA Clippers, or 3 for the Boston Celtics.')
     if KermLib.get_user_input(['1', '3']) == '1':
-        opposing_team = clippers_list
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+
     else:
-        opposing_team = celtics_list
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+
 else:
     print('Select your opposing team! 1 for the LA Clippers, or 2 for the Los Angeles Lakers.')
     if KermLib.get_user_input(['1', '2']) == '1':
-        opposing_team = clippers_list
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+
     else:
-        opposing_team = lakers_list
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
 
 
-combined_list = user_team_list + opposing_team
+combined_list = user_team_list + opposing_team_list
 
 # DEFENDER INITILIAZTION (NEW)
 
 for player in user_team_list:
-    defender = KermLib.object_matcher(player, opposing_team, 'positionnumber')
+    defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
     player.defender = defender
     defender.defender = player
 
@@ -551,18 +561,24 @@ print('Game start!')
 
 end_score = 15
 
-clippers_score = 0
-lakers_score = 0
-celtics_score = 0
+opposing_team_score = 0
+user_team_score = 0
+
+
 
 while True:
 
-    if clippers_score >= end_score:
+    if opposing_team_score >= end_score:
         print('\n' + '\n' + '\n')
         print('---------------------------------------------------------------------------------------------------------')
-        print('Clippers win! Final score:', clippers_score, '-', lakers_score)
+        print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        print(clippers_logo)
+        if opposing_team == 'LA Clippers':
+            print(clippers_logo)
+        elif opposing_team == 'Los Angeles Lakers':
+            print(lakers_logo)
+        elif opposing_team == 'Boston Celtics':
+            print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
 
 
         highest_score = 0
@@ -591,12 +607,17 @@ while True:
 
         time.sleep(5)
         break
-    elif lakers_score >= end_score:
+    elif user_team_score >= end_score:
         print('\n' + '\n' + '\n')
         print('---------------------------------------------------------------------------------------------------------')
-        print('Lakers win! Final score:', lakers_score, '-', clippers_score)
+        print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        print(lakers_logo)
+        if user_team == 'LA Clippers':
+            print(clippers_logo)
+        elif user_team == 'Los Angeles Lakers':
+            print(lakers_logo)
+        elif user_team == 'Boston Celtics':
+            print(lakers_logo) # PLACEHOLDER FOR CELTICS LOGO
 
 
         highest_score = 0
@@ -627,17 +648,17 @@ while True:
 
     print('\n')
 
-    if clippers_score > lakers_score:
+    if user_team_score > opposing_team_score:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Current score:', clippers_score, '-', lakers_score,  ', Clippers lead by', (clippers_score - lakers_score))
+        print('Current score:', user_team_score, '-', opposing_team_score,  ', ' + user_team, 'lead by',  (user_team_score - opposing_team_score))
         print('---------------------------------------------------------------------------------------------------------')
-    elif clippers_score < lakers_score:
+    elif user_team_score < opposing_team_score:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Current score:', lakers_score, '-', clippers_score,  ', Lakers lead by', (lakers_score - clippers_score))
+        print('Current score:', opposing_team_score, '-', user_team_score,  ', ' + opposing_team, 'lead by',  (opposing_team_score - user_team_score))
         print('---------------------------------------------------------------------------------------------------------')
     else:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Tie game:',  lakers_score, '-', clippers_score)
+        print('Tie game:',  user_team_score, '-', opposing_team_score)
         print('---------------------------------------------------------------------------------------------------------')
     position_number = 0
 
@@ -693,38 +714,29 @@ while True:
                             pass_receiver = player
                             break
                     outcome, points = current_player.action_success('pass', 0, 0, pass_receiver, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
-                        break
-                    elif outcome == 'shot' and player.team == 'Boston Celtics':
-                        celtics_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break
                 elif player_action_decision in ['drive', 'Drive']:
                     outcome, points = current_player.action_success('drive', current_player.defender.perd, current_player.defender.intd, None, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
-                        break
-                    elif outcome == 'shot' and player.team == 'Boston Celtics':
-                        celtics_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break   
                 elif player_action_decision in ['3pt', '3PT', '3Pt']:
                     outcome, points = current_player.action_success('3pt', current_player.defender.perd, current_player.defender.intd, None, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
-                        break
-                    elif outcome == 'shot' and player.team == 'Boston Celtics':
-                        celtics_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break   
 
@@ -732,15 +744,12 @@ while True:
             else:
                 decision = player.decision()
                 outcome, points = player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
-                if outcome == 'shot' and player.team == 'LA Clippers':
-                    clippers_score += points
+                if outcome == 'shot' and player.team == user_team:
+                    user_team_score += points
                     break
-                elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                    lakers_score += points
+                elif outcome == 'shot' and player.team == opposing_team:
+                    opposing_team_score += points
                     break
-                elif outcome == 'shot' and player.team == 'Boston Celtics':
-                        celtics_score += points
-                        break
                 break   
 
                     
