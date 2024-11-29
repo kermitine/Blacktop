@@ -27,7 +27,7 @@ import time
 from ascii import *
 ascii_run()
 
-version = '2024.11.28.1720'
+version = '2024.11.28.1720.rc'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
@@ -85,20 +85,24 @@ class BasketballPlayer():
                 print('NOTHING BUT NET!')
 
         elif event == '3ptmiss':
-            announcer_call = random.randint(1, 5)
+            announcer_call = random.randint(1, 6)
             if announcer_call == 1:
-                print('Oof, an airball!')
+                print('And airballs!', self.defender.name, 'gathers it up.')
             elif announcer_call == 2:
                 print('And the shot is off the mark.')
             elif announcer_call == 3:
                 print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
             elif announcer_call == 4:
                 print('And he misfires.', self.defender.name, 'with the rebound.')
+            elif announcer_call == 5:
+                print('SMOTHERED BY', self.defender.name.upper() + '!')
             else:
                 print('And the ball clanks off the rim.')
 
         elif event == 'drive':
-            announcer_call = random.randint(1, 5)
+            defender_last_name = self.defender.name.split(" ")[1]
+            last_name = self.name.split(" ")[1]
+            announcer_call = random.randint(1, 6)
             if announcer_call == 1:
                 print(self.name, 'drives into the paint!')
             elif announcer_call == 2:
@@ -107,6 +111,8 @@ class BasketballPlayer():
                 print(self.name, 'drives the lane!')
             elif announcer_call == 4:
                 print(self.name, 'cuts to the hoop!')
+            elif announcer_call == 5:
+                print(last_name, 'spins past', defender_last_name + '!' )
             else:
                 print(self.name, 'slashes to the basket!')
         
@@ -385,7 +391,7 @@ def turn_over_chance(passer, receiver_defender):
 
 
 
-print('Blacktop V' + version , 'by Kermitine' + '\n')
+print('Blacktop ' + version + '\n')
 
 while True:
     user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
