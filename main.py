@@ -397,12 +397,12 @@ print('\n')
 if user_team_input == '1':
     user_team = 'LA Clippers'
     user_team_list = clippers_list
-elif user_team_input == '3':
-    user_team = 'Boston Celtics'
-    user_team_list = celtics_list
-else:
+elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
+else:
+    user_team = 'Boston Celtics'
+    user_team_list = celtics_list
 
 
 if user_team == 'LA Clippers':
