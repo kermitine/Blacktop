@@ -130,15 +130,17 @@ class BasketballPlayer():
                 print('And he kisses it off the glass!')
 
         elif event == 'miss':
+            defender_last_name = self.defender.name.split(" ")[1]
+            last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 5)
             if announcer_call == 1:
-                print('Oof, an airball!')
+                print('And the ball rims out!', defender_last_name, 'recovers it.')
             elif announcer_call == 2:
-                print('And the shot is off the mark.')
+                print('A BACKBOARD BLOCK BY', self.defender.name.upper() + '!')
             elif announcer_call == 3:
                 print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
             elif announcer_call == 4:
-                print('And he misfires.', self.defender.name, 'with the rebound.')
+                print('And that layup by', last_name, 'is no good.')
             else:
                 print('And the ball clanks off the rim.')
         
