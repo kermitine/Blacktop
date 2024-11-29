@@ -341,8 +341,6 @@ lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
 
 
-combined_list = clippers_list + lakers_list + celtics_list
-
 # ------------------------------------------------------------------------------------------------------------------
 
 def calculate_turnover_chance(passer, receiver_defender):
@@ -429,11 +427,14 @@ else:
         opposing_team = lakers_list
 
 
+combined_list = user_team_list + opposing_team
+
 # DEFENDER INITILIAZTION (NEW)
 
 for player in user_team_list:
     defender = KermLib.object_matcher(player, opposing_team, 'positionnumber')
     player.defender = defender
+    defender.defender = player
 
 
 
@@ -553,7 +554,6 @@ end_score = 15
 clippers_score = 0
 lakers_score = 0
 celtics_score = 0
-
 
 while True:
 
@@ -730,6 +730,8 @@ while True:
 
         
             else:
+                print(player.name)
+                print(player.defender.name)
                 decision = player.decision()
                 outcome, points = player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
                 if outcome == 'shot' and player.team == 'LA Clippers':
