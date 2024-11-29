@@ -552,7 +552,7 @@ end_score = 15
 
 clippers_score = 0
 lakers_score = 0
-
+celtics_score = 0
 
 
 while True:
@@ -696,8 +696,11 @@ while True:
                     if outcome == 'shot' and player.team == 'LA Clippers':
                         clippers_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
+                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
                         lakers_score += points
+                        break
+                    elif outcome == 'shot' and player.team == 'Boston Celtics':
+                        celtics_score += points
                         break
                     break
                 elif player_action_decision in ['drive', 'Drive']:
@@ -705,8 +708,11 @@ while True:
                     if outcome == 'shot' and player.team == 'LA Clippers':
                         clippers_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
+                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
                         lakers_score += points
+                        break
+                    elif outcome == 'shot' and player.team == 'Boston Celtics':
+                        celtics_score += points
                         break
                     break   
                 elif player_action_decision in ['3pt', '3PT', '3Pt']:
@@ -714,8 +720,11 @@ while True:
                     if outcome == 'shot' and player.team == 'LA Clippers':
                         clippers_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
+                    elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
                         lakers_score += points
+                        break
+                    elif outcome == 'shot' and player.team == 'Boston Celtics':
+                        celtics_score += points
                         break
                     break   
 
@@ -726,9 +735,12 @@ while True:
                 if outcome == 'shot' and player.team == 'LA Clippers':
                     clippers_score += points
                     break
-                if outcome == 'shot' and player.team == 'Los Angeles Lakers':
+                elif outcome == 'shot' and player.team == 'Los Angeles Lakers':
                     lakers_score += points
                     break
+                elif outcome == 'shot' and player.team == 'Boston Celtics':
+                        celtics_score += points
+                        break
                 break   
 
                     
