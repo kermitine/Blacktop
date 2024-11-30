@@ -722,6 +722,11 @@ while True:
         print('Most passes performed:', highest_passer, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
 
+        print('\n')
+
+        if highest_interceptor == highest_passer == highest_scorer:
+            print('Wow! A clean sweep by', highest_scorer, 'as he claims the entire leaderboard!')
+
         time.sleep(5)
         break
 
