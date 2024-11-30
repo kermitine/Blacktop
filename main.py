@@ -567,6 +567,7 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
+        print('\n' + '\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
@@ -607,6 +608,8 @@ while True:
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
+
+        print('\n' + '\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
