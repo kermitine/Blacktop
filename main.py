@@ -22,8 +22,8 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 
 import random
 import time
-from KermLib import *
-from ascii import *
+from KermLib.KermLib import *
+from basketball_ascii import *
 
 version = '2024.11.29.1700.rc'
 
