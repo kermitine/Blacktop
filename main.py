@@ -16,18 +16,16 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 
 '''
 
-#PLACEHOLDER STATS: 0.20 PASSING FOR SG, 0.4 FOR PG, 0.1 FOR ALL ELSE. FG% used for drivinglay
-
 #amir coffey turnover stat derived from 7 possessions a game average, with 0.5 turnovers a game = 1/14 possesions turned over
 
 # PASSING STAT UNUSED
 
 import random
 import time
+from KermLib import *
 from ascii import *
-ascii_run()
 
-version = '2024.11.28.1800.stable'
+version = '2024.11.29.1700.rc'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
@@ -222,7 +220,6 @@ class BasketballPlayer():
                 self.defender.haspossession = True
                 return 'shot', 2
             else:
-                announcer_call = random.randint(1, 5)
                 self.commentator_randomizer('miss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
@@ -252,8 +249,8 @@ class BasketballPlayer():
                     pass_receiver_position_number = random.randint(1, 5)
                     if self.positionnumber != pass_receiver_position_number:
                         break
-                if active_team == 'LA Clippers':
-                    for pass_receiver in clippers_list:
+                if active_team == user_team:
+                    for pass_receiver in user_team_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
@@ -274,10 +271,10 @@ class BasketballPlayer():
                         return 'miss', 0
 
                 else:
-                    for pass_receiver in lakers_list:
+                    for pass_receiver in opposing_team_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
-                    if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                    if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
 
@@ -305,45 +302,45 @@ class BasketballPlayer():
 
 
 
-#placeholder stats for James Harden, Austin Reaves, Ivica Zubac, Anthony Davis, Rui Hachimura, Kawhi Leonard, Norman Powell and Lebron James
 
 d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0)
 a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0)
+j_brown = BasketballPlayer("Jaylen Brown", "Shooting Guard", 2, "Boston Celtics", .480, .335, .765, .120, .180, .050, .060, .200, False, None, False, 0, 0, 0)
+m_bridges = BasketballPlayer("Mikal Bridges", "Shooting Guard", 2, "New York Knicks", 0.410, 0.65, 0.68, 0.11, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0)
+
 
 j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0)
 a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0)
+j_holiday = BasketballPlayer("Jrue Holiday", "Point Guard", 1, "Boston Celtics", .480, .429, .833, .120, .180, .080, .090, .160, False, None, False, 0, 0, 0)
+j_brunson = BasketballPlayer("Jalen Brunson", "Point Guard", 1, "New York Knicks", 0.470, 0.75, 0.70, 0.09, 0.28, 0.22, 0.12, 0.40, False, None, False, 0, 0, 0)
+
 
 a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0)
 i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0)
+k_porzingis = BasketballPlayer("Kristaps Porzingis", "Center", 5, "Boston Celtics", .498, .385, .850, .120, .180, .190, .070, .220, False, None, False, 0, 0, 0)
+k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks", 0.370, 0.15, 0.75, 0.08, 0.18, 0.28, 0.20, 0.30, False, None, False, 0, 0, 0)
+
 
 r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False, 0, 0, 0)
 k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0)
+a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics", .470, .380, .820, .130, .180, .100, .060, .140, False, None, False, 0, 0, 0)
+p_achiuwa = BasketballPlayer("Precious Achiuwa", "Power Forward", 4, "New York Knicks", 0.460, 0.45, 0.70, 0.10, 0.30, 0.32, 0.15, 0.40, False, None, False, 0, 0, 0)
+
 
 n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0)
 l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0)
+j_tatum = BasketballPlayer("Jayson Tatum", "Small Forward", 3, "Boston Celtics", .473, .354, .854, .091, .200, .100, .060, .250, False, None, False, 0, 0, 0)
+o_anunoby = BasketballPlayer("OG Anunoby", "Small Forward", 3, "New York Knicks", 0.450, 0.60, 0.65, 0.12, 0.24, 0.20, 0.14, 0.35, False, None, False, 0, 0, 0)
 
 #initializing defenders
 
-d_knecht.defender = a_coffey
-a_coffey.defender = d_knecht
-
-j_harden.defender = a_reaves
-a_reaves.defender = j_harden
-
-a_davis.defender = i_zubac
-i_zubac.defender = a_davis
-
-r_hachimura.defender = k_leonard
-k_leonard.defender = r_hachimura
-
-n_powell.defender = l_james
-l_james.defender = n_powell
 
 #adding to lists
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
-combined_list = clippers_list + lakers_list
+celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
+knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 
 # ------------------------------------------------------------------------------------------------------------------
 
@@ -392,118 +389,159 @@ def turn_over_chance(passer, receiver_defender):
 
 
 
-
-
-
+KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-while True:
-    user_team_input = input('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers!' + '\n')
-
-    if user_team_input not in ['1', '2']:
-        print('Decision not recognized. Please try again.')
-    else:
-        break
+print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
+user_team_input = KermLib.get_user_input(['1', '2', '3', '4'])
 
 print('\n')
 if user_team_input == '1':
     user_team = 'LA Clippers'
     user_team_list = clippers_list
-else:
+elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
+elif user_team_input == '3':
+    user_team = 'Boston Celtics'
+    user_team_list = celtics_list
+elif user_team_input == '4':
+    user_team = 'New York Knicks'
+    user_team_list = knicks_list
+
 
 
 
 position_number = 0
+
 if user_team == 'LA Clippers':
-
     print(clippers_logo)
-
-    print('\n' + '\n')
-
-    print('Team selected: LA Clippers')
-
-    print('\n')
-
-    print('Choose your player!')
-
-    for player in clippers_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
-
-    while True:
-        player_decision = str(input())
-        if player_decision not in ['1', '2', '3', '4', '5']:
-            print('Decision not recognized. Please try again.')
-            continue
-        else:
-            player_decision = int(player_decision)
-            break
-    
-    
-    for player in clippers_list:
-        if player.positionnumber == player_decision:
-            player.isplayer = True
-            player.haspossession = True
-            current_player = player
-            print('\n')
-            print('Player selected: ' + player.name)
-            print('Your defender:', current_player.defender.name)
-            break
-else:
-
+elif user_team == 'Los Angeles Lakers':
     print(lakers_logo)
+elif user_team_list == 'Boston Celtics':
+    print(celtics_logo) 
+elif user_team_list == 'New York Knicks':
+    print(knicks_logo) 
 
-    print('\n' + '\n' )
 
-    print('Team selected: Los Angeles Lakers')
+print('\n' + '\n')
 
-    print('\n')
+print('Team selected:', user_team)
 
-    print('Choose your player!')
+print('\n')
 
-    for player in lakers_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
-    while True:
-        player_decision = str(input())
-        if player_decision not in ['1', '2', '3', '4', '5']:
-            print('Decision not recognized. Please try again.')
-            continue
-        else:
-            player_decision = int(player_decision)
-            break
-        
-    for player in lakers_list:
-        if player.positionnumber == player_decision:
-            player.isplayer = True
-            player.haspossession = True
-            current_player = player
-            print('\n')
-            print('Player selected: ' + current_player.name)
-            print('Your defender:', current_player.defender.name)
-            break
-    
-    print('Game start!')
+print('Choose your player!')
+
+for player in user_team_list:
+    position_number += 1
+    print(player.name + ' -- ' + str(position_number))
+
+player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+
+print('\n' + '\n')
+
+
+if user_team == 'LA Clippers':
+    print('Select your opposing team! 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['2', '3', '4'])
+    if user_decision == '2':
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+    elif user_decision == '3':
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
+
+elif user_team == 'Los Angeles Lakers':
+    print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['1', '3', '4'])
+    if user_decision == '1':
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+    elif user_decision == '3':
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
+
+elif user_team == 'Boston Celtics':
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['1', '2', '4'])
+    if user_decision == '1':
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+    elif user_decision == '2':
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
+
+elif user_team == 'New York Knicks':
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
+    user_decision = KermLib.get_user_input(['1', '2', '3'])
+    if user_decision == '1':
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+    elif user_decision == '2':
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+    elif user_decision == '3':
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+
+combined_list = user_team_list + opposing_team_list
+
+# DEFENDER INITILIAZTION (NEW)
+
+for player in user_team_list:
+    defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
+    player.defender = defender
+    defender.defender = player
+
+
+
+for player in user_team_list:
+    if player.positionnumber == player_decision:
+        player.isplayer = True
+        player.haspossession = True
+        current_player = player
+        print('\n')
+        print('Player selected: ' + player.name)
+        print('Your defender:', current_player.defender.name)
+        break
+
+
+
+print('Game start!')
 
 # -----------------------------------------------------------------------------------------
 
 end_score = 15
 
-clippers_score = 0
-lakers_score = 0
+opposing_team_score = 0
+user_team_score = 0
 
 
 
 while True:
 
-    if clippers_score >= end_score:
+    if opposing_team_score >= end_score:
         print('\n' + '\n' + '\n')
         print('---------------------------------------------------------------------------------------------------------')
-        print('Clippers win! Final score:', clippers_score, '-', lakers_score)
+        print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        print(clippers_logo)
+        if opposing_team == 'LA Clippers':
+            print(clippers_logo)
+        elif opposing_team == 'Los Angeles Lakers':
+            print(lakers_logo)
+        elif opposing_team == 'Boston Celtics':
+            print(celtics_logo) 
+        elif user_team == 'New York Knicks':
+            print(knicks_logo) 
 
 
         highest_score = 0
@@ -526,18 +564,26 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
+        print('\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
 
         time.sleep(5)
         break
-    elif lakers_score >= end_score:
+    elif user_team_score >= end_score:
         print('\n' + '\n' + '\n')
         print('---------------------------------------------------------------------------------------------------------')
-        print('Lakers win! Final score:', lakers_score, '-', clippers_score)
+        print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        print(lakers_logo)
+        if user_team == 'LA Clippers':
+            print(clippers_logo)
+        elif user_team == 'Los Angeles Lakers':
+            print(lakers_logo)
+        elif user_team == 'Boston Celtics':
+            print(celtics_logo) 
+        elif user_team == 'New York Knicks':
+            print(knicks_logo) 
 
 
         highest_score = 0
@@ -559,6 +605,8 @@ while True:
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
+
+        print('\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
@@ -568,17 +616,17 @@ while True:
 
     print('\n')
 
-    if clippers_score > lakers_score:
+    if user_team_score > opposing_team_score:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Current score:', clippers_score, '-', lakers_score,  ', Clippers lead by', (clippers_score - lakers_score))
+        print('Current score:', user_team_score, '-', opposing_team_score,  ', ' + user_team, 'lead by',  (user_team_score - opposing_team_score))
         print('---------------------------------------------------------------------------------------------------------')
-    elif clippers_score < lakers_score:
+    elif user_team_score < opposing_team_score:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Current score:', lakers_score, '-', clippers_score,  ', Lakers lead by', (lakers_score - clippers_score))
+        print('Current score:', opposing_team_score, '-', user_team_score,  ', ' + opposing_team, 'lead by',  (opposing_team_score - user_team_score))
         print('---------------------------------------------------------------------------------------------------------')
     else:
         print('---------------------------------------------------------------------------------------------------------')
-        print('Tie game:',  lakers_score, '-', clippers_score)
+        print('Tie game:',  user_team_score, '-', opposing_team_score)
         print('---------------------------------------------------------------------------------------------------------')
     position_number = 0
 
@@ -592,15 +640,8 @@ while True:
             print(player.name, 'has the basketball!')
 
             if player.isplayer == True:
-                while True:
-                    player_action_decision = input('What will you do? (Pass), (drive), or shoot a (3pt)?' + '\n')
-                    player_action_decision = player_action_decision.lower()
-
-                    if player_action_decision not in ['pass', 'drive', '3pt']:
-                        print('Decision not recognized. Please try again')
-                        continue
-                    else:
-                        break
+                print('What will you do? (pass), (drive), or shoot a (3pt)?')
+                player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt'])
                 print('\n' + '\n')
                 print
                 
@@ -634,29 +675,29 @@ while True:
                             pass_receiver = player
                             break
                     outcome, points = current_player.action_success('pass', 0, 0, pass_receiver, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break
                 elif player_action_decision in ['drive', 'Drive']:
                     outcome, points = current_player.action_success('drive', current_player.defender.perd, current_player.defender.intd, None, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break   
                 elif player_action_decision in ['3pt', '3PT', '3Pt']:
                     outcome, points = current_player.action_success('3pt', current_player.defender.perd, current_player.defender.intd, None, current_player.team)
-                    if outcome == 'shot' and player.team == 'LA Clippers':
-                        clippers_score += points
+                    if outcome == 'shot' and player.team == user_team:
+                        user_team_score += points
                         break
-                    if outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                        lakers_score += points
+                    elif outcome == 'shot' and player.team == opposing_team:
+                        opposing_team_score += points
                         break
                     break   
 
@@ -664,11 +705,11 @@ while True:
             else:
                 decision = player.decision()
                 outcome, points = player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
-                if outcome == 'shot' and player.team == 'LA Clippers':
-                    clippers_score += points
+                if outcome == 'shot' and player.team == user_team:
+                    user_team_score += points
                     break
-                if outcome == 'shot' and player.team == 'Los Angeles Lakers':
-                    lakers_score += points
+                elif outcome == 'shot' and player.team == opposing_team:
+                    opposing_team_score += points
                     break
                 break   
 
