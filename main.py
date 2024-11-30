@@ -487,7 +487,7 @@ elif user_team_list == lakers_list:
 elif user_team_list == celtics_list:
     print(celtics_logo) 
 elif user_team_list == knicks_list:
-    print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
+    print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
 
 
 print('\n' + '\n')
@@ -541,8 +541,8 @@ while True:
             print(lakers_logo)
         elif opposing_team == 'Boston Celtics':
             print(celtics_logo) 
-        elif user_team_list == knicks_list:
-            print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
+        elif user_team == 'New York Knicks':
+            print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
 
 
         highest_score = 0
@@ -582,8 +582,8 @@ while True:
             print(lakers_logo)
         elif user_team == 'Boston Celtics':
             print(celtics_logo) 
-        elif user_team_list == knicks_list:
-            print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
+        elif user_team == 'New York Knicks':
+            print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
 
 
         highest_score = 0
