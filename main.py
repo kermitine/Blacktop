@@ -16,8 +16,6 @@ shooting outcome determined via your 3pt stats and defender's perimeter defense 
 
 '''
 
-#PLACEHOLDER STATS: 0.20 PASSING FOR SG, 0.4 FOR PG, 0.1 FOR ALL ELSE. FG% used for drivinglay
-
 #amir coffey turnover stat derived from 7 possessions a game average, with 0.5 turnovers a game = 1/14 possesions turned over
 
 # PASSING STAT UNUSED
@@ -276,7 +274,7 @@ class BasketballPlayer():
                     for pass_receiver in opposing_team_list:
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
-                    if calculate_turnover_chance(self, pass_receiver.defender) is False: # PLACEHOLDER, NEEDS TO INCORPORATE STATS
+                    if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
 
@@ -304,7 +302,6 @@ class BasketballPlayer():
 
 
 
-#placeholder stats for James Harden, Austin Reaves, Ivica Zubac, Anthony Davis, Rui Hachimura, Kawhi Leonard, Norman Powell and Lebron James
 
 d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0)
 a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0)
@@ -424,7 +421,7 @@ elif user_team == 'Los Angeles Lakers':
 elif user_team_list == 'Boston Celtics':
     print(celtics_logo) 
 elif user_team_list == 'New York Knicks':
-    print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
+    print(knicks_logo) 
 
 
 print('\n' + '\n')
@@ -544,7 +541,7 @@ while True:
         elif opposing_team == 'Boston Celtics':
             print(celtics_logo) 
         elif user_team == 'New York Knicks':
-            print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
+            print(knicks_logo) 
 
 
         highest_score = 0
@@ -567,7 +564,7 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
-        print('\n' + '\n')
+        print('\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
@@ -586,7 +583,7 @@ while True:
         elif user_team == 'Boston Celtics':
             print(celtics_logo) 
         elif user_team == 'New York Knicks':
-            print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
+            print(knicks_logo) 
 
 
         highest_score = 0
@@ -609,7 +606,7 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
-        print('\n' + '\n')
+        print('\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
