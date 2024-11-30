@@ -655,24 +655,25 @@ while True:
 
 
         highest_score = 0
-        highest_scorer = None
+        highest_scorer = '0 points scored'
 
         highest_interceptions = 0
-        highest_interceptor = None
+        highest_interceptor = '0 interceptions made'
 
         highest_passes = 0
-        highest_passer = None
+        highest_passer = '0 passes made'
 
         for player in combined_list:
             if player.pointsMade > highest_score:
                 highest_score = player.pointsMade
-                highest_scorer = player
+                highest_scorer = player.name
             if player.passesMade > highest_passes:
                 highest_passes = player.passesMade
-                highest_passer = player
+                highest_passer = player.name
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
-                highest_interceptor = player
+                highest_interceptor = player.name
+
 
         print('\n')
         print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
@@ -697,29 +698,29 @@ while True:
 
 
         highest_score = 0
-        highest_scorer = None
+        highest_scorer = '0 points scored'
 
         highest_interceptions = 0
-        highest_interceptor = None
+        highest_interceptor = '0 interceptions made'
 
         highest_passes = 0
-        highest_passer = None
+        highest_passer = '0 passes made'
 
         for player in combined_list:
             if player.pointsMade > highest_score:
                 highest_score = player.pointsMade
-                highest_scorer = player
+                highest_scorer = player.name
             if player.passesMade > highest_passes:
                 highest_passes = player.passesMade
-                highest_passer = player
+                highest_passer = player.name
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
-                highest_interceptor = player
+                highest_interceptor = player.name
 
         print('\n')
-        print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
-        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
-        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
+        print('Most points scored:', highest_scorer, 'with', str(highest_score))
+        print('Most passes performed:', highest_passer, 'with', str(highest_passes))
+        print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
 
         time.sleep(5)
         break
