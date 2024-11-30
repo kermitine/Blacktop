@@ -343,7 +343,7 @@ o_anunoby = BasketballPlayer("OG Anunoby", "Small Forward", 3, "New York Knicks"
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
-
+knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 
 # ------------------------------------------------------------------------------------------------------------------
 
@@ -395,8 +395,8 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
-user_team_input = KermLib.get_user_input(['1', '2', '3'])
+print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
+user_team_input = KermLib.get_user_input(['1', '2', '3', '4'])
 
 print('\n')
 if user_team_input == '1':
@@ -405,42 +405,65 @@ if user_team_input == '1':
 elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
-else:
+elif user_team_input == '3':
     user_team = 'Boston Celtics'
     user_team_list = celtics_list
+elif user_team_input == '4':
+    user_team = 'New York Knicks'
+    user_team_list = knicks_list
 
 
 if user_team == 'LA Clippers':
-    print('Select your opposing team! 2 for the Los Angeles Lakers, or 3 for the Boston Celtics.')
-    if KermLib.get_user_input(['2', '3']) == '2':
+    print('Select your opposing team! 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['2', '3', '4'])
+    if user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
-
-    else:
+    elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
-
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
 
 elif user_team == 'Los Angeles Lakers':
-    print('Select your opposing team! 1 for the LA Clippers, or 3 for the Boston Celtics.')
-    if KermLib.get_user_input(['1', '3']) == '1':
+    print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['1', '3', '4'])
+    if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
-
-    else:
+    elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
 
-else:
-    print('Select your opposing team! 1 for the LA Clippers, or 2 for the Los Angeles Lakers.')
-    if KermLib.get_user_input(['1', '2']) == '1':
+elif user_team == 'Boston Celtics':
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['1', '2', '4'])
+    if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
-
-    else:
+    elif user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
 
+elif user_team == 'New York Knicks':
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
+    user_decision = KermLib.get_user_input(['1', '2', '3'])
+    if user_decision == '1':
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+    elif user_decision == '2':
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+    elif user_decision == '3':
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
 
 combined_list = user_team_list + opposing_team_list
 
@@ -463,6 +486,8 @@ elif user_team_list == lakers_list:
     print(lakers_logo)
 elif user_team_list == celtics_list:
     print(celtics_logo) 
+elif user_team_list == knicks_list:
+    print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
 
 
 print('\n' + '\n')
@@ -516,6 +541,8 @@ while True:
             print(lakers_logo)
         elif opposing_team == 'Boston Celtics':
             print(celtics_logo) 
+        elif user_team_list == knicks_list:
+            print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
 
 
         highest_score = 0
@@ -555,6 +582,8 @@ while True:
             print(lakers_logo)
         elif user_team == 'Boston Celtics':
             print(celtics_logo) 
+        elif user_team_list == knicks_list:
+            print(celtics_logo) #PLACEHOLDER FOR NYK LOGO
 
 
         highest_score = 0
