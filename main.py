@@ -576,7 +576,7 @@ while True:
             print(lakers_logo)
         elif opposing_team == 'Boston Celtics':
             print(celtics_logo) 
-        elif user_team == 'New York Knicks':
+        elif opposing_team == 'New York Knicks':
             print(knicks_logo) 
 
 
