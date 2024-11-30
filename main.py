@@ -413,6 +413,37 @@ elif user_team_input == '4':
     user_team_list = knicks_list
 
 
+
+
+position_number = 0
+
+if user_team == 'LA Clippers':
+    print(clippers_logo)
+elif user_team == 'Los Angeles Lakers':
+    print(lakers_logo)
+elif user_team_list == 'Boston Celtics':
+    print(celtics_logo) 
+elif user_team_list == 'New York Knicks':
+    print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
+
+
+print('\n' + '\n')
+
+print('Team selected:', user_team)
+
+print('\n')
+
+print('Choose your player!')
+
+for player in user_team_list:
+    position_number += 1
+    print(player.name + ' -- ' + str(position_number))
+
+player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+
+print('\n' + '\n')
+
+
 if user_team == 'LA Clippers':
     print('Select your opposing team! 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
     user_decision = KermLib.get_user_input(['2', '3', '4'])
@@ -474,35 +505,6 @@ for player in user_team_list:
     player.defender = defender
     defender.defender = player
 
-
-
-
-
-position_number = 0
-
-if user_team == 'LA Clippers':
-    print(clippers_logo)
-elif user_team == 'Los Angeles Lakers':
-    print(lakers_logo)
-elif user_team_list == 'Boston Celtics':
-    print(celtics_logo) 
-elif user_team_list == 'New York Knicks':
-    print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
-
-
-print('\n' + '\n')
-
-print('Team selected:', user_team)
-
-print('\n')
-
-print('Choose your player!')
-
-for player in user_team_list:
-    position_number += 1
-    print(player.name + ' -- ' + str(position_number))
-
-player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
 
 
 for player in user_team_list:
