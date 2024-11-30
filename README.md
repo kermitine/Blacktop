@@ -12,4 +12,4 @@ This game uses my own KermLib, which comes pre-packaged. No external installatio
 ## How to Play
 Simply run main.py, and enjoy!
 
-![kermitine](https://github.com/kermitine/kermitine/blob/11e8a647fbb13fb2307033aef323024081332bef/images/kermitine.png)
+![kermitine](https://github.com/kermitine/kermitine/blob/b523c5954ea8820f70eb6ff786f2dbec7ce08955/images/kermitine.png)
