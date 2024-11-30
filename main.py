@@ -620,7 +620,7 @@ for player in user_team_list:
         player.haspossession = True
         current_player = player
         print('\n')
-        print('Player selected: ' + player.name)
+        print('Your player: ' + player.name)
         print('Your defender:', current_player.defender.name)
         break
 
