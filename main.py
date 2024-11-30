@@ -83,7 +83,8 @@ class BasketballPlayer():
                 print('NOTHING BUT NET!')
 
         elif event == '3ptmiss':
-            announcer_call = random.randint(1, 6)
+            announcer_call = random.randint(1, 10)  # Increased range for more variations
+            last_name = self.name.split(" ")[1]
             if announcer_call == 1:
                 print('And airballs!', self.defender.name, 'gathers it up.')
             elif announcer_call == 2:
@@ -94,8 +95,17 @@ class BasketballPlayer():
                 print('And he misfires.', self.defender.name, 'with the rebound.')
             elif announcer_call == 5:
                 print('SMOTHERED BY', self.defender.name.upper() + '!')
-            else:
-                print('And the ball clanks off the rim.')
+            elif announcer_call == 6:
+                print('The three-point attempt rattles out. Tough luck for', last_name + '.')
+            elif announcer_call == 7:
+                print('It’s no good from downtown!', self.defender.name, 'picks it up for the', self.defender.team + '.')
+            elif announcer_call == 8:
+                print('Way off target from beyond the arc.')
+            elif announcer_call == 9:
+                print('And it’s just short! A strong defensive effort by', self.defender.name + '.')
+            elif announcer_call == 10:
+                print('Off the back iron!', self.defender.name, 'secures the rebound.')
+
 
         elif event == 'drive':
             defender_last_name = self.defender.name.split(" ")[1]
@@ -130,7 +140,7 @@ class BasketballPlayer():
         elif event == 'miss':
             defender_last_name = self.defender.name.split(" ")[1]
             last_name = self.name.split(" ")[1]
-            announcer_call = random.randint(1, 5)
+            announcer_call = random.randint(1, 10)  # Increased range for more variations
             if announcer_call == 1:
                 print('And the ball rims out!', defender_last_name, 'recovers it.')
             elif announcer_call == 2:
@@ -139,8 +149,18 @@ class BasketballPlayer():
                 print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
             elif announcer_call == 4:
                 print('And that layup by', last_name, 'is no good.')
-            else:
-                print('And the ball clanks off the rim.')
+            elif announcer_call == 5:
+                print('The shot goes wide! What a defensive effort by', self.defender.name + '.')
+            elif announcer_call == 6:
+                print('Oh, the ball just doesn’t want to go in for', last_name, 'this time.')
+            elif announcer_call == 7:
+                print('Rejected at the rim! What a block by', self.defender.name + '!')
+            elif announcer_call == 8:
+                print('And it’s off the front iron. Tough break for', last_name + '.')
+            elif announcer_call == 9:
+                print('The ball dances around the rim and spills out.', defender_last_name, 'grabs the rebound.')
+            elif announcer_call == 10:
+                print('A tough miss for', last_name, 'as', defender_last_name, 'comes away with it.')
         
         elif event == 'pass':
             last_name = self.name.split(" ")[1]
