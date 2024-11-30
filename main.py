@@ -480,13 +480,13 @@ for player in user_team_list:
 
 position_number = 0
 
-if user_team_list == clippers_list:
+if user_team == 'LA Clippers':
     print(clippers_logo)
-elif user_team_list == lakers_list:
+elif user_team == 'Los Angeles Lakers':
     print(lakers_logo)
-elif user_team_list == celtics_list:
+elif user_team_list == 'Boston Celtics':
     print(celtics_logo) 
-elif user_team_list == knicks_list:
+elif user_team_list == 'New York Knicks':
     print(knicks_logo) #PLACEHOLDER FOR NYK LOGO
 
 
