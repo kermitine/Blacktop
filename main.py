@@ -418,9 +418,9 @@ if user_team == 'LA Clippers':
     print(clippers_logo)
 elif user_team == 'Los Angeles Lakers':
     print(lakers_logo)
-elif user_team_list == 'Boston Celtics':
+elif user_team == 'Boston Celtics':
     print(celtics_logo) 
-elif user_team_list == 'New York Knicks':
+elif user_team == 'New York Knicks':
     print(knicks_logo) 
 
 
@@ -447,12 +447,15 @@ if user_team == 'LA Clippers':
     if user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
+        print(lakers_logo)
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
+        print(celtics_logo)
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
+        print(knicks_logo)
 
 elif user_team == 'Los Angeles Lakers':
     print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks')
@@ -460,12 +463,15 @@ elif user_team == 'Los Angeles Lakers':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
+        print(clippers_logo)
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
+        print(celtics_logo)
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
+        print(knicks_logo)
 
 elif user_team == 'Boston Celtics':
     print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks')
@@ -473,12 +479,15 @@ elif user_team == 'Boston Celtics':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
+        print(clippers_logo)
     elif user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
+        print(lakers_logo)
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
+        print(knicks_logo)
 
 elif user_team == 'New York Knicks':
     print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
@@ -486,12 +495,19 @@ elif user_team == 'New York Knicks':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
+        print(clippers_logo)
     elif user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
+        print(lakers_logo)
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
+        print(celtics_logo)
+
+
+print('\n' + '\n')
+print('Team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
