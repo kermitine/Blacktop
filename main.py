@@ -485,7 +485,11 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('Select your team!' + '\n' + '1 for the LA Clippers' + '\n' + '2 for the Los Angeles Lakers' + '\n' + '3 for the Boston Celtics' + '\n' + '4 for the New York Knicks' + '\n' + '5 for the Phoenix Suns' + '\n' + '6 for the Philadelphia 76ers'+ '\n' + '7 for the Golden State Warriors')
+
+team = 1
+for team_name in teams_names:
+    print(team, 'for the', team_name)
+    team += 1
 user_team_input = KermLib.get_user_input(['1', '2', '3', '4', '5', '6', '7'])
 
 print('\n')
@@ -521,12 +525,6 @@ elif user_team_input == '7':
 
 print(user_team_logo)
 
-
-position_number = 0
-
-
-
-
 print('\n' + '\n')
 
 print('Team selected:', user_team)
@@ -535,6 +533,7 @@ print('\n')
 
 print('Choose your player!')
 
+position_number = 0
 for player in user_team_list:
     position_number += 1
     print(player.name + ' -- ' + str(position_number))
@@ -571,23 +570,29 @@ opposing_team = teams_names[int(user_decision)-1]
 if opposing_team == 'LA Clippers':
     opposing_team_list = clippers_list
     opposing_team_logo = clippers_logo
+elif opposing_team == 'Los Angeles Lakers':
+    opposing_team_list = lakers_list
+    opposing_team_logo = lakers_logo
+elif opposing_team == 'Boston Celtics':
+    opposing_team_list = celtics_list
+    opposing_team_logo = celtics_logo
+elif opposing_team == 'New York Knicks':
+    opposing_team_list = knicks_list
+    opposing_team_logo = knicks_logo
+elif opposing_team == 'Phoenix Suns':
+    opposing_team_list = suns_list
+    opposing_team_logo = suns_logo
+elif opposing_team == 'Philadelphia 76ers':
+    opposing_team_list = sixers_list
+    opposing_team_logo = sixers_logo
+elif opposing_team == 'Golden State Warriors':
+    opposing_team_list = warriors_list
+    opposing_team_logo = warriors_logo
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-print('\n' + '\n')
-print('Team selected:', opposing_team)
+print('\n')
+print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
@@ -598,7 +603,7 @@ for player in user_team_list:
     player.defender = defender
     defender.defender = player
 
-
+time.sleep(2)
 
 for player in user_team_list:
     if player.positionnumber == player_decision:
@@ -613,6 +618,8 @@ for player in user_team_list:
 
 
 print('Game start!')
+
+time.sleep(2)
 
 # -----------------------------------------------------------------------------------------
 
