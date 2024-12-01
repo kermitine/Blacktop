@@ -3,7 +3,7 @@ import time
 from KermLib.KermLib import *
 from basketball_ascii import *
 
-version = '2024.12.1.1500.unstable'
+version = '2024.12.1.1500.rc'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
