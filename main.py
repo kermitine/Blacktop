@@ -417,47 +417,46 @@ lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 
-# ------------------------------------------------------------------------------------------------------------------
 
 def calculate_turnover_chance(passer, receiver_defender):
     """
     Calculate the chance of a turnover during a pass.
     Factors include passer's turnover tendency, passing skill, and receiver defender's interception skill.
     """
-    # Adjusted base chance and scaling factors for better dynamics
-    base_chance = 0.05  # Lower base chance for turnover (5%)
     
-    # More fine-tuned weights for player attributes
-    turnover_factor = passer.tov * 15  # Passer's turnover tendency (scaled down)
-    passing_factor = passer.passing * -12  # Higher impact for good passing skills
-    interception_factor = receiver_defender.interception * 20  # Defender's interception skill (scaled to balance)
+    base_chance = 0.05  
     
-    # Adding a dynamic component for randomness within a range based on the passer's passing skill
+    
+    turnover_factor = passer.tov * 15  
+    passing_factor = passer.passing * -12  
+    interception_factor = receiver_defender.interception * 20  
+    
+    
     dynamic_factor = random.uniform(-0.02, 0.02) * (1 - passer.passing)
     
-    # Calculate turnover chance
+   
     turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor + dynamic_factor
     
-    # Ensure the value stays within a meaningful range (0% to 40%)
+    
     turnover_chance = max(0.0, min(0.4, turnover_chance))
     
-    # Determine if the pass is turned over
-    random_roll = random.random()  # Random number between 0 and 1
+    
+    random_roll = random.random()  
     if random_roll < turnover_chance:
-        return True  # Pass is turned over
+        return True  
     else:
-        return False  # Pass is successful
+        return False  
 
 
 def turn_over_chance(passer, receiver_defender):
-    base_chance = 0.10  # Base chance for turnover (10%)
+    base_chance = 0.10  
     
     turnover_factor = passer.tov * 25
     passing_factor = passer.passing * -7.8
     interception_factor = receiver_defender.interception * 25
     
     turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
-    # Clamp the value between 0 and 1
+    
     turnover_chance = max(0.1, min(0.25, turnover_chance))
     return turnover_chance * 100
 
@@ -588,8 +587,8 @@ print('Team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
-# DEFENDER INITILIAZTION (NEW)
 
+# INITIALIZE DEFENDERS
 for player in user_team_list:
     defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
     player.defender = defender
