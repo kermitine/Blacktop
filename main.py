@@ -679,10 +679,15 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player.name
 
+        time.sleep(1)
+
         print('\n')
         print('Most points scored:', highest_scorer, 'with', str(highest_score))
+        time.sleep(0.6)
         print('Most passes performed:', highest_passer, 'with', str(highest_passes))
+        time.sleep(0.6)
         print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
+        time.sleep(0.6)
 
         print('\n')
 
