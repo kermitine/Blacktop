@@ -10,6 +10,6 @@ This game uses my own KermLib, which comes pre-packaged. No external installatio
 
 ## How to Play
 Simply run main.py, and enjoy!
-There are currently 4 teams in the game: the LA Clippers, the Los Angeles Lakers, the Boston Celtics, and the New York Knicks! Each team runs their 2024 starting lineup.
+There are currently 9 teams in the game: the LA Clippers, the Los Angeles Lakers, the Boston Celtics, the New York Knicks, the Phoenix Suns, the Philadelphia 76ers, the Golden State Warriors, the Orlando Magic, and the Dallas Mavericks. Each team runs predominantly their starting lineups, with a few exceptions (Gafford for Dallas)
 
 ![kermitine](https://github.com/kermitine/kermitine/blob/b523c5954ea8820f70eb6ff786f2dbec7ce08955/images/kermitine.png)
