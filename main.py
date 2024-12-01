@@ -645,53 +645,19 @@ user_team_score = 0
 
 while True:
 
-    if opposing_team_score >= end_score:
-        print('\n' + '\n' + '\n')
-        print('---------------------------------------------------------------------------------------------------------')
-        print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
-        print('---------------------------------------------------------------------------------------------------------')
-        print(opposing_team_logo)
-
-
-        highest_score = 0
-        highest_scorer = '0 points scored'
-
-        highest_interceptions = 0
-        highest_interceptor = '0 interceptions made'
-
-        highest_passes = 0
-        highest_passer = '0 passes made'
-
-        for player in combined_list:
-            if player.pointsMade > highest_score:
-                highest_score = player.pointsMade
-                highest_scorer = player.name
-            if player.passesMade > highest_passes:
-                highest_passes = player.passesMade
-                highest_passer = player.name
-            if player.interceptionsMade > highest_interceptions:
-                highest_interceptions = player.interceptionsMade
-                highest_interceptor = player.name
-
-        print('\n')
-        print('Most points scored:', highest_scorer, 'with', str(highest_score))
-        print('Most passes performed:', highest_passer, 'with', str(highest_passes))
-        print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
-
-        print('\n')
-
-        if highest_interceptor == highest_passer == highest_scorer:
-            print('Wow! A clean sweep by', highest_scorer, 'as he claims the entire leaderboard!')
-
-        time.sleep(5)
-        break
-    elif user_team_score >= end_score:
-        print('\n' + '\n' + '\n')
-        print('---------------------------------------------------------------------------------------------------------')
-        print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
-        print('---------------------------------------------------------------------------------------------------------')
-        print(user_team_logo)
-
+    if opposing_team_score >= end_score or user_team_score >= end_score:
+        if opposing_team_score >= end_score:
+            print('\n' + '\n' + '\n')
+            print('---------------------------------------------------------------------------------------------------------')
+            print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
+            print('---------------------------------------------------------------------------------------------------------')
+            print(opposing_team_logo)
+        else:
+            print('\n' + '\n' + '\n')
+            print('---------------------------------------------------------------------------------------------------------')
+            print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
+            print('---------------------------------------------------------------------------------------------------------')
+            print(user_team_logo)
 
         highest_score = 0
         highest_scorer = '0 points scored'
@@ -725,8 +691,6 @@ while True:
 
         time.sleep(5)
         break
-
-    print('\n')
 
     if user_team_score > opposing_team_score:
         print('---------------------------------------------------------------------------------------------------------')
