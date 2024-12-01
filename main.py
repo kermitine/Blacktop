@@ -474,29 +474,26 @@ print('\n')
 if user_team_input == '1':
     user_team = 'LA Clippers'
     user_team_list = clippers_list
+    user_team_logo = clippers_logo
 elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
+    user_team_logo = lakers_logo
 elif user_team_input == '3':
     user_team = 'Boston Celtics'
     user_team_list = celtics_list
+    user_team_logo = celtics_logo
 elif user_team_input == '4':
     user_team = 'New York Knicks'
     user_team_list = knicks_list
+    user_team_logo = knicks_logo
 
 
 
 
 position_number = 0
 
-if user_team == 'LA Clippers':
-    print(clippers_logo)
-elif user_team == 'Los Angeles Lakers':
-    print(lakers_logo)
-elif user_team == 'Boston Celtics':
-    print(celtics_logo) 
-elif user_team == 'New York Knicks':
-    print(knicks_logo) 
+print(user_team_logo)
 
 
 print('\n' + '\n')
@@ -522,15 +519,16 @@ if user_team == 'LA Clippers':
     if user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
-        print(lakers_logo)
+        opposing_team_logo = lakers_logo
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
-        print(celtics_logo)
+        opposing_team_logo = celtics_logo
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
-        print(knicks_logo)
+        opposing_team_logo = knicks_logo
+    print(opposing_team_logo)
 
 elif user_team == 'Los Angeles Lakers':
     print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks')
@@ -538,15 +536,16 @@ elif user_team == 'Los Angeles Lakers':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
-        print(clippers_logo)
+        opposing_team_logo = clippers_logo
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
-        print(celtics_logo)
+        opposing_team_logo = celtics_logo
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
-        print(knicks_logo)
+        opposing_team_logo = knicks_logo
+    print(opposing_team_logo)
 
 elif user_team == 'Boston Celtics':
     print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks')
@@ -554,15 +553,17 @@ elif user_team == 'Boston Celtics':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
-        print(clippers_logo)
+        opposing_team_logo = clippers_logo
     elif user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
+        opposing_team_logo = lakers_logo
         print(lakers_logo)
     elif user_decision == '4':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
-        print(knicks_logo)
+        opposing_team_logo = knicks_logo
+    print(opposing_team_logo)
 
 elif user_team == 'New York Knicks':
     print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
@@ -570,15 +571,16 @@ elif user_team == 'New York Knicks':
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
-        print(clippers_logo)
+        opposing_team_logo = clippers_logo
     elif user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
-        print(lakers_logo)
+        opposing_team_logo = lakers_logo
     elif user_decision == '3':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
-        print(celtics_logo)
+        opposing_team_logo = celtics_logo
+    print(opposing_team_logo)
 
 
 print('\n' + '\n')
@@ -625,14 +627,7 @@ while True:
         print('---------------------------------------------------------------------------------------------------------')
         print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        if opposing_team == 'LA Clippers':
-            print(clippers_logo)
-        elif opposing_team == 'Los Angeles Lakers':
-            print(lakers_logo)
-        elif opposing_team == 'Boston Celtics':
-            print(celtics_logo) 
-        elif opposing_team == 'New York Knicks':
-            print(knicks_logo) 
+        print(opposing_team_logo)
 
 
         highest_score = 0
@@ -671,14 +666,7 @@ while True:
         print('---------------------------------------------------------------------------------------------------------')
         print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
         print('---------------------------------------------------------------------------------------------------------')
-        if user_team == 'LA Clippers':
-            print(clippers_logo)
-        elif user_team == 'Los Angeles Lakers':
-            print(lakers_logo)
-        elif user_team == 'Boston Celtics':
-            print(celtics_logo) 
-        elif user_team == 'New York Knicks':
-            print(knicks_logo) 
+        print(user_team_logo)
 
 
         highest_score = 0
