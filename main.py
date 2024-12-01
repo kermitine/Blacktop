@@ -471,8 +471,8 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
-user_team_input = KermLib.get_user_input(['1', '2', '3', '4'])
+print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks, 5 for the Phoenix Suns')
+user_team_input = KermLib.get_user_input(['1', '2', '3', '4', '5'])
 
 print('\n')
 if user_team_input == '1':
@@ -491,6 +491,11 @@ elif user_team_input == '4':
     user_team = 'New York Knicks'
     user_team_list = knicks_list
     user_team_logo = knicks_logo
+elif user_team_input == '5':
+    user_team = 'Phoenix Suns'
+    user_team_list = suns_list
+    user_team_logo = suns_logo 
+
 
 
 
