@@ -385,11 +385,6 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
 
-                            
-
-
-                    
-
 
 j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0)
 a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0)
@@ -416,16 +411,6 @@ i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20
 k_porzingis = BasketballPlayer("Kristaps Porzingis", "Center", 5, "Boston Celtics", .498, .385, .850, .120, .180, .190, .070, .220, False, None, False, 0, 0, 0)
 k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks", 0.370, 0.15, 0.75, 0.08, 0.18, 0.28, 0.20, 0.30, False, None, False, 0, 0, 0)
 
-
-
-
-
-
-
-#initializing defenders
-
-
-#adding to lists
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
