@@ -471,7 +471,7 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('Select your team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks, 5 for the Phoenix Suns')
+print('Select your team!' + '\n' + '1 for the LA Clippers' + '\n' + '2 for the Los Angeles Lakers' + '\n' + '3 for the Boston Celtics' + '\n' + '4 for the New York Knicks' + '\n' + '5 for the Phoenix Suns')
 user_team_input = KermLib.get_user_input(['1', '2', '3', '4', '5'])
 
 print('\n')
@@ -695,11 +695,12 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player.name
 
+        print('\n')
+        print('Most points scored:', highest_scorer, 'with', str(highest_score))
+        print('Most passes performed:', highest_passer, 'with', str(highest_passes))
+        print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
 
         print('\n')
-        print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
-        print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
-        print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
 
         if highest_interceptor == highest_passer == highest_scorer:
             print('Wow! A clean sweep by', highest_scorer, 'as he claims the entire leaderboard!')
