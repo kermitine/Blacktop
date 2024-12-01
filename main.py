@@ -705,7 +705,9 @@ while True:
 
         print('\n')
 
-        if highest_interceptor.team == highest_passer.tean == highest_scorer.team:
+        if highest_interceptor.team == highest_passer.team == highest_scorer.team:
+            print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
+        elif highest_scorer.team == highest_passer.team and highest_interceptor is None:
             print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
 
         time.sleep(5)
