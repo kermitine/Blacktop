@@ -1,25 +1,3 @@
-#basketgame
-#0.0.0
-
-'''
-You start the game with the possession ->
-
-OFFENSIVE LOOP
-
-you get the option to drive, pass, or shoot from 3 ->
-drive uses stats from your defender's int-defense stats and your layup % to determine outcome (math tbd) - >
-pass prompts you with who to pass to. Pass outcome determined with your TOV% and the player you're passing too's defender's interception stats ->
-    pass receiver semi-randomly decides whether to pass, shoot, or defend (light influence by IRL stats)
-shooting outcome determined via your 3pt stats and defender's perimeter defense stats
-
-
-
-'''
-
-#amir coffey turnover stat derived from 7 possessions a game average, with 0.5 turnovers a game = 1/14 possesions turned over
-
-# PASSING STAT UNUSED
-
 import random
 import time
 from KermLib.KermLib import *
@@ -269,12 +247,6 @@ class BasketballPlayer():
             elif announcer_call == 10:
                 print('And ' + self.name + "'s pass is intercepted by " + secondary_player.defender.name + '!')
         print('\n')
-
-
-
-
-
-
 
     def decision(self):
         generated_probability = random.randint(1, 100)
@@ -814,12 +786,4 @@ while True:
                     opposing_team_score += points
                     break
                 break   
-
-                    
-                            
-
-
-
-
-
 
