@@ -395,6 +395,8 @@ t_jones = BasketballPlayer("Tyus Jones", "Point Guard", 1, "Phoenix Suns", .360,
 t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0.420, 0.75, 0.70, 0.10, 0.25, 0.22, 0.10, 0.35, False, None, False, 0, 0, 0)
 s_curry = BasketballPlayer("Stephen Curry", "Point Guard", 1, "Golden State Warriors", .428, 0.85, 0.70, 0.12, 0.30, 0.25, 0.15, 0.50, False, None, False, 0, 0, 0)
 j_suggs = BasketballPlayer("Jalen Suggs", "Point Guard", 1, "Orlando Magic", .330, 0.60, 0.65, 0.14, 0.20, 0.18, 0.13, 0.35, False, None, False, 0, 0, 0)
+l_doncic = BasketballPlayer("Luka Doncic", "Point Guard", 1, "Dallas Mavericks", .382, 0.87, 0.72, 0.15, 0.32, 0.28, 0.14, 0.50, False, None, False, 0, 0, 0)
+
 
 d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0)
 a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0)
@@ -404,6 +406,7 @@ d_booker = BasketballPlayer("Devin Booker", "Shooting Guard", 2, "Phoenix Suns",
 j_mccain = BasketballPlayer("Jared McCain", "Shooting Guard", 2, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0.12, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0)
 b_hield = BasketballPlayer("Buddy Hield", "Shooting Guard", 2, "Golden State Warriors", .400, 0.70, 0.65, 0.10, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0)
 k_caldwell_pope = BasketballPlayer("Kentavious Caldwell-Pope", "Shooting Guard", 2, "Orlando Magic", 0.400, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0)
+k_irving = BasketballPlayer("Kyrie Irving", "Shooting Guard", 2, "Dallas Mavericks", .395, 0.80, 0.70, 0.12, 0.28, 0.22, 0.12, 0.45, False, None, False, 0, 0, 0)
 
 n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0)
 l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0)
@@ -413,6 +416,7 @@ b_beal = BasketballPlayer("Bradley Beal", "Small Forward", 3, "Phoenix Suns", .4
 p_george = BasketballPlayer("Paul George", "Small Forward", 3, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0.11, 0.28, 0.25, 0.13, 0.35, False, None, False, 0, 0, 0)
 a_wiggins = BasketballPlayer("Andrew Wiggins", "Small Forward", 3, "Golden State Warriors", .420, 0.55, 0.62, 0.10, 0.22, 0.18, 0.14, 0.35, False, None, False, 0, 0, 0)
 f_wagner = BasketballPlayer("Franz Wagner", "Small Forward", 3, "Orlando Magic", .360, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0)
+k_thompson = BasketballPlayer("Klay Thompson", "Small Forward", 3, "Dallas Mavericks", .413, 0.65, 0.60, 0.10, 0.25, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0)
 
 r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False, 0, 0, 0)
 k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0)
@@ -422,6 +426,7 @@ k_durant = BasketballPlayer("Kevin Durant", "Power Forward", 4, "Phoenix Suns", 
 c_martin = BasketballPlayer("Caleb Martin", "Power Forward", 4, "Philadelphia 76ers", 0.370, 0.55, 0.65, 0.09, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0)
 d_green = BasketballPlayer("Draymond Green", "Power Forward", 4, "Golden State Warriors", .320, 0.70, 0.55, 0.15, 0.40, 0.30, 0.18, 0.35, False, None, False, 0, 0, 0)
 p_banchero = BasketballPlayer("Paolo Banchero", "Power Forward", 4, "Orlando Magic", .340, 0.70, 0.75, 0.13, 0.28, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0)
+p_washington = BasketballPlayer("P.J. Washington", "Power Forward", 4, "Dallas Mavericks", .370, 0.60, 0.65, 0.11, 0.22, 0.20, 0.11, 0.35, False, None, False, 0, 0, 0)
 
 a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0)
 i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0)
@@ -431,7 +436,7 @@ y_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0
 j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0.13, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0)
 k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors", .300, 0.25, 0.60, 0.10, 0.20, 0.20, 0.10, 0.25, False, None, False, 0, 0, 0)
 w_carter_jr = BasketballPlayer("Wendell Carter-Jr", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0)
-
+d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", .310, 0.50, 0.60, 0.12, 0.20, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0)
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
@@ -441,8 +446,9 @@ suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
 warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
+mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_gafford]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic']
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks']
 
 def calculate_turnover_chance(passer, receiver_defender):
     """
@@ -498,7 +504,10 @@ team = 1
 for team_name in teams_names:
     print(team, 'for the', team_name)
     team += 1
-user_team_input = KermLib.get_user_input(['1', '2', '3', '4', '5', '6', '7', '8'])
+team_quantity = list(range(1, team))
+team_quantity = [str(x) for x in team_quantity]
+user_team_input = KermLib.get_user_input(team_quantity)
+
 
 print('\n')
 if user_team_input == '1':
@@ -533,6 +542,10 @@ elif user_team_input == '8':
     user_team = 'Orlando Magic'
     user_team_list = magic_list
     user_team_logo = magic_logo
+elif user_team_input == '9':
+    user_team = 'Dallas Mavericks'
+    user_team_list = mavericks_list
+    user_team_logo = mavericks_logo
 
 
 print(user_team_logo)
@@ -555,6 +568,7 @@ player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
 print('\n' + '\n')
 
 
+print('Select your opposing team!')
 team = 1
 forbidden = None
 for team_name in teams_names:
@@ -602,10 +616,16 @@ elif opposing_team == 'Golden State Warriors':
 elif opposing_team == 'Orlando Magic':
     opposing_team_list = magic_list
     opposing_team_logo = magic_logo
+elif opposing_team == 'Dallas Mavericks':
+    opposing_team_list = mavericks_list
+    opposing_team_logo = mavericks_logo
 
 
 
-print('\n')
+print(opposing_team_logo)
+
+print('\n' + '\n')
+
 print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
