@@ -420,6 +420,7 @@ clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
+suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 
 
 def calculate_turnover_chance(passer, receiver_defender):
