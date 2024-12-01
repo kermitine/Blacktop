@@ -485,6 +485,7 @@ def turn_over_chance(passer, receiver_defender):
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
+print('Select your team!')
 
 team = 1
 for team_name in teams_names:
