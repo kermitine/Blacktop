@@ -665,39 +665,48 @@ while True:
             print(user_team_logo)
 
         highest_score = 0
-        highest_scorer = '0 points scored'
+        highest_scorer = None
 
         highest_interceptions = 0
-        highest_interceptor = '0 interceptions made'
+        highest_interceptor = None
 
         highest_passes = 0
-        highest_passer = '0 passes made'
+        highest_passer = None
 
         for player in combined_list:
             if player.pointsMade > highest_score:
                 highest_score = player.pointsMade
-                highest_scorer = player.name
+                highest_scorer = player
             if player.passesMade > highest_passes:
                 highest_passes = player.passesMade
-                highest_passer = player.name
+                highest_passer = player
             if player.interceptionsMade > highest_interceptions:
                 highest_interceptions = player.interceptionsMade
-                highest_interceptor = player.name
+                highest_interceptor = player
 
         time.sleep(1)
 
         print('\n')
-        print('Most points scored:', highest_scorer, 'with', str(highest_score))
+        if highest_scorer:
+            print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
+        else:
+            print('0 points scored')
         time.sleep(1)
-        print('Most passes performed:', highest_passer, 'with', str(highest_passes))
+        if highest_passer:
+            print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
+        else:
+            print('0 passes made')
         time.sleep(1)
-        print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
+        if highest_interceptor:
+            print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
+        else:
+            print('0 interceptions made')
         time.sleep(1)
 
         print('\n')
 
-        if highest_interceptor == highest_passer == highest_scorer:
-            print('Wow! A clean sweep by', highest_scorer, 'as he claims the entire leaderboard!')
+        if highest_interceptor.team == highest_passer.tean == highest_scorer.team:
+            print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
 
         time.sleep(5)
         break
