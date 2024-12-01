@@ -25,7 +25,7 @@ import time
 from KermLib.KermLib import *
 from basketball_ascii import *
 
-version = '2024.11.30.1710.stable'
+version = '2024.11.30.1750.unstable'
 
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
@@ -523,8 +523,8 @@ print('\n' + '\n')
 
 
 if user_team == 'LA Clippers':
-    print('Select your opposing team! 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
-    user_decision = KermLib.get_user_input(['2', '3', '4'])
+    print('Select your opposing team! 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks, 5 for the Phoenix Suns')
+    user_decision = KermLib.get_user_input(['2', '3', '4', '5'])
     if user_decision == '2':
         opposing_team_list = lakers_list
         opposing_team = 'Los Angeles Lakers'
@@ -537,11 +537,15 @@ if user_team == 'LA Clippers':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
         opposing_team_logo = knicks_logo
+    elif user_decision == '5':
+        opposing_team_list = suns_list
+        opposing_team = 'Phoenix Suns'
+        opposing_team_logo = suns_logo
     print(opposing_team_logo)
 
 elif user_team == 'Los Angeles Lakers':
-    print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks')
-    user_decision = KermLib.get_user_input(['1', '3', '4'])
+    print('Select your opposing team! 1 for the LA Clippers, 3 for the Boston Celtics, 4 for the New York Knicks, 5 for the Phoenix Suns')
+    user_decision = KermLib.get_user_input(['1', '3', '4', '5'])
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
@@ -554,11 +558,15 @@ elif user_team == 'Los Angeles Lakers':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
         opposing_team_logo = knicks_logo
+    elif user_decision == '5':
+        opposing_team_list = suns_list
+        opposing_team = 'Phoenix Suns'
+        opposing_team_logo = suns_logo
     print(opposing_team_logo)
 
 elif user_team == 'Boston Celtics':
-    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks')
-    user_decision = KermLib.get_user_input(['1', '2', '4'])
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 4 for the New York Knicks, 5 for the Phoenix Suns')
+    user_decision = KermLib.get_user_input(['1', '2', '4', '5'])
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
@@ -572,11 +580,15 @@ elif user_team == 'Boston Celtics':
         opposing_team_list = knicks_list
         opposing_team = 'New York Knicks'
         opposing_team_logo = knicks_logo
+    elif user_decision == '5':
+        opposing_team_list = suns_list
+        opposing_team = 'Phoenix Suns'
+        opposing_team_logo = suns_logo
     print(opposing_team_logo)
 
 elif user_team == 'New York Knicks':
-    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics')
-    user_decision = KermLib.get_user_input(['1', '2', '3'])
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 5 for the Phoenix Suns')
+    user_decision = KermLib.get_user_input(['1', '2', '3', '5'])
     if user_decision == '1':
         opposing_team_list = clippers_list
         opposing_team = 'LA Clippers'
@@ -589,8 +601,32 @@ elif user_team == 'New York Knicks':
         opposing_team_list = celtics_list
         opposing_team = 'Boston Celtics'
         opposing_team_logo = celtics_logo
+    elif user_decision == '5':
+        opposing_team_list = suns_list
+        opposing_team = 'Phoenix Suns'
+        opposing_team_logo = suns_logo
     print(opposing_team_logo)
 
+elif user_team == 'Phoenix Suns':
+    print('Select your opposing team! 1 for the LA Clippers, 2 for the Los Angeles Lakers, 3 for the Boston Celtics, 4 for the New York Knicks')
+    user_decision = KermLib.get_user_input(['1', '2', '3', '4'])
+    if user_decision == '1':
+        opposing_team_list = clippers_list
+        opposing_team = 'LA Clippers'
+        opposing_team_logo = clippers_logo
+    elif user_decision == '2':
+        opposing_team_list = lakers_list
+        opposing_team = 'Los Angeles Lakers'
+        opposing_team_logo = lakers_logo
+    elif user_decision == '3':
+        opposing_team_list = celtics_list
+        opposing_team = 'Boston Celtics'
+        opposing_team_logo = celtics_logo
+    elif user_decision == '4':
+        opposing_team_list = knicks_list
+        opposing_team = 'New York Knicks'
+        opposing_team_logo = knicks_logo
+    print(opposing_team_logo)
 
 print('\n' + '\n')
 print('Team selected:', opposing_team)
