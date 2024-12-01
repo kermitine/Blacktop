@@ -268,6 +268,7 @@ class BasketballPlayer():
                 print('A quick swipe by ' + secondary_player.defender.name + '! Possession changes hands.')
             elif announcer_call == 10:
                 print('And ' + self.name + "'s pass is intercepted by " + secondary_player.defender.name + '!')
+        print('\n')
 
 
 
@@ -429,7 +430,7 @@ k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks",
 y_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0.25, 0.65, 0.10, 0.20, 0.18, 0.14, 0.30, False, None, False, 0, 0, 0)
 j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0.13, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0)
 k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors", .300, 0.25, 0.60, 0.10, 0.20, 0.20, 0.10, 0.25, False, None, False, 0, 0, 0)
-w_carter_jr = BasketballPlayer("Wendell Carter-Jr.", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0)
+w_carter_jr = BasketballPlayer("Wendell Carter-Jr", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0)
 
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
@@ -683,11 +684,11 @@ while True:
 
         print('\n')
         print('Most points scored:', highest_scorer, 'with', str(highest_score))
-        time.sleep(0.6)
+        time.sleep(1)
         print('Most passes performed:', highest_passer, 'with', str(highest_passes))
-        time.sleep(0.6)
+        time.sleep(1)
         print('Most interceptions:', highest_interceptor, 'with', str(highest_interceptions))
-        time.sleep(0.6)
+        time.sleep(1)
 
         print('\n')
 
