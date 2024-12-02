@@ -429,8 +429,9 @@ warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
 mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_gafford]
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
+pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, d_theis]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets']
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans']
 
 def calculate_turnover_chance(passer, receiver_defender):
     """
@@ -532,6 +533,10 @@ elif user_team_input == '10':
     user_team = 'Denver Nuggets'
     user_team_list = nuggets_list
     user_team_logo = nuggets_logo
+elif user_team_input == '11':
+    user_team = 'New Orleans Pelicans'
+    user_team_list = pelicans_list
+    user_team_logo = pelicans_logo
 
 
 print(user_team_logo)
@@ -608,6 +613,9 @@ elif opposing_team == 'Dallas Mavericks':
 elif opposing_team == 'Denver Nuggets':
     opposing_team_list = nuggets_list
     opposing_team_logo = nuggets_logo
+elif opposing_team == 'New Orleans Pelicans':
+    opposing_team_list = pelicans_list
+    opposing_team_logo = pelicans_logo
 
 
 
