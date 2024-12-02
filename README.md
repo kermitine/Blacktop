@@ -10,7 +10,7 @@ This game uses my own KermLib, which comes pre-packaged. No external installatio
 
 ## How to Play
 Simply run main.py, and enjoy!
-There are currently 9 teams in the game: the LA Clippers, the Los Angeles Lakers, the Boston Celtics, the New York Knicks, the Phoenix Suns, the Philadelphia 76ers, the Golden State Warriors, the Orlando Magic, and the Dallas Mavericks. 
+There are currently 11 teams in the game: the LA Clippers, the Los Angeles Lakers, the Boston Celtics, the New York Knicks, the Phoenix Suns, the Philadelphia 76ers, the Golden State Warriors, the Orlando Magic, the Dallas Mavericks, the Denver Nuggets, and the New Orleans Pelicans.
 <br/> <br/>
 Each team runs predominantly their starting lineups, with a few exceptions (Gafford for the Mavericks, Hield for the Warriors, Horford for the Celtics)
 
