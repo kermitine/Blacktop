@@ -708,6 +708,11 @@ while True:
         if highest_interceptor is not None:
             if highest_interceptor.team == highest_passer.team == highest_scorer.team:
                 print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
+        else:
+            if highest_passer.team == highest_scorer.team:
+                print('Wow! A double by the', highest_interceptor.team, 'as they claim two leaderboard spots!')
+
+
         
         time.sleep(5)
         break
