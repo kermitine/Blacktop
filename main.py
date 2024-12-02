@@ -684,32 +684,31 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
-        time.sleep(1)
+        time.sleep(1.5)
 
         print('\n')
         if highest_scorer:
             print('Most points scored:', highest_scorer.name, 'with', str(highest_score))
         else:
             print('0 points scored')
-        time.sleep(1)
+        time.sleep(1.5)
         if highest_passer:
             print('Most passes performed:', highest_passer.name, 'with', str(highest_passes))
         else:
             print('0 passes made')
-        time.sleep(1)
+        time.sleep(1.5)
         if highest_interceptor:
             print('Most interceptions:', highest_interceptor.name, 'with', str(highest_interceptions))
         else:
             print('0 interceptions made')
-        time.sleep(1)
+        time.sleep(1.5)
 
         print('\n')
 
-        if highest_interceptor.team == highest_passer.team == highest_scorer.team:
-            print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
-        elif highest_scorer.team == highest_passer.team and highest_interceptor is None:
-            print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
-
+        if highest_interceptor is not None:
+            if highest_interceptor.team == highest_passer.team == highest_scorer.team:
+                print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
+        
         time.sleep(5)
         break
 
