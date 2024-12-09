@@ -754,8 +754,8 @@ while True:
             print(player.name, 'has the basketball!')
 
             if player.isplayer == True:
-                print('What will you do? (pass), (drive), or shoot a (3pt)?')
-                player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt'])
+                print('What will you do? (pass), (drive), shoot a (3pt), or (substitute)?')
+                player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt', 'substitute'])
                 print('\n' + '\n')
                 print
                 
