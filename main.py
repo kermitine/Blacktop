@@ -835,6 +835,28 @@ while True:
                     user_team_list_bench.insert(current_player.positionnumber-1, user_team_list[current_player.positionnumber])   # insert former roster player into bench
                     user_team_list.pop(current_player.positionnumber) # remove former roster player from roster
                     user_team_list_bench.pop(current_player.positionnumber) # remove former bench player from bench
+                    
+
+                    user_team_list[current_player.positionnumber-1].haspossession = True
+                    user_team_list[current_player.positionnumber-1].isplayer = True
+
+                    user_team_list_bench[current_player.positionnumber-1].haspossession = False
+                    user_team_list_bench[current_player.positionnumber-1].isplayer = False
+
+                    current_player = user_team_list[current_player.positionnumber-1]
+
+                    current_player.haspossession = True
+                    current_player.isplayer = True
+                    
+                    # RE INITIALIZE DEFENDERS
+                    for player in user_team_list:
+                        defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
+                        player.defender = defender
+                        defender.defender = player
+                    
+                    #update list
+                    combined_list = user_team_list + opposing_team_list
+                
 
 
         
