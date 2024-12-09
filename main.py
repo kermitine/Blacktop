@@ -6,7 +6,7 @@ from basketball_ascii import *
 version = '2024.12.1.1700.stable'
 
 class BasketballPlayer():
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy):
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -25,6 +25,7 @@ class BasketballPlayer():
         self.pointsMade = points_made
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
+        self.energy = energy
 
 
 
@@ -848,7 +849,7 @@ while True:
                     current_player.haspossession = True
                     current_player.isplayer = True
                     
-                    # RE INITIALIZE DEFENDERS
+                    # RE-INITIALIZE DEFENDERS
                     for player in user_team_list:
                         defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
                         player.defender = defender
