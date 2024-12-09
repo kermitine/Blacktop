@@ -828,8 +828,13 @@ while True:
                         break
                     break   
                 elif player_action_decision == 'substitute':
-                    print('Substituting', player.name, 'for', user_team_list_bench[player.positionnumber-1].name + '!')
+                    print('Substituting', current_player.name, 'for', user_team_list_bench[current_player.positionnumber-1].name + '!')
+
                     # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
+                    user_team_list.insert(current_player.positionnumber-1, user_team_list_bench[current_player.positionnumber-1])   #insert bench player into roster
+                    user_team_list_bench.insert(current_player.positionnumber-1, user_team_list[current_player.positionnumber-1])   # insert former roster player into bench
+                    user_team_list.pop(current_player.positionnumber) # remove former roster player from roster
+                    user_team_list_bench.pop(current_player.positionnumber) # remove former bench player from bench
 
 
         
