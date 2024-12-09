@@ -459,7 +459,7 @@ m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 
 
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
-clippers_2_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
+clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
 
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
@@ -538,7 +538,7 @@ if user_team_input == '1':
     user_team = 'LA Clippers'
     user_team_list = clippers_list
     user_team_logo = clippers_logo
-    user_team_list_bench = clippers_2_list
+    user_team_list_bench = clippers_bench_list
 elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
