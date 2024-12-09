@@ -792,6 +792,14 @@ while True:
 
     for player in combined_list:
 
+        if player.energy <= 1 and player != current_player: #IF AI PLAYER ENERGY IS TOO LOW, SUB
+            print(player.name, 'is gassed!')
+
+            
+
+
+
+
         if player.haspossession is True:
             print(player.name, 'has the basketball!')
             print(player.name + "'s energy:", str(player.energy) + '%')
