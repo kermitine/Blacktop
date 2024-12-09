@@ -419,6 +419,16 @@ d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", 
 n_jokic = BasketballPlayer("Nikola Jokic", "Center", 5, "Denver Nuggets", .500, 0.90, 0.75, 0.12, 0.40, 0.30, 0.15, 0.50, False, None, False, 0, 0, 0)
 d_theis = BasketballPlayer("Daniel Theis", "Center", 5, "New Orleans Pelicans", .320, 0.50, 0.60, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0)
 
+
+ # CLIPPERS BENCH UNIT (TEMPORARY PLACEMENT)
+k_porter_jr = BasketballPlayer("Kevin Porter-Jr", "Point Guard", 1, "LA Clippers", 0.390, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0)
+b_hyland = BasketballPlayer("Bones Hyland", "Shooting Guard", 2, "LA Clippers", 0.410, 0.60, 0.68, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0)
+t_mann = BasketballPlayer("Terance Mann", "Small Forward", 3, "LA Clippers", 0.400, 0.55, 0.65, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0)
+d_jones_jr = BasketballPlayer("Derrick Jones-Jr", "Power Forward", 4, "LA Clippers", 0.350, 0.45, 0.62, 0.10, 0.22, 0.18, 0.12, 0.30, False, None, False, 0, 0, 0)
+m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0)
+
+
+
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
