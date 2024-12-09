@@ -794,7 +794,7 @@ while True:
 
         if player.haspossession is True:
             print(player.name, 'has the basketball!')
-
+            print(player.name + "'s energy:", str(player.energy) + '%')
             if player.isplayer == True:
                 print('What will you do? (pass), (drive), shoot a (3pt), or (substitute)?')
                 player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt', 'substitute'])
@@ -809,7 +809,7 @@ while True:
                             position_number += 1
                             continue
                         position_number += 1
-                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')', '(Chance of turnover:', str(turn_over_chance(current_player, player.defender)) + '%)' )
+                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')', '(Chance of turnover:', str(turn_over_chance(current_player, player.defender)) + '%)', '(Energy:', str(player.energy) + '%)')
                 
                     while True:
                         player_decision = str(input())
