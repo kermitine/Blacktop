@@ -877,14 +877,14 @@ while True:
 
     for player in combined_list:
 
-
+        if player.energy <= 7 and player != current_player: #IF AI PLAYER ENERGY IS TOO LOW, SUB
+                print(player.name, 'is gassed!')
+                combined_list = player.substitution()
 
 
 
         if player.haspossession is True:
-            if player.energy <= 7 and player != current_player: #IF AI PLAYER ENERGY IS TOO LOW, SUB
-                print(player.name, 'is gassed!')
-                combined_list = player.substitution()
+            
 
 
             print(player.name, 'has the basketball!')
