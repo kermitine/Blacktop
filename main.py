@@ -262,7 +262,7 @@ class BasketballPlayer():
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
             self.commentator_randomizer('3ptshot', None)
-            self.energy -= 25
+            self.energy -= (28 + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
                 self.commentator_randomizer('3ptmake', None)
@@ -279,7 +279,7 @@ class BasketballPlayer():
 
         if decision == 'drive':
             self.commentator_randomizer('drive', None)
-            self.energy -= 35
+            self.energy -= (34 + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
                 self.commentator_randomizer('drivemake', None)
@@ -300,7 +300,7 @@ class BasketballPlayer():
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
                     self.commentator_randomizer('pass', pass_receiver_preset)
-                    self.energy -= 12
+                    self.energy -= (13 + random.randint(1, 4))
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
@@ -308,7 +308,7 @@ class BasketballPlayer():
                 else:
                     self.commentator_randomizer('pass', pass_receiver_preset)
                     self.commentator_randomizer('stolen', pass_receiver_preset)
-                    self.energy -= 12
+                    self.energy -= (13 + random.randint(1, 4))
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
@@ -324,7 +324,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
-                        self.energy -= 12
+                        self.energy -= (13 + random.randint(1, 4))
                         print(haliburton)
 
                         self.passesMade += 1
@@ -334,7 +334,7 @@ class BasketballPlayer():
                     else:
                         self.commentator_randomizer('pass', pass_receiver)
                         self.commentator_randomizer('stolen', pass_receiver)
-                        self.energy -= 12
+                        self.energy -= (13 + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
