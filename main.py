@@ -379,10 +379,6 @@ class BasketballPlayer():
                 user_team_list_bench[self.positionnumber-1].haspossession = False
                 user_team_list[self.positionnumber-1].haspossession = True
 
-            user_team_list_bench[self.positionnumber-1].haspossession = False
-
-            user_team_list[self.positionnumber-1].haspossession = True
-            
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
                 defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
