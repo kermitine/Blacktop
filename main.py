@@ -492,6 +492,14 @@ r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles
 a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0, 100)
 
 
+# LAKERS BENCH UNIT
+d_russell = BasketballPlayer("D'Angelo Russell", "Point Guard", 1, "Los Angeles Lakers", 0.450, 0.80, 0.75, 0.12, 0.28, 0.22, 0.11, 0.40, False, None, False, 0, 0, 0, 100)
+g_vincent = BasketballPlayer("Gabe Vincent", "Shooting Guard", 2, "Los Angeles Lakers", 0.380, 0.80, 0.70, 0.10, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+m_christie = BasketballPlayer("Max Christie", "Small Forward", 3, "Los Angeles Lakers", 0.370, 0.60, 0.65, 0.09, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+c_reddish = BasketballPlayer("Cam Reddish", "Power Forward", 4, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100)
+j_hayes = BasketballPlayer("Jaxson Hayes", "Center", 5, "Los Angeles Lakers", 0.350, 0.50, 0.70, 0.10, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+
+
 # CLIPPERS STARTING UNIT
 j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 30)
 a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 30)
