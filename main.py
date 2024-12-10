@@ -808,7 +808,7 @@ while True:
         highest_passes = 0
         highest_passer = None
 
-        for player in combined_list:
+        for player in combined_list + user_team_list_bench + opposing_team_list_bench:
             if player.pointsMade > highest_score:
                 highest_score = player.pointsMade
                 highest_scorer = player
