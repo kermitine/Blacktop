@@ -662,7 +662,7 @@ elif user_team_input == '9':
     user_team = 'Dallas Mavericks'
     user_team_list = mavericks_list
     user_team_logo = mavericks_logo
-    user_team_list_bench = mavericks_list
+    user_team_list_bench = mavericks_bench_list
 elif user_team_input == '10':
     user_team = 'Denver Nuggets'
     user_team_list = nuggets_list
@@ -747,7 +747,7 @@ elif opposing_team == 'Orlando Magic':
 elif opposing_team == 'Dallas Mavericks':
     opposing_team_list = mavericks_list
     opposing_team_logo = mavericks_logo
-    opposing_team_list_bench = mavericks_list
+    opposing_team_list_bench = mavericks_bench_list
 elif opposing_team == 'Denver Nuggets':
     opposing_team_list = nuggets_list
     opposing_team_logo = nuggets_logo
