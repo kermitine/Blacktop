@@ -975,7 +975,7 @@ while True:
                 elif player_action_decision == 'substitute':
                     print(user_team, 'SUBSTITUTION:')
                     print(user_team_list_bench[current_player.positionnumber-1].name, 'comes in for', current_player.name + '!')
-
+                    print('\n')
                     # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
                     user_team_list.insert(current_player.positionnumber-1, user_team_list_bench[current_player.positionnumber-1])   #insert bench player into roster
                     user_team_list_bench.insert(current_player.positionnumber-1, user_team_list[current_player.positionnumber])   # insert former roster player into bench
