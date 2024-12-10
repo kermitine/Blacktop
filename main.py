@@ -262,7 +262,7 @@ class BasketballPlayer():
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
             self.commentator_randomizer('3ptshot', None)
-            self.energy -= 10
+            self.energy -= 18
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
                 self.commentator_randomizer('3ptmake', None)
@@ -279,7 +279,7 @@ class BasketballPlayer():
 
         if decision == 'drive':
             self.commentator_randomizer('drive', None)
-            self.energy -= 25
+            self.energy -= 32
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
                 self.commentator_randomizer('drivemake', None)
@@ -300,7 +300,7 @@ class BasketballPlayer():
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
                     self.commentator_randomizer('pass', pass_receiver_preset)
-                    self.energy -= 5
+                    self.energy -= 8
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
@@ -308,7 +308,7 @@ class BasketballPlayer():
                 else:
                     self.commentator_randomizer('pass', pass_receiver_preset)
                     self.commentator_randomizer('stolen', pass_receiver_preset)
-                    self.energy -= 5
+                    self.energy -= 8
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
@@ -324,7 +324,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
-                        self.energy -= 5
+                        self.energy -= 8
                         print(haliburton)
 
                         self.passesMade += 1
@@ -334,7 +334,7 @@ class BasketballPlayer():
                     else:
                         self.commentator_randomizer('pass', pass_receiver)
                         self.commentator_randomizer('stolen', pass_receiver)
-                        self.energy -= 5
+                        self.energy -= 8
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
@@ -501,11 +501,11 @@ j_hayes = BasketballPlayer("Jaxson Hayes", "Center", 5, "Los Angeles Lakers", 0.
 
 
 # CLIPPERS STARTING UNIT
-j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 30)
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 30)
-n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 30)
-k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 30)
-i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 30)
+j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 100)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 100)
+n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 100)
+k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 100)
+i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 100)
 
 
  # CLIPPERS BENCH UNIT 
@@ -521,6 +521,8 @@ clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
 
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
+lakers_bench_list = [d_russell, g_vincent, m_christie, c_reddish, j_hayes]
+
 celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
@@ -602,6 +604,7 @@ elif user_team_input == '2':
     user_team = 'Los Angeles Lakers'
     user_team_list = lakers_list
     user_team_logo = lakers_logo
+    user_team_list_bench = lakers_bench_list
 elif user_team_input == '3':
     user_team = 'Boston Celtics'
     user_team_list = celtics_list
@@ -691,6 +694,7 @@ if opposing_team == 'LA Clippers':
 elif opposing_team == 'Los Angeles Lakers':
     opposing_team_list = lakers_list
     opposing_team_logo = lakers_logo
+    opposing_team_list_bench = lakers_bench_list
 elif opposing_team == 'Boston Celtics':
     opposing_team_list = celtics_list
     opposing_team_logo = celtics_logo
@@ -873,16 +877,16 @@ while True:
 
     for player in combined_list:
 
-        if player.energy <= 7 and player != current_player and player.team == 'LA Clippers': #IF AI PLAYER ENERGY IS TOO LOW, SUB
-            print(player.name, 'is gassed!')
-            combined_list = player.substitution()
-
-            
 
 
 
 
         if player.haspossession is True:
+            if player.energy <= 7 and player != current_player: #IF AI PLAYER ENERGY IS TOO LOW, SUB
+                print(player.name, 'is gassed!')
+                combined_list = player.substitution()
+
+
             print(player.name, 'has the basketball!')
             print(player.name + "'s energy:", str(player.energy) + '%')
             if player.isplayer == True:
