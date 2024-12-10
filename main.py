@@ -852,7 +852,7 @@ while True:
 
     print('\n')
 
-    time.sleep(2.4)
+    time.sleep(3.5)
 
     for player in user_team_list_bench: #RECUPERATE 6 ENERGY TO EACH PLAYER ON THE BENCH PER TURN
         player.energy += 10
