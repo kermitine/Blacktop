@@ -842,6 +842,27 @@ while True:
 
     time.sleep(2.4)
 
+    for player in user_team_list_bench: #RECUPERATE 6 ENERGY TO EACH PLAYER ON THE BENCH PER TURN
+        player.energy += 5
+        if player.energy > 100: #CLAMP VALUES BETWEEN 0 AND 100
+            player.energy = 100
+        elif player.energy < 0:
+            player.energy = 0
+
+    for player in opposing_team_list_bench: #RECUPERATE 6 ENERGY TO EACH PLAYER ON THE BENCH PER TURN
+        player.energy += 5
+        if player.energy > 100: #CLAMP VALUES BETWEEN 0 AND 100
+            player.energy = 100
+        elif player.energy < 0:
+            player.energy = 0
+
+    for player in combined_list: # ENSURE THAT NO PLAYER'S ENERGY IS EVER OUTSIDE THE NORMAL RANGE
+        if player.energy > 100:
+            player.energy = 100
+        elif player.energy < 0:
+            player.energy = 0
+
+
     for player in combined_list:
 
         if player.energy <= 7 and player != current_player and player.team == 'LA Clippers': #IF AI PLAYER ENERGY IS TOO LOW, SUB
