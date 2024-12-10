@@ -262,6 +262,7 @@ class BasketballPlayer():
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
             self.commentator_randomizer('3ptshot', None)
+            self.energy -= 10
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
                 self.commentator_randomizer('3ptmake', None)
@@ -278,7 +279,7 @@ class BasketballPlayer():
 
         if decision == 'drive':
             self.commentator_randomizer('drive', None)
-                
+            self.energy -= 25
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
                 self.commentator_randomizer('drivemake', None)
@@ -299,7 +300,7 @@ class BasketballPlayer():
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
                     self.commentator_randomizer('pass', pass_receiver_preset)
-
+                    self.energy -= 5
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
@@ -307,7 +308,7 @@ class BasketballPlayer():
                 else:
                     self.commentator_randomizer('pass', pass_receiver_preset)
                     self.commentator_randomizer('stolen', pass_receiver_preset)
-
+                    self.energy -= 5
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
@@ -323,6 +324,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
+                        self.energy -= 5
                         print(haliburton)
 
                         self.passesMade += 1
@@ -332,7 +334,7 @@ class BasketballPlayer():
                     else:
                         self.commentator_randomizer('pass', pass_receiver)
                         self.commentator_randomizer('stolen', pass_receiver)
-
+                        self.energy -= 5
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
@@ -358,6 +360,55 @@ class BasketballPlayer():
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
                         return 'miss', 0
+                    
+    def substitution(self):
+
+        # only used for npc
+        if self.team == user_team:
+            print('Substituting', self.name, 'for', user_team_list_bench[self.positionnumber-1].name + '!')
+
+            # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
+            user_team_list.insert(self.positionnumber-1, user_team_list_bench[self.positionnumber-1])   #insert bench player into roster
+            user_team_list_bench.insert(self.positionnumber-1, user_team_list[self.positionnumber])   # insert former roster player into bench
+            user_team_list.pop(self.positionnumber) # remove former roster player from roster
+            user_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
+            
+
+
+            user_team_list_bench[self.positionnumber-1].haspossession = False
+
+            user_team_list[self.positionnumber-1].haspossession = True
+            
+            # RE-INITIALIZE DEFENDERS
+            for player in user_team_list:
+                defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
+                player.defender = defender
+                defender.defender = player
+        else:
+            print('Substituting', self.name, 'for', opposing_team_list_bench[self.positionnumber-1].name + '!')
+
+            # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
+            opposing_team_list.insert(self.positionnumber-1, opposing_team_list_bench[self.positionnumber-1])   #insert bench player into roster
+            opposing_team_list_bench.insert(self.positionnumber-1, opposing_team_list[self.positionnumber])   # insert former roster player into bench
+            opposing_team_list.pop(self.positionnumber) # remove former roster player from roster
+            opposing_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
+            
+
+            opposing_team_list_bench[self.positionnumber-1].haspossession = False
+
+            opposing_team_list[self.positionnumber-1].haspossession = True
+            
+            # RE-INITIALIZE DEFENDERS
+            for player in opposing_team_list:
+                defender = KermLib.object_matcher(player, user_team_list, 'positionnumber')
+                player.defender = defender
+                defender.defender = player
+
+        #update list
+        combined_list = user_team_list + opposing_team_list
+        return combined_list
+        
+
 
 # PELICANS STARTING UNIT
 d_murray = BasketballPlayer("Dejounte Murray", "Point Guard", 1, "New Orleans Pelicans", .450, 0.80, 0.72, 0.12, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0, 100)
@@ -442,11 +493,11 @@ a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .
 
 
 # CLIPPERS STARTING UNIT
-j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 100)
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 100)
-n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 100)
-k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 100)
-i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 100)
+j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 30)
+a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 30)
+n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 30)
+k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 30)
+i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", .310, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 30)
 
 
  # CLIPPERS BENCH UNIT 
@@ -628,6 +679,7 @@ opposing_team = teams_names[int(user_decision)-1]
 if opposing_team == 'LA Clippers':
     opposing_team_list = clippers_list
     opposing_team_logo = clippers_logo
+    opposing_team_list_bench = clippers_bench_list
 elif opposing_team == 'Los Angeles Lakers':
     opposing_team_list = lakers_list
     opposing_team_logo = lakers_logo
@@ -792,8 +844,9 @@ while True:
 
     for player in combined_list:
 
-        if player.energy <= 1 and player != current_player: #IF AI PLAYER ENERGY IS TOO LOW, SUB
+        if player.energy <= 7 and player != current_player and player.team == 'LA Clippers': #IF AI PLAYER ENERGY IS TOO LOW, SUB
             print(player.name, 'is gassed!')
+            combined_list = player.substitution()
 
             
 
