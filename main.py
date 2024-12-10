@@ -347,6 +347,7 @@ class BasketballPlayer():
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         self.commentator_randomizer('pass', pass_receiver)
                         print(haliburton)
+                        self.energy -= (13 + random.randint(1, 4))
 
                         self.passesMade += 1
                         pass_receiver.haspossession = True
@@ -355,7 +356,7 @@ class BasketballPlayer():
                     else:
                         self.commentator_randomizer('pass', pass_receiver)
                         self.commentator_randomizer('stolen', pass_receiver)
-
+                        self.energy -= (13 + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
