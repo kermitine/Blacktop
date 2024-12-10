@@ -483,17 +483,17 @@ k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks",
 
 # CELTICS STARTING UNIT
 j_holiday = BasketballPlayer("Jrue Holiday", "Point Guard", 1, "Boston Celtics", .480, .429, .833, .120, .180, .080, .090, .160, False, None, False, 0, 0, 0, 100)
-d_white = BasketballPlayer("Derrick White", "Shooting Guard", 2, "Boston Celtics", 0.396, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0)
+d_white = BasketballPlayer("Derrick White", "Shooting Guard", 2, "Boston Celtics", 0.396, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
 j_brown = BasketballPlayer("Jaylen Brown", "Small Forward", 3, "Boston Celtics", .480, .335, .765, .120, .180, .050, .060, .200, False, None, False, 0, 0, 0, 100)
 j_tatum = BasketballPlayer("Jayson Tatum", "Power Forward", 4, "Boston Celtics", .473, .354, .854, .091, .200, .100, .060, .250, False, None, False, 0, 0, 0, 100)
 k_porzingis = BasketballPlayer("Kristaps Porzingis", "Center", 5, "Boston Celtics", .498, .385, .850, .120, .180, .190, .070, .220, False, None, False, 0, 0, 0, 100)
 
 # CELTICS BENCH UNIT
-p_pritchard = BasketballPlayer("Payton Pritchard", "Point Guard", 1, "Boston Celtics", 0.375, 0.70, 0.65, 0.10, 0.20, 0.15, 0.10, 0.50, False, None, False, 0, 0, 0)
-j_springer = BasketballPlayer("Jaden Springer", "Shooting Guard", 2, "Boston Celtics", 0.218, 0.60, 0.65, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0)
-s_hauser = BasketballPlayer("Sam Hauser", "Small Forward", 3, "Boston Celtics", 0.400, 0.60, 0.55, 0.09, 0.20, 0.12, 0.10, 0.40, False, None, False, 0, 0, 0)
+p_pritchard = BasketballPlayer("Payton Pritchard", "Point Guard", 1, "Boston Celtics", 0.375, 0.70, 0.65, 0.10, 0.20, 0.15, 0.10, 0.50, False, None, False, 0, 0, 0, 100)
+j_springer = BasketballPlayer("Jaden Springer", "Shooting Guard", 2, "Boston Celtics", 0.218, 0.60, 0.65, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
+s_hauser = BasketballPlayer("Sam Hauser", "Small Forward", 3, "Boston Celtics", 0.400, 0.60, 0.55, 0.09, 0.20, 0.12, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
 a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics", .470, .380, .820, .130, .180, .100, .060, .140, False, None, False, 0, 0, 0, 100)
-l_kornet = BasketballPlayer("Luke Kornet", "Center", 5, "Boston Celtics", 0.300, 0.50, 0.60, 0.12, 0.18, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0)
+l_kornet = BasketballPlayer("Luke Kornet", "Center", 5, "Boston Celtics", 0.300, 0.50, 0.60, 0.12, 0.18, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
 
 
 # LAKERS STARTING UNIT
