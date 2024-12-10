@@ -365,6 +365,7 @@ class BasketballPlayer():
 
         # only used for npc
         if self.team == user_team:
+            print(user_team, 'SUBSTITUTION:')
             print('Substituting', self.name, 'for', user_team_list_bench[self.positionnumber-1].name + '!')
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
@@ -388,6 +389,7 @@ class BasketballPlayer():
             print('\n')
             return combined_list
         else:
+            print(opposing_team, 'SUBSTITUTION:')
             print('Substituting', self.name, 'for', opposing_team_list_bench[self.positionnumber-1].name + '!')
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
@@ -913,6 +915,7 @@ while True:
                 else:
                     print(player.name + "'s energy is too low! Forcing substitution!")
                     player_action_decision = 'substitute'
+                    time.sleep(1)
                 
                 if player_action_decision in ['pass', 'Pass']:
                     print('Who will you pass to?')
@@ -970,6 +973,7 @@ while True:
                         break
                     break   
                 elif player_action_decision == 'substitute':
+                    print(user_team, 'SUBSTITUTION:')
                     print(user_team_list_bench[current_player.positionnumber-1].name, 'comes in for', current_player.name + '!')
 
                     # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
