@@ -887,7 +887,7 @@ while True:
     time.sleep(3.5)
 
     for player in user_team_list_bench + opposing_team_list_bench: #RECUPERATE 6 ENERGY TO EACH PLAYER ON THE BENCH PER TURN
-        if random.rantint(1, 2) != 2:
+        if random.randint(1, 2) != 2:
             player.energy += 9
         if player.energy > 100: #CLAMP VALUES BETWEEN 0 AND 100
             player.energy = 100
