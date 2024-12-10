@@ -438,8 +438,15 @@ l_doncic = BasketballPlayer("Luka Doncic", "Point Guard", 1, "Dallas Mavericks",
 k_irving = BasketballPlayer("Kyrie Irving", "Shooting Guard", 2, "Dallas Mavericks", .395, 0.80, 0.70, 0.12, 0.28, 0.22, 0.12, 0.45, False, None, False, 0, 0, 0, 100)
 k_thompson = BasketballPlayer("Klay Thompson", "Small Forward", 3, "Dallas Mavericks", .413, 0.65, 0.60, 0.10, 0.25, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
 p_washington = BasketballPlayer("P.J. Washington", "Power Forward", 4, "Dallas Mavericks", .370, 0.60, 0.65, 0.11, 0.22, 0.20, 0.11, 0.35, False, None, False, 0, 0, 0, 100)
-d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", .310, 0.50, 0.60, 0.12, 0.20, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+d_lively = BasketballPlayer("Dereck Lively-II", "Center", 5, "Dallas Mavericks", 0.330, 0.40, 0.60, 0.12, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
 
+
+# MAVERICKS BENCH UNIT
+s_dinwiddie = BasketballPlayer("Spencer Dinwiddie", "Point Guard", 1, "Dallas Mavericks", 0.450, 0.80, 0.70, 0.12, 0.25, 0.20, 0.10, 0.35, False, None, False, 0, 0, 0, 100)
+q_grimes = BasketballPlayer("Quentin Grimes", "Shooting Guard", 2, "Dallas Mavericks", 0.390, 0.70, 0.68, 0.10, 0.25, 0.20, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+d_exum = BasketballPlayer("Dante Exum", "Small Forward", 3, "Dallas Mavericks", 0.370, 0.60, 0.60, 0.10, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+m_kleber = BasketballPlayer("Maxi Kleber", "Power Forward", 4, "Dallas Mavericks", 0.390, 0.65, 0.70, 0.11, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100)
+d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", .310, 0.50, 0.60, 0.12, 0.20, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
 
 
 # MAGIC STARTING UNIT
@@ -545,7 +552,11 @@ suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
 warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
-mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_gafford]
+
+mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
+mavericks_bench_list = [s_dinwiddie, q_grimes, d_exum, m_kleber, d_gafford]
+
+
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
 pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, d_theis]
 
@@ -650,6 +661,7 @@ elif user_team_input == '9':
     user_team = 'Dallas Mavericks'
     user_team_list = mavericks_list
     user_team_logo = mavericks_logo
+    user_team_list_bench = mavericks_list
 elif user_team_input == '10':
     user_team = 'Denver Nuggets'
     user_team_list = nuggets_list
@@ -734,6 +746,7 @@ elif opposing_team == 'Orlando Magic':
 elif opposing_team == 'Dallas Mavericks':
     opposing_team_list = mavericks_list
     opposing_team_logo = mavericks_logo
+    opposing_team_list_bench = mavericks_list
 elif opposing_team == 'Denver Nuggets':
     opposing_team_list = nuggets_list
     opposing_team_logo = nuggets_logo
