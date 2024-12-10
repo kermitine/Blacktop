@@ -909,11 +909,10 @@ while True:
                 if player.energy != 0:
                     print('What will you do? (pass), (drive), shoot a (3pt), or manually (substitute)?')
                     player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt', 'substitute'])
+                    print('\n' + '\n')
                 else:
                     print(player.name + "'s energy is too low! Forcing substitution!")
                     player_action_decision = 'substitute'
-                print('\n' + '\n')
-                print
                 
                 if player_action_decision in ['pass', 'Pass']:
                     print('Who will you pass to?')
