@@ -373,11 +373,6 @@ class BasketballPlayer():
             user_team_list.pop(self.positionnumber) # remove former roster player from roster
             user_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
             
-
-
-            user_team_list_bench[self.positionnumber-1].haspossession = False
-
-            user_team_list[self.positionnumber-1].haspossession = True
             
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
@@ -394,9 +389,6 @@ class BasketballPlayer():
             opposing_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
             
 
-            opposing_team_list_bench[self.positionnumber-1].haspossession = False
-
-            opposing_team_list[self.positionnumber-1].haspossession = True
             
             # RE-INITIALIZE DEFENDERS
             for player in opposing_team_list:
