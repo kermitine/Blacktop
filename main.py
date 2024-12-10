@@ -483,10 +483,17 @@ k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks",
 
 # CELTICS STARTING UNIT
 j_holiday = BasketballPlayer("Jrue Holiday", "Point Guard", 1, "Boston Celtics", .480, .429, .833, .120, .180, .080, .090, .160, False, None, False, 0, 0, 0, 100)
-j_brown = BasketballPlayer("Jaylen Brown", "Shooting Guard", 2, "Boston Celtics", .480, .335, .765, .120, .180, .050, .060, .200, False, None, False, 0, 0, 0, 100)
-j_tatum = BasketballPlayer("Jayson Tatum", "Small Forward", 3, "Boston Celtics", .473, .354, .854, .091, .200, .100, .060, .250, False, None, False, 0, 0, 0, 100)
-a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics", .470, .380, .820, .130, .180, .100, .060, .140, False, None, False, 0, 0, 0, 100)
+d_white = BasketballPlayer("Derrick White", "Shooting Guard", 2, "Boston Celtics", 0.396, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0)
+j_brown = BasketballPlayer("Jaylen Brown", "Small Forward", 3, "Boston Celtics", .480, .335, .765, .120, .180, .050, .060, .200, False, None, False, 0, 0, 0, 100)
+j_tatum = BasketballPlayer("Jayson Tatum", "Power Forward", 4, "Boston Celtics", .473, .354, .854, .091, .200, .100, .060, .250, False, None, False, 0, 0, 0, 100)
 k_porzingis = BasketballPlayer("Kristaps Porzingis", "Center", 5, "Boston Celtics", .498, .385, .850, .120, .180, .190, .070, .220, False, None, False, 0, 0, 0, 100)
+
+# CELTICS BENCH UNIT
+p_pritchard = BasketballPlayer("Payton Pritchard", "Point Guard", 1, "Boston Celtics", 0.375, 0.70, 0.65, 0.10, 0.20, 0.15, 0.10, 0.50, False, None, False, 0, 0, 0)
+j_springer = BasketballPlayer("Jaden Springer", "Shooting Guard", 2, "Boston Celtics", 0.218, 0.60, 0.65, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0)
+s_hauser = BasketballPlayer("Sam Hauser", "Small Forward", 3, "Boston Celtics", 0.400, 0.60, 0.55, 0.09, 0.20, 0.12, 0.10, 0.40, False, None, False, 0, 0, 0)
+a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics", .470, .380, .820, .130, .180, .100, .060, .140, False, None, False, 0, 0, 0, 100)
+l_kornet = BasketballPlayer("Luke Kornet", "Center", 5, "Boston Celtics", 0.300, 0.50, 0.60, 0.12, 0.18, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0)
 
 
 # LAKERS STARTING UNIT
@@ -528,7 +535,9 @@ clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
 lakers_list = [a_reaves, d_knecht, l_james, r_hachimura, a_davis]
 lakers_bench_list = [d_russell, g_vincent, m_christie, c_reddish, j_hayes]
 
-celtics_list = [j_holiday, j_brown, j_tatum, a_horford, k_porzingis]
+celtics_list = [j_holiday, d_white, j_brown, j_tatum, k_porzingis]
+celtics_bench_list = [p_pritchard, j_springer, s_hauser, a_horford, l_kornet]
+
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
@@ -614,6 +623,7 @@ elif user_team_input == '3':
     user_team = 'Boston Celtics'
     user_team_list = celtics_list
     user_team_logo = celtics_logo
+    user_team_list_bench = celtics_bench_list
 elif user_team_input == '4':
     user_team = 'New York Knicks'
     user_team_list = knicks_list
@@ -703,6 +713,7 @@ elif opposing_team == 'Los Angeles Lakers':
 elif opposing_team == 'Boston Celtics':
     opposing_team_list = celtics_list
     opposing_team_logo = celtics_logo
+    opposing_team_list_bench = celtics_bench_list
 elif opposing_team == 'New York Knicks':
     opposing_team_list = knicks_list
     opposing_team_logo = knicks_logo
