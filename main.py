@@ -384,6 +384,9 @@ class BasketballPlayer():
                 defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
                 player.defender = defender
                 defender.defender = player
+            combined_list = user_team_list + opposing_team_list
+            print('\n')
+            return combined_list
         else:
             print('Substituting', self.name, 'for', opposing_team_list_bench[self.positionnumber-1].name + '!')
 
@@ -407,6 +410,7 @@ class BasketballPlayer():
 
         #update list
         combined_list = user_team_list + opposing_team_list
+        print('\n')
         return combined_list
         
 
