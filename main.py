@@ -491,6 +491,14 @@ p_achiuwa = BasketballPlayer("Precious Achiuwa", "Power Forward", 4, "New York K
 k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks", 0.370, 0.15, 0.75, 0.08, 0.18, 0.28, 0.20, 0.30, False, None, False, 0, 0, 0, 100)
 
 
+# KNICKS BENCH UNIT
+c_payne = BasketballPlayer("Cameron Payne", "Point Guard", 1, "New York Knicks", 0.390, 0.65, 0.65, 0.12, 0.25, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100)
+m_mcbride = BasketballPlayer("Miles McBride", "Shooting Guard", 2, "New York Knicks", 0.370, 0.60, 0.60, 0.10, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+j_hart = BasketballPlayer("Josh Hart", "Small Forward", 3, "New York Knicks", 0.400, 0.70, 0.68, 0.11, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+j_sims = BasketballPlayer("Jericho Sims", "Power Forward", 4, "New York Knicks", 0.350, 0.50, 0.62, 0.12, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+m_robinson = BasketballPlayer("Mitchell Robinson", "Center", 5, "New York Knicks", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
+
+
 # CELTICS STARTING UNIT
 j_holiday = BasketballPlayer("Jrue Holiday", "Point Guard", 1, "Boston Celtics", .480, .429, .833, .120, .180, .080, .090, .160, False, None, False, 0, 0, 0, 100)
 d_white = BasketballPlayer("Derrick White", "Shooting Guard", 2, "Boston Celtics", 0.396, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
@@ -549,6 +557,8 @@ celtics_list = [j_holiday, d_white, j_brown, j_tatum, k_porzingis]
 celtics_bench_list = [p_pritchard, j_springer, s_hauser, a_horford, l_kornet]
 
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
+knicks_bench_list = [c_payne, m_mcbride,j_hart, j_sims, m_robinson]
+
 suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
 warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
@@ -642,6 +652,7 @@ elif user_team_input == '4':
     user_team = 'New York Knicks'
     user_team_list = knicks_list
     user_team_logo = knicks_logo
+    user_team_list_bench = knicks_bench_list
 elif user_team_input == '5':
     user_team = 'Phoenix Suns'
     user_team_list = suns_list
@@ -732,6 +743,7 @@ elif opposing_team == 'Boston Celtics':
 elif opposing_team == 'New York Knicks':
     opposing_team_list = knicks_list
     opposing_team_logo = knicks_logo
+    opposing_team_list_bench = knicks_bench_list
 elif opposing_team == 'Phoenix Suns':
     opposing_team_list = suns_list
     opposing_team_logo = suns_logo
