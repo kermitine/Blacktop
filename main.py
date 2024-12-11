@@ -462,7 +462,15 @@ w_carter_jr = BasketballPlayer("Wendell Carter-Jr", "Center", 5, "Orlando Magic"
 s_curry = BasketballPlayer("Stephen Curry", "Point Guard", 1, "Golden State Warriors", .428, 0.85, 0.70, 0.12, 0.30, 0.25, 0.15, 0.50, False, None, False, 0, 0, 0, 100)
 b_hield = BasketballPlayer("Buddy Hield", "Shooting Guard", 2, "Golden State Warriors", .400, 0.70, 0.65, 0.10, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0, 100)
 a_wiggins = BasketballPlayer("Andrew Wiggins", "Small Forward", 3, "Golden State Warriors", .420, 0.55, 0.62, 0.10, 0.22, 0.18, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
-d_green = BasketballPlayer("Draymond Green", "Power Forward", 4, "Golden State Warriors", .320, 0.70, 0.55, 0.15, 0.40, 0.30, 0.18, 0.35, False, None, False, 0, 0, 0, 100)
+j_kuminga = BasketballPlayer("Jonathan Kuminga", "Power Forward", 4, "Golden State Warriors", 0.420, 0.55, 0.65, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+d_green = BasketballPlayer("Draymond Green", "Center", 5, "Golden State Warriors", .320, 0.70, 0.55, 0.15, 0.40, 0.30, 0.18, 0.35, False, None, False, 0, 0, 0, 100)
+
+
+# WARRIORS BENCH UNIT
+b_podziemski = BasketballPlayer("Brandin Podziemski", "Point Guard", 1, "Golden State Warriors", 0.410, 0.65, 0.68, 0.12, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+m_moody = BasketballPlayer("Moses Moody", "Shooting Guard", 2, "Golden State Warriors", 0.390, 0.60, 0.65, 0.10, 0.25, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+g_payton_ii = BasketballPlayer("Gary Payton-II", "Small Forward", 3, "Golden State Warriors", 0.420, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100)
+k_anderson = BasketballPlayer("Kyle Anderson", "Power Forward", 4, "Golden State Warriors", 0.380, 0.55, 0.60, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
 k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors", .300, 0.25, 0.60, 0.10, 0.20, 0.20, 0.10, 0.25, False, None, False, 0, 0, 0, 100)
 
 
@@ -580,7 +588,9 @@ suns_bench_list = [m_morris, g_allen, r_oneale, r_dunn, m_plumlee]
 sixers_list = [t_maxey, k_oubre, p_george, g_yabusele, j_embiid]
 sixers_bench_list = [j_mccain, k_lowry, c_martin, p_nance, a_drummond]
 
-warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
+warriors_list = [s_curry, b_hield, a_wiggins, j_kuminga, d_green]
+warriors_bench_list = [b_podziemski, m_moody, g_payton_ii, k_anderson, k_looney]
+
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
 
 mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
@@ -687,6 +697,7 @@ elif user_team_input == '7':
     user_team = 'Golden State Warriors'
     user_team_list = warriors_list
     user_team_logo = warriors_logo
+    user_team_list_bench = warriors_bench_list
 elif user_team_input == '8':
     user_team = 'Orlando Magic'
     user_team_list = magic_list
@@ -777,6 +788,7 @@ elif opposing_team == 'Philadelphia 76ers':
 elif opposing_team == 'Golden State Warriors':
     opposing_team_list = warriors_list
     opposing_team_logo = warriors_logo
+    opposing_team_list_bench = warriors_bench_list
 elif opposing_team == 'Orlando Magic':
     opposing_team_list = magic_list
     opposing_team_logo = magic_logo
