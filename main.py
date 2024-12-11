@@ -959,6 +959,7 @@ while True:
                 else:
                     print(player.name + "'s energy is too low! Forcing substitution!")
                     player_action_decision = 'substitute'
+                    print('\n')
                     time.sleep(1)
                 
                 if player_action_decision in ['pass', 'Pass']:
