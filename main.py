@@ -468,11 +468,18 @@ k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors"
 
 # 76ers STARTING UNIT
 t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0.420, 0.75, 0.70, 0.10, 0.25, 0.22, 0.10, 0.35, False, None, False, 0, 0, 0, 100)
-j_mccain = BasketballPlayer("Jared McCain", "Shooting Guard", 2, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0.12, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+k_oubre = BasketballPlayer("Kelly Oubre-Jr", "Shooting Guard", 2, "Philadelphia 76ers", 0.430, 0.55, 0.70, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
 p_george = BasketballPlayer("Paul George", "Small Forward", 3, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0.11, 0.28, 0.25, 0.13, 0.35, False, None, False, 0, 0, 0, 100)
-c_martin = BasketballPlayer("Caleb Martin", "Power Forward", 4, "Philadelphia 76ers", 0.370, 0.55, 0.65, 0.09, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+g_yabusele = BasketballPlayer("Guerschon Yabusele", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.50, 0.60, 0.12, 0.22, 0.20, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
 j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0.13, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0, 100)
 
+
+# 76ers BENCH UNIT
+j_mccain = BasketballPlayer("Jared McCain", "Point Guard", 1, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0.12, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+k_lowry = BasketballPlayer("Kyle Lowry", "Shooting Guard", 2, "Philadelphia 76ers", 0.400, 0.80, 0.70, 0.10, 0.30, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+c_martin = BasketballPlayer("Caleb Martin", "Small Forward", 3, "Philadelphia 76ers", 0.370, 0.55, 0.65, 0.09, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+p_nance = BasketballPlayer("Pete Nance", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.60, 0.65, 0.12, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers", 0.520, 0.20, 0.60, 0.15, 0.18, 0.30, 0.15, 0.30, False, None, False, 0, 0, 0, 100)
 
 
 # SUNS STARTING UNIT
@@ -570,7 +577,9 @@ knicks_bench_list = [c_payne, m_mcbride,j_hart, j_sims, m_robinson]
 suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
 suns_bench_list = [m_morris, g_allen, r_oneale, r_dunn, m_plumlee]
 
-sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
+sixers_list = [t_maxey, k_oubre, p_george, g_yabusele, j_embiid]
+sixers_bench_list = [j_mccain, k_lowry, c_martin, p_nance, a_drummond]
+
 warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
 
@@ -672,6 +681,7 @@ elif user_team_input == '6':
     user_team = 'Philadelphia 76ers'
     user_team_list = sixers_list
     user_team_logo = sixers_logo
+    user_team_list_bench = sixers_bench_list
 elif user_team_input == '7':
     user_team = 'Golden State Warriors'
     user_team_list = warriors_list
@@ -762,6 +772,7 @@ elif opposing_team == 'Phoenix Suns':
 elif opposing_team == 'Philadelphia 76ers':
     opposing_team_list = sixers_list
     opposing_team_logo = sixers_logo
+    opposing_team_list_bench = sixers_bench_list
 elif opposing_team == 'Golden State Warriors':
     opposing_team_list = warriors_list
     opposing_team_logo = warriors_logo
