@@ -483,6 +483,14 @@ k_durant = BasketballPlayer("Kevin Durant", "Power Forward", 4, "Phoenix Suns", 
 y_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0.25, 0.65, 0.10, 0.20, 0.18, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
 
 
+# SUNS BENCH UNIT
+m_morris = BasketballPlayer("Monte Morris", "Point Guard", 1, "Phoenix Suns", 0.400, 0.70, 0.65, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0 , 100)
+g_allen = BasketballPlayer("Grayson Allen", "Shooting Guard", 2, "Phoenix Suns", 0.400, 0.65, 0.68, 0.12, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+r_oneale = BasketballPlayer("Royce O'Neale", "Small Forward", 3, "Phoenix Suns", 0.380, 0.60, 0.65, 0.11, 0.22, 0.18, 0.10, 0.32, False, None, False, 0, 0, 0, 100)
+r_dunn = BasketballPlayer("Ryan Dunn", "Power Forward", 4, "Phoenix Suns", 0.370, 0.55, 0.62, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+m_plumlee = BasketballPlayer("Mason Plumlee", "Center", 5, "Phoenix Suns", 0.350, 0.50, 0.60, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+
+
 # KNICKS STARTING UNIT
 j_brunson = BasketballPlayer("Jalen Brunson", "Point Guard", 1, "New York Knicks", 0.470, 0.75, 0.70, 0.09, 0.28, 0.22, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
 m_bridges = BasketballPlayer("Mikal Bridges", "Shooting Guard", 2, "New York Knicks", 0.410, 0.65, 0.68, 0.11, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
@@ -560,6 +568,8 @@ knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 knicks_bench_list = [c_payne, m_mcbride,j_hart, j_sims, m_robinson]
 
 suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
+suns_bench_list = [m_morris, g_allen, r_oneale, r_dunn, m_plumlee]
+
 sixers_list = [t_maxey, j_mccain, p_george, c_martin, j_embiid]
 warriors_list = [s_curry, b_hield, a_wiggins, d_green, k_looney]
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
@@ -657,6 +667,7 @@ elif user_team_input == '5':
     user_team = 'Phoenix Suns'
     user_team_list = suns_list
     user_team_logo = suns_logo 
+    user_team_list_bench = suns_bench_list
 elif user_team_input == '6':
     user_team = 'Philadelphia 76ers'
     user_team_list = sixers_list
@@ -747,6 +758,7 @@ elif opposing_team == 'New York Knicks':
 elif opposing_team == 'Phoenix Suns':
     opposing_team_list = suns_list
     opposing_team_logo = suns_logo
+    opposing_team_list_bench = suns_bench_list
 elif opposing_team == 'Philadelphia 76ers':
     opposing_team_list = sixers_list
     opposing_team_logo = sixers_logo
