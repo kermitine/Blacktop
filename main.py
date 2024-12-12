@@ -381,6 +381,8 @@ class BasketballPlayer():
                 user_team_list_bench[self.positionnumber-1].haspossession = False
                 user_team_list[self.positionnumber-1].haspossession = True
 
+            user_team_list_bench[self.positionnumber-1].energy += 7
+
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
                 defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
@@ -404,7 +406,8 @@ class BasketballPlayer():
             else:
                 opposing_team_list_bench[self.positionnumber-1].haspossession = False
                 opposing_team_list[self.positionnumber-1].haspossession = True
-            
+
+            opposing_team_list_bench[self.positionnumber-1].energy += 7
             # RE-INITIALIZE DEFENDERS
             for player in opposing_team_list:
                 defender = KermLib.object_matcher(player, user_team_list, 'positionnumber')
@@ -1080,6 +1083,8 @@ while True:
 
                     user_team_list_bench[current_player.positionnumber-1].haspossession = False
                     user_team_list_bench[current_player.positionnumber-1].isplayer = False
+
+                    user_team_list_bench[current_player.positionnumber-1].energy += 7
 
                     current_player = user_team_list[current_player.positionnumber-1]
 
