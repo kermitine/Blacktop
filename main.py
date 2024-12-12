@@ -423,7 +423,15 @@ d_murray = BasketballPlayer("Dejounte Murray", "Point Guard", 1, "New Orleans Pe
 c_mccollum = BasketballPlayer("CJ McCollum", "Shooting Guard", 2, "New Orleans Pelicans", .400, 0.75, 0.68, 0.10, 0.30, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
 b_ingram = BasketballPlayer("Brandon Ingram", "Small Forward", 3, "New Orleans Pelicans", .380, 0.65, 0.70, 0.11, 0.28, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
 z_williamson = BasketballPlayer("Zion Williamson", "Power Forward", 4, "New Orleans Pelicans", .370, 0.40, 0.75, 0.10, 0.35, 0.30, 0.15, 0.30, False, None, False, 0, 0, 0, 100)
-d_theis = BasketballPlayer("Daniel Theis", "Center", 5, "New Orleans Pelicans", .320, 0.50, 0.60, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+y_missi = BasketballPlayer("Yves Missi", "Center", 5, "New Orleans Pelicans", 0.350, 0.45, 0.60, 0.12, 0.25, 0.22, 0.14, 0.32, False, None, False, 0, 0, 0, 100)
+
+
+# PELICANS BENCH UNIT
+j_hawkins = BasketballPlayer("Jordan Hawkins", "Point Guard", 1, "New Orleans Pelicans", 0.400, 0.65, 0.70, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+t_murphy_iii = BasketballPlayer("Trey Murphy-III", "Shooting Guard", 2, "New Orleans Pelicans", 0.450, 0.65, 0.75, 0.10, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+b_boston_jr = BasketballPlayer("Brandon Boston-Jr", "Small Forward", 3, "New Orleans Pelicans", 0.390, 0.60, 0.65, 0.11, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+j_green = BasketballPlayer("Javonte Green", "Power Forward", 4, "New Orleans Pelicans", 0.400, 0.55, 0.68, 0.12, 0.25, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100)
+j_robinson_earl = BasketballPlayer("Jeremiah Robinson-Earl", "Center", 5, "New Orleans Pelicans", 0.370, 0.50, 0.62, 0.12, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
 
 
 # NUGGETS STARTING UNIT
@@ -596,9 +604,11 @@ magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
 mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
 mavericks_bench_list = [s_dinwiddie, q_grimes, d_exum, m_kleber, d_gafford]
 
+pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, y_missi]
+pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, j_green, j_robinson_earl]
 
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
-pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, d_theis]
+
 
 teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans']
 
@@ -715,6 +725,7 @@ elif user_team_input == '11':
     user_team = 'New Orleans Pelicans'
     user_team_list = pelicans_list
     user_team_logo = pelicans_logo
+    user_team_list_bench = pelicans_bench_list
 
 
 print(user_team_logo)
@@ -802,6 +813,7 @@ elif opposing_team == 'Denver Nuggets':
 elif opposing_team == 'New Orleans Pelicans':
     opposing_team_list = pelicans_list
     opposing_team_logo = pelicans_logo
+    opposing_team_list_bench = pelicans_bench_list
 
 
 
