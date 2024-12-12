@@ -442,6 +442,14 @@ a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets"
 n_jokic = BasketballPlayer("Nikola Jokic", "Center", 5, "Denver Nuggets", .500, 0.90, 0.75, 0.12, 0.40, 0.30, 0.15, 0.50, False, None, False, 0, 0, 0, 100)
 
 
+# NUGGETS BENCH UNIT
+r_westbrook = BasketballPlayer("Russell Westbrook", "Point Guard", 1, "Denver Nuggets", 0.430, 0.60, 0.68, 0.15, 0.30, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+j_strawther = BasketballPlayer("Julian Strawther", "Shooting Guard", 2, "Denver Nuggets", 0.420, 0.65, 0.70, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+h_tyson = BasketballPlayer("Hunter Tyson", "Small Forward", 3, "Denver Nuggets", 0.400, 0.60, 0.65, 0.11, 0.22, 0.18, 0.10, 0.32, False, None, False, 0, 0, 0, 100)
+p_watson = BasketballPlayer("Peyton Watson", "Power Forward", 4, "Denver Nuggets", 0.380, 0.55, 0.62, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+d_jordan = BasketballPlayer("DeAndre Jordan", "Center", 5, "Denver Nuggets", 0.520, 0.20, 0.60, 0.12, 0.18, 0.22, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
+
+
 # MAVERICKS STARTING UNIT
 l_doncic = BasketballPlayer("Luka Doncic", "Point Guard", 1, "Dallas Mavericks", .382, 0.87, 0.72, 0.15, 0.32, 0.28, 0.14, 0.50, False, None, False, 0, 0, 0, 100)
 k_irving = BasketballPlayer("Kyrie Irving", "Shooting Guard", 2, "Dallas Mavericks", .395, 0.80, 0.70, 0.12, 0.28, 0.22, 0.12, 0.45, False, None, False, 0, 0, 0, 100)
@@ -608,6 +616,7 @@ pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, y_missi]
 pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, j_green, j_robinson_earl]
 
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
+nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan]
 
 
 teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans']
@@ -721,6 +730,7 @@ elif user_team_input == '10':
     user_team = 'Denver Nuggets'
     user_team_list = nuggets_list
     user_team_logo = nuggets_logo
+    user_team_list_bench = nuggets_bench_list
 elif user_team_input == '11':
     user_team = 'New Orleans Pelicans'
     user_team_list = pelicans_list
@@ -810,6 +820,7 @@ elif opposing_team == 'Dallas Mavericks':
 elif opposing_team == 'Denver Nuggets':
     opposing_team_list = nuggets_list
     opposing_team_logo = nuggets_logo
+    opposing_team_list_bench = nuggets_bench_list
 elif opposing_team == 'New Orleans Pelicans':
     opposing_team_list = pelicans_list
     opposing_team_logo = pelicans_logo
