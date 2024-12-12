@@ -474,6 +474,14 @@ p_banchero = BasketballPlayer("Paolo Banchero", "Power Forward", 4, "Orlando Mag
 w_carter_jr = BasketballPlayer("Wendell Carter-Jr", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
 
 
+# MAGIC BENCH UNIT
+a_black = BasketballPlayer("Anthony Black", "Point Guard", 1, "Orlando Magic", 0.400, 0.70, 0.68, 0.12, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+c_anthony = BasketballPlayer("Cole Anthony", "Shooting Guard", 2, "Orlando Magic", 0.420, 0.65, 0.70, 0.10, 0.25, 0.22, 0.12, 0.32, False, None, False, 0, 0, 0, 100)
+g_harris = BasketballPlayer("Gary Harris", "Small Forward", 3, "Orlando Magic", 0.410, 0.60, 0.65, 0.11, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+j_isaac = BasketballPlayer("Jonathan Isaac", "Power Forward", 4, "Orlando Magic", 0.390, 0.55, 0.62, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+g_bitadze = BasketballPlayer("Goga Bitadze", "Center", 5, "Orlando Magic", 0.350, 0.50, 0.60, 0.12, 0.18, 0.22, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
+
+
 # WARRIORS STARTING UNIT
 s_curry = BasketballPlayer("Stephen Curry", "Point Guard", 1, "Golden State Warriors", .428, 0.85, 0.70, 0.12, 0.30, 0.25, 0.15, 0.50, False, None, False, 0, 0, 0, 100)
 b_hield = BasketballPlayer("Buddy Hield", "Shooting Guard", 2, "Golden State Warriors", .400, 0.70, 0.65, 0.10, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0, 100)
@@ -608,6 +616,7 @@ warriors_list = [s_curry, b_hield, a_wiggins, j_kuminga, d_green]
 warriors_bench_list = [b_podziemski, m_moody, g_payton_ii, k_anderson, k_looney]
 
 magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
+magic_bench_list = [a_black, c_anthony, g_harris, j_isaac, g_bitadze]
 
 mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
 mavericks_bench_list = [s_dinwiddie, q_grimes, d_exum, m_kleber, d_gafford]
@@ -721,6 +730,7 @@ elif user_team_input == '8':
     user_team = 'Orlando Magic'
     user_team_list = magic_list
     user_team_logo = magic_logo
+    user_team_list_bench = magic_bench_list
 elif user_team_input == '9':
     user_team = 'Dallas Mavericks'
     user_team_list = mavericks_list
@@ -813,6 +823,7 @@ elif opposing_team == 'Golden State Warriors':
 elif opposing_team == 'Orlando Magic':
     opposing_team_list = magic_list
     opposing_team_logo = magic_logo
+    opposing_team_list_bench = magic_bench_list
 elif opposing_team == 'Dallas Mavericks':
     opposing_team_list = mavericks_list
     opposing_team_logo = mavericks_logo
