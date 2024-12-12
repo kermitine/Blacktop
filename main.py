@@ -673,7 +673,7 @@ def turn_over_chance(passer, receiver_defender):
     turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
     
     turnover_chance = max(0.1, min(0.25, turnover_chance))
-    round(turnover_chance, 1)
+    turnover_chance = round(turnover_chance, 1)
     return turnover_chance * 100
 
 
