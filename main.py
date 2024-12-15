@@ -252,6 +252,8 @@ class BasketballPlayer():
     def decision(self):
         generated_probability = random.randint(1, 100)
         modified_probability  = generated_probability * (1 + self.passpref)
+        if self.energy <= 11:
+            return 'pass'
         if 81 > modified_probability >= 33.3:
             return 'pass'
         elif 150 >= modified_probability >= 81:
@@ -381,7 +383,7 @@ class BasketballPlayer():
                 user_team_list_bench[self.positionnumber-1].haspossession = False
                 user_team_list[self.positionnumber-1].haspossession = True
 
-            user_team_list_bench[self.positionnumber-1].energy += 7
+            user_team_list_bench[self.positionnumber-1].energy += 10
 
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
@@ -407,7 +409,7 @@ class BasketballPlayer():
                 opposing_team_list_bench[self.positionnumber-1].haspossession = False
                 opposing_team_list[self.positionnumber-1].haspossession = True
 
-            opposing_team_list_bench[self.positionnumber-1].energy += 7
+            opposing_team_list_bench[self.positionnumber-1].energy += 10
             # RE-INITIALIZE DEFENDERS
             for player in opposing_team_list:
                 defender = KermLib.object_matcher(player, user_team_list, 'positionnumber')
@@ -1084,7 +1086,7 @@ while True:
                     user_team_list_bench[current_player.positionnumber-1].haspossession = False
                     user_team_list_bench[current_player.positionnumber-1].isplayer = False
 
-                    user_team_list_bench[current_player.positionnumber-1].energy += 7
+                    user_team_list_bench[current_player.positionnumber-1].energy += 10
 
                     current_player = user_team_list[current_player.positionnumber-1]
 
