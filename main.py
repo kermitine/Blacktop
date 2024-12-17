@@ -598,6 +598,22 @@ d_jones_jr = BasketballPlayer("Derrick Jones-Jr", "Power Forward", 4, "LA Clippe
 m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
 
 
+# '13-'14 CLIPPERS STARTING UNIT
+c_paul = BasketballPlayer("Chris Paul", "Point Guard", 1, "'13-'14 LA Clippers", 0.368, 0.90, 0.70, 0.11, 0.25, 0.20, 0.15, 0.50, False, None, False, 0, 0, 0, 100)
+j_reddick = BasketballPlayer("JJ Redick", "Shooting Guard", 2, "'13-'14 LA Clippers", 0.395, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
+j_dudley = BasketballPlayer("Jared Dudley", "Small Forward", 3, "'13-'14 LA Clippers", 0.360, 0.60, 0.55, 0.10, 0.20, 0.15, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+b_griffin = BasketballPlayer("Blake Griffin", "Power Forward", 4, "'13-'14 LA Clippers", 0.276, 0.55, 0.75, 0.12, 0.30, 0.25, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
+d_jordan = BasketballPlayer("DeAndre Jordan", "Center", 5, "'13-'14 LA Clippers", 0.000, 0.40, 0.80, 0.15, 0.35, 0.45, 0.15, 0.30, False, None, False, 0, 0, 0, 100)
+
+
+# '13-'14 CLIPPERS BENCH UNIT
+d_collison = BasketballPlayer("Darren Collison", "Point Guard", 1, "'13-'14 LA Clippers", 0.375, 0.75, 0.65, 0.10, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+j_crawford = BasketballPlayer("Jamal Crawford", "Shooting Guard", 2, "'13-'14 LA Clippers", 0.360, 0.65, 0.70, 0.12, 0.20, 0.15, 0.10, 0.35, False, None, False, 0, 0, 0, 100)
+m_barnes = BasketballPlayer("Matt Barnes", "Small Forward", 3, "'13-'14 LA Clippers", 0.340, 0.55, 0.60, 0.11, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+h_turkoglu = BasketballPlayer("Hedo Turkoglu", "Power Forward", 4, "'13-'14 LA Clippers", 0.380, 0.60, 0.55, 0.10, 0.20, 0.15, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
+r_hollins = BasketballPlayer("Ryan Hollins", "Center", 5, "'13-'14 LA Clippers", 0.000, 0.40, 0.65, 0.12, 0.18, 0.20, 0.12, 0.25, False, None, False, 0, 0, 0, 100)
+
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -632,8 +648,11 @@ pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, j_green, j_robinson
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
 nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan]
 
+retro_clippers_list = [c_paul, j_reddick, j_dudley, b_griffin, d_jordan]
+retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hollins]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans']
+
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers"]
 
 def calculate_turnover_chance(passer, receiver_defender):
     """
@@ -751,6 +770,11 @@ elif user_team_input == '11':
     user_team_list = pelicans_list
     user_team_logo = pelicans_logo
     user_team_list_bench = pelicans_bench_list
+elif user_team_input == '12':
+    user_team = "'13-'14 LA Clippers"
+    user_team_list = retro_clippers_list
+    user_team_logo = retro_clippers_logo
+    user_team_list_bench = retro_clippers_bench_list
 
 
 print(user_team_logo)
@@ -841,6 +865,10 @@ elif opposing_team == 'New Orleans Pelicans':
     opposing_team_list = pelicans_list
     opposing_team_logo = pelicans_logo
     opposing_team_list_bench = pelicans_bench_list
+elif opposing_team == "'13-'14 LA Clippers":
+    opposing_team_list = retro_clippers_list
+    opposing_team_logo = retro_clippers_logo
+    opposing_team_list_bench = retro_clippers_bench_list
 
 
 
