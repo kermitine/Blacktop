@@ -603,7 +603,7 @@ m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 
 
 # '13-'14 CLIPPERS STARTING UNIT
 c_paul = BasketballPlayer("Chris Paul", "Point Guard", 1, "'13-'14 LA Clippers", 0.368, 0.90, 0.70, 0.11, 0.25, 0.20, 0.15, 0.50, False, None, False, 0, 0, 0, 100)
-j_reddick = BasketballPlayer("JJ Redick", "Shooting Guard", 2, "'13-'14 LA Clippers", 0.395, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
+j_redick = BasketballPlayer("JJ Redick", "Shooting Guard", 2, "'13-'14 LA Clippers", 0.395, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
 j_dudley = BasketballPlayer("Jared Dudley", "Small Forward", 3, "'13-'14 LA Clippers", 0.360, 0.60, 0.55, 0.10, 0.20, 0.15, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
 b_griffin = BasketballPlayer("Blake Griffin", "Power Forward", 4, "'13-'14 LA Clippers", 0.276, 0.55, 0.75, 0.12, 0.30, 0.25, 0.10, 0.40, False, None, False, 0, 0, 0, 100)
 d_jordan_2 = BasketballPlayer("DeAndre Jordan", "Center", 5, "'13-'14 LA Clippers", 0.000, 0.40, 0.80, 0.15, 0.35, 0.45, 0.15, 0.30, False, None, False, 0, 0, 0, 100)
@@ -651,7 +651,7 @@ pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, j_green, j_robinson
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
 nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan]
 
-retro_clippers_list = [c_paul, j_reddick, j_dudley, b_griffin, d_jordan_2]
+retro_clippers_list = [c_paul, j_redick, j_dudley, b_griffin, d_jordan_2]
 retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hollins]
 
 
