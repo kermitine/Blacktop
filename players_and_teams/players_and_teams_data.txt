@@ -205,6 +205,22 @@ a_wiggins = BasketballPlayer("Aaron Wiggins", "Power Forward", 4, "Oklahoma City
 i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma City Thunder", 0.310, 0.55, 0.65, 0.12, 0.20, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
 
 
+# MEMPHIS GRIZZLIES STARTING UNIT
+j_morant = BasketballPlayer("Ja Morant", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.85, 0.80, 0.13, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0, 100)
+d_bane = BasketballPlayer("Desmond Bane", "Shooting Guard", 2, "Memphis Grizzlies", 0.430, 0.80, 0.70, 0.10, 0.22, 0.18, 0.11, 0.40, False, None, False, 0, 0, 0, 100)
+j_jackson_jr = BasketballPlayer("Jaren Jackson Jr.", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.65, 0.65, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+b_clarke = BasketballPlayer("Brandon Clarke", "Power Forward", 4, "Memphis Grizzlies", 0.200, 0.55, 0.70, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+z_edey = BasketballPlayer("Zach Edey", "Center", 5, "Memphis Grizzlies", 0.000, 0.50, 0.75, 0.12, 0.30, 0.28, 0.15, 0.35, False, None, False, 0, 0, 0, 100)
+
+
+# MEMPHIS GRIZZLIES BENCH UNIT
+m_smart = BasketballPlayer("Marcus Smart", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.70, 0.65, 0.12, 0.25, 0.22, 0.14, 0.40, False, None, False, 0, 0, 0, 100)
+l_kennard = BasketballPlayer("Luke Kennard", "Shooting Guard", 2, "Memphis Grizzlies", 0.420, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.35, False, None, False, 0, 0, 0, 100)
+s_aldama = BasketballPlayer("Santi Aldama", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.60, 0.65, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100)
+d_roddy = BasketballPlayer("David Roddy", "Power Forward", 4, "Memphis Grizzlies", 0.300, 0.55, 0.60, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0, 100)
+j_huff = BasketballPlayer("Jay Huff", "Center", 5, "Memphis Grizzlies", 0.300, 0.55, 0.65, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
+
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -245,7 +261,9 @@ retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hol
 thunder_list = [s_gilgeous_alexander, c_wallace, l_dort, j_williams, c_holmgren]
 thunder_bench_list = [a_mitchell, i_joe, a_caruso, a_wiggins, i_hartenstein]
 
+grizzlies_list = [j_morant, d_bane, j_jackson_jr, b_clarke, z_edey]
+grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder"]
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies"]
 
 #END

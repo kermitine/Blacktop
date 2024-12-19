@@ -557,6 +557,11 @@ elif user_team_input == '13':
     user_team_list = thunder_list
     user_team_logo = thunder_logo
     user_team_list_bench = thunder_bench_list
+elif user_team_input == '14':
+    user_team = "Memphis Grizzlies"
+    user_team_list = grizzlies_list
+    user_team_logo = grizzlies_logo
+    user_team_list_bench = grizzlies_bench_list
 
 
 print(user_team_logo)
@@ -655,6 +660,11 @@ elif opposing_team == "Oklahoma City Thunder":
     opposing_team_list = thunder_list
     opposing_team_logo = thunder_logo
     opposing_team_list_bench = thunder_bench_list
+elif opposing_team == "Memphis Grizzlies":
+    opposing_team_list = grizzlies_list
+    opposing_team_logo = grizzlies_logo
+    opposing_team_list_bench = grizzlies_bench_list
+
 
 
 
