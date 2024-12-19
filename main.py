@@ -552,6 +552,11 @@ elif user_team_input == '12':
     user_team_list = retro_clippers_list
     user_team_logo = retro_clippers_logo
     user_team_list_bench = retro_clippers_bench_list
+elif user_team_input == '13':
+    user_team = "Oklahoma City Thunder"
+    user_team_list = thunder_list
+    user_team_logo = thunder_logo
+    user_team_list_bench = thunder_bench_list
 
 
 print(user_team_logo)
@@ -646,6 +651,10 @@ elif opposing_team == "'13-'14 LA Clippers":
     opposing_team_list = retro_clippers_list
     opposing_team_logo = retro_clippers_logo
     opposing_team_list_bench = retro_clippers_bench_list
+elif opposing_team == "Oklahoma City Thunder":
+    opposing_team_list = thunder_list
+    opposing_team_logo = thunder_logo
+    opposing_team_list_bench = thunder_bench_list
 
 
 

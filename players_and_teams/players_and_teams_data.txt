@@ -189,6 +189,22 @@ h_turkoglu = BasketballPlayer("Hedo Turkoglu", "Power Forward", 4, "'13-'14 LA C
 r_hollins = BasketballPlayer("Ryan Hollins", "Center", 5, "'13-'14 LA Clippers", 0.000, 0.40, 0.65, 0.12, 0.18, 0.20, 0.12, 0.25, False, None, False, 0, 0, 0, 100)
 
 
+# OKLAHOMA CITY THUNDER STARTING UNIT
+s_gilgeous_alexander = BasketballPlayer("Shai Gilgeous-Alexander", "Point Guard", 1, "Oklahoma City Thunder", 0.375, 0.85, 0.80, 0.12, 0.28, 0.25, 0.15, 0.45, False, None, False, 0, 0, 0, 100)
+c_wallace = BasketballPlayer("Cason Wallace", "Shooting Guard", 2, "Oklahoma City Thunder", 0.350, 0.70, 0.65, 0.10, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+l_dort = BasketballPlayer("Luguentz Dort", "Small Forward", 3, "Oklahoma City Thunder", 0.330, 0.60, 0.65, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+j_williams = BasketballPlayer("Jalen Williams", "Power Forward", 4, "Oklahoma City Thunder", 0.400, 0.75, 0.70, 0.10, 0.28, 0.22, 0.14, 0.40, False, None, False, 0, 0, 0, 100)
+c_holmgren = BasketballPlayer("Chet Holmgren", "Center", 5, "Oklahoma City Thunder", 0.380, 0.60, 0.70, 0.11, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0, 100)
+
+
+# OKLAHOMA CITY THUNDER BENCH UNIT
+a_mitchell = BasketballPlayer("Ajay Mitchell", "Point Guard", 1, "Oklahoma City Thunder", 0.330, 0.65, 0.60, 0.11, 0.20, 0.15, 0.10, 0.35, False, None, False, 0, 0, 0, 100)
+i_joe = BasketballPlayer("Isaiah Joe", "Shooting Guard", 2, "Oklahoma City Thunder", 0.410, 0.70, 0.65, 0.10, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+a_caruso = BasketballPlayer("Alex Caruso", "Small Forward", 3, "Oklahoma City Thunder", 0.365, 0.75, 0.65, 0.10, 0.25, 0.22, 0.15, 0.40, False, None, False, 0, 0, 0, 100)
+a_wiggins = BasketballPlayer("Aaron Wiggins", "Power Forward", 4, "Oklahoma City Thunder", 0.340, 0.65, 0.62, 0.12, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma City Thunder", 0.310, 0.55, 0.65, 0.12, 0.20, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -226,7 +242,10 @@ nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan]
 retro_clippers_list = [c_paul, j_redick, j_dudley, b_griffin, d_jordan_2]
 retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hollins]
 
+thunder_list = [s_gilgeous_alexander, c_wallace, l_dort, j_williams, c_holmgren]
+thunder_bench_list = [a_mitchell, i_joe, a_caruso, a_wiggins, i_hartenstein]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers"]
+
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder"]
 
 #END
