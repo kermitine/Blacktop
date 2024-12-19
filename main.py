@@ -1,7 +1,7 @@
 import random
 import time
 from KermLib.KermLib import *
-from basketball_ascii import *
+from vars.basketball_ascii import *
 
 version = '2024.12.16.2340.rc'
 
