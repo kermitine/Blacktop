@@ -221,6 +221,21 @@ d_roddy = BasketballPlayer("David Roddy", "Power Forward", 4, "Memphis Grizzlies
 j_huff = BasketballPlayer("Jay Huff", "Center", 5, "Memphis Grizzlies", 0.300, 0.55, 0.65, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
 
 
+# HOUSTON ROCKETS STARTING UNIT 
+f_vanvleet = BasketballPlayer("Fred VanVleet", "Point Guard", 1, "Houston Rockets", 0.370, 0.85, 0.70, 0.10, 0.25, 0.22, 0.14, 0.45, False, None, False, 0, 0, 0, 100)
+j_green = BasketballPlayer("Jalen Green", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.70, 0.65, 0.12, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+d_brooks = BasketballPlayer("Dillon Brooks", "Small Forward", 3, "Houston Rockets", 0.320, 0.60, 0.65, 0.12, 0.25, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100)
+j_smith_jr = BasketballPlayer("Jabari Smith-Jr", "Power Forward", 4, "Houston Rockets", 0.310, 0.55, 0.70, 0.11, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100)
+a_sengun = BasketballPlayer("Alperen Sengun", "Center", 5, "Houston Rockets", 0.300, 0.60, 0.75, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100)
+
+
+# HOUSTON ROCKETS BENCH UNIT
+a_holiday = BasketballPlayer("Aaron Holiday", "Point Guard", 1, "Houston Rockets", 0.360, 0.65, 0.60, 0.11, 0.20, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100)
+c_whitmore = BasketballPlayer("Cam Whitmore", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.65, 0.65, 0.12, 0.22, 0.18, 0.11, 0.35, False, None, False, 0, 0, 0, 100)
+a_thompson = BasketballPlayer("Amen Thompson", "Small Forward", 3, "Houston Rockets", 0.330, 0.60, 0.70, 0.10, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100)
+t_eason = BasketballPlayer("Tari Eason", "Power Forward", 4, "Houston Rockets", 0.300, 0.55, 0.65, 0.12, 0.28, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100)
+s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000, 0.40, 0.70, 0.13, 0.25, 0.28, 0.14, 0.30, False, None, False, 0, 0, 0, 100)
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -264,6 +279,9 @@ thunder_bench_list = [a_mitchell, i_joe, a_caruso, a_wiggins, i_hartenstein]
 grizzlies_list = [j_morant, d_bane, j_jackson_jr, b_clarke, z_edey]
 grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies"]
+rockets_list = [f_vanvleet, j_green, d_brooks, j_smith_jr, a_sengun]
+rockets_bench_list = [a_holiday, c_whitmore, a_thompson, t_eason, s_adams]
+
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets"]
 
 #END
