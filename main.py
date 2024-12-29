@@ -570,6 +570,11 @@ elif user_team_input == '15':
     user_team_list = rockets_list
     user_team_logo = rockets_logo
     user_team_list_bench = rockets_bench_list
+elif user_team_input == '16':
+    user_team = "Washington Wizards"
+    user_team_list = wizards_list
+    user_team_logo = wizards_logo
+    user_team_list_bench = wizards_bench_list
 
 
 print(user_team_logo)
@@ -676,6 +681,10 @@ elif opposing_team == "Houston Rockets":
     opposing_team_list = rockets_list
     opposing_team_logo = rockets_logo
     opposing_team_list_bench = rockets_bench_list
+elif opposing_team == "Washington Wizards":
+    opposing_team_list = wizards_list
+    opposing_team_logo = wizards_logo
+    opposing_team_list_bench = wizards_bench_list
 
 
 
