@@ -141,7 +141,7 @@ a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics",
 l_kornet = BasketballPlayer("Luke Kornet", "Center", 5, "Boston Celtics", 0.000, 0.50, 0.60, 0.12, 0.18, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100)
 
 
-# LAKERS STARTING UNIT m_christie stats placeholder
+# LAKERS STARTING UNIT
 a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100)
 m_christie = BasketballPlayer("Max Christie", "Shooting Guard", 2, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100)
 l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0, 100)

@@ -3,7 +3,7 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 
-version = '2025.1.5.1445.stable'
+version = '2025.1.16.1040.stable'
 
 
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
