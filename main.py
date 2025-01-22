@@ -36,220 +36,229 @@ class BasketballPlayer():
         if event == '3ptshot':
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 12)  # Increased range for more variations
-            if announcer_call == 1:
-                print(self.name, 'fires it from deep!')
-            elif announcer_call == 2:
-                print(self.name, 'lets it fly!')
-            elif announcer_call == 3:
-                print(self.name, 'from downtown!')
-            elif announcer_call == 4:
-                print(self.name, 'steps back and pulls from three!')
-            elif announcer_call == 5:
-                print('Corner three from', last_name + '!')
-            elif announcer_call == 6:
-                print(last_name, 'fires a three!')
-            elif announcer_call == 7:
-                print(self.name, 'pulls up from beyond the arc!')
-            elif announcer_call == 8:
-                print(last_name, 'launches it from deep!')
-            elif announcer_call == 9:
-                print('A step-back three from', self.name + '!')
-            elif announcer_call == 10:
-                print(self.name, 'from way downtown!')
-            elif announcer_call == 11:
-                print(last_name, 'pulls the trigger from three!')
-            elif announcer_call == 12:
-                print(self.name, 'shoots it with confidence from beyond the arc!')
+            match announcer_call:
+                case 1:
+                    print(self.name, 'fires it from deep!')
+                case 2:
+                    print(self.name, 'lets it fly!')
+                case 3:
+                    print(self.name, 'from downtown!')
+                case 4:
+                    print(self.name, 'steps back and pulls from three!')
+                case 5:
+                    print('Corner three from', last_name + '!')
+                case 6:
+                    print(last_name, 'fires a three!')
+                case 7:
+                    print(self.name, 'pulls up from beyond the arc!')
+                case 8:
+                    print(last_name, 'launches it from deep!')
+                case 9:
+                    print('A step-back three from', self.name + '!')
+                case 10:
+                    print(self.name, 'from way downtown!')
+                case 11:
+                    print(last_name, 'pulls the trigger from three!')
+                case 12:
+                    print(self.name, 'shoots it with confidence from beyond the arc!')
 
 
         elif event == '3ptmake':
             announcer_call = random.randint(1, 12)  # Increased range for more variations
-            if announcer_call == 1:
-                print('Count it!')
-            elif announcer_call == 2:
-                print('BANG!')
-            elif announcer_call == 3:
-                print('BANG! BANG! WHAT A SHOT FROM', self.name.upper() + '!')
-            elif announcer_call == 4:
-                print('And he sinks the three!')
-            elif announcer_call == 5:
-                print('NOTHING BUT NET!')
-            elif announcer_call == 6:
-                print('And it’s good!')
-            elif announcer_call == 7:
-                print(self.name, 'with the triple!')
-            elif announcer_call == 8:
-                print('He’s on fire! Another three from', self.name + '!')
-            elif announcer_call == 9:
-                print('Splash! What a shot by', self.name + '!')
-            elif announcer_call == 10:
-                print('That’s three more for', self.team + '!')
-            elif announcer_call == 11:
-                print('Cold-blooded from beyond the arc by', self.name + '!')
-            elif announcer_call == 12:
-                print('And he drills it! A dagger from deep!')
+            match announcer_call:
+                case 1:
+                    print('Count it!')
+                case 2:
+                    print('BANG!')
+                case 3:
+                    print('BANG! BANG! WHAT A SHOT FROM', self.name.upper() + '!')
+                case 4:
+                    print('And he sinks the three!')
+                case 5:
+                    print('NOTHING BUT NET!')
+                case 6:
+                    print('And it’s good!')
+                case 7:
+                    print(self.name, 'with the triple!')
+                case 8:
+                    print('He’s on fire! Another three from', self.name + '!')
+                case 9:
+                    print('Splash! What a shot by', self.name + '!')
+                case 10:
+                    print('That’s three more for', self.team + '!')
+                case 11:
+                    print('Cold-blooded from beyond the arc by', self.name + '!')
+                case 12:
+                    print('And he drills it! A dagger from deep!')
 
 
         elif event == '3ptmiss':
             announcer_call = random.randint(1, 10)  # Increased range for more variations
             last_name = self.name.split(" ")[1]
-            if announcer_call == 1:
-                print('And airballs!', self.defender.name, 'gathers it up.')
-            elif announcer_call == 2:
-                print('And the shot is off the mark.')
-            elif announcer_call == 3:
-                print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
-            elif announcer_call == 4:
-                print('And he misfires.', self.defender.name, 'with the rebound.')
-            elif announcer_call == 5:
-                print('SMOTHERED BY', self.defender.name.upper() + '!')
-            elif announcer_call == 6:
-                print('The three-point attempt rattles out. Tough luck for', last_name + '.')
-            elif announcer_call == 7:
-                print('It’s no good from downtown!', self.defender.name, 'picks it up for the', self.defender.team + '.')
-            elif announcer_call == 8:
-                print('Way off target from beyond the arc.')
-            elif announcer_call == 9:
-                print('And it’s just short! A strong defensive effort by', self.defender.name + '.')
-            elif announcer_call == 10:
-                print('Off the back iron!', self.defender.name, 'secures the rebound.')
+            match announcer_call:
+                case 1:
+                    print('And airballs!', self.defender.name, 'gathers it up.')
+                case 2:
+                    print('And the shot is off the mark.')
+                case 3:
+                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+                case 4:
+                    print('And he misfires.', self.defender.name, 'with the rebound.')
+                case 5:
+                    print('SMOTHERED BY', self.defender.name.upper() + '!')
+                case 6:
+                    print('The three-point attempt rattles out. Tough luck for', last_name + '.')
+                case 7:
+                    print('It’s no good from downtown!', self.defender.name, 'picks it up for the', self.defender.team + '.')
+                case 8:
+                    print('Way off target from beyond the arc.')
+                case 9:
+                    print('And it’s just short! A strong defensive effort by', self.defender.name + '.')
+                case 10:
+                    print('Off the back iron!', self.defender.name, 'secures the rebound.')
 
 
         elif event == 'drive':
             defender_last_name = self.defender.name.split(" ")[1]
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 11)  # Increased range for more variations
-            if announcer_call == 1:
-                print(self.name, 'drives into the paint!')
-            elif announcer_call == 2:
-                print('Here comes ' + self.name + '!')
-            elif announcer_call == 3:
-                print(self.name, 'drives the lane!')
-            elif announcer_call == 4:
-                print(self.name, 'cuts to the hoop!')
-            elif announcer_call == 5:
-                print(last_name, 'spins past', defender_last_name + '!')
-            elif announcer_call == 6:
-                print(self.name, 'slashes to the basket!')
-            elif announcer_call == 7:
-                print('A strong move by ' + self.name + ' to the rim!')
-            elif announcer_call == 8:
-                print(last_name, 'blows by', defender_last_name, 'with a quick step!')
-            elif announcer_call == 9:
-                print(self.name, 'weaves through traffic and heads to the rack!')
-            elif announcer_call == 10:
-                print('Explosive drive by ' + last_name + '!')
-            elif announcer_call == 11:
-                print(last_name, 'cuts inside and challenges', defender_last_name + '!')
+            match announcer_call:
+                case 1:
+                    print(self.name, 'drives into the paint!')
+                case 2:
+                    print('Here comes ' + self.name + '!')
+                case 3:
+                    print(self.name, 'drives the lane!')
+                case 4:
+                    print(self.name, 'cuts to the hoop!')
+                case 5:
+                    print(last_name, 'spins past', defender_last_name + '!')
+                case 6:
+                    print(self.name, 'slashes to the basket!')
+                case 7:
+                    print('A strong move by ' + self.name + ' to the rim!')
+                case 8:
+                    print(last_name, 'blows by', defender_last_name, 'with a quick step!')
+                case 9:
+                    print(self.name, 'weaves through traffic and heads to the rack!')
+                case 10:
+                    print('Explosive drive by ' + last_name + '!')
+                case 11:
+                    print(last_name, 'cuts inside and challenges', defender_last_name + '!')
 
         
         elif event == 'drivemake':
             announcer_call = random.randint(1, 10)  # Increased range for more variations
-            if announcer_call == 1:
-                print('And he rattles it in!')
-            elif announcer_call == 2:
-                print('AND HE SLAMS IT DOWN!')
-            elif announcer_call == 3:
-                print('And he lays it up and in!')
-            elif announcer_call == 4:
-                print('And he brings the house down!')
-            elif announcer_call == 5:
-                print('And he kisses it off the glass!')
-            elif announcer_call == 6:
-                print('What a drive! He finishes strong at the rim!')
-            elif announcer_call == 7:
-                print('And he powers it home with authority!')
-            elif announcer_call == 8:
-                print('A dazzling move to the basket, and he converts!')
-            elif announcer_call == 9:
-                print('He takes it all the way and scores with a smooth finish!')
-            elif announcer_call == 10:
-                print('And he knifes through the defense for two!')
+            match announcer_call:
+                case 1:
+                    print('And he rattles it in!')
+                case 2:
+                    print('AND HE SLAMS IT DOWN!')
+                case 3:
+                    print('And he lays it up and in!')
+                case 4:
+                    print('And he brings the house down!')
+                case 5:
+                    print('And he kisses it off the glass!')
+                case 6:
+                    print('What a drive! He finishes strong at the rim!')
+                case 7:
+                    print('And he powers it home with authority!')
+                case 8:
+                    print('A dazzling move to the basket, and he converts!')
+                case 9:
+                    print('He takes it all the way and scores with a smooth finish!')
+                case 10:
+                    print('And he knifes through the defense for two!')
 
 
         elif event == 'miss':
             defender_last_name = self.defender.name.split(" ")[1]
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 10)  # Increased range for more variations
-            if announcer_call == 1:
-                print('And the ball rims out!', defender_last_name, 'recovers it.')
-            elif announcer_call == 2:
-                print('A BACKBOARD BLOCK BY', self.defender.name.upper() + '!')
-            elif announcer_call == 3:
-                print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
-            elif announcer_call == 4:
-                print('And that layup by', last_name, 'is no good.')
-            elif announcer_call == 5:
-                print('The shot goes wide! What a defensive effort by', self.defender.name + '.')
-            elif announcer_call == 6:
-                print('Oh, the ball just doesn’t want to go in for', last_name, 'this time.')
-            elif announcer_call == 7:
-                print('Rejected at the rim! What a block by', self.defender.name + '!')
-            elif announcer_call == 8:
-                print('And it’s off the front iron. Tough break for', last_name + '.')
-            elif announcer_call == 9:
-                print('The ball dances around the rim and spills out.', defender_last_name, 'grabs the rebound.')
-            elif announcer_call == 10:
-                print('A tough miss for', last_name, 'as', defender_last_name, 'comes away with it.')
+            match announcer_call:
+                case 1:
+                    print('And the ball rims out!', defender_last_name, 'recovers it.')
+                case 2:
+                    print('A BACKBOARD BLOCK BY', self.defender.name.upper() + '!')
+                case 3:
+                    print('And he bricks it!', self.defender.name, 'brings it back up for the', self.defender.team + '.')
+                case 4:
+                    print('And that layup by', last_name, 'is no good.')
+                case 5:
+                    print('The shot goes wide! What a defensive effort by', self.defender.name + '.')
+                case 6:
+                    print('Oh, the ball just doesn’t want to go in for', last_name, 'this time.')
+                case 7:
+                    print('Rejected at the rim! What a block by', self.defender.name + '!')
+                case 8:
+                    print('And it’s off the front iron. Tough break for', last_name + '.')
+                case 9:
+                    print('The ball dances around the rim and spills out.', defender_last_name, 'grabs the rebound.')
+                case 10:
+                    print('A tough miss for', last_name, 'as', defender_last_name, 'comes away with it.')
         
         elif event == 'pass':
             last_name = self.name.split(" ")[1]
             pass_receiver_last_name = secondary_player.name.split(" ")[1]
             announcer_call = random.randint(1, 15)  # Increased range for more variations
-            if announcer_call == 1:
-                print('And he kicks it out to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 2:
-                print('He swings it out to ' + secondary_player.name + '!')
-            elif announcer_call == 3:
-                print('Out to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 4:
-                print('And he feeds it to ' + secondary_player.name + '!')
-            elif announcer_call == 5:
-                print(last_name + ', bounce pass to', pass_receiver_last_name + '!')
-            elif announcer_call == 6:
-                print(last_name + ' finds', pass_receiver_last_name + '!')
-            elif announcer_call == 7:
-                print('Bullet pass to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 8:
-                print('Quick dish to ' + secondary_player.name + '!')
-            elif announcer_call == 9:
-                print('Nice feed to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 10:
-                print('Sharp pass by ' + last_name + ' to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 11:
-                print('And a beautiful no-look pass to ' + pass_receiver_last_name + '!')
-            elif announcer_call == 12:
-                print('A pinpoint pass by ' + last_name + ' to ' + secondary_player.name + '!')
-            elif announcer_call == 13:
-                print(last_name + ' threads the needle to', pass_receiver_last_name + '!')
-            elif announcer_call == 14:
-                print('Over to ' + pass_receiver_last_name + ' on the perimeter!')
-            elif announcer_call == 15:
-                print('He lobs it to ' + pass_receiver_last_name + ' for the setup!')
+            match announcer_call:
+                case 1:
+                    print('And he kicks it out to ' + pass_receiver_last_name + '!')
+                case 2:
+                    print('He swings it out to ' + secondary_player.name + '!')
+                case 3:
+                    print('Out to ' + pass_receiver_last_name + '!')
+                case 4:
+                    print('And he feeds it to ' + secondary_player.name + '!')
+                case 5:
+                    print(last_name + ', bounce pass to', pass_receiver_last_name + '!')
+                case 6:
+                    print(last_name + ' finds', pass_receiver_last_name + '!')
+                case 7:
+                    print('Bullet pass to ' + pass_receiver_last_name + '!')
+                case 8:
+                    print('Quick dish to ' + secondary_player.name + '!')
+                case 9:
+                    print('Nice feed to ' + pass_receiver_last_name + '!')
+                case 10:
+                    print('Sharp pass by ' + last_name + ' to ' + pass_receiver_last_name + '!')
+                case 11:
+                    print('And a beautiful no-look pass to ' + pass_receiver_last_name + '!')
+                case 12:
+                    print('A pinpoint pass by ' + last_name + ' to ' + secondary_player.name + '!')
+                case 13:
+                    print(last_name + ' threads the needle to', pass_receiver_last_name + '!')
+                case 14:
+                    print('Over to ' + pass_receiver_last_name + ' on the perimeter!')
+                case 15:
+                    print('He lobs it to ' + pass_receiver_last_name + ' for the setup!')
 
         
         elif event == 'stolen':
             announcer_call = random.randint(1, 10)  # Increased range for more variations
-            if announcer_call == 1:
-                print('Stolen by ' + secondary_player.defender.name + '!')
-            elif announcer_call == 2:
-                print('Stripped away by ' + secondary_player.defender.name + '!')
-            elif announcer_call == 3:
-                print('Swiped away by ' + secondary_player.defender.name + '!')
-            elif announcer_call == 4:
-                print('And ' + secondary_player.defender.name + ' intercepts it!')
-            elif announcer_call == 5:
-                print(self.name, 'turns it over!', secondary_player.defender.name, 'brings it back up the court!')
-            elif announcer_call == 6:
-                print('Pickpocketed by ' + secondary_player.defender.name + '!')
-            elif announcer_call == 7:
-                print('And a clean steal by ' + secondary_player.defender.name + '!')
-            elif announcer_call == 8:
-                print('Fantastic anticipation by ' + secondary_player.defender.name + ', and he takes it away!')
-            elif announcer_call == 9:
-                print('A quick swipe by ' + secondary_player.defender.name + '! Possession changes hands.')
-            elif announcer_call == 10:
-                print('And ' + self.name + "'s pass is intercepted by " + secondary_player.defender.name + '!')
+            match announcer_call:
+                case 1:
+                    print('Stolen by ' + secondary_player.defender.name + '!')
+                case 2:
+                    print('Stripped away by ' + secondary_player.defender.name + '!')
+                case 3:
+                    print('Swiped away by ' + secondary_player.defender.name + '!')
+                case 4:
+                    print('And ' + secondary_player.defender.name + ' intercepts it!')
+                case 5:
+                    print(self.name, 'turns it over!', secondary_player.defender.name, 'brings it back up the court!')
+                case 6:
+                    print('Pickpocketed by ' + secondary_player.defender.name + '!')
+                case 7:
+                    print('And a clean steal by ' + secondary_player.defender.name + '!')
+                case 8:
+                    print('Fantastic anticipation by ' + secondary_player.defender.name + ', and he takes it away!')
+                case 9:
+                    print('A quick swipe by ' + secondary_player.defender.name + '! Possession changes hands.')
+                case 10:
+                    print('And ' + self.name + "'s pass is intercepted by " + secondary_player.defender.name + '!')
+            
         print('\n')
 
     def decision(self):
