@@ -9,7 +9,7 @@ version = '2025.1.16.1040.stable'
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
 
 class BasketballPlayer():
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy):
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nickname):
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -29,13 +29,14 @@ class BasketballPlayer():
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
         self.energy = energy
+        self.nickname = nickname
 
 
 
     def commentator_randomizer(self, event, secondary_player):
         if event == '3ptshot':
             last_name = self.name.split(" ")[1]
-            announcer_call = random.randint(1, 12)  # Increased range for more variations
+            announcer_call = random.randint(1, 13)  # Increased range for more variations
             match announcer_call:
                 case 1:
                     print(self.name, 'fires it from deep!')
@@ -61,10 +62,12 @@ class BasketballPlayer():
                     print(last_name, 'pulls the trigger from three!')
                 case 12:
                     print(self.name, 'shoots it with confidence from beyond the arc!')
+                case 13:
+                    print(last_name, 'for three!')
 
 
         elif event == '3ptmake':
-            announcer_call = random.randint(1, 12)  # Increased range for more variations
+            announcer_call = random.randint(1, 14)  # Increased range for more variations
             match announcer_call:
                 case 1:
                     print('Count it!')
@@ -90,11 +93,16 @@ class BasketballPlayer():
                     print('Cold-blooded from beyond the arc by', self.name + '!')
                 case 12:
                     print('And he drills it! A dagger from deep!')
+                case 13:
+                    print("And it's good!", self.name, 'with the triple!')
+                case 14:
+                    print('GOT IT!')
 
 
         elif event == '3ptmiss':
-            announcer_call = random.randint(1, 10)  # Increased range for more variations
+            announcer_call = random.randint(1, 11)  # Increased range for more variations
             last_name = self.name.split(" ")[1]
+            defender_last_name = self.defender.name.split(" ")[1]
             match announcer_call:
                 case 1:
                     print('And airballs!', self.defender.name, 'gathers it up.')
@@ -116,12 +124,14 @@ class BasketballPlayer():
                     print('And it’s just short! A strong defensive effort by', self.defender.name + '.')
                 case 10:
                     print('Off the back iron!', self.defender.name, 'secures the rebound.')
+                case 11:
+                    print('Off the rim, recovered by', defender_last_name)
 
 
         elif event == 'drive':
             defender_last_name = self.defender.name.split(" ")[1]
             last_name = self.name.split(" ")[1]
-            announcer_call = random.randint(1, 11)  # Increased range for more variations
+            announcer_call = random.randint(1, 12)  # Increased range for more variations
             match announcer_call:
                 case 1:
                     print(self.name, 'drives into the paint!')
@@ -145,10 +155,12 @@ class BasketballPlayer():
                     print('Explosive drive by ' + last_name + '!')
                 case 11:
                     print(last_name, 'cuts inside and challenges', defender_last_name + '!')
+                case 12:
+                    print('Here we go!')
 
         
         elif event == 'drivemake':
-            announcer_call = random.randint(1, 10)  # Increased range for more variations
+            announcer_call = random.randint(1, 11)  # Increased range for more variations
             match announcer_call:
                 case 1:
                     print('And he rattles it in!')
@@ -170,6 +182,8 @@ class BasketballPlayer():
                     print('He takes it all the way and scores with a smooth finish!')
                 case 10:
                     print('And he knifes through the defense for two!')
+                case 11:
+                    print('And he works his way inside!')
 
 
         elif event == 'miss':
