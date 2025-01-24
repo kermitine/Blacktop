@@ -73,7 +73,7 @@ d_green = BasketballPlayer("Draymond Green", "Center", 5, "Golden State Warriors
 # WARRIORS BENCH UNIT
 b_podziemski = BasketballPlayer("Brandin Podziemski", "Point Guard", 1, "Golden State Warriors", 0.410, 0.65, 0.68, 0.12, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 m_moody = BasketballPlayer("Moses Moody", "Shooting Guard", 2, "Golden State Warriors", 0.390, 0.60, 0.65, 0.10, 0.25, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-g_payton_ii = BasketballPlayer("Gary Payton-II", "Small Forward", 3, "Golden State Warriors", 0.420, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100, None)
+g_payton_ii = BasketballPlayer("Gary Payton-II", "Small Forward", 3, "Golden State Warriors", 0.420, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100, "GP3")
 k_anderson = BasketballPlayer("Kyle Anderson", "Power Forward", 4, "Golden State Warriors", 0.380, 0.55, 0.60, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors", .300, 0.25, 0.60, 0.10, 0.20, 0.20, 0.10, 0.25, False, None, False, 0, 0, 0, 100, None)
 
@@ -201,7 +201,7 @@ c_holmgren = BasketballPlayer("Chet Holmgren", "Center", 5, "Oklahoma City Thund
 a_mitchell = BasketballPlayer("Ajay Mitchell", "Point Guard", 1, "Oklahoma City Thunder", 0.330, 0.65, 0.60, 0.11, 0.20, 0.15, 0.10, 0.35, False, None, False, 0, 0, 0, 100, None)
 i_joe = BasketballPlayer("Isaiah Joe", "Shooting Guard", 2, "Oklahoma City Thunder", 0.410, 0.70, 0.65, 0.10, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_caruso = BasketballPlayer("Alex Caruso", "Small Forward", 3, "Oklahoma City Thunder", 0.365, 0.75, 0.65, 0.10, 0.25, 0.22, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
-a_wiggins = BasketballPlayer("Aaron Wiggins", "Power Forward", 4, "Oklahoma City Thunder", 0.340, 0.65, 0.62, 0.12, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+aa_wiggins = BasketballPlayer("Aaron Wiggins", "Power Forward", 4, "Oklahoma City Thunder", 0.340, 0.65, 0.62, 0.12, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma City Thunder", 0.310, 0.55, 0.65, 0.12, 0.20, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 
 
@@ -289,7 +289,7 @@ retro_clippers_list = [c_paul, j_redick, j_dudley, b_griffin, d_jordan_2]
 retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hollins]
 
 thunder_list = [s_gilgeous_alexander, c_wallace, l_dort, j_williams, c_holmgren]
-thunder_bench_list = [a_mitchell, i_joe, a_caruso, a_wiggins, i_hartenstein]
+thunder_bench_list = [a_mitchell, i_joe, a_caruso, aa_wiggins, i_hartenstein]
 
 grizzlies_list = [j_morant, d_bane, j_jackson_jr, b_clarke, z_edey]
 grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]

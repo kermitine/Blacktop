@@ -36,7 +36,13 @@ class BasketballPlayer():
     def commentator_randomizer(self, event, secondary_player):
         if event == '3ptshot':
             last_name = self.name.split(" ")[1]
-            announcer_call = random.randint(1, 13)  # Increased range for more variations
+            announcer_call = random.randint(1, 13)
+
+            if random.randint(1, 2) == 2: #50/50 chance to use nickname
+                last_name = self.nickname
+            else:
+                last_name = self.name.split(" ")[1]
+
             match announcer_call:
                 case 1:
                     print(self.name, 'fires it from deep!')
@@ -64,7 +70,6 @@ class BasketballPlayer():
                     print(self.name, 'shoots it with confidence from beyond the arc!')
                 case 13:
                     print(last_name, 'for three!')
-
 
         elif event == '3ptmake':
             announcer_call = random.randint(1, 14)  # Increased range for more variations
@@ -728,6 +733,8 @@ for player in user_team_list:
     defender.defender = player
 
 time.sleep(2)
+
+print('pre-player')
 
 for player in user_team_list:
     if player.positionnumber == player_decision:
