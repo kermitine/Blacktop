@@ -38,7 +38,7 @@ class BasketballPlayer():
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 13)
 
-            if random.randint(1, 2) == 2: #50/50 chance to use nickname
+            if random.randint(1, 4) == 2 and self.nickname: # 50/50 chance to use nickname
                 last_name = self.nickname
             else:
                 last_name = self.name.split(" ")[1]
@@ -106,7 +106,18 @@ class BasketballPlayer():
 
         elif event == '3ptmiss':
             announcer_call = random.randint(1, 11)  # Increased range for more variations
-            last_name = self.name.split(" ")[1]
+            
+            if random.randint(1, 4) == 2 and self.nickname: #50/50 chance to use nickname
+                last_name = self.nickname
+            else:
+                last_name = self.name.split(" ")[1]
+
+            if random.randint(1, 4) == 2 and self.defender.nickname: #50/50 chance to use nickname
+                defender_last_name = self.defender.nickname
+            else:
+                defender_last_name = self.defender.name.split(" ")[1]
+
+
             defender_last_name = self.defender.name.split(" ")[1]
             match announcer_call:
                 case 1:
