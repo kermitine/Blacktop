@@ -107,12 +107,12 @@ class BasketballPlayer():
         elif event == '3ptmiss':
             announcer_call = random.randint(1, 11)  # Increased range for more variations
             
-            if random.randint(1, 4) == 2 and self.nickname: #50/50 chance to use nickname
+            if random.randint(1, 4) == 2 and self.nickname: 
                 last_name = self.nickname
             else:
                 last_name = self.name.split(" ")[1]
 
-            if random.randint(1, 4) == 2 and self.defender.nickname: #50/50 chance to use nickname
+            if random.randint(1, 4) == 2 and self.defender.nickname: 
                 defender_last_name = self.defender.nickname
             else:
                 defender_last_name = self.defender.name.split(" ")[1]
@@ -145,8 +145,17 @@ class BasketballPlayer():
 
 
         elif event == 'drive':
-            defender_last_name = self.defender.name.split(" ")[1]
-            last_name = self.name.split(" ")[1]
+
+            if random.randint(1, 4) == 2 and self.defender.nickname: 
+                defender_last_name = self.defender.nickname
+            else:
+                defender_last_name = self.defender.name.split(" ")[1]
+
+            if random.randint(1, 4) == 2 and self.nickname: 
+                last_name = self.nickname
+            else:
+                last_name = self.name.split(" ")[1]
+
             announcer_call = random.randint(1, 12)  # Increased range for more variations
             match announcer_call:
                 case 1:
@@ -203,8 +212,16 @@ class BasketballPlayer():
 
 
         elif event == 'miss':
-            defender_last_name = self.defender.name.split(" ")[1]
-            last_name = self.name.split(" ")[1]
+            if random.randint(1, 4) == 2 and self.defender.nickname: 
+                defender_last_name = self.defender.nickname
+            else:
+                defender_last_name = self.defender.name.split(" ")[1]
+
+            if random.randint(1, 4) == 2 and self.nickname: 
+                last_name = self.nickname
+            else:
+                last_name = self.name.split(" ")[1]
+
             announcer_call = random.randint(1, 10)  # Increased range for more variations
             match announcer_call:
                 case 1:
@@ -229,8 +246,17 @@ class BasketballPlayer():
                     print('A tough miss for', last_name, 'as', defender_last_name, 'comes away with it.')
         
         elif event == 'pass':
-            last_name = self.name.split(" ")[1]
-            pass_receiver_last_name = secondary_player.name.split(" ")[1]
+            if random.randint(1, 4) == 2 and self.nickname: 
+                last_name = self.nickname
+            else:
+                last_name = self.name.split(" ")[1]
+            
+
+            if random.randint(1, 4) == 2 and secondary_player.nickname: 
+                pass_receiver_last_name = secondary_player.nickname
+            else:
+                pass_receiver_last_name = secondary_player.name.split(" ")[1]
+
             announcer_call = random.randint(1, 15)  # Increased range for more variations
             match announcer_call:
                 case 1:
