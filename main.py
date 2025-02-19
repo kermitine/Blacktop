@@ -3,7 +3,7 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 
-version = '2025.2.18.1530.stable'
+version = '2025.2.19.1130.stable'
 
 
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
@@ -437,6 +437,7 @@ class BasketballPlayer():
                     
     def substitution(self):
 
+        global current_player
         # only used for npc
         if self.team == user_team:
             print(user_team, 'SUBSTITUTION:')
@@ -453,6 +454,16 @@ class BasketballPlayer():
             else:
                 user_team_list_bench[self.positionnumber-1].haspossession = False
                 user_team_list[self.positionnumber-1].haspossession = True
+
+            if user_team_list_bench[self.positionnumber-1].isplayer == False:
+                pass
+            else:
+                user_team_list_bench[self.positionnumber-1].isplayer = False
+                user_team_list[self.positionnumber-1].isplayer = True
+                current_player = user_team_list[current_player.positionnumber-1]
+                current_player.haspossession = True
+                current_player.isplayer = True
+
 
             user_team_list_bench[self.positionnumber-1].energy += 10
 
@@ -771,7 +782,6 @@ for player in user_team_list:
 
 time.sleep(2)
 
-print('pre-player')
 
 for player in user_team_list:
     if player.positionnumber == player_decision:
@@ -982,41 +992,8 @@ while True:
                         break
                     break   
                 elif player_action_decision == 'substitute':
-                    print(user_team, 'SUBSTITUTION:')
-                    print(user_team_list_bench[current_player.positionnumber-1].name, 'comes in for', current_player.name + '!')
-                    print('\n')
-                    # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
-                    user_team_list.insert(current_player.positionnumber-1, user_team_list_bench[current_player.positionnumber-1])   #insert bench player into roster
-                    user_team_list_bench.insert(current_player.positionnumber-1, user_team_list[current_player.positionnumber])   # insert former roster player into bench
-                    user_team_list.pop(current_player.positionnumber) # remove former roster player from roster
-                    user_team_list_bench.pop(current_player.positionnumber) # remove former bench player from bench
-                    
+                    combined_list = current_player.substitution()
 
-                    user_team_list[current_player.positionnumber-1].haspossession = True # new player given possession
-                    user_team_list[current_player.positionnumber-1].isplayer = True # new player is designated as the user
-
-                    user_team_list_bench[current_player.positionnumber-1].haspossession = False # old player possession removed
-                    user_team_list_bench[current_player.positionnumber-1].isplayer = False # old player
-
-                    user_team_list_bench[current_player.positionnumber-1].energy += 10 # immediately 
-
-                    current_player = user_team_list[current_player.positionnumber-1]
-
-                    current_player.haspossession = True
-                    current_player.isplayer = True
-                    
-                    # RE-INITIALIZE DEFENDERS
-                    for player in user_team_list:
-                        defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
-                        player.defender = defender
-                        defender.defender = player
-                    
-                    #update list
-                    combined_list = user_team_list + opposing_team_list
-                
-
-
-        
             else:
                 decision = player.decision()
                 outcome, points = player.action_success(decision, player.defender.perd, player.defender.intd, None, player.team)
