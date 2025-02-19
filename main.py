@@ -992,13 +992,13 @@ while True:
                     user_team_list_bench.pop(current_player.positionnumber) # remove former bench player from bench
                     
 
-                    user_team_list[current_player.positionnumber-1].haspossession = True
-                    user_team_list[current_player.positionnumber-1].isplayer = True
+                    user_team_list[current_player.positionnumber-1].haspossession = True # new player given possession
+                    user_team_list[current_player.positionnumber-1].isplayer = True # new player is designated as the user
 
-                    user_team_list_bench[current_player.positionnumber-1].haspossession = False
-                    user_team_list_bench[current_player.positionnumber-1].isplayer = False
+                    user_team_list_bench[current_player.positionnumber-1].haspossession = False # old player possession removed
+                    user_team_list_bench[current_player.positionnumber-1].isplayer = False # old player
 
-                    user_team_list_bench[current_player.positionnumber-1].energy += 10
+                    user_team_list_bench[current_player.positionnumber-1].energy += 10 # immediately 
 
                     current_player = user_team_list[current_player.positionnumber-1]
 
