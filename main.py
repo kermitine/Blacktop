@@ -550,6 +550,13 @@ with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIA
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
+print('(A)utoplay mode or (M)anual?')
+
+auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
+
+
+print('\n')
+
 print('Select your team!')
 
 team = 1
@@ -652,14 +659,16 @@ print('Team selected:', user_team)
 
 print('\n')
 
-print('Choose your player!')
+if auto_or_manual in ['m', "M"]:
+    print('Choose your player!')
 
-position_number = 0
-for player in user_team_list:
-    position_number += 1
-    print(player.name + ' -- ' + str(position_number))
+    position_number = 0
+    for player in user_team_list:
+        position_number += 1
+        print(player.name + ' -- ' + str(position_number))
 
-player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+
 
 print('\n' + '\n')
 
@@ -773,16 +782,19 @@ for player in user_team_list:
 
 time.sleep(2)
 
-
-for player in user_team_list:
-    if player.positionnumber == player_decision:
-        player.isplayer = True
-        player.haspossession = True
-        current_player = player
-        print('\n')
-        print('Your player: ' + player.name)
-        print('Your defender:', current_player.defender.name)
-        break
+if auto_or_manual in ['m', "M"]:
+    for player in user_team_list:
+        if player.positionnumber == player_decision:
+            player.isplayer = True
+            player.haspossession = True
+            current_player = player
+            print('\n')
+            print('Your player: ' + player.name)
+            print('Your defender:', current_player.defender.name)
+            break
+else:
+    user_team_list[0].haspossession = True
+    current_player = None
 
 
 
