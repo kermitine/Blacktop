@@ -162,7 +162,7 @@ j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .40
 a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 100, None)
 n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 100, "Stormin' Norman")
 k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 100, "The Klaw")
-i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", 0.000, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 100, None)
+i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", 0.000, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 100, "Zu")
 
 
  # CLIPPERS BENCH UNIT 
