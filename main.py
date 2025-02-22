@@ -550,12 +550,6 @@ with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIA
 KermLib.ascii_run()
 print('Blacktop ' + version + '\n')
 
-print('(A)utoplay mode or (M)anual?')
-
-auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
-
-
-print('\n')
 
 print('Select your team!')
 
@@ -659,15 +653,7 @@ print('Team selected:', user_team)
 
 print('\n')
 
-if auto_or_manual in ['m', "M"]:
-    print('Choose your player!')
 
-    position_number = 0
-    for player in user_team_list:
-        position_number += 1
-        print(player.name + ' -- ' + str(position_number))
-
-    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
 
 
 print('\n' + '\n')
@@ -774,6 +760,27 @@ print('Opposing team selected:', opposing_team)
 combined_list = user_team_list + opposing_team_list
 
 
+print('(A)utoplay mode or (M)anual?')
+auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
+print('\n')
+
+
+
+
+if auto_or_manual in ['m', "M"]:
+    print('Manual selected')
+    print('Choose your player!')
+
+    position_number = 0
+    for player in user_team_list:
+        position_number += 1
+        print(player.name + ' -- ' + str(position_number))
+
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+else:
+    print('Auto selected')
+
+
 # INITIALIZE DEFENDERS
 for player in user_team_list:
     defender = KermLib.object_matcher(player, opposing_team_list, 'positionnumber')
@@ -790,6 +797,8 @@ if auto_or_manual in ['m', "M"]:
             player.isplayer = True
             player.haspossession = True
             current_player = player
+            print('\n')
+            print('Player selected:', current_player.name)
             break
 else:
     user_team_list[0].haspossession = True
@@ -797,8 +806,15 @@ else:
 
 print(user_team, 'vs.', opposing_team)
 print('\n')
+print('Starting lineup:')
 for x in range(5):
     print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+
+print('\n' + '\n')
+
+print('Bench lineup:')
+for x in range(5):
+    print(user_team_list_bench[x].name, ' -- ', opposing_team_list_bench[x].name)
 
 print('\n' + '\n')
 
