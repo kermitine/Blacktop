@@ -429,7 +429,7 @@ class BasketballPlayer():
     def substitution(self):
 
         global current_player
-        # only used for npc
+        
         if self.team == user_team:
             print(user_team, 'SUBSTITUTION:')
             print('Substituting', self.name, 'for', user_team_list_bench[self.positionnumber-1].name + '!')
@@ -495,12 +495,6 @@ class BasketballPlayer():
         return combined_list
     
 
-        
-with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIALIZES ALL OBJECCTS FROM PLAYERS_AND_TEAMS_DATA
-    lines = file.readlines()
-    for line in lines:
-        exec(line)
-
 def calculate_turnover_chance(passer, receiver_defender):
     """
     Calculate the chance of a turnover during a pass.
@@ -545,6 +539,12 @@ def turn_over_chance(passer, receiver_defender):
     return turnover_chance * 100
 
 
+
+
+with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIALIZES ALL OBJECCTS FROM PLAYERS_AND_TEAMS_DATA
+    lines = file.readlines()
+    for line in lines:
+        exec(line)
 
 
 KermLib.ascii_run()
