@@ -782,21 +782,25 @@ for player in user_team_list:
 
 time.sleep(2)
 
+print('\n' + '\n')
+
 if auto_or_manual in ['m', "M"]:
     for player in user_team_list:
         if player.positionnumber == player_decision:
             player.isplayer = True
             player.haspossession = True
             current_player = player
-            print('\n')
-            print('Your player: ' + player.name)
-            print('Your defender:', current_player.defender.name)
             break
 else:
     user_team_list[0].haspossession = True
     current_player = None
 
+print(user_team, 'vs.', opposing_team)
+print('\n')
+for x in range(5):
+    print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
 
+print('\n' + '\n')
 
 print('Game start!')
 
