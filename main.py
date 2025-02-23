@@ -759,6 +759,7 @@ print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
+print('\n' + '\n')
 
 print('(A)utoplay mode or (M)anual?')
 auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
@@ -804,11 +805,16 @@ else:
     user_team_list[0].haspossession = True
     current_player = None
 
+print('\n' + '\n')
+
 print(user_team, 'vs.', opposing_team)
 print('\n')
 print('Starting lineup:')
 for x in range(5):
-    print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+    if user_team_list[x] == current_player:
+        print('(You)', user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+    else:
+        print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
 
 print('\n' + '\n')
 
