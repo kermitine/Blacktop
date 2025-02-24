@@ -327,6 +327,9 @@ class BasketballPlayer():
         if decision == '3pt':
             self.commentator_randomizer('3ptshot', None)
             self.energy -= (28 + random.randint(1, 7))
+
+            time.sleep(1)
+
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
                 self.commentator_randomizer('3ptmake', None)
@@ -334,15 +337,18 @@ class BasketballPlayer():
                 self.pointsMade += 3
                 self.haspossession = False
                 self.defender.haspossession = True
+                time.sleep(1)
                 return 'shot', 3
             else:
                 self.commentator_randomizer('3ptmiss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
+                time.sleep(1)
                 return 'miss', 0
 
         if decision == 'drive':
             self.commentator_randomizer('drive', None)
+            time.sleep(0.7)
             self.energy -= (34 + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
@@ -815,12 +821,14 @@ for x in range(5):
         print('(You)', user_team_list[x].name, ' -- ', opposing_team_list[x].name)
     else:
         print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+    time.sleep(0.3)
 
 print('\n' + '\n')
 
 print('Bench lineup:')
 for x in range(5):
     print(user_team_list_bench[x].name, ' -- ', opposing_team_list_bench[x].name)
+    time.sleep(0.3)
 
 print('\n' + '\n')
 
@@ -954,6 +962,7 @@ while True:
 
             print(player.name, 'has the basketball!')
             print(player.name + "'s energy:", str(player.energy) + '%')
+            time.sleep(0.8)
             if player.isplayer == True:
                 if player.energy != 0:
                     print('What will you do? (pass), (drive), shoot a (3pt), or manually (substitute)?')
