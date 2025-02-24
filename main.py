@@ -35,36 +35,40 @@ class BasketballPlayer():
 
     def commentator_randomizer(self, event, secondary_player):
 
-        num = random.randint(1, 4) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
-        if num in [1, 2]:
+        num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
+        if num in [1, 2, 3]:
             primary_name = self.name.split(" ")[1]
-        elif num == 3 and self.nickname:
-            primary_name = self.nickname
+        elif num in [4, 5] and self.nickname:
+            nickname_index = random.randint(0, (len(self.nickname)-1))
+            primary_name = self.nickname[nickname_index]
         else:
             primary_name = self.name
         
-        num = random.randint(1, 4)
-        if num in [1, 2]:
+        num = random.randint(1, 6)
+        if num in [1, 2, 3]:
             defender_name = self.defender.name.split(" ")[1]
-        elif num == 3 and self.defender.nickname:
-            defender_name = self.defender.nickname
+        elif num in [4, 5] and self.defender.nickname:
+            nickname_index = random.randint(0, (len(self.defender.nickname)-1))
+            defender_name = self.defender.nickname[nickname_index]
         else:
             defender_name = self.defender.name
 
         if secondary_player:
-            num = random.randint(1, 4)
-            if num in [1, 2]:
+            num = random.randint(1, 6)
+            if num in [1, 2, 3]:
                 secondary_player_name = secondary_player.name.split(" ")[1]
-            elif num == 3 and secondary_player.nickname:
-                secondary_player_name = secondary_player.nickname
+            elif num in [4, 5] and secondary_player.nickname:
+                nickname_index = random.randint(0, (len(secondary_player.nickname)-1))
+                secondary_player_name = secondary_player.nickname[nickname_index]
             else:
                 secondary_player_name = secondary_player.name
 
-            num = random.randint(1, 4)
-            if num in [1, 2]:
+            num = random.randint(1, 6)
+            if num in [1, 2 ,3]:
                 secondary_player_defender_name = secondary_player.defender.name.split(" ")[1]
-            elif num == 3 and secondary_player.defender.nickname:
-                secondary_player_defender_name = secondary_player.defender.nickname
+            elif num in [4, 5] and secondary_player.defender.nickname:
+                nickname_index = random.randint(0, (len(secondary_player.defender.nickname)-1))
+                secondary_player_defender_name = secondary_player.defender.nickname[nickname_index]
             else:
                 secondary_player_defender_name = secondary_player.defender.name
             
