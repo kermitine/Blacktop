@@ -48,7 +48,7 @@ d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", 
 
 # MAGIC STARTING UNIT
 j_suggs = BasketballPlayer("Jalen Suggs", "Point Guard", 1, "Orlando Magic", .330, 0.60, 0.65, 0.14, 0.20, 0.18, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
-k_caldwell_pope = BasketballPlayer("Kentavious Caldwell-Pope", "Shooting Guard", 2, "Orlando Magic", 0.400, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+k_caldwell_pope = BasketballPlayer("Kentavious Caldwell-Pope", "Shooting Guard", 2, "Orlando Magic", 0.400, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, "KCP")
 f_wagner = BasketballPlayer("Franz Wagner", "Small Forward", 3, "Orlando Magic", .360, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 p_banchero = BasketballPlayer("Paolo Banchero", "Power Forward", 4, "Orlando Magic", .340, 0.70, 0.75, 0.13, 0.28, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
 w_carter_jr = BasketballPlayer("Wendell Carter-Jr", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -81,7 +81,7 @@ k_looney = BasketballPlayer("Kevon Looney", "Center", 5, "Golden State Warriors"
 # 76ers STARTING UNIT
 t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0.420, 0.75, 0.70, 0.10, 0.25, 0.22, 0.10, 0.35, False, None, False, 0, 0, 0, 100, None)
 k_oubre = BasketballPlayer("Kelly Oubre-Jr", "Shooting Guard", 2, "Philadelphia 76ers", 0.430, 0.55, 0.70, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
-p_george = BasketballPlayer("Paul George", "Small Forward", 3, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0.11, 0.28, 0.25, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
+p_george = BasketballPlayer("Paul George", "Small Forward", 3, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0.11, 0.28, 0.25, 0.13, 0.35, False, None, False, 0, 0, 0, 100, "PG13")
 g_yabusele = BasketballPlayer("Guerschon Yabusele", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.50, 0.60, 0.12, 0.22, 0.20, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0.13, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 
