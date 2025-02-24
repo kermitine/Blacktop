@@ -239,7 +239,7 @@ s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000
 
 # WASHINGTON WIZARDS STARTING UNIT
 j_poole = BasketballPlayer("Jordan Poole", "Point Guard", 1, "Washington Wizards", 0.330, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
-c_carrington = BasketballPlayer("Carlton Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+c_carrington = BasketballPlayer("Carlton Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, "Bub")
 b_coulibaly = BasketballPlayer("Bilal Coulibaly", "Small Forward", 3, "Washington Wizards", 0.340, 0.65, 0.65, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_sarr = BasketballPlayer("Alex Sarr", "Center", 5, "Washington Wizards", 0.300, 0.55, 0.70, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
