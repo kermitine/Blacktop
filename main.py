@@ -6,7 +6,11 @@ from basketball_ascii import *
 version = '2024.12.1.1700.stable'
 
 class BasketballPlayer():
+<<<<<<< HEAD
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
+=======
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -25,10 +29,57 @@ class BasketballPlayer():
         self.pointsMade = points_made
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
+<<<<<<< HEAD
+=======
+        self.energy = energy
+        self.nicknames = nicknames
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 
 
     def commentator_randomizer(self, event, secondary_player):
+<<<<<<< HEAD
+=======
+
+        num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
+        if num in [1, 2, 3]:
+            primary_name = self.name.split(" ")[1]
+        elif num in [4, 5] and self.nicknames:
+            nicknames_index = random.randint(0, (len(self.nicknames)-1))
+            primary_name = self.nicknames[nicknames_index]
+        else:
+            primary_name = self.name
+        
+        num = random.randint(1, 6)
+        if num in [1, 2, 3]:
+            defender_name = self.defender.name.split(" ")[1]
+        elif num in [4, 5] and self.defender.nicknames:
+            nicknames_index = random.randint(0, (len(self.defender.nicknames)-1))
+            defender_name = self.defender.nicknames[nicknames_index]
+        else:
+            defender_name = self.defender.name
+
+        if secondary_player:
+            num = random.randint(1, 6)
+            if num in [1, 2, 3]:
+                secondary_player_name = secondary_player.name.split(" ")[1]
+            elif num in [4, 5] and secondary_player.nicknames:
+                nicknames_index = random.randint(0, (len(secondary_player.nicknames)-1))
+                secondary_player_name = secondary_player.nicknames[nicknames_index]
+            else:
+                secondary_player_name = secondary_player.name
+
+            num = random.randint(1, 6)
+            if num in [1, 2 ,3]:
+                secondary_player_defender_name = secondary_player.defender.name.split(" ")[1]
+            elif num in [4, 5] and secondary_player.defender.nicknames:
+                nicknames_index = random.randint(0, (len(secondary_player.defender.nicknames)-1))
+                secondary_player_defender_name = secondary_player.defender.nicknames[nicknames_index]
+            else:
+                secondary_player_defender_name = secondary_player.defender.name
+            
+
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
         if event == '3ptshot':
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 12)  # Increased range for more variations
@@ -545,6 +596,7 @@ print('\n' + '\n')
 
 print('Team selected:', user_team)
 
+<<<<<<< HEAD
 print('\n')
 
 print('Choose your player!')
@@ -557,6 +609,9 @@ for player in user_team_list:
 player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
 
 print('\n' + '\n')
+=======
+print('\n' + '\n' + '\n')
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 
 print('Select your opposing team!')
@@ -627,6 +682,31 @@ print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
+<<<<<<< HEAD
+=======
+print('\n' + '\n' + '\n')
+
+print('(A)utoplay mode or (M)anual?')
+auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
+print('\n')
+
+
+
+
+if auto_or_manual in ['m', "M"]:
+    print('Manual selected')
+    print('Choose your player!')
+
+    position_number = 0
+    for player in user_team_list:
+        position_number += 1
+        print(player.name + ' -- ' + str(position_number))
+
+    player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
+else:
+    print('Auto selected')
+
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 # INITIALIZE DEFENDERS
 for player in user_team_list:
@@ -647,6 +727,32 @@ for player in user_team_list:
         break
 
 
+<<<<<<< HEAD
+=======
+print('\n' + '\n')
+
+print(user_team, 'vs.', opposing_team)
+print('\n')
+
+time.sleep(0.5)
+
+print('Starting lineup:')
+for x in range(5):
+    if user_team_list[x] == current_player:
+        print('(You)', user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+    else:
+        print(user_team_list[x].name, ' -- ', opposing_team_list[x].name)
+    time.sleep(0.3)
+
+print('\n' + '\n')
+
+print('Bench lineup:')
+for x in range(5):
+    print(user_team_list_bench[x].name, ' -- ', opposing_team_list_bench[x].name)
+    time.sleep(0.3)
+
+print('\n' + '\n')
+>>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 print('Game start!')
 
