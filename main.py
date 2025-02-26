@@ -9,7 +9,7 @@ version = '2025.2.24.1145.stable'
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
 
 class BasketballPlayer():
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nickname):
+    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -29,7 +29,7 @@ class BasketballPlayer():
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
         self.energy = energy
-        self.nickname = nickname
+        self.nicknames = nicknames
 
 
 
@@ -38,18 +38,18 @@ class BasketballPlayer():
         num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
         if num in [1, 2, 3]:
             primary_name = self.name.split(" ")[1]
-        elif num in [4, 5] and self.nickname:
-            nickname_index = random.randint(0, (len(self.nickname)-1))
-            primary_name = self.nickname[nickname_index]
+        elif num in [4, 5] and self.nicknames:
+            nicknames_index = random.randint(0, (len(self.nicknames)-1))
+            primary_name = self.nicknames[nicknames_index]
         else:
             primary_name = self.name
         
         num = random.randint(1, 6)
         if num in [1, 2, 3]:
             defender_name = self.defender.name.split(" ")[1]
-        elif num in [4, 5] and self.defender.nickname:
-            nickname_index = random.randint(0, (len(self.defender.nickname)-1))
-            defender_name = self.defender.nickname[nickname_index]
+        elif num in [4, 5] and self.defender.nicknames:
+            nicknames_index = random.randint(0, (len(self.defender.nicknames)-1))
+            defender_name = self.defender.nicknames[nicknames_index]
         else:
             defender_name = self.defender.name
 
@@ -57,18 +57,18 @@ class BasketballPlayer():
             num = random.randint(1, 6)
             if num in [1, 2, 3]:
                 secondary_player_name = secondary_player.name.split(" ")[1]
-            elif num in [4, 5] and secondary_player.nickname:
-                nickname_index = random.randint(0, (len(secondary_player.nickname)-1))
-                secondary_player_name = secondary_player.nickname[nickname_index]
+            elif num in [4, 5] and secondary_player.nicknames:
+                nicknames_index = random.randint(0, (len(secondary_player.nicknames)-1))
+                secondary_player_name = secondary_player.nicknames[nicknames_index]
             else:
                 secondary_player_name = secondary_player.name
 
             num = random.randint(1, 6)
             if num in [1, 2 ,3]:
                 secondary_player_defender_name = secondary_player.defender.name.split(" ")[1]
-            elif num in [4, 5] and secondary_player.defender.nickname:
-                nickname_index = random.randint(0, (len(secondary_player.defender.nickname)-1))
-                secondary_player_defender_name = secondary_player.defender.nickname[nickname_index]
+            elif num in [4, 5] and secondary_player.defender.nicknames:
+                nicknames_index = random.randint(0, (len(secondary_player.defender.nicknames)-1))
+                secondary_player_defender_name = secondary_player.defender.nicknames[nicknames_index]
             else:
                 secondary_player_defender_name = secondary_player.defender.name
             
@@ -661,12 +661,7 @@ print('\n' + '\n')
 
 print('Team selected:', user_team)
 
-print('\n')
-
-
-
-
-print('\n' + '\n')
+print('\n' + '\n' + '\n')
 
 
 print('Select your opposing team!')
@@ -769,7 +764,7 @@ print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
-print('\n' + '\n')
+print('\n' + '\n' + '\n')
 
 print('(A)utoplay mode or (M)anual?')
 auto_or_manual = str(KermLib.get_user_input(['A', 'a', 'm', 'M']))
@@ -819,6 +814,9 @@ print('\n' + '\n')
 
 print(user_team, 'vs.', opposing_team)
 print('\n')
+
+time.sleep(0.5)
+
 print('Starting lineup:')
 for x in range(5):
     if user_team_list[x] == current_player:
