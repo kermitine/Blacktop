@@ -682,8 +682,6 @@ print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
 
-<<<<<<< HEAD
-=======
 print('\n' + '\n' + '\n')
 
 print('(A)utoplay mode or (M)anual?')
@@ -706,7 +704,6 @@ if auto_or_manual in ['m', "M"]:
 else:
     print('Auto selected')
 
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 # INITIALIZE DEFENDERS
 for player in user_team_list:
