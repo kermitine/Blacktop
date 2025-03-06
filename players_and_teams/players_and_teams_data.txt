@@ -302,4 +302,29 @@ wizards_bench_list = [m_brogdon, c_kispert, k_george, j_champagnie, j_valanciuna
 
 teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards"]
 
+clippers_team = Team("LA Clippers", clippers_list, clippers_bench_list, clippers_logo)
+lakers_team = Team("Los Angeles Lakers", lakers_list, lakers_bench_list, lakers_logo)
+celtics_team = Team("Boston Celtics", celtics_list, celtics_bench_list, celtics_logo)
+knicks_team = Team("New York Knicks", knicks_list, knicks_bench_list, knicks_logo)
+suns_team = Team("Phoenix Suns", suns_list, suns_bench_list, suns_logo)
+sixers_team = Team("Philadelphia 76ers", sixers_list, sixers_bench_list, sixers_logo)
+warriors_team = Team("Golden State Warriors", warriors_list, warriors_bench_list, warriors_logo)
+magic_team = Team("Orlando Magic", magic_list, magic_bench_list, magic_logo)
+mavericks_team = Team("Dallas Mavericks", mavericks_list, mavericks_bench_list, mavericks_logo)
+pelicans_team = Team("New Orleans Pelicans", pelicans_list, pelicans_bench_list, pelicans_logo)
+nuggets_team = Team("Denver Nuggets", nuggets_list, nuggets_bench_list, nuggets_logo)
+retro_clippers_team = Team("'13-'14 LA Clippers", retro_clippers_list, retro_clippers_bench_list, retro_clippers_logo)
+thunder_team = Team("Oklahoma City Thunder", thunder_list, thunder_bench_list, thunder_logo)
+grizzlies_team = Team("Memphis Grizzlies", grizzlies_list, grizzlies_bench_list, grizzlies_logo)
+rockets_team = Team("Houston Rockets", rockets_list, rockets_bench_list, rockets_logo)
+wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wizards_logo)
+
+
+
+
+
+
+
+
+
 #END

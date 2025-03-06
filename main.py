@@ -8,6 +8,15 @@ version = '2025.2.24.1145.stable'
 
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
 
+class Team():
+    def __init__(self, team_name, list, bench_list, logo ):
+        self.team_name = team_name
+        self.list = list
+        self.bench_list = bench_list
+        self.logo = logo
+
+
+
 class BasketballPlayer():
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
         self.name = name
@@ -570,90 +579,47 @@ for team_name in teams_names:
 team_quantity = list(range(1, team))
 team_quantity = [str(x) for x in team_quantity]
 user_team_input = KermLib.get_user_input(team_quantity)
-
+user_team_input = int(user_team_input)
 
 print('\n')
-if user_team_input == '1':
-    user_team = 'LA Clippers'
-    user_team_list = clippers_list
-    user_team_logo = clippers_logo
-    user_team_list_bench = clippers_bench_list
-elif user_team_input == '2':
-    user_team = 'Los Angeles Lakers'
-    user_team_list = lakers_list
-    user_team_logo = lakers_logo
-    user_team_list_bench = lakers_bench_list
-elif user_team_input == '3':
-    user_team = 'Boston Celtics'
-    user_team_list = celtics_list
-    user_team_logo = celtics_logo
-    user_team_list_bench = celtics_bench_list
-elif user_team_input == '4':
-    user_team = 'New York Knicks'
-    user_team_list = knicks_list
-    user_team_logo = knicks_logo
-    user_team_list_bench = knicks_bench_list
-elif user_team_input == '5':
-    user_team = 'Phoenix Suns'
-    user_team_list = suns_list
-    user_team_logo = suns_logo 
-    user_team_list_bench = suns_bench_list
-elif user_team_input == '6':
-    user_team = 'Philadelphia 76ers'
-    user_team_list = sixers_list
-    user_team_logo = sixers_logo
-    user_team_list_bench = sixers_bench_list
-elif user_team_input == '7':
-    user_team = 'Golden State Warriors'
-    user_team_list = warriors_list
-    user_team_logo = warriors_logo
-    user_team_list_bench = warriors_bench_list
-elif user_team_input == '8':
-    user_team = 'Orlando Magic'
-    user_team_list = magic_list
-    user_team_logo = magic_logo
-    user_team_list_bench = magic_bench_list
-elif user_team_input == '9':
-    user_team = 'Dallas Mavericks'
-    user_team_list = mavericks_list
-    user_team_logo = mavericks_logo
-    user_team_list_bench = mavericks_bench_list
-elif user_team_input == '10':
-    user_team = 'Denver Nuggets'
-    user_team_list = nuggets_list
-    user_team_logo = nuggets_logo
-    user_team_list_bench = nuggets_bench_list
-elif user_team_input == '11':
-    user_team = 'New Orleans Pelicans'
-    user_team_list = pelicans_list
-    user_team_logo = pelicans_logo
-    user_team_list_bench = pelicans_bench_list
-elif user_team_input == '12':
-    user_team = "'13-'14 LA Clippers"
-    user_team_list = retro_clippers_list
-    user_team_logo = retro_clippers_logo
-    user_team_list_bench = retro_clippers_bench_list
-elif user_team_input == '13':
-    user_team = "Oklahoma City Thunder"
-    user_team_list = thunder_list
-    user_team_logo = thunder_logo
-    user_team_list_bench = thunder_bench_list
-elif user_team_input == '14':
-    user_team = "Memphis Grizzlies"
-    user_team_list = grizzlies_list
-    user_team_logo = grizzlies_logo
-    user_team_list_bench = grizzlies_bench_list
-elif user_team_input == '15':
-    user_team = "Houston Rockets"
-    user_team_list = rockets_list
-    user_team_logo = rockets_logo
-    user_team_list_bench = rockets_bench_list
-elif user_team_input == '16':
-    user_team = "Washington Wizards"
-    user_team_list = wizards_list
-    user_team_logo = wizards_logo
-    user_team_list_bench = wizards_bench_list
+match user_team_input:
+    case 1:
+        user_team_object = clippers_team
+    case 2:
+        user_team_object = lakers_team
+    case 3:
+        user_team_object = celtics_team
+    case 4:
+        user_team_object = knicks_team
+    case 5:
+        user_team_object = suns_team
+    case 6:
+        user_team_object = sixers_team
+    case 7:
+        user_team_object = warriors_team
+    case 8:
+        user_team_object = magic_team
+    case 9:
+        user_team_object = mavericks_team
+    case 10:
+        user_team_object = nuggets_team
+    case 11:
+        user_team_object = pelicans_team
+    case 12:
+        user_team_object = retro_clippers_team
+    case 13:
+        user_team_object = thunder_team
+    case 14:
+        user_team_object = grizzlies_team
+    case 15:
+        user_team_object = rockets_team
+    case 16:
+        user_team_object = wizards_team
 
+user_team = user_team_object.team_name
+user_team_list = user_team_object.list
+user_team_list_bench = user_team_object.bench_list
+user_team_logo = user_team_object.logo
 
 print(user_team_logo)
 
@@ -689,71 +655,42 @@ while True:
 opposing_team = teams_names[int(user_decision)-1]
 
 if opposing_team == 'LA Clippers':
-    opposing_team_list = clippers_list
-    opposing_team_logo = clippers_logo
-    opposing_team_list_bench = clippers_bench_list
+    opposing_team_object = clippers_team
 elif opposing_team == 'Los Angeles Lakers':
-    opposing_team_list = lakers_list
-    opposing_team_logo = lakers_logo
-    opposing_team_list_bench = lakers_bench_list
+    opposing_team_object = lakers_team
 elif opposing_team == 'Boston Celtics':
-    opposing_team_list = celtics_list
-    opposing_team_logo = celtics_logo
-    opposing_team_list_bench = celtics_bench_list
+    opposing_team_object = celtics_team
 elif opposing_team == 'New York Knicks':
-    opposing_team_list = knicks_list
-    opposing_team_logo = knicks_logo
-    opposing_team_list_bench = knicks_bench_list
+    opposing_team_object = knicks_team
 elif opposing_team == 'Phoenix Suns':
-    opposing_team_list = suns_list
-    opposing_team_logo = suns_logo
-    opposing_team_list_bench = suns_bench_list
+    opposing_team_object = suns_team
 elif opposing_team == 'Philadelphia 76ers':
-    opposing_team_list = sixers_list
-    opposing_team_logo = sixers_logo
-    opposing_team_list_bench = sixers_bench_list
+    opposing_team_object = sixers_team
 elif opposing_team == 'Golden State Warriors':
-    opposing_team_list = warriors_list
-    opposing_team_logo = warriors_logo
-    opposing_team_list_bench = warriors_bench_list
+    opposing_team_object = warriors_team
 elif opposing_team == 'Orlando Magic':
-    opposing_team_list = magic_list
-    opposing_team_logo = magic_logo
-    opposing_team_list_bench = magic_bench_list
+    opposing_team_object = magic_team
 elif opposing_team == 'Dallas Mavericks':
-    opposing_team_list = mavericks_list
-    opposing_team_logo = mavericks_logo
-    opposing_team_list_bench = mavericks_bench_list
+    opposing_team_object = mavericks_team
 elif opposing_team == 'Denver Nuggets':
-    opposing_team_list = nuggets_list
-    opposing_team_logo = nuggets_logo
-    opposing_team_list_bench = nuggets_bench_list
+    opposing_team_object = nuggets_team
 elif opposing_team == 'New Orleans Pelicans':
-    opposing_team_list = pelicans_list
-    opposing_team_logo = pelicans_logo
-    opposing_team_list_bench = pelicans_bench_list
+    opposing_team_object = pelicans_team
 elif opposing_team == "'13-'14 LA Clippers":
-    opposing_team_list = retro_clippers_list
-    opposing_team_logo = retro_clippers_logo
-    opposing_team_list_bench = retro_clippers_bench_list
+    opposing_team_object = retro_clippers_team
 elif opposing_team == "Oklahoma City Thunder":
-    opposing_team_list = thunder_list
-    opposing_team_logo = thunder_logo
-    opposing_team_list_bench = thunder_bench_list
+    opposing_team_object = thunder_team
 elif opposing_team == "Memphis Grizzlies":
-    opposing_team_list = grizzlies_list
-    opposing_team_logo = grizzlies_logo
-    opposing_team_list_bench = grizzlies_bench_list
+    opposing_team_object = grizzlies_team
 elif opposing_team == "Houston Rockets":
-    opposing_team_list = rockets_list
-    opposing_team_logo = rockets_logo
-    opposing_team_list_bench = rockets_bench_list
+    opposing_team_object = rockets_team
 elif opposing_team == "Washington Wizards":
-    opposing_team_list = wizards_list
-    opposing_team_logo = wizards_logo
-    opposing_team_list_bench = wizards_bench_list
+    opposing_team_object = wizards_team
 
-
+opposing_team = opposing_team_object.team_name
+opposing_team_list = opposing_team_object.list
+opposing_team_list_bench = opposing_team_object.bench_list
+opposing_team_logo = opposing_team_object.logo
 
 
 print(opposing_team_logo)
