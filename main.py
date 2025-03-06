@@ -727,8 +727,6 @@ for player in user_team_list:
         break
 
 
-<<<<<<< HEAD
-=======
 print('\n' + '\n')
 
 print(user_team, 'vs.', opposing_team)
@@ -752,7 +750,6 @@ for x in range(5):
     time.sleep(0.3)
 
 print('\n' + '\n')
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 print('Game start!')
 
