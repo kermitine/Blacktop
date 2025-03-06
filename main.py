@@ -6,11 +6,7 @@ from basketball_ascii import *
 version = '2024.12.1.1700.stable'
 
 class BasketballPlayer():
-<<<<<<< HEAD
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made):
-=======
     def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
         self.name = name
         self.position = position
         self.positionnumber = positionnumber
@@ -29,17 +25,12 @@ class BasketballPlayer():
         self.pointsMade = points_made
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
-<<<<<<< HEAD
-=======
         self.energy = energy
         self.nicknames = nicknames
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 
 
     def commentator_randomizer(self, event, secondary_player):
-<<<<<<< HEAD
-=======
 
         num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
         if num in [1, 2, 3]:
@@ -79,7 +70,6 @@ class BasketballPlayer():
                 secondary_player_defender_name = secondary_player.defender.name
             
 
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
         if event == '3ptshot':
             last_name = self.name.split(" ")[1]
             announcer_call = random.randint(1, 12)  # Increased range for more variations
