@@ -596,22 +596,7 @@ print('\n' + '\n')
 
 print('Team selected:', user_team)
 
-<<<<<<< HEAD
-print('\n')
-
-print('Choose your player!')
-
-position_number = 0
-for player in user_team_list:
-    position_number += 1
-    print(player.name + ' -- ' + str(position_number))
-
-player_decision = int(KermLib.get_user_input(['1', '2', '3', '4', '5']))
-
-print('\n' + '\n')
-=======
 print('\n' + '\n' + '\n')
->>>>>>> c2fab0e (renamed "nickname" attribute to "nicknames")
 
 
 print('Select your opposing team!')
