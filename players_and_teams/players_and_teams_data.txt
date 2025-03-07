@@ -250,6 +250,20 @@ k_george = BasketballPlayer("Kyshawn George", "Small Forward", 3, "Washington Wi
 j_champagnie = BasketballPlayer("Justin Champagnie", "Power Forward", 4, "Washington Wizards", 0.310, 0.55, 0.65, 0.12, 0.28, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 j_valanciunas = BasketballPlayer("Jonas Valanciunas", "Center", 5, "Washington Wizards", 0.300, 0.60, 0.75, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 
+# INDIANA PACERS STARTING UNIT
+t_haliburton = BasketballPlayer("Tyrese Haliburton", "Point Guard", 1, "Indiana Pacers", 0.400, 0.85, 0.70, 0.12, 0.30, 0.25, 0.14, 0.45, False, None, False, 0, 0, 0, 100, None)
+a_nembhard = BasketballPlayer("Andrew Nembhard", "Shooting Guard", 2, "Indiana Pacers", 0.350, 0.75, 0.65, 0.11, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
+a_nesmith = BasketballPlayer("Aaron Nesmith", "Small Forward", 3, "Indiana Pacers", 0.350, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
+p_siakam = BasketballPlayer("Pascal Siakam", "Power Forward", 4, "Indiana Pacers", 0.360, 0.65, 0.70, 0.12, 0.30, 0.25, 0.14, 0.45, False, None, False, 0, 0, 0, 100, None)
+m_turner = BasketballPlayer("Myles Turner", "Center", 5, "Indiana Pacers", 0.320, 0.60, 0.75, 0.13, 0.28, 0.28, 0.15, 0.50, False, None, False, 0, 0, 0, 100, None)
+
+# INDIANA PACERS BENCH UNIT
+t_mcconnell = BasketballPlayer("T.J. McConnell", "Point Guard", 1, "Indiana Pacers", 0.360, 0.75, 0.70, 0.11, 0.25, 0.22, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
+b_sheppard = BasketballPlayer("Ben Sheppard", "Shooting Guard", 2, "Indiana Pacers", 0.340, 0.65, 0.65, 0.12, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+b_mathurin = BasketballPlayer("Bennedict Mathurin", "Small Forward", 3, "Indiana Pacers", 0.370, 0.70, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
+o_toppin = BasketballPlayer("Obi Toppin", "Power Forward", 4, "Indiana Pacers", 0.360, 0.65, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
+t_bryant = BasketballPlayer("Thomas Bryant", "Center", 5, "Indiana Pacers", 0.350, 0.60, 0.70, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -299,7 +313,10 @@ rockets_bench_list = [a_holiday, c_whitmore, a_thompson, t_eason, s_adams]
 wizards_list = [j_poole, c_carrington, b_coulibaly, k_kuzma, a_sarr]
 wizards_bench_list = [m_brogdon, c_kispert, k_george, j_champagnie, j_valanciunas]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards"]
+pacers_list = [t_haliburton, a_nembhard, a_nesmith, p_siakam, m_turner]
+pacers_bench_list = [t_mcconnell, b_sheppard, b_mathurin, o_toppin, t_bryant]
+
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards", "Indiana Pacers"]
 
 clippers_team = Team("LA Clippers", clippers_list, clippers_bench_list, clippers_logo)
 lakers_team = Team("Los Angeles Lakers", lakers_list, lakers_bench_list, lakers_logo)
@@ -317,7 +334,7 @@ thunder_team = Team("Oklahoma City Thunder", thunder_list, thunder_bench_list, t
 grizzlies_team = Team("Memphis Grizzlies", grizzlies_list, grizzlies_bench_list, grizzlies_logo)
 rockets_team = Team("Houston Rockets", rockets_list, rockets_bench_list, rockets_logo)
 wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wizards_logo)
-
+pacers_team = Team("Indiana Pacers", pacers_list, pacers_bench_list, pacers_logo)
 
 
 

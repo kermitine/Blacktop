@@ -616,6 +616,8 @@ match user_team_input:
         user_team_object = rockets_team
     case 16:
         user_team_object = wizards_team
+    case 17:
+        user_team_object = pacers_team
 
 user_team = user_team_object.team_name
 user_team_list = user_team_object.list
@@ -687,6 +689,8 @@ elif opposing_team == "Houston Rockets":
     opposing_team_object = rockets_team
 elif opposing_team == "Washington Wizards":
     opposing_team_object = wizards_team
+elif opposing_team == "Indiana Pacers":
+    opposing_team_object = pacers_team
 
 opposing_team = opposing_team_object.team_name
 opposing_team_list = opposing_team_object.list
