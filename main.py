@@ -620,6 +620,8 @@ match user_team_input:
         user_team_object = pacers_team
     case 18:
         user_team_object = cavaliers_team
+    case 19:
+        user_team_object = raptors_team
 
 user_team = user_team_object.team_name
 user_team_list = user_team_object.list
@@ -695,6 +697,8 @@ elif opposing_team == "Indiana Pacers":
     opposing_team_object = pacers_team
 elif opposing_team == "Cleveland Cavaliers":
     opposing_team_object = cavaliers_team
+elif opposing_team == "Toronto Raptors":
+    opposing_team_object = raptors_team
 
 opposing_team = opposing_team_object.team_name
 opposing_team_list = opposing_team_object.list
@@ -786,7 +790,7 @@ time.sleep(2)
 
 # -----------------------------------------------------------------------------------------
 
-end_score = 25
+end_score = 10
 
 opposing_team_score = 0
 user_team_score = 0
@@ -887,6 +891,18 @@ while True:
         else:
             print('0 interceptions made')
         time.sleep(1.5)
+
+        highest_ppi = 0
+        mvp = None
+        for player in combined_list + user_team_list_bench + opposing_team_list_bench:
+            ppi = player.pointsMade + player.passesMade + player.interceptionsMade
+            if ppi > highest_ppi:
+                highest_ppi = ppi
+                mvp = player
+
+        print('\n')
+        print('MVP:', mvp.name, '(' + str(highest_ppi), 'PPI)')
+
 
         print('\n')
 
