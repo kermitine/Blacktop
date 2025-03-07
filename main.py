@@ -821,6 +821,46 @@ while True:
                 highest_interceptions = player.interceptionsMade
                 highest_interceptor = player
 
+        
+        print('\n' + '\n' + 'Box score (Points, Passes, Interceptions)' + '\n')
+        print(user_team + ':')
+        for x in range(5):
+            if user_team_list[x] == current_player:
+                print('(You)', user_team_list[x].name + ':', str(user_team_list[x].pointsMade) + ',', str(user_team_list[x].passesMade) + ',', str(user_team_list[x].interceptionsMade))
+            else:
+                print(user_team_list[x].name + ':', str(user_team_list[x].pointsMade) + ',', str(user_team_list[x].passesMade) + ',', str(user_team_list[x].interceptionsMade))
+            time.sleep(0.3)
+        
+        print('\n')
+        for x in range(5):
+            if user_team_list_bench[x] == current_player:
+                print('(You)', user_team_list_bench[x].name + ':', str(user_team_list_bench[x].pointsMade) + ',', str(user_team_list_bench[x].passesMade) + ',', str(user_team_list_bench[x].interceptionsMade))
+            else:
+                print(user_team_list_bench[x].name + ':', str(user_team_list_bench[x].pointsMade) + ',', str(user_team_list_bench[x].passesMade) + ',', str(user_team_list_bench[x].interceptionsMade))
+            time.sleep(0.3)
+
+        print('\n' + '\n')
+        print(opposing_team + ':')
+
+        for x in range(5):
+            if opposing_team_list[x] == current_player:
+                print('(You)', opposing_team_list[x].name + ':', str(opposing_team_list[x].pointsMade) + ',', str(opposing_team_list[x].passesMade) + ',', str(opposing_team_list[x].interceptionsMade))
+            else:
+                print(opposing_team_list[x].name + ':', str(opposing_team_list[x].pointsMade) + ',', str(opposing_team_list[x].passesMade) + ',', str(opposing_team_list[x].interceptionsMade))
+            time.sleep(0.3)
+        
+        print('\n')
+        for x in range(5):
+            if opposing_team_list_bench[x] == current_player:
+                print('(You)', opposing_team_list_bench[x].name + ':', str(opposing_team_list_bench[x].pointsMade) + ',', str(opposing_team_list_bench[x].passesMade) + ',', str(opposing_team_list_bench[x].interceptionsMade))
+            else:
+                print(opposing_team_list_bench[x].name + ':', str(opposing_team_list_bench[x].pointsMade) + ',', str(opposing_team_list_bench[x].passesMade) + ',', str(opposing_team_list_bench[x].interceptionsMade))
+            time.sleep(0.3)
+
+        print('\n' + '\n')
+
+
+
         time.sleep(1.5)
 
         print('\n')
@@ -841,14 +881,6 @@ while True:
         time.sleep(1.5)
 
         print('\n')
-
-        if highest_interceptor is not None:
-            if highest_interceptor.team == highest_passer.team == highest_scorer.team:
-                print('Wow! A clean sweep by the', highest_interceptor.team, 'as they claim the entire leaderboard!')
-        else:
-            if highest_passer.team == highest_scorer.team:
-                print('Wow! A double by the', highest_scorer.team, 'as they claim two leaderboard spots!')
-
 
         
         time.sleep(5)
