@@ -172,7 +172,7 @@ class BasketballPlayer():
                 case 10:
                     print('Off the back iron!', defender_name, 'secures the rebound.')
                 case 11:
-                    print('Off the rim, recovered by', defender_name)
+                    print('Off the rim, recovered by', defender_name + '!')
 
 
         elif event == 'drive':
@@ -790,7 +790,7 @@ time.sleep(2)
 
 # -----------------------------------------------------------------------------------------
 
-end_score = 20
+end_score = 10
 
 opposing_team_score = 0
 user_team_score = 0
@@ -894,7 +894,7 @@ while True:
 
         highest_ppi = 0
         mvp = None
-        for player in combined_list + user_team_list_bench + opposing_team_list_bench:
+        for player in user_team_list + user_team_list_bench:
             ppi = player.pointsMade + player.passesMade + player.interceptionsMade
             if ppi > highest_ppi:
                 highest_ppi = ppi
@@ -902,6 +902,18 @@ while True:
 
         print('\n')
         print('MVP:', mvp.name, '(' + str(highest_ppi), 'PPI)')
+
+
+        highest_ppi = 0
+        mvp = None
+        for player in opposing_team_list + opposing_team_list_bench:
+            ppi = player.pointsMade + player.passesMade + player.interceptionsMade
+            if ppi > highest_ppi:
+                highest_ppi = ppi
+                mvp = player
+        
+        time.sleep(1.5)
+        print('SVP:', mvp.name, '(' + str(highest_ppi), 'PPI)')
 
 
         print('\n')
