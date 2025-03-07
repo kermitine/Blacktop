@@ -790,7 +790,7 @@ time.sleep(2)
 
 # -----------------------------------------------------------------------------------------
 
-end_score = 10
+end_score = 25
 
 opposing_team_score = 0
 user_team_score = 0
@@ -990,7 +990,7 @@ while True:
                             position_number += 1
                             continue
                         position_number += 1
-                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')', '(Chance of turnover:', str(turn_over_chance(current_player, player.defender)) + '%)', '(Energy:', str(player.energy) + '%)')
+                        print(player.name + ' -- ' + str(position_number), '(defended by', player.defender.name + ')', '(Energy:', str(player.energy) + '%)')
                 
                     while True:
                         player_decision = str(input())
