@@ -83,7 +83,7 @@ class BasketballPlayer():
             
 
         if event == '3ptshot':
-            commentary_variation = random.randint(1, 13)
+            commentary_variation = random.randint(1, 15)
 
             match commentary_variation:
                 case 1:
@@ -93,9 +93,9 @@ class BasketballPlayer():
                 case 3:
                     print(primary_name, 'from downtown!')
                 case 4:
-                    print(primary_name, 'steps back and pulls up from three!')
+                    print(primary_name, 'steps back and fires a three!')
                 case 5:
-                    print('Corner three from', primary_name + '!')
+                    print('A corner three from', primary_name + '!')
                 case 6:
                     print(primary_name, 'fires a three!')
                 case 7:
@@ -112,6 +112,10 @@ class BasketballPlayer():
                     print("That's a deep three for", primary_name + '!')
                 case 13:
                     print(primary_name, 'for three!')
+                case 14:
+                    print(primary_name + ', a three!')
+                case 15:
+                    print(primary_name + ', corner three!')
 
         elif event == '3ptmake':
             commentary_variation = random.randint(1, 14)  # Increased range for more variations
@@ -148,7 +152,7 @@ class BasketballPlayer():
 
 
         elif event == '3ptmiss':
-            commentary_variation = random.randint(1, 11)  # Increased range for more variations
+            commentary_variation = random.randint(1, 12)  # Increased range for more variations
             
             match commentary_variation:
                 case 1:
@@ -173,10 +177,13 @@ class BasketballPlayer():
                     print('Off the back iron!', defender_name, 'secures the rebound.')
                 case 11:
                     print('Off the rim, recovered by', defender_name + '!')
+                case 12:
+                    print('And that one clanks off the rim, rebounded by', defender_name + '.')
+
 
 
         elif event == 'drive':
-            commentary_variation = random.randint(1, 12)  # Increased range for more variations
+            commentary_variation = random.randint(1, 13)  # Increased range for more variations
 
             match commentary_variation:
                 case 1:
@@ -203,10 +210,12 @@ class BasketballPlayer():
                     print(primary_name, 'cuts inside and challenges', defender_name + '!')
                 case 12:
                     print('Here we go!')
+                case 13:
+                    print(primary_name, 'to the basket!')
 
         
         elif event == 'drivemake':
-            commentary_variation = random.randint(1, 11)  # Increased range for more variations
+            commentary_variation = random.randint(1, 13)  # Increased range for more variations
 
             match commentary_variation:
                 case 1:
@@ -231,10 +240,14 @@ class BasketballPlayer():
                     print('And he knifes through the defense for two!')
                 case 11:
                     print('And he works his way inside!')
+                case 12:
+                    print('And the smooth up-and-under layup is good!')
+                case 13:
+                    print('And hat high-arcing layup is good!')
 
 
         elif event == 'miss':
-            commentary_variation = random.randint(1, 10) 
+            commentary_variation = random.randint(1, 11) 
 
             match commentary_variation:
                 case 1:
@@ -257,6 +270,8 @@ class BasketballPlayer():
                     print('The ball dances around the rim and spills out.', defender_name, 'grabs the rebound.')
                 case 10:
                     print('A tough miss for', primary_name, 'as', defender_name, 'comes away with it.')
+                case 11:
+                    print('Rattles out, recovered by', defender_name + '!')
         
         elif event == 'pass': # UNSPAGHETTIFY
             commentary_variation = random.randint(1, 15)  # Increased range for more variations
@@ -307,7 +322,7 @@ class BasketballPlayer():
                 case 4:
                     print('And ' + secondary_player_defender_name + ' intercepts it!')
                 case 5:
-                    print(self.name, 'turns it over!', secondary_player_defender_name, 'brings it back up the court!')
+                    print(primary_name, 'turns it over!', secondary_player_defender_name, 'brings it back up the court!')
                 case 6:
                     print('Pickpocketed by ' + secondary_player_defender_name + '!')
                 case 7:
@@ -317,7 +332,7 @@ class BasketballPlayer():
                 case 9:
                     print('A quick swipe by ' + secondary_player_defender_name + '! Possession changes hands.')
                 case 10:
-                    print('And ' + self.name + "'s pass is intercepted by " + secondary_player_defender_name + '!')
+                    print('And ' + primary_name + "'s pass is intercepted by " + secondary_player_defender_name + '!')
             
         print('\n')
 
@@ -806,12 +821,20 @@ while True:
             print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
             print('---------------------------------------------------------------------------------------------------------')
             print(opposing_team_logo)
+            winning_team_list = opposing_team_list
+            winning_team_list_bench = opposing_team_list_bench
+            losing_team_list = user_team_list
+            losing_team_list_bench = user_team_list_bench
         else:
             print('\n' + '\n' + '\n')
             print('---------------------------------------------------------------------------------------------------------')
             print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
             print('---------------------------------------------------------------------------------------------------------')
             print(user_team_logo)
+            winning_team_list = user_team_list
+            winning_team_list_bench = user_team_list_bench
+            losing_team_list = opposing_team_list
+            losing_team_list_bench = opposing_team_list_bench
 
         highest_score = 0
         highest_scorer = None
@@ -894,7 +917,7 @@ while True:
 
         highest_ppi = 0
         mvp = None
-        for player in user_team_list + user_team_list_bench:
+        for player in winning_team_list + winning_team_list_bench:
             ppi = player.pointsMade + player.passesMade + player.interceptionsMade
             if ppi > highest_ppi:
                 highest_ppi = ppi
@@ -906,7 +929,7 @@ while True:
 
         highest_ppi = 0
         mvp = None
-        for player in opposing_team_list + opposing_team_list_bench:
+        for player in losing_team_list + losing_team_list_bench:
             ppi = player.pointsMade + player.passesMade + player.interceptionsMade
             if ppi > highest_ppi:
                 highest_ppi = ppi
