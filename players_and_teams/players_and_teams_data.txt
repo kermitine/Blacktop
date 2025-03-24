@@ -10,7 +10,7 @@ y_missi = BasketballPlayer("Yves Missi", "Center", 5, "New Orleans Pelicans", 0.
 j_hawkins = BasketballPlayer("Jordan Hawkins", "Point Guard", 1, "New Orleans Pelicans", 0.400, 0.65, 0.70, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 t_murphy_iii = BasketballPlayer("Trey Murphy III", "Shooting Guard", 2, "New Orleans Pelicans", 0.450, 0.65, 0.75, 0.10, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 b_boston_jr = BasketballPlayer("Brandon Boston Jr.", "Small Forward", 3, "New Orleans Pelicans", 0.390, 0.60, 0.65, 0.11, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-j_green = BasketballPlayer("Javonte Green", "Power Forward", 4, "New Orleans Pelicans", 0.400, 0.55, 0.68, 0.12, 0.25, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100, None)
+jav_green = BasketballPlayer("Javonte Green", "Power Forward", 4, "New Orleans Pelicans", 0.400, 0.55, 0.68, 0.12, 0.25, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100, None)
 j_robinson_earl = BasketballPlayer("Jeremiah Robinson-Earl", "Center", 5, "New Orleans Pelicans", 0.370, 0.50, 0.62, 0.12, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
@@ -99,7 +99,7 @@ t_jones = BasketballPlayer("Tyus Jones", "Point Guard", 1, "Phoenix Suns", .360,
 d_booker = BasketballPlayer("Devin Booker", "Shooting Guard", 2, "Phoenix Suns", .470, 0.75, 0.70, 0.10, 0.28, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, ["D-Book", "Book"])
 b_beal = BasketballPlayer("Bradley Beal", "Small Forward", 3, "Phoenix Suns", .450, 0.70, 0.68, 0.12, 0.28, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 k_durant = BasketballPlayer("Kevin Durant", "Power Forward", 4, "Phoenix Suns", .490, 0.80, 0.72, 0.08, 0.35, 0.30, 0.18, 0.40, False, None, False, 0, 0, 0, 100, ["Slim Reaper", "KD", "Durantula"])
-y_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0.25, 0.65, 0.10, 0.20, 0.18, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
+j_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0.25, 0.65, 0.10, 0.20, 0.18, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # SUNS BENCH UNIT
@@ -207,7 +207,7 @@ i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma Ci
 # MEMPHIS GRIZZLIES STARTING UNIT
 j_morant = BasketballPlayer("Ja Morant", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.85, 0.80, 0.13, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0, 100, None)
 d_bane = BasketballPlayer("Desmond Bane", "Shooting Guard", 2, "Memphis Grizzlies", 0.430, 0.80, 0.70, 0.10, 0.22, 0.18, 0.11, 0.40, False, None, False, 0, 0, 0, 100, None)
-j_jackson_jr = BasketballPlayer("Jaren Jackson Jr.", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.65, 0.65, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
+j_jackson_jr = BasketballPlayer("Jaren Jackson Jr.", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.65, 0.65, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100, ["JJJ"])
 b_clarke = BasketballPlayer("Brandon Clarke", "Power Forward", 4, "Memphis Grizzlies", 0.200, 0.55, 0.70, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 z_edey = BasketballPlayer("Zach Edey", "Center", 5, "Memphis Grizzlies", 0.000, 0.50, 0.75, 0.12, 0.30, 0.28, 0.15, 0.35, False, None, False, 0, 0, 0, 100, None)
 
@@ -238,7 +238,7 @@ s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000
 
 # WASHINGTON WIZARDS STARTING UNIT
 j_poole = BasketballPlayer("Jordan Poole", "Point Guard", 1, "Washington Wizards", 0.330, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
-c_carrington = BasketballPlayer("Carlton Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["Bub"])
+b_carrington = BasketballPlayer("Bub Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["Bub"])
 b_coulibaly = BasketballPlayer("Bilal Coulibaly", "Small Forward", 3, "Washington Wizards", 0.340, 0.65, 0.65, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_sarr = BasketballPlayer("Alex Sarr", "Center", 5, "Washington Wizards", 0.300, 0.55, 0.70, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
@@ -304,7 +304,7 @@ celtics_bench_list = [p_pritchard, j_springer, s_hauser, a_horford, l_kornet]
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
 knicks_bench_list = [c_payne, m_mcbride,j_hart, j_sims, m_robinson]
 
-suns_list = [t_jones, d_booker, b_beal, k_durant, y_nurkic]
+suns_list = [t_jones, d_booker, b_beal, k_durant, j_nurkic]
 suns_bench_list = [m_morris, g_allen, r_oneale, r_dunn, m_plumlee]
 
 sixers_list = [t_maxey, k_oubre, p_george, g_yabusele, j_embiid]
@@ -320,7 +320,7 @@ mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
 mavericks_bench_list = [s_dinwiddie, q_grimes, d_exum, m_kleber, d_gafford]
 
 pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, y_missi]
-pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, j_green, j_robinson_earl]
+pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, jav_green, j_robinson_earl]
 
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
 nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan_den]
@@ -337,7 +337,7 @@ grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]
 rockets_list = [f_vanvleet, j_green, d_brooks, j_smith_jr, a_sengun]
 rockets_bench_list = [a_holiday, c_whitmore, a_thompson, t_eason, s_adams]
 
-wizards_list = [j_poole, c_carrington, b_coulibaly, k_kuzma, a_sarr]
+wizards_list = [j_poole, b_carrington, b_coulibaly, k_kuzma, a_sarr]
 wizards_bench_list = [m_brogdon, c_kispert, k_george, j_champagnie, j_valanciunas]
 
 pacers_list = [t_haliburton, a_nembhard, a_nesmith, p_siakam, m_turner]

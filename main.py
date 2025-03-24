@@ -243,7 +243,7 @@ class BasketballPlayer():
                 case 12:
                     print('And the smooth up-and-under layup is good!')
                 case 13:
-                    print('And hat high-arcing layup is good!')
+                    print('And that high-arcing layup is good!')
 
 
         elif event == 'miss':
@@ -559,23 +559,9 @@ def calculate_turnover_chance(passer, receiver_defender):
         return False  
 
 
-def turn_over_chance(passer, receiver_defender):
-    base_chance = 0.10  
-    
-    turnover_factor = passer.tov * 25
-    passing_factor = passer.passing * -7.8
-    interception_factor = receiver_defender.interception * 25
-    
-    turnover_chance = base_chance + turnover_factor + passing_factor + interception_factor
-    
-    turnover_chance = max(0.1, min(0.25, turnover_chance))
-    turnover_chance = round(turnover_chance, 1)
-    return turnover_chance * 100
 
 
-
-
-with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIALIZES ALL OBJECCTS FROM PLAYERS_AND_TEAMS_DATA
+with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIALIZES ALL OBJECTS FROM PLAYERS_AND_TEAMS_DATA
     lines = file.readlines()
     for line in lines:
         exec(line)
@@ -805,7 +791,7 @@ time.sleep(2)
 
 # -----------------------------------------------------------------------------------------
 
-end_score = 25
+end_score = 15
 
 opposing_team_score = 0
 user_team_score = 0
@@ -857,6 +843,8 @@ while True:
                 highest_interceptor = player
 
         
+        time.sleep(3)
+
         print('\n' + '\n' + 'Box score (Points, Passes, Interceptions)' + '\n')
         print(user_team + ':')
         for x in range(5):
