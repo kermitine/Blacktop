@@ -2,8 +2,8 @@ import random
 import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
-
-version = '2025.3.7.1145.stable'
+from commentary import *
+version = '2025.5.7.1135.stable'
 
 
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
@@ -40,302 +40,6 @@ class BasketballPlayer():
         self.energy = energy
         self.nicknames = nicknames
 
-
-
-    def commentator_randomizer(self, event, secondary_player):
-
-        num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
-        if num in [1, 2, 3]:
-            primary_name = self.name.split(" ")[1]
-        elif num in [4, 5] and self.nicknames:
-            nicknames_index = random.randint(0, (len(self.nicknames)-1))
-            primary_name = self.nicknames[nicknames_index]
-        else:
-            primary_name = self.name
-        
-        num = random.randint(1, 6)
-        if num in [1, 2, 3]:
-            defender_name = self.defender.name.split(" ")[1]
-        elif num in [4, 5] and self.defender.nicknames:
-            nicknames_index = random.randint(0, (len(self.defender.nicknames)-1))
-            defender_name = self.defender.nicknames[nicknames_index]
-        else:
-            defender_name = self.defender.name
-
-        if secondary_player:
-            num = random.randint(1, 6)
-            if num in [1, 2, 3]:
-                secondary_player_name = secondary_player.name.split(" ")[1]
-            elif num in [4, 5] and secondary_player.nicknames:
-                nicknames_index = random.randint(0, (len(secondary_player.nicknames)-1))
-                secondary_player_name = secondary_player.nicknames[nicknames_index]
-            else:
-                secondary_player_name = secondary_player.name
-
-            num = random.randint(1, 6)
-            if num in [1, 2 ,3]:
-                secondary_player_defender_name = secondary_player.defender.name.split(" ")[1]
-            elif num in [4, 5] and secondary_player.defender.nicknames:
-                nicknames_index = random.randint(0, (len(secondary_player.defender.nicknames)-1))
-                secondary_player_defender_name = secondary_player.defender.nicknames[nicknames_index]
-            else:
-                secondary_player_defender_name = secondary_player.defender.name
-            
-
-        if event == '3ptshot':
-            commentary_variation = random.randint(1, 15)
-
-            match commentary_variation:
-                case 1:
-                    print('A confident three from', primary_name + '!')
-                case 2:
-                    print(primary_name, 'lets it fly!')
-                case 3:
-                    print(primary_name, 'from downtown!')
-                case 4:
-                    print(primary_name, 'steps back and fires a three!')
-                case 5:
-                    print('A corner three from', primary_name + '!')
-                case 6:
-                    print(primary_name, 'fires a three!')
-                case 7:
-                    print(primary_name, 'pulls up from beyond the arc!')
-                case 8:
-                    print(primary_name, 'launches it from deep!')
-                case 9:
-                    print('A step-back three from', primary_name + '!')
-                case 10:
-                    print(primary_name, 'from WAY downtown!')
-                case 11:
-                    print(primary_name, 'from three!')
-                case 12:
-                    print("That's a deep three for", primary_name + '!')
-                case 13:
-                    print(primary_name, 'for three!')
-                case 14:
-                    print(primary_name + ', a three!')
-                case 15:
-                    print(primary_name + ', corner three!')
-
-        elif event == '3ptmake':
-            commentary_variation = random.randint(1, 14)  # Increased range for more variations
-
-            match commentary_variation:
-                case 1:
-                    print('Count it!')
-                case 2:
-                    print('BANG!')
-                case 3:
-                    print('BANG! BANG! WHAT A SHOT FROM', primary_name.upper() + '!')
-                case 4:
-                    print('And he sinks the three!')
-                case 5:
-                    print('NOTHING BUT NET!')
-                case 6:
-                    print('And it’s good!')
-                case 7:
-                    print(primary_name, 'with the triple!')
-                case 8:
-                    print('He’s on fire! Another three from', primary_name + '!')
-                case 9:
-                    print('Splash! What a shot by', primary_name + '!')
-                case 10:
-                    print('That’s three more for', primary_name + '!')
-                case 11:
-                    print('Cold-blooded from beyond the arc by', primary_name + '!')
-                case 12:
-                    print('And he drills it! A dagger from deep!')
-                case 13:
-                    print("And it's good!", primary_name, 'with the triple!')
-                case 14:
-                    print('GOT IT!')
-
-
-        elif event == '3ptmiss':
-            commentary_variation = random.randint(1, 12)  # Increased range for more variations
-            
-            match commentary_variation:
-                case 1:
-                    print('And airballs!', defender_name, 'gathers it up.')
-                case 2:
-                    print('And the shot is off the mark.')
-                case 3:
-                    print('And he bricks it!', defender_name, 'brings it back up for the', self.defender.team + '.')
-                case 4:
-                    print('And he misfires.', defender_name, 'with the rebound.')
-                case 5:
-                    print('SMOTHERED BY', defender_name.upper() + '!')
-                case 6:
-                    print('The three-point attempt rattles out. Tough luck for', primary_name + '.')
-                case 7:
-                    print('It’s no good from downtown!', defender_name, 'picks it up for the', self.defender.team + '.')
-                case 8:
-                    print('Way off target from beyond the arc.')
-                case 9:
-                    print('And it’s just short! A strong defensive effort by', defender_name + '.')
-                case 10:
-                    print('Off the back iron!', defender_name, 'secures the rebound.')
-                case 11:
-                    print('Off the rim, recovered by', defender_name + '!')
-                case 12:
-                    print('And that one clanks off the rim, rebounded by', defender_name + '.')
-
-
-
-        elif event == 'drive':
-            commentary_variation = random.randint(1, 13)  # Increased range for more variations
-
-            match commentary_variation:
-                case 1:
-                    print(primary_name, 'drives into the paint!')
-                case 2:
-                    print('Here comes ' + primary_name + '!')
-                case 3:
-                    print(primary_name, 'drives the lane!')
-                case 4:
-                    print(primary_name, 'cuts to the hoop!')
-                case 5:
-                    print(primary_name, 'spins past', defender_name + '!')
-                case 6:
-                    print(primary_name, 'slashes to the basket!')
-                case 7:
-                    print('A strong move by ' + primary_name + ' to the rim!')
-                case 8:
-                    print(primary_name, 'blows by', defender_name, 'with a quick step!')
-                case 9:
-                    print(self.name, 'weaves through traffic and heads to the rack!')
-                case 10:
-                    print('Explosive drive by ' + primary_name + '!')
-                case 11:
-                    print(primary_name, 'cuts inside and challenges', defender_name + '!')
-                case 12:
-                    print('Here we go!')
-                case 13:
-                    print(primary_name, 'to the basket!')
-
-        
-        elif event == 'drivemake':
-            commentary_variation = random.randint(1, 13)  # Increased range for more variations
-
-            match commentary_variation:
-                case 1:
-                    print('And he rattles it in!')
-                case 2:
-                    print('AND HE SLAMS IT DOWN!')
-                case 3:
-                    print('And he lays it up and in!')
-                case 4:
-                    print('And he brings the house down!')
-                case 5:
-                    print('And he kisses it off the glass!')
-                case 6:
-                    print('What a drive! He finishes strong at the rim!')
-                case 7:
-                    print('And he powers it home with authority!')
-                case 8:
-                    print('A dazzling move to the basket, and he converts!')
-                case 9:
-                    print('He takes it all the way and scores with a smooth finish!')
-                case 10:
-                    print('And he knifes through the defense for two!')
-                case 11:
-                    print('And he works his way inside!')
-                case 12:
-                    print('And the smooth up-and-under layup is good!')
-                case 13:
-                    print('And that high-arcing layup is good!')
-
-
-        elif event == 'miss':
-            commentary_variation = random.randint(1, 11) 
-
-            match commentary_variation:
-                case 1:
-                    print('And the ball rims out!', defender_name, 'recovers it.')
-                case 2:
-                    print('A BACKBOARD BLOCK BY', defender_name.upper() + '!')
-                case 3:
-                    print('And he bricks it!', defender_name, 'brings it back up for the', self.defender.team + '.')
-                case 4:
-                    print('And that layup by', primary_name, 'is no good.')
-                case 5:
-                    print('The shot goes wide! What a defensive effort by', defender_name + '.')
-                case 6:
-                    print('Oh, the ball just doesn’t want to go in for', primary_name, 'this time.')
-                case 7:
-                    print('Rejected at the rim! What a block by', defender_name + '!')
-                case 8:
-                    print('And it’s off the front iron. Tough break for', primary_name + '.')
-                case 9:
-                    print('The ball dances around the rim and spills out.', defender_name, 'grabs the rebound.')
-                case 10:
-                    print('A tough miss for', primary_name, 'as', defender_name, 'comes away with it.')
-                case 11:
-                    print('Rattles out, recovered by', defender_name + '!')
-        
-        elif event == 'pass': # UNSPAGHETTIFY
-            commentary_variation = random.randint(1, 15)  # Increased range for more variations
-
-            match commentary_variation:
-                case 1:
-                    print('And he kicks it out to ' + secondary_player_name + '!')
-                case 2:
-                    print('He swings it out to ' + secondary_player_name + '!')
-                case 3:
-                    print('Out to ' + secondary_player_name + '!')
-                case 4:
-                    print('And he feeds it to ' + secondary_player_name + '!')
-                case 5:
-                    print(primary_name + ', bounce pass to', secondary_player_name + '!')
-                case 6:
-                    print(primary_name + ' finds', secondary_player_name + '!')
-                case 7:
-                    print('Bullet pass to ' + secondary_player_name + '!')
-                case 8:
-                    print('Quick dish to ' + secondary_player_name + '!')
-                case 9:
-                    print('Nice feed to ' + secondary_player_name + '!')
-                case 10:
-                    print('Sharp pass by ' + primary_name + ' to ' + secondary_player_name + '!')
-                case 11:
-                    print('And a beautiful no-look pass to ' + secondary_player_name + '!')
-                case 12:
-                    print('A pinpoint pass by ' + primary_name + ' to ' + secondary_player_name + '!')
-                case 13:
-                    print(primary_name + ' threads the needle to', secondary_player_name + '!')
-                case 14:
-                    print('Over to ' + secondary_player_name + ' on the perimeter!')
-                case 15:
-                    print('He lobs it to ' + secondary_player_name + ' for the setup!')
-
-        
-        elif event == 'stolen':
-            commentary_variation = random.randint(1, 10)  # Increased range for more variations
-
-            match commentary_variation:
-                case 1:
-                    print('Stolen by ' + secondary_player_defender_name + '!')
-                case 2:
-                    print('Stripped away by ' + secondary_player_defender_name + '!')
-                case 3:
-                    print('Swiped away by ' + secondary_player_defender_name + '!')
-                case 4:
-                    print('And ' + secondary_player_defender_name + ' intercepts it!')
-                case 5:
-                    print(primary_name, 'turns it over!', secondary_player_defender_name, 'brings it back up the court!')
-                case 6:
-                    print('Pickpocketed by ' + secondary_player_defender_name + '!')
-                case 7:
-                    print('And a clean steal by ' + secondary_player_defender_name + '!')
-                case 8:
-                    print('Fantastic anticipation by ' + secondary_player_defender_name + ', and he takes it away!')
-                case 9:
-                    print('A quick swipe by ' + secondary_player_defender_name + '! Possession changes hands.')
-                case 10:
-                    print('And ' + primary_name + "'s pass is intercepted by " + secondary_player_defender_name + '!')
-            
-        print('\n')
-
     def decision(self):
         generated_probability = random.randint(1, 100)
         modified_probability  = generated_probability * (1 + self.passpref)
@@ -353,14 +57,14 @@ class BasketballPlayer():
     
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
-            self.commentator_randomizer('3ptshot', None)
+            CommentaryEngine.commentator(self, '3ptshot', None)
             self.energy -= (28 + random.randint(1, 7))
 
             time.sleep(1)
 
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
-                self.commentator_randomizer('3ptmake', None)
+                CommentaryEngine.commentator(self, '3ptmake', None)
                 print(harden_shooting)
                 self.pointsMade += 3
                 self.haspossession = False
@@ -368,26 +72,26 @@ class BasketballPlayer():
                 time.sleep(1)
                 return 'shot', 3
             else:
-                self.commentator_randomizer('3ptmiss', None)
+                CommentaryEngine.commentator(self, '3ptmiss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
                 time.sleep(1)
                 return 'miss', 0
 
         if decision == 'drive':
-            self.commentator_randomizer('drive', None)
+            CommentaryEngine.commentator(self, 'drive', None)
             time.sleep(0.7)
             self.energy -= (34 + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             if make_chance > 3.8:
-                self.commentator_randomizer('drivemake', None)
+                CommentaryEngine.commentator(self, 'drivemake', None)
                 print(lebron_dwyane)
                 self.pointsMade += 2
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'shot', 2
             else:
-                self.commentator_randomizer('miss', None)
+                CommentaryEngine.commentator(self, 'miss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
                 return 'miss', 0
@@ -397,15 +101,15 @@ class BasketballPlayer():
 
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
-                    self.commentator_randomizer('pass', pass_receiver_preset)
+                    CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
                     self.energy -= (13 + random.randint(1, 4))
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
                 else:
-                    self.commentator_randomizer('pass', pass_receiver_preset)
-                    self.commentator_randomizer('stolen', pass_receiver_preset)
+                    CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
+                    CommentaryEngine.commentator(self, 'stolen', pass_receiver_preset)
                     self.energy -= (13 + random.randint(1, 4))
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
@@ -421,7 +125,7 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
-                        self.commentator_randomizer('pass', pass_receiver)
+                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         self.energy -= (13 + random.randint(1, 4))
                         print(haliburton)
 
@@ -430,8 +134,8 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        self.commentator_randomizer('pass', pass_receiver)
-                        self.commentator_randomizer('stolen', pass_receiver)
+                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        CommentaryEngine.commentator(self, 'stolen', pass_receiver)
                         self.energy -= (13 + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
@@ -443,7 +147,7 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
-                        self.commentator_randomizer('pass', pass_receiver)
+                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         print(haliburton)
                         self.energy -= (13 + random.randint(1, 4))
 
@@ -452,8 +156,8 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        self.commentator_randomizer('pass', pass_receiver)
-                        self.commentator_randomizer('stolen', pass_receiver)
+                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        CommentaryEngine.commentator(self, 'stolen', pass_receiver)
                         self.energy -= (13 + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
@@ -465,8 +169,9 @@ class BasketballPlayer():
         global current_player
         
         if self.team == user_team:
-            print(user_team, 'SUBSTITUTION:')
-            print('Substituting', self.name, 'for', user_team_list_bench[self.positionnumber-1].name + '!')
+            CommentaryEngine.commentator(self, 'substitution_initial', None)
+            time.sleep(1)
+            CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             user_team_list.insert(self.positionnumber-1, user_team_list_bench[self.positionnumber-1])   #insert bench player into roster
