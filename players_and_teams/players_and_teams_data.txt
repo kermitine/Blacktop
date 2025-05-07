@@ -22,6 +22,7 @@ a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets"
 n_jokic = BasketballPlayer("Nikola Jokic", "Center", 5, "Denver Nuggets", .500, 0.90, 0.75, 0.12, 0.40, 0.30, 0.15, 0.50, False, None, False, 0, 0, 0, 100, ["the Joker"])
 
 
+
 # NUGGETS BENCH UNIT
 r_westbrook = BasketballPlayer("Russell Westbrook", "Point Guard", 1, "Denver Nuggets", 0.430, 0.60, 0.68, 0.15, 0.30, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100, ["Brodie"])
 j_strawther = BasketballPlayer("Julian Strawther", "Shooting Guard", 2, "Denver Nuggets", 0.420, 0.65, 0.70, 0.10, 0.25, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -109,7 +110,6 @@ r_oneale = BasketballPlayer("Royce O'Neale", "Small Forward", 3, "Phoenix Suns",
 r_dunn = BasketballPlayer("Ryan Dunn", "Power Forward", 4, "Phoenix Suns", 0.370, 0.55, 0.62, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 m_plumlee = BasketballPlayer("Mason Plumlee", "Center", 5, "Phoenix Suns", 0.000, 0.50, 0.60, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, ["Plumdog Millionaire"])
 
-
 # KNICKS STARTING UNIT
 j_brunson = BasketballPlayer("Jalen Brunson", "Point Guard", 1, "New York Knicks", 0.470, 0.75, 0.70, 0.09, 0.28, 0.22, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
 m_bridges = BasketballPlayer("Mikal Bridges", "Shooting Guard", 2, "New York Knicks", 0.410, 0.65, 0.68, 0.11, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -147,6 +147,7 @@ m_christie = BasketballPlayer("Max Christie", "Shooting Guard", 2, "Los Angeles 
 l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0, 100, ["King James"])
 r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False, 0, 0, 0, 100, None)
 a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0, 100, ["AD"])
+
 
 # LAKERS BENCH UNIT
 g_vincent = BasketballPlayer("Gabe Vincent", "Point Guard", 1, "Los Angeles Lakers", 0.380, 0.80, 0.70, 0.10, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
@@ -240,7 +241,7 @@ s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000
 j_poole = BasketballPlayer("Jordan Poole", "Point Guard", 1, "Washington Wizards", 0.330, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
 b_carrington = BasketballPlayer("Bub Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["Bub"])
 b_coulibaly = BasketballPlayer("Bilal Coulibaly", "Small Forward", 3, "Washington Wizards", 0.340, 0.65, 0.65, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
-k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, ["Kuz"])
+k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, ["Kuz"]
 a_sarr = BasketballPlayer("Alex Sarr", "Center", 5, "Washington Wizards", 0.300, 0.55, 0.70, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 
 # WASHINGTON WIZARDS BENCH UNIT
@@ -292,6 +293,7 @@ o_agbaji = BasketballPlayer("Ochai Agbaji", "Small Forward", 3, "Toronto Raptors
 j_mogbo = BasketballPlayer("Jonathan Mogbo", "Power Forward", 4, "Toronto Raptors", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 o_robinson = BasketballPlayer("Orlando Robinson", "Center", 5, "Toronto Raptors", 0.310, 0.55, 0.72, 0.13, 0.28, 0.28, 0.15, 0.35, False, None, False, 0, 0, 0, 100, None)
 
+
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
 
@@ -337,6 +339,7 @@ grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]
 rockets_list = [f_vanvleet, j_green, d_brooks, j_smith_jr, a_sengun]
 rockets_bench_list = [a_holiday, c_whitmore, a_thompson, t_eason, s_adams]
 
+
 wizards_list = [j_poole, b_carrington, b_coulibaly, k_kuzma, a_sarr]
 wizards_bench_list = [m_brogdon, c_kispert, k_george, j_champagnie, j_valanciunas]
 
@@ -370,10 +373,6 @@ wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wiza
 pacers_team = Team("Indiana Pacers", pacers_list, pacers_bench_list, pacers_logo)
 cavaliers_team = Team("Cleveland Cavaliers", cavaliers_list, cavaliers_bench_list, cavaliers_logo)
 raptors_team = Team("Toronto Raptors", raptors_list, raptors_bench_list, raptors_logo)
-
-
-
-
 
 
 

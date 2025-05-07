@@ -40,6 +40,7 @@ class BasketballPlayer():
         self.energy = energy
         self.nicknames = nicknames
 
+        
     def decision(self):
         generated_probability = random.randint(1, 100)
         modified_probability  = generated_probability * (1 + self.passpref)
