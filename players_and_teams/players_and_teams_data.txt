@@ -169,7 +169,7 @@ i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", 0.000, 0.2
 k_porter_jr = BasketballPlayer("Kevin Porter Jr.", "Point Guard", 1, "LA Clippers", 0.390, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["KPJ", "Porter Jr."])
 b_hyland = BasketballPlayer("Bones Hyland", "Shooting Guard", 2, "LA Clippers", 0.410, 0.60, 0.68, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0, 100, ["Bones"])
 t_mann = BasketballPlayer("Terance Mann", "Small Forward", 3, "LA Clippers", 0.400, 0.55, 0.65, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-d_jones_jr = BasketballPlayer("Derrick Jones Jr", "Power Forward", 4, "LA Clippers", 0.350, 0.45, 0.62, 0.10, 0.22, 0.18, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
+d_jones_jr = BasketballPlayer("Derrick Jones Jr.", "Power Forward", 4, "LA Clippers", 0.350, 0.45, 0.62, 0.10, 0.22, 0.18, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
@@ -241,7 +241,7 @@ s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000
 j_poole = BasketballPlayer("Jordan Poole", "Point Guard", 1, "Washington Wizards", 0.330, 0.75, 0.70, 0.12, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
 b_carrington = BasketballPlayer("Bub Carrington", "Shooting Guard", 2, "Washington Wizards", 0.310, 0.60, 0.65, 0.11, 0.22, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["Bub"])
 b_coulibaly = BasketballPlayer("Bilal Coulibaly", "Small Forward", 3, "Washington Wizards", 0.340, 0.65, 0.65, 0.12, 0.25, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
-k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, ["Kuz"]
+k_kuzma = BasketballPlayer("Kyle Kuzma", "Power Forward", 4, "Washington Wizards", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, ["Kuz"])
 a_sarr = BasketballPlayer("Alex Sarr", "Center", 5, "Washington Wizards", 0.300, 0.55, 0.70, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 
 # WASHINGTON WIZARDS BENCH UNIT
@@ -354,26 +354,26 @@ raptors_bench_list = [j_shead, j_walter, o_agbaji, j_mogbo, o_robinson]
 
 teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards", "Indiana Pacers", "Cleveland Cavaliers", "Toronto Raptors"]
 
-clippers_team = Team("LA Clippers", clippers_list, clippers_bench_list, clippers_logo)
-lakers_team = Team("Los Angeles Lakers", lakers_list, lakers_bench_list, lakers_logo)
-celtics_team = Team("Boston Celtics", celtics_list, celtics_bench_list, celtics_logo)
-knicks_team = Team("New York Knicks", knicks_list, knicks_bench_list, knicks_logo)
-suns_team = Team("Phoenix Suns", suns_list, suns_bench_list, suns_logo)
-sixers_team = Team("Philadelphia 76ers", sixers_list, sixers_bench_list, sixers_logo)
-warriors_team = Team("Golden State Warriors", warriors_list, warriors_bench_list, warriors_logo)
-magic_team = Team("Orlando Magic", magic_list, magic_bench_list, magic_logo)
-mavericks_team = Team("Dallas Mavericks", mavericks_list, mavericks_bench_list, mavericks_logo)
-pelicans_team = Team("New Orleans Pelicans", pelicans_list, pelicans_bench_list, pelicans_logo)
-nuggets_team = Team("Denver Nuggets", nuggets_list, nuggets_bench_list, nuggets_logo)
-retro_clippers_team = Team("'13-'14 LA Clippers", retro_clippers_list, retro_clippers_bench_list, retro_clippers_logo)
-thunder_team = Team("Oklahoma City Thunder", thunder_list, thunder_bench_list, thunder_logo)
-grizzlies_team = Team("Memphis Grizzlies", grizzlies_list, grizzlies_bench_list, grizzlies_logo)
-rockets_team = Team("Houston Rockets", rockets_list, rockets_bench_list, rockets_logo)
-wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wizards_logo)
-pacers_team = Team("Indiana Pacers", pacers_list, pacers_bench_list, pacers_logo)
-cavaliers_team = Team("Cleveland Cavaliers", cavaliers_list, cavaliers_bench_list, cavaliers_logo)
-raptors_team = Team("Toronto Raptors", raptors_list, raptors_bench_list, raptors_logo)
+clippers_team = Team("LA Clippers", clippers_list, clippers_bench_list, clippers_logo, 'Tyronn Lue')
+lakers_team = Team("Los Angeles Lakers", lakers_list, lakers_bench_list, lakers_logo, 'JJ Redick')
+celtics_team = Team("Boston Celtics", celtics_list, celtics_bench_list, celtics_logo, 'Joe Mazzulla')
+knicks_team = Team("New York Knicks", knicks_list, knicks_bench_list, knicks_logo, 'Tom Thibodeau')
+suns_team = Team("Phoenix Suns", suns_list, suns_bench_list, suns_logo, 'Mike Budenholzer')
+sixers_team = Team("Philadelphia 76ers", sixers_list, sixers_bench_list, sixers_logo, 'Nick Nurse')
+warriors_team = Team("Golden State Warriors", warriors_list, warriors_bench_list, warriors_logo, 'Steve Kerr')
+magic_team = Team("Orlando Magic", magic_list, magic_bench_list, magic_logo, 'Jamahl Mosley')
+mavericks_team = Team("Dallas Mavericks", mavericks_list, mavericks_bench_list, mavericks_logo, 'Jason Kidd')
+pelicans_team = Team("New Orleans Pelicans", pelicans_list, pelicans_bench_list, pelicans_logo, 'Willie Green')
+nuggets_team = Team("Denver Nuggets", nuggets_list, nuggets_bench_list, nuggets_logo, 'Mike Malone')
+retro_clippers_team = Team("'13-'14 LA Clippers", retro_clippers_list, retro_clippers_bench_list, retro_clippers_logo, 'Doc Rivers')
+thunder_team = Team("Oklahoma City Thunder", thunder_list, thunder_bench_list, thunder_logo, 'Mark Daigneault')
+grizzlies_team = Team("Memphis Grizzlies", grizzlies_list, grizzlies_bench_list, grizzlies_logo, 'Taylor Jenkins')
+rockets_team = Team("Houston Rockets", rockets_list, rockets_bench_list, rockets_logo, 'Ime Udoka')
+wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wizards_logo, 'Brian Keefe')
+pacers_team = Team("Indiana Pacers", pacers_list, pacers_bench_list, pacers_logo, 'Rick Carlisle')
+cavaliers_team = Team("Cleveland Cavaliers", cavaliers_list, cavaliers_bench_list, cavaliers_logo, 'Kenny Atkinson')
+raptors_team = Team("Toronto Raptors", raptors_list, raptors_bench_list, raptors_logo, 'Darko Rajakovic')
 
-
+list_of_team_objects = [clippers_team, lakers_team, celtics_team, knicks_team, suns_team, sixers_team, warriors_team, magic_team, mavericks_team, pelicans_team, nuggets_team, retro_clippers_team, thunder_team, grizzlies_team, rockets_team, wizards_team, pacers_team, cavaliers_team, raptors_team]
 
 #END

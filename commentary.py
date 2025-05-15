@@ -302,20 +302,23 @@ class CommentaryEngine():
                         print('And ' + primary_name + "'s pass is intercepted by " + secondary_player_defender_name + '!')
             
             elif event == 'substitution_initial':
-                commentary_variation = random.randint(1, 2)
+                commentary_variation = random.randint(1, 3)
 
                 match commentary_variation:
                     case 1:
                         print('Seems like we got a substitution coming up for the ' + principal_player.team + '!')
                     case 2:
                         print('Seems like the coach is making a change for the ' + principal_player.team + '!')
-            
+                    case 3:
+                        print('And we have a substitution for the ' + principal_player.team + '!')
             elif event == 'substitution_final':
-                commentary_variation = random.randint(1, 1)
+                commentary_variation = random.randint(1, 2)
 
                 match commentary_variation:
                     case 1:
                         print('So ' + primary_name + ' will come in for ' + secondary_player_name + '.')
+                    case 2:
+                        print('And ' + primary_name + ' will take the place of ' + secondary_player_name + '.')
 
             print('\n')
             print('\n')

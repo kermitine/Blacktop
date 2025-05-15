@@ -3,17 +3,18 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 from commentary import *
-version = '2025.5.7.1135.stable'
+version = '2025.5.15.1520.stable'
 
 
 # TEAM AND PLAYER DATA ARE LOADED FROM PLAYERS_AND_TEAMS, DONT WORRY IF EDITOR SAYS THAT VARIABLES ARE UNRECOGNIZED
 
 class Team():
-    def __init__(self, team_name, list, bench_list, logo ):
+    def __init__(self, team_name, list, bench_list, logo, coach):
         self.team_name = team_name
         self.list = list
         self.bench_list = bench_list
         self.logo = logo
+        self.coach = coach
 
 
 
@@ -207,8 +208,9 @@ class BasketballPlayer():
             print('\n')
             return combined_list
         else:
-            print(opposing_team, 'SUBSTITUTION:')
-            print('Substituting', self.name, 'for', opposing_team_list_bench[self.positionnumber-1].name + '!')
+            CommentaryEngine.commentator(self, 'substitution_initial', None)
+            time.sleep(1)
+            CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             opposing_team_list.insert(self.positionnumber-1, opposing_team_list_bench[self.positionnumber-1])   #insert bench player into roster
@@ -266,17 +268,18 @@ def calculate_turnover_chance(passer, receiver_defender):
 
 
 
-
+start_time = time.time()
 with open("players_and_teams/players_and_teams_data.txt", "r") as file: # INITIALIZES ALL OBJECTS FROM PLAYERS_AND_TEAMS_DATA
     lines = file.readlines()
     for line in lines:
         exec(line)
-
+end_time = time.time()
 
 
 KermLib.ascii_run()
-print('Blacktop ' + version + '\n')
-
+print('Blacktop ' + version)
+print('Player and team data loaded in', str(round(end_time - start_time, 2)), 'seconds')
+print('\n')
 
 print('Select your team!')
 
@@ -492,6 +495,7 @@ for x in range(5):
 print('\n' + '\n')
 
 print('Game start!')
+start_time = time.time()
 
 time.sleep(2)
 
@@ -505,6 +509,7 @@ user_team_score = 0
 
 
 while True:
+    end_time = time.time()  
 
     if opposing_team_score >= end_score or user_team_score >= end_score:
         if opposing_team_score >= end_score:
@@ -550,7 +555,7 @@ while True:
 
         
         time.sleep(3)
-
+        print('Game duration:', round((end_time - start_time)/60, 1), 'minutes')
         print('\n' + '\n' + 'Box score (Points, Passes, Interceptions)' + '\n')
         print(user_team + ':')
         for x in range(5):
