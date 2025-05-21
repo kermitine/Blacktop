@@ -423,5 +423,3 @@ class CommentaryEngine():
                 match commentary_variation:
                     case 1:
                         print(primary_name, 'wins the jump! Tipped to ' + secondary_player_name + '!')
-            print('\n')
-            print('\n')

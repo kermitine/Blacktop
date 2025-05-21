@@ -5,7 +5,7 @@ from vars.basketball_ascii import *
 from commentary import *
 version = '2025.5.21.0920.stable'
 
-end_score = 15 # target score to win
+end_score = 5 # target score to win
 
 opposing_team_score = 0 # DO NOT CHANGE
 user_team_score = 0 # DO NOT CHANGE
@@ -176,6 +176,7 @@ class BasketballPlayer():
             CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
             CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            print('\n')
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             user_team_list.insert(self.positionnumber-1, user_team_list_bench[self.positionnumber-1])   #insert bench player into roster
@@ -207,12 +208,12 @@ class BasketballPlayer():
                 player.defender = defender
                 defender.defender = player
             combined_list = user_team_list + opposing_team_list
-            print('\n')
             return combined_list
         else:
             CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
             CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            print('\n')
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             opposing_team_list.insert(self.positionnumber-1, opposing_team_list_bench[self.positionnumber-1])   #insert bench player into roster
@@ -235,7 +236,6 @@ class BasketballPlayer():
 
         #update list
         combined_list = user_team_list + opposing_team_list
-        print('\n')
         return combined_list
     
 
@@ -1056,7 +1056,6 @@ while True:
         print('---------------------------------------------------------------------------------------------------------')
     position_number = 0
 
-    print('\n')
 
     time.sleep(3.5)
 
@@ -1094,11 +1093,9 @@ while True:
                 if player.energy != 0:
                     print('What will you do? (pass), (drive), shoot a (3pt), or manually (substitute)?')
                     player_action_decision = KermLib.get_user_input(['pass', 'drive', '3pt', 'substitute'])
-                    print('\n' + '\n')
                 else:
                     print(player.name + "'s energy is too low! Forcing substitution!")
                     player_action_decision = 'substitute'
-                    print('\n')
                     time.sleep(1)
                 
                 if player_action_decision in ['pass', 'Pass']:
@@ -1124,7 +1121,6 @@ while True:
                             break
 
 
-                    print('\n')
 
                     for player in user_team_list:
                         if player.positionnumber == player_decision:
