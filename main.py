@@ -478,7 +478,7 @@ a_mitchell = BasketballPlayer("Ajay Mitchell", "Point Guard", 1, "Oklahoma City 
 i_joe = BasketballPlayer("Isaiah Joe", "Shooting Guard", 2, "Oklahoma City Thunder", 0.410, 0.70, 0.65, 0.10, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_caruso = BasketballPlayer("Alex Caruso", "Small Forward", 3, "Oklahoma City Thunder", 0.365, 0.75, 0.65, 0.10, 0.25, 0.22, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 aa_wiggins = BasketballPlayer("Aaron Wiggins", "Power Forward", 4, "Oklahoma City Thunder", 0.340, 0.65, 0.62, 0.12, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
-i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma City Thunder", 0.310, 0.55, 0.65, 0.12, 0.20, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
+i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma City Thunder", 0.310, 0.55, 0.65, 0.12, 0.20, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, ["iHart"])
 
 
 # MEMPHIS GRIZZLIES STARTING UNIT
@@ -842,13 +842,11 @@ if auto_or_manual in ['m', "M"]:
     for player in user_team_list:
         if player.positionnumber == player_decision:
             player.isplayer = True
-            player.haspossession = True
             current_player = player
             print('\n')
             print('Player selected:', current_player.name)
             break
 else:
-    user_team_list[0].haspossession = True
     current_player = None
 
 print('\n' + '\n')
@@ -875,7 +873,8 @@ for x in range(5):
 
 print('\n' + '\n')
 
-print('Game start!')
+print('First to', str(end_score) +  '! Game start!')
+print('\n' * 3)
 start_time = time.time()
 
 time.sleep(2)
@@ -883,6 +882,19 @@ time.sleep(2)
 
 
 #-------------------------------
+
+# TIP OFF
+CommentaryEngine.commentator(user_team_list[4], 'tipoff', opposing_team_list[4])
+if random.randint(1, 2) == 1:
+    tip_receiver_index = random.randint(0, 3)
+    CommentaryEngine.commentator(user_team_list[4], 'tipoffoutcome', user_team_list[tip_receiver_index])
+    user_team_list[tip_receiver_index].haspossession = True
+else:
+    tip_receiver_index = random.randint(0, 3)
+    CommentaryEngine.commentator(opposing_team_list[4], 'tipoffoutcome', opposing_team_list[tip_receiver_index])
+    opposing_team_list[tip_receiver_index].haspossession = True
+
+
 
 while True:
     end_time = time.time()  
@@ -1026,7 +1038,7 @@ while True:
         time.sleep(5)
 
 
-        exit_key = input('Press any key to exit....')
+        exit_key = input('Press enter to exit....')
 
         break
 

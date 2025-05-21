@@ -410,5 +410,18 @@ class CommentaryEngine():
                     case 2:
                         print('And ' + primary_name + ' will take the place of ' + secondary_player_name + '.')
 
+            elif event == 'tipoff':
+                commentary_variation = random.randint(1, 1)
+
+                match commentary_variation:
+                    case 1:
+                        print('So we have ' +  primary_name + ' taking the tip for the ' + principal_player.team + ', against ' + secondary_player_name + ' for the ' + secondary_player.team + '.')
+
+            elif event == 'tipoffoutcome':
+                commentary_variation = random.randint(1, 1)
+
+                match commentary_variation:
+                    case 1:
+                        print(primary_name, 'wins the jump! Tipped to ' + secondary_player_name + '!')
             print('\n')
             print('\n')
