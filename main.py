@@ -3,9 +3,12 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 from commentary import *
-version = '2025.5.15.1520.stable'
+version = '2025.5.21.0920.stable'
 
+end_score = 15 # target score to win
 
+opposing_team_score = 0 # DO NOT CHANGE
+user_team_score = 0 # DO NOT CHANGE
 
 class Team():
     def __init__(self, team_name, list, bench_list, logo, coach):
@@ -877,14 +880,9 @@ start_time = time.time()
 
 time.sleep(2)
 
-# -----------------------------------------------------------------------------------------
-
-end_score = 15
-
-opposing_team_score = 0
-user_team_score = 0
 
 
+#-------------------------------
 
 while True:
     end_time = time.time()  
@@ -1000,6 +998,9 @@ while True:
                 highest_ppi = ppi
                 mvp = player
 
+        if mvp is None: # if no SVP, default to winning team point guard
+            mvp = winning_team_list[0]
+
         print('\n')
         print('MVP:', mvp.name, '(' + str(highest_ppi), 'PPI)')
 
@@ -1011,7 +1012,10 @@ while True:
             if ppi > highest_ppi:
                 highest_ppi = ppi
                 mvp = player
-        
+    
+        if mvp is None: # if no SVP, default to losing team point guard
+            mvp = losing_team_list[0]
+
         time.sleep(1.5)
         print('SVP:', mvp.name, '(' + str(highest_ppi), 'PPI)')
 
@@ -1020,6 +1024,10 @@ while True:
 
         
         time.sleep(5)
+
+
+        exit_key = input('Press any key to exit....')
+
         break
 
     if user_team_score > opposing_team_score:

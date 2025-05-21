@@ -1,9 +1,28 @@
 import random
-
-
+last_used_commentary_3ptshot = None
+last_used_commentary_3ptmake = None
+last_used_commentary_3ptmiss = None
+last_used_commentary_drive = None
+last_used_commentary_drivemake = None
+last_used_commentary_miss = None
+last_used_commentary_pass = None
+last_used_commentary_stolen = None
+last_used_commentary_substitution_initial = None
+last_used_commentary_substitution_final = None
 class CommentaryEngine():
     def commentator(principal_player, event, secondary_player):
             
+            global last_used_commentary_3ptshot
+            global last_used_commentary_3ptmake
+            global last_used_commentary_3ptmiss
+            global last_used_commentary_drive
+            global last_used_commentary_drivemake
+            global last_used_commentary_miss
+            global last_used_commentary_pass
+            global last_used_commentary_stolen
+            global last_used_commentary_substitution_initial
+            global last_used_commentary_substitution_final
+
             # RANDOMIZES USAGE OF FULL NAME, LAST NAME, OR NICKNAME
             num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
             if num in [1, 2, 3]:
@@ -52,6 +71,13 @@ class CommentaryEngine():
             if event == '3ptshot':
                 commentary_variation = random.randint(1, 15)
 
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_3ptshot and last_used_commentary_3ptshot == commentary_variation:
+                        commentary_variation = random.randint(1, 15)
+                    else:
+                        last_used_commentary_3ptshot = commentary_variation
+                        break
+
                 match commentary_variation:
                     case 1:
                         print('A confident three from', primary_name + '!')
@@ -87,6 +113,13 @@ class CommentaryEngine():
             elif event == '3ptmake':
                 commentary_variation = random.randint(1, 14)  # Increased range for more variations
 
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_3ptmake and last_used_commentary_3ptmake == commentary_variation:
+                        commentary_variation = random.randint(1, 14)
+                    else:
+                        last_used_commentary_3ptmake = commentary_variation
+                        break
+
                 match commentary_variation:
                     case 1:
                         print('Count it!')
@@ -120,6 +153,13 @@ class CommentaryEngine():
 
             elif event == '3ptmiss':
                 commentary_variation = random.randint(1, 12)  # Increased range for more variations
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_3ptmiss and last_used_commentary_3ptmiss == commentary_variation:
+                        commentary_variation = random.randint(1, 12)
+                    else:
+                        last_used_commentary_3ptmiss = commentary_variation
+                        break
                 
                 match commentary_variation:
                     case 1:
@@ -151,6 +191,13 @@ class CommentaryEngine():
 
             elif event == 'drive':
                 commentary_variation = random.randint(1, 13)  # Increased range for more variations
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_drive and last_used_commentary_drive == commentary_variation:
+                        commentary_variation = random.randint(1, 13)
+                    else:
+                        last_used_commentary_drive = commentary_variation
+                        break
 
                 match commentary_variation:
                     case 1:
@@ -184,6 +231,13 @@ class CommentaryEngine():
             elif event == 'drivemake':
                 commentary_variation = random.randint(1, 13)  # Increased range for more variations
 
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_drivemake and last_used_commentary_drivemake == commentary_variation:
+                        commentary_variation = random.randint(1, 13)
+                    else:
+                        last_used_commentary_drivemake = commentary_variation
+                        break
+
                 match commentary_variation:
                     case 1:
                         print('And he rattles it in!')
@@ -214,7 +268,14 @@ class CommentaryEngine():
 
 
             elif event == 'miss':
-                commentary_variation = random.randint(1, 11) 
+                commentary_variation = random.randint(1, 11)
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_miss and last_used_commentary_miss == commentary_variation:
+                        commentary_variation = random.randint(1, 11)
+                    else:
+                        last_used_commentary_miss = commentary_variation
+                        break 
 
                 match commentary_variation:
                     case 1:
@@ -242,6 +303,13 @@ class CommentaryEngine():
             
             elif event == 'pass': # UNSPAGHETTIFY
                 commentary_variation = random.randint(1, 15)  # Increased range for more variations
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_pass and last_used_commentary_pass == commentary_variation:
+                        commentary_variation = random.randint(1, 15)
+                    else:
+                        last_used_commentary_pass = commentary_variation
+                        break
 
                 match commentary_variation:
                     case 1:
@@ -279,6 +347,13 @@ class CommentaryEngine():
             elif event == 'stolen':
                 commentary_variation = random.randint(1, 10)  # Increased range for more variations
 
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_stolen and last_used_commentary_stolen == commentary_variation:
+                        commentary_variation = random.randint(1, 10)
+                    else:
+                        last_used_commentary_stolen = commentary_variation
+                        break
+
                 match commentary_variation:
                     case 1:
                         print('Stolen by ' + secondary_player_defender_name + '!')
@@ -304,6 +379,13 @@ class CommentaryEngine():
             elif event == 'substitution_initial':
                 commentary_variation = random.randint(1, 3)
 
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_substitution_initial and last_used_commentary_substitution_initial == commentary_variation:
+                        commentary_variation = random.randint(1, 3)
+                    else:
+                        last_used_commentary_substitution_initial = commentary_variation
+                        break
+
                 match commentary_variation:
                     case 1:
                         print('Seems like we got a substitution coming up for the ' + principal_player.team + '!')
@@ -311,8 +393,16 @@ class CommentaryEngine():
                         print('Seems like the coach is making a change for the ' + principal_player.team + '!')
                     case 3:
                         print('And we have a substitution for the ' + principal_player.team + '!')
+
             elif event == 'substitution_final':
                 commentary_variation = random.randint(1, 2)
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_substitution_final and last_used_commentary_substitution_final == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_substitution_final = commentary_variation
+                        break
 
                 match commentary_variation:
                     case 1:
