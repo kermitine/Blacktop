@@ -418,8 +418,13 @@ class CommentaryEngine():
                         print('So we have ' +  primary_name + ' taking the tip for the ' + principal_player.team + ', against ' + secondary_player_name + ' for the ' + secondary_player.team + '.')
 
             elif event == 'tipoffoutcome':
-                commentary_variation = random.randint(1, 1)
+                commentary_variation = random.randint(1, 3)
 
                 match commentary_variation:
                     case 1:
                         print(primary_name, 'wins the jump! Tipped to ' + secondary_player_name + '!')
+                    case 2:
+                        print("And it's tipped to " + secondary_player_name + '!')
+                    case 3:
+                        print('The ' + principal_player.team + ' win the tip! ' + secondary_player_name + "'s got it!")
+                    

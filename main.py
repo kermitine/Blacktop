@@ -5,7 +5,7 @@ from vars.basketball_ascii import *
 from commentary import *
 version = '2025.5.21.0920.stable'
 
-end_score = 5 # target score to win
+end_score = 15 # target score to win
 
 opposing_team_score = 0 # DO NOT CHANGE
 user_team_score = 0 # DO NOT CHANGE
@@ -569,6 +569,20 @@ o_agbaji = BasketballPlayer("Ochai Agbaji", "Small Forward", 3, "Toronto Raptors
 j_mogbo = BasketballPlayer("Jonathan Mogbo", "Power Forward", 4, "Toronto Raptors", 0.320, 0.60, 0.70, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 o_robinson = BasketballPlayer("Orlando Robinson", "Center", 5, "Toronto Raptors", 0.310, 0.55, 0.72, 0.13, 0.28, 0.28, 0.15, 0.35, False, None, False, 0, 0, 0, 100, None)
 
+# UTAH JAZZ STARTING UNIT
+i_collier = BasketballPlayer("Isaiah Collier", "Point Guard", 1, "Utah Jazz", 0.249, 0.63, 0.42, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+c_sexton = BasketballPlayer("Collin Sexton", "Shooting Guard", 2, "Utah Jazz", 0.406, 0.42, 0.48, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+l_markkanen = BasketballPlayer("Lauri Markkanen", "Small Forward", 3, "Utah Jazz", 0.346, 0.35, 0.42, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["the Finnisher"])
+j_collins = BasketballPlayer("John Collins", "Power Forward", 4, "Utah Jazz", 0.399, 0.20, 0.52, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0 , 100, None)
+w_kessler = BasketballPlayer("Walker Kessler", "Center", 5, "Utah Jazz", 0.176, 0.17, 0.66, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+
+# UTAH JAZZ BENCH UNIT
+k_george = BasketballPlayer("Keyonte George", "Point Guard", 1, "Utah Jazz", 0.350, 0.70, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
+j_clarkson = BasketballPlayer("Jordan Clarkson", "Shooting Guard", 2, "Utah Jazz", 0.330, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
+c_williams = BasketballPlayer("Cody Williams", "Small Forward", 3, "Utah Jazz", 0.259, 0.32, 0.65, 0.19, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+t_brown = BasketballPlayer("Trevor Brown", "Power Forward", 4, "Utah Jazz", 0.310, 0.55, 0.65, 0.12, 0.24, 0.22, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
+k_filipowski = BasketballPlayer("Kyle Filipowski", "Center", 5, "Utah Jazz", 0.350, 0.65, 0.65, 0.14, 0.28, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
+
 
 clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
 clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
@@ -628,7 +642,10 @@ cavaliers_bench_list = [t_jerome, s_merrill, d_hunter, d_wade, g_niang]
 raptors_list = [i_quickley, g_dick, r_barrett, s_barnes, j_poeltl]
 raptors_bench_list = [j_shead, j_walter, o_agbaji, j_mogbo, o_robinson]
 
-teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards", "Indiana Pacers", "Cleveland Cavaliers", "Toronto Raptors"]
+jazz_list = [i_collier, c_sexton, l_markkanen, j_collins, w_kessler]
+jazz_bench_list = [k_george, j_clarkson, c_williams, t_brown, k_filipowski]
+
+teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards", "Indiana Pacers", "Cleveland Cavaliers", "Toronto Raptors", "Utah Jazz"]
 
 clippers_team = Team("LA Clippers", clippers_list, clippers_bench_list, clippers_logo, 'Tyronn Lue')
 lakers_team = Team("Los Angeles Lakers", lakers_list, lakers_bench_list, lakers_logo, 'JJ Redick')
@@ -649,8 +666,9 @@ wizards_team = Team("Washington Wizards", wizards_list, wizards_bench_list, wiza
 pacers_team = Team("Indiana Pacers", pacers_list, pacers_bench_list, pacers_logo, 'Rick Carlisle')
 cavaliers_team = Team("Cleveland Cavaliers", cavaliers_list, cavaliers_bench_list, cavaliers_logo, 'Kenny Atkinson')
 raptors_team = Team("Toronto Raptors", raptors_list, raptors_bench_list, raptors_logo, 'Darko Rajakovic')
+jazz_team = Team("Utah Jazz", jazz_list, jazz_bench_list, jazz_logo, 'Will Hardy')
 
-list_of_team_objects = [clippers_team, lakers_team, celtics_team, knicks_team, suns_team, sixers_team, warriors_team, magic_team, mavericks_team, pelicans_team, nuggets_team, retro_clippers_team, thunder_team, grizzlies_team, rockets_team, wizards_team, pacers_team, cavaliers_team, raptors_team]
+list_of_team_objects = [clippers_team, lakers_team, celtics_team, knicks_team, suns_team, sixers_team, warriors_team, magic_team, mavericks_team, pelicans_team, nuggets_team, retro_clippers_team, thunder_team, grizzlies_team, rockets_team, wizards_team, pacers_team, cavaliers_team, raptors_team, jazz_team]
 
 
 
@@ -713,6 +731,8 @@ match user_team_input:
         user_team_object = cavaliers_team
     case 19:
         user_team_object = raptors_team
+    case 20:
+        user_team_object = jazz_team
 
 user_team = user_team_object.team_name
 user_team_list = user_team_object.list
@@ -790,6 +810,8 @@ elif opposing_team == "Cleveland Cavaliers":
     opposing_team_object = cavaliers_team
 elif opposing_team == "Toronto Raptors":
     opposing_team_object = raptors_team
+elif opposing_team == "Utah Jazz":
+    opposing_team_object = jazz_team
 
 opposing_team = opposing_team_object.team_name
 opposing_team_list = opposing_team_object.list
