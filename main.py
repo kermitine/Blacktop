@@ -6,11 +6,15 @@ from commentary import *
 version = '2025.5.21.0920.stable'
 
 end_score = 30 # target score to win
-foul_chance = 15 # chance of a foul on a drive in percent
+foul_chance = 20 # chance of a foul on a drive in percent
+
+pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
+threept_energy_drain = 28 # this is base chance, plus random number between 1 and 7
+drive_energy_drain = 34 # this is base chance, plus random number between 1 and 7
 
 
-opposing_team_score = 0 # DO NOT CHANGE
-user_team_score = 0 # DO NOT CHANGE
+opposing_team_score = 0 # Start score for each team. DO NOT CHANGE
+user_team_score = 0 # Start score for each team. DO NOT CHANGE
 
 class Team():
     def __init__(self, team_name, list, bench_list, logo, coach):
@@ -82,7 +86,7 @@ class BasketballPlayer():
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
         if decision == '3pt':
             CommentaryEngine.commentator(self, '3ptshot', None)
-            self.energy -= (28 + random.randint(1, 7))
+            self.energy -= (threept_energy_drain + random.randint(1, 7))
 
             time.sleep(1)
 
@@ -105,7 +109,7 @@ class BasketballPlayer():
         if decision == 'drive':
             CommentaryEngine.commentator(self, 'drive', None)
             time.sleep(0.7)
-            self.energy -= (34 + random.randint(1, 7))
+            self.energy -= (drive_energy_drain + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             fouled = False
 
@@ -144,7 +148,7 @@ class BasketballPlayer():
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
                     CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
-                    self.energy -= (13 + random.randint(1, 4))
+                    self.energy -= (pass_energy_drain + random.randint(1, 4))
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
@@ -152,7 +156,7 @@ class BasketballPlayer():
                 else:
                     CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
                     CommentaryEngine.commentator(self, 'stolen', pass_receiver_preset)
-                    self.energy -= (13 + random.randint(1, 4))
+                    self.energy -= (pass_energy_drain + random.randint(1, 4))
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
                     self.haspossession = False
@@ -168,7 +172,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         CommentaryEngine.commentator(self, 'pass', pass_receiver)
-                        self.energy -= (13 + random.randint(1, 4))
+                        self.energy -= (pass_energy_drain + random.randint(1, 4))
                         print(haliburton)
 
                         self.passesMade += 1
@@ -178,7 +182,7 @@ class BasketballPlayer():
                     else:
                         CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         CommentaryEngine.commentator(self, 'stolen', pass_receiver)
-                        self.energy -= (13 + random.randint(1, 4))
+                        self.energy -= (pass_energy_drain + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
@@ -191,7 +195,7 @@ class BasketballPlayer():
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         print(haliburton)
-                        self.energy -= (13 + random.randint(1, 4))
+                        self.energy -= (pass_energy_drain + random.randint(1, 4))
 
                         self.passesMade += 1
                         pass_receiver.haspossession = True
@@ -200,7 +204,7 @@ class BasketballPlayer():
                     else:
                         CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         CommentaryEngine.commentator(self, 'stolen', pass_receiver)
-                        self.energy -= (13 + random.randint(1, 4))
+                        self.energy -= (pass_energy_drain + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
                         self.haspossession = False
