@@ -5,7 +5,7 @@ from vars.basketball_ascii import *
 from commentary import *
 version = '2025.5.21.0920.stable'
 
-end_score = 15 # target score to win
+end_score = 30 # target score to win
 
 opposing_team_score = 0 # DO NOT CHANGE
 user_team_score = 0 # DO NOT CHANGE
@@ -18,6 +18,25 @@ class Team():
         self.logo = logo
         self.coach = coach
 
+def free_throws(player, quantity_of_free_throws):
+        points_scored = 0
+        first_free_throw = True
+        for x in range(quantity_of_free_throws):
+            time.sleep(3)
+            if random.randint(0, 10) >= 5:
+                if first_free_throw == True:
+                    CommentaryEngine.commentator(player, 'firstfreethrowmake', None)
+                    first_free_throw = False
+                else:
+                    CommentaryEngine.commentator(player, 'secondfreethrowmake', None)
+                points_scored += 1
+            else:
+                if first_free_throw == True:
+                    CommentaryEngine.commentator(player, 'firstfreethrowmiss', None)
+                    first_free_throw = False
+                else:
+                    CommentaryEngine.commentator(player, 'secondfreethrowmiss', None)
+        return points_scored
 
 
 class BasketballPlayer():
@@ -43,7 +62,6 @@ class BasketballPlayer():
         self.energy = energy
         self.nicknames = nicknames
 
-        
     def decision(self):
         generated_probability = random.randint(1, 100)
         modified_probability  = generated_probability * (1 + self.passpref)
@@ -87,18 +105,36 @@ class BasketballPlayer():
             time.sleep(0.7)
             self.energy -= (34 + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
+            fouled = False
+
+            if random.randint(0, 1000) <= 65:
+                fouled = True
+
             if make_chance > 3.8:
-                CommentaryEngine.commentator(self, 'drivemake', None)
-                print(lebron_dwyane)
-                self.pointsMade += 2
                 self.haspossession = False
                 self.defender.haspossession = True
-                return 'shot', 2
+                if fouled == True:
+                    CommentaryEngine.commentator(self, 'drivemakefoul', None)
+                    print(lebron_dwyane)
+                    free_throw_points = free_throws(self, 1)
+                    self.pointsMade += (2 + free_throw_points)
+                    return 'shot', (2 + free_throw_points)
+                else:
+                    CommentaryEngine.commentator(self, 'drivemake', None)
+                    self.pointsMade += 2
+                    print(lebron_dwyane)
+                    return 'shot', 2
             else:
-                CommentaryEngine.commentator(self, 'miss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
-                return 'miss', 0
+                if fouled == True:
+                    CommentaryEngine.commentator(self, 'drivemissfoul', None)
+                    free_throw_points = free_throws(self, 2)
+                    self.pointsMade += (free_throw_points)
+                    return 'shot', (free_throw_points)
+                else:
+                    CommentaryEngine.commentator(self, 'drivemiss', None)
+                    return 'miss', 0
             
         if decision == 'pass':
 

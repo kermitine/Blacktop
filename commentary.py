@@ -4,7 +4,13 @@ last_used_commentary_3ptmake = None
 last_used_commentary_3ptmiss = None
 last_used_commentary_drive = None
 last_used_commentary_drivemake = None
-last_used_commentary_miss = None
+last_used_commentary_drivemakefoul = None
+last_used_commentary_drivemiss = None
+last_used_commentary_drivemissfoul = None
+last_used_commentary_firstfreethrowmake = None
+last_used_commentary_firstfreethrowmiss = None
+last_used_commentary_secondfreethrowmake = None
+last_used_commentary_secondfreethrowmiss = None
 last_used_commentary_pass = None
 last_used_commentary_stolen = None
 last_used_commentary_substitution_initial = None
@@ -17,7 +23,13 @@ class CommentaryEngine():
             global last_used_commentary_3ptmiss
             global last_used_commentary_drive
             global last_used_commentary_drivemake
-            global last_used_commentary_miss
+            global last_used_commentary_drivemakefoul
+            global last_used_commentary_drivemiss
+            global last_used_commentary_drivemissfoul
+            global last_used_commentary_firstfreethrowmake
+            global last_used_commentary_firstfreethrowmiss
+            global last_used_commentary_secondfreethrowmake
+            global last_used_commentary_secondfreethrowmiss
             global last_used_commentary_pass
             global last_used_commentary_stolen
             global last_used_commentary_substitution_initial
@@ -188,7 +200,6 @@ class CommentaryEngine():
                         print('And that one clanks off the rim, rebounded by', defender_name + '.')
 
 
-
             elif event == 'drive':
                 commentary_variation = random.randint(1, 13)  # Increased range for more variations
 
@@ -267,14 +278,14 @@ class CommentaryEngine():
                         print('And that high-arcing layup is good!')
 
 
-            elif event == 'miss':
+            elif event == 'drivemiss':
                 commentary_variation = random.randint(1, 11)
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
-                    if last_used_commentary_miss and last_used_commentary_miss == commentary_variation:
+                    if last_used_commentary_drivemiss and last_used_commentary_drivemiss == commentary_variation:
                         commentary_variation = random.randint(1, 11)
                     else:
-                        last_used_commentary_miss = commentary_variation
+                        last_used_commentary_drivemiss = commentary_variation
                         break 
 
                 match commentary_variation:
@@ -301,6 +312,7 @@ class CommentaryEngine():
                     case 11:
                         print('Rattles out, recovered by', defender_name + '!')
             
+
             elif event == 'pass': # UNSPAGHETTIFY
                 commentary_variation = random.randint(1, 15)  # Increased range for more variations
 
@@ -343,7 +355,109 @@ class CommentaryEngine():
                     case 15:
                         print('He lobs it to ' + secondary_player_name + ' for the setup!')
 
+
+            elif event == 'drivemakefoul': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_drivemakefoul and last_used_commentary_drivemakefoul == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_drivemakefoul = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Count it and a foul!')
+                    case 2:
+                        print('And he’s fouled! Count the basket! One free throw coming up!')
+
+
+            elif event == 'drivemissfoul': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_drivemissfoul and last_used_commentary_drivemissfoul == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_drivemissfoul = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Fouled on the way up, two free throws coming!')
+                    case 2:
+                        print('And he’s fouled! Two free throws coming up!')
             
+
+            elif event == 'firstfreethrowmake': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_firstfreethrowmake and last_used_commentary_firstfreethrowmake == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_firstfreethrowmake = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Makes the first!')
+                    case 2:
+                        print('Drains the first!')
+
+
+            elif event == 'firstfreethrowmiss': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_firstfreethrowmiss and last_used_commentary_firstfreethrowmiss == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_firstfreethrowmiss = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Misses the first!')
+                    case 2:
+                        print("First one's off!")
+
+
+            elif event == 'secondfreethrowmake': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_secondfreethrowmake and last_used_commentary_secondfreethrowmake == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_secondfreethrowmake = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Makes the second!')
+                    case 2:
+                        print('Drains the second!')
+
+
+            elif event == 'secondfreethrowmiss': 
+                commentary_variation = random.randint(1, 2) 
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_secondfreethrowmiss and last_used_commentary_secondfreethrowmiss == commentary_variation:
+                        commentary_variation = random.randint(1, 2)
+                    else:
+                        last_used_commentary_secondfreethrowmiss = commentary_variation
+                        break
+
+                match commentary_variation:
+                    case 1:
+                        print('Misses the second!')
+                    case 2:
+                        print("Second one's off!")
+            
+
             elif event == 'stolen':
                 commentary_variation = random.randint(1, 10)  # Increased range for more variations
 
@@ -376,6 +490,7 @@ class CommentaryEngine():
                     case 10:
                         print('And ' + primary_name + "'s pass is intercepted by " + secondary_player_defender_name + '!')
             
+
             elif event == 'substitution_initial':
                 commentary_variation = random.randint(1, 3)
 
@@ -394,6 +509,7 @@ class CommentaryEngine():
                     case 3:
                         print('And we have a substitution for the ' + principal_player.team + '!')
 
+
             elif event == 'substitution_final':
                 commentary_variation = random.randint(1, 2)
 
@@ -410,12 +526,14 @@ class CommentaryEngine():
                     case 2:
                         print('And ' + primary_name + ' will take the place of ' + secondary_player_name + '.')
 
+
             elif event == 'tipoff':
                 commentary_variation = random.randint(1, 1)
 
                 match commentary_variation:
                     case 1:
                         print('So we have ' +  primary_name + ' taking the tip for the ' + principal_player.team + ', against ' + secondary_player_name + ' for the ' + secondary_player.team + '.')
+
 
             elif event == 'tipoffoutcome':
                 commentary_variation = random.randint(1, 3)
