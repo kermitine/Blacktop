@@ -6,6 +6,8 @@ from commentary import *
 version = '2025.5.21.0920.stable'
 
 end_score = 30 # target score to win
+foul_chance = 15 # chance of a foul on a drive in percent
+
 
 opposing_team_score = 0 # DO NOT CHANGE
 user_team_score = 0 # DO NOT CHANGE
@@ -107,7 +109,7 @@ class BasketballPlayer():
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
             fouled = False
 
-            if random.randint(0, 1000) <= 65:
+            if random.randint(0, 100) <= foul_chance:
                 fouled = True
 
             if make_chance > 3.8:

@@ -81,11 +81,12 @@ class CommentaryEngine():
 
 
             if event == '3ptshot':
-                commentary_variation = random.randint(1, 15)
+                cases = 15 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_3ptshot and last_used_commentary_3ptshot == commentary_variation:
-                        commentary_variation = random.randint(1, 15)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_3ptshot = commentary_variation
                         break
@@ -123,11 +124,12 @@ class CommentaryEngine():
                         print(primary_name + ', corner three!')
 
             elif event == '3ptmake':
-                commentary_variation = random.randint(1, 14)  # Increased range for more variations
+                cases = 14 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_3ptmake and last_used_commentary_3ptmake == commentary_variation:
-                        commentary_variation = random.randint(1, 14)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_3ptmake = commentary_variation
                         break
@@ -164,11 +166,12 @@ class CommentaryEngine():
 
 
             elif event == '3ptmiss':
-                commentary_variation = random.randint(1, 12)  # Increased range for more variations
+                cases = 12 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_3ptmiss and last_used_commentary_3ptmiss == commentary_variation:
-                        commentary_variation = random.randint(1, 12)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_3ptmiss = commentary_variation
                         break
@@ -201,11 +204,12 @@ class CommentaryEngine():
 
 
             elif event == 'drive':
-                commentary_variation = random.randint(1, 13)  # Increased range for more variations
+                cases = 13 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_drive and last_used_commentary_drive == commentary_variation:
-                        commentary_variation = random.randint(1, 13)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_drive = commentary_variation
                         break
@@ -240,11 +244,12 @@ class CommentaryEngine():
 
             
             elif event == 'drivemake':
-                commentary_variation = random.randint(1, 13)  # Increased range for more variations
+                cases = 13 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_drivemake and last_used_commentary_drivemake == commentary_variation:
-                        commentary_variation = random.randint(1, 13)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_drivemake = commentary_variation
                         break
@@ -279,11 +284,12 @@ class CommentaryEngine():
 
 
             elif event == 'drivemiss':
-                commentary_variation = random.randint(1, 11)
+                cases = 11 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_drivemiss and last_used_commentary_drivemiss == commentary_variation:
-                        commentary_variation = random.randint(1, 11)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_drivemiss = commentary_variation
                         break 
@@ -314,11 +320,12 @@ class CommentaryEngine():
             
 
             elif event == 'pass': # UNSPAGHETTIFY
-                commentary_variation = random.randint(1, 15)  # Increased range for more variations
+                cases = 15 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_pass and last_used_commentary_pass == commentary_variation:
-                        commentary_variation = random.randint(1, 15)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_pass = commentary_variation
                         break
@@ -357,11 +364,12 @@ class CommentaryEngine():
 
 
             elif event == 'drivemakefoul': 
-                commentary_variation = random.randint(1, 2) 
+                cases = 2 # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_drivemakefoul and last_used_commentary_drivemakefoul == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_drivemakefoul = commentary_variation
                         break
@@ -374,11 +382,12 @@ class CommentaryEngine():
 
 
             elif event == 'drivemissfoul': 
-                commentary_variation = random.randint(1, 2) 
+                cases = 2 # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_drivemissfoul and last_used_commentary_drivemissfoul == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_drivemissfoul = commentary_variation
                         break
@@ -390,12 +399,13 @@ class CommentaryEngine():
                         print('And he’s fouled! Two free throws coming up!')
             
 
-            elif event == 'firstfreethrowmake': 
-                commentary_variation = random.randint(1, 2) 
+            elif event == 'firstfreethrowmake':
+                cases = 3 # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_firstfreethrowmake and last_used_commentary_firstfreethrowmake == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_firstfreethrowmake = commentary_variation
                         break
@@ -405,14 +415,17 @@ class CommentaryEngine():
                         print('Makes the first!')
                     case 2:
                         print('Drains the first!')
+                    case 3:
+                        print('Bounces in the first.')
 
 
             elif event == 'firstfreethrowmiss': 
-                commentary_variation = random.randint(1, 2) 
+                cases = 3   # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_firstfreethrowmiss and last_used_commentary_firstfreethrowmiss == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_firstfreethrowmiss = commentary_variation
                         break
@@ -422,14 +435,17 @@ class CommentaryEngine():
                         print('Misses the first!')
                     case 2:
                         print("First one's off!")
+                    case 3:
+                        print('The first one rattles out.')
 
 
             elif event == 'secondfreethrowmake': 
-                commentary_variation = random.randint(1, 2) 
+                cases = 3 # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_secondfreethrowmake and last_used_commentary_secondfreethrowmake == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_secondfreethrowmake = commentary_variation
                         break
@@ -439,14 +455,17 @@ class CommentaryEngine():
                         print('Makes the second!')
                     case 2:
                         print('Drains the second!')
+                    case 3:
+                        print('Bounces in the second.')
 
 
             elif event == 'secondfreethrowmiss': 
-                commentary_variation = random.randint(1, 2) 
+                cases = 3 # number of commentary variations
+                commentary_variation = random.randint(1, cases) 
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_secondfreethrowmiss and last_used_commentary_secondfreethrowmiss == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_secondfreethrowmiss = commentary_variation
                         break
@@ -456,14 +475,17 @@ class CommentaryEngine():
                         print('Misses the second!')
                     case 2:
                         print("Second one's off!")
+                    case 3:
+                        print('The second one rattles out.')
             
 
             elif event == 'stolen':
-                commentary_variation = random.randint(1, 10)  # Increased range for more variations
+                cases = 10 # number of commentary variations
+                commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_stolen and last_used_commentary_stolen == commentary_variation:
-                        commentary_variation = random.randint(1, 10)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_stolen = commentary_variation
                         break
@@ -492,11 +514,12 @@ class CommentaryEngine():
             
 
             elif event == 'substitution_initial':
-                commentary_variation = random.randint(1, 3)
+                cases = 4 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_substitution_initial and last_used_commentary_substitution_initial == commentary_variation:
-                        commentary_variation = random.randint(1, 3)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_substitution_initial = commentary_variation
                         break
@@ -508,14 +531,17 @@ class CommentaryEngine():
                         print('Seems like the coach is making a change for the ' + principal_player.team + '!')
                     case 3:
                         print('And we have a substitution for the ' + principal_player.team + '!')
+                    case 4:
+                        print('Another change for the ' + principal_player.team + '.')
 
 
             elif event == 'substitution_final':
-                commentary_variation = random.randint(1, 2)
+                cases = 2 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
                     if last_used_commentary_substitution_final and last_used_commentary_substitution_final == commentary_variation:
-                        commentary_variation = random.randint(1, 2)
+                        commentary_variation = random.randint(1, cases)
                     else:
                         last_used_commentary_substitution_final = commentary_variation
                         break
@@ -528,15 +554,19 @@ class CommentaryEngine():
 
 
             elif event == 'tipoff':
-                commentary_variation = random.randint(1, 1)
+                cases = 2 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 match commentary_variation:
                     case 1:
                         print('So we have ' +  primary_name + ' taking the tip for the ' + principal_player.team + ', against ' + secondary_player_name + ' for the ' + secondary_player.team + '.')
+                    case 2:
+                        print(primary_name + ' will take it for the ' + principal_player.team + ', while ' + secondary_player_name + "'s up for the " + secondary_player.team + '.')
 
 
             elif event == 'tipoffoutcome':
-                commentary_variation = random.randint(1, 3)
+                cases = 3 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
 
                 match commentary_variation:
                     case 1:
