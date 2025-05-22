@@ -176,7 +176,7 @@ class BasketballPlayer():
             CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
             CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
-            print('\n')
+            time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             user_team_list.insert(self.positionnumber-1, user_team_list_bench[self.positionnumber-1])   #insert bench player into roster
@@ -213,7 +213,7 @@ class BasketballPlayer():
             CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
             CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
-            print('\n')
+            time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
             opposing_team_list.insert(self.positionnumber-1, opposing_team_list_bench[self.positionnumber-1])   #insert bench player into roster
