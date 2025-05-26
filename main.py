@@ -3,10 +3,10 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 from commentary import *
-version = '2025.5.21.0920.stable'
+version = '2025.5.25.2340.stable'
 
 end_score = 30 # target score to win
-foul_chance = 20 # chance of a foul on a drive in percent
+foul_chance = 28 # chance of a foul on a drive in percent
 
 pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
 threept_energy_drain = 28 # this is base chance, plus random number between 1 and 7
@@ -42,6 +42,7 @@ def free_throws(player, quantity_of_free_throws):
                     first_free_throw = False
                 else:
                     CommentaryEngine.commentator(player, 'secondfreethrowmiss', None)
+        print(str(points_scored) + '/' + str(quantity_of_free_throws))
         return points_scored
 
 
@@ -92,8 +93,8 @@ class BasketballPlayer():
 
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
-                CommentaryEngine.commentator(self, '3ptmake', None)
                 print(harden_shooting)
+                CommentaryEngine.commentator(self, '3ptmake', None)
                 self.pointsMade += 3
                 self.haspossession = False
                 self.defender.haspossession = True
@@ -120,20 +121,21 @@ class BasketballPlayer():
                 self.haspossession = False
                 self.defender.haspossession = True
                 if fouled == True:
-                    CommentaryEngine.commentator(self, 'drivemakefoul', None)
                     print(lebron_dwyane)
+                    CommentaryEngine.commentator(self, 'drivemakefoul', None)
                     free_throw_points = free_throws(self, 1)
                     self.pointsMade += (2 + free_throw_points)
                     return 'shot', (2 + free_throw_points)
                 else:
+                    print(lebron_dwyane)
                     CommentaryEngine.commentator(self, 'drivemake', None)
                     self.pointsMade += 2
-                    print(lebron_dwyane)
                     return 'shot', 2
             else:
                 self.haspossession = False
                 self.defender.haspossession = True
                 if fouled == True:
+                    print(draymond)
                     CommentaryEngine.commentator(self, 'drivemissfoul', None)
                     free_throw_points = free_throws(self, 2)
                     self.pointsMade += (free_throw_points)
@@ -171,9 +173,10 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
+                        print(haliburton)
                         CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
-                        print(haliburton)
+                        
 
                         self.passesMade += 1
                         pass_receiver.haspossession = True
@@ -193,8 +196,8 @@ class BasketballPlayer():
                         if pass_receiver.positionnumber == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
-                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         print(haliburton)
+                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
 
                         self.passesMade += 1
@@ -471,7 +474,7 @@ a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .
 g_vincent = BasketballPlayer("Gabe Vincent", "Point Guard", 1, "Los Angeles Lakers", 0.380, 0.80, 0.70, 0.10, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0, 100, None)
 c_reddish = BasketballPlayer("Cam Reddish", "Small Forward", 3, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
-d_finney_smith = BasketballPlayer("Dorian Finney-Smith", "Power Forward", 4, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
+d_finney_smith = BasketballPlayer("Dorian Finney-Smith", "Power Forward", 4, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, ['DFS', 'Dodo'])
 j_hayes = BasketballPlayer("Jaxson Hayes", "Center", 5, "Los Angeles Lakers", 0.350, 0.50, 0.70, 0.10, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
