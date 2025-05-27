@@ -5,7 +5,7 @@ from vars.basketball_ascii import *
 from commentary import *
 version = '2025.5.26.1820.stable'
 
-end_score = 7 # target score to win
+end_score = 21 # target score to win
 foul_chance = 28 # chance of a foul on a drive in percent
 
 pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
