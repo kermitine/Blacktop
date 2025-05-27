@@ -3,9 +3,9 @@ import time
 from KermLib.KermLib import *
 from vars.basketball_ascii import *
 from commentary import *
-version = '2025.5.25.2340.stable'
+version = '2025.5.26.1820.stable'
 
-end_score = 30 # target score to win
+end_score = 7 # target score to win
 foul_chance = 28 # chance of a foul on a drive in percent
 
 pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
@@ -25,24 +25,26 @@ class Team():
         self.coach = coach
 
 def free_throws(player, quantity_of_free_throws):
+        global last_event
         points_scored = 0
         first_free_throw = True
         for x in range(quantity_of_free_throws):
             time.sleep(3)
             if random.randint(0, 10) >= 5:
                 if first_free_throw == True:
-                    CommentaryEngine.commentator(player, 'firstfreethrowmake', None)
+                    last_event = CommentaryEngine.commentator(player, 'firstfreethrowmake', None)
                     first_free_throw = False
                 else:
-                    CommentaryEngine.commentator(player, 'secondfreethrowmake', None)
+                    last_event = CommentaryEngine.commentator(player, 'secondfreethrowmake', None)
                 points_scored += 1
             else:
                 if first_free_throw == True:
-                    CommentaryEngine.commentator(player, 'firstfreethrowmiss', None)
+                    last_event = CommentaryEngine.commentator(player, 'firstfreethrowmiss', None)
                     first_free_throw = False
                 else:
-                    CommentaryEngine.commentator(player, 'secondfreethrowmiss', None)
+                    last_event = CommentaryEngine.commentator(player, 'secondfreethrowmiss', None)
         print(str(points_scored) + '/' + str(quantity_of_free_throws))
+        time.sleep(1)
         return points_scored
 
 
@@ -85,8 +87,9 @@ class BasketballPlayer():
             return 'drive'
     
     def action_success(self, decision, defender_perd, defender_intd, pass_receiver_preset, active_team):
+        global last_event
         if decision == '3pt':
-            CommentaryEngine.commentator(self, '3ptshot', None)
+            last_event = CommentaryEngine.commentator(self, '3ptshot', None)
             self.energy -= (threept_energy_drain + random.randint(1, 7))
 
             time.sleep(1)
@@ -94,21 +97,21 @@ class BasketballPlayer():
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.threept) ) - ( 1.5 + defender_perd ) * 1.5
             if make_chance > 4.8:
                 print(harden_shooting)
-                CommentaryEngine.commentator(self, '3ptmake', None)
+                last_event = CommentaryEngine.commentator(self, '3ptmake', None)
                 self.pointsMade += 3
                 self.haspossession = False
                 self.defender.haspossession = True
                 time.sleep(1)
                 return 'shot', 3
             else:
-                CommentaryEngine.commentator(self, '3ptmiss', None)
+                last_event = CommentaryEngine.commentator(self, '3ptmiss', None)
                 self.haspossession = False
                 self.defender.haspossession = True
                 time.sleep(1)
                 return 'miss', 0
 
         if decision == 'drive':
-            CommentaryEngine.commentator(self, 'drive', None)
+            last_event = CommentaryEngine.commentator(self, 'drive', None)
             time.sleep(0.7)
             self.energy -= (drive_energy_drain + random.randint(1, 7))
             make_chance = 10 - ( random.uniform(1, 4) * (1 + self.drivinglay) ) - ( 1 + defender_intd ) * 1.5
@@ -122,13 +125,13 @@ class BasketballPlayer():
                 self.defender.haspossession = True
                 if fouled == True:
                     print(lebron_dwyane)
-                    CommentaryEngine.commentator(self, 'drivemakefoul', None)
+                    last_event = CommentaryEngine.commentator(self, 'drivemakefoul', None)
                     free_throw_points = free_throws(self, 1)
                     self.pointsMade += (2 + free_throw_points)
                     return 'shot', (2 + free_throw_points)
                 else:
                     print(lebron_dwyane)
-                    CommentaryEngine.commentator(self, 'drivemake', None)
+                    last_event = CommentaryEngine.commentator(self, 'drivemake', None)
                     self.pointsMade += 2
                     return 'shot', 2
             else:
@@ -136,28 +139,27 @@ class BasketballPlayer():
                 self.defender.haspossession = True
                 if fouled == True:
                     print(draymond)
-                    CommentaryEngine.commentator(self, 'drivemissfoul', None)
+                    last_event = CommentaryEngine.commentator(self, 'drivemissfoul', None)
                     free_throw_points = free_throws(self, 2)
                     self.pointsMade += (free_throw_points)
                     return 'shot', (free_throw_points)
                 else:
-                    CommentaryEngine.commentator(self, 'drivemiss', None)
+                    last_event = CommentaryEngine.commentator(self, 'drivemiss', None)
                     return 'miss', 0
             
         if decision == 'pass':
 
-
             if pass_receiver_preset:
                 if calculate_turnover_chance(self, pass_receiver_preset.defender) is False: 
-                    CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
+                    last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
                     self.energy -= (pass_energy_drain + random.randint(1, 4))
                     self.passesMade += 1
                     pass_receiver_preset.haspossession = True
                     self.haspossession = False
                     return 'miss', 0
                 else:
-                    CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
-                    CommentaryEngine.commentator(self, 'stolen', pass_receiver_preset)
+                    last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver_preset)
+                    last_event = CommentaryEngine.commentator(self, 'stolen', pass_receiver_preset)
                     self.energy -= (pass_energy_drain + random.randint(1, 4))
                     pass_receiver_preset.defender.interceptionsMade += 1
                     pass_receiver_preset.defender.haspossession = True
@@ -174,7 +176,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         print(haliburton)
-                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
                         
 
@@ -183,8 +185,8 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
-                        CommentaryEngine.commentator(self, 'stolen', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'stolen', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
@@ -197,7 +199,7 @@ class BasketballPlayer():
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         print(haliburton)
-                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
 
                         self.passesMade += 1
@@ -205,8 +207,8 @@ class BasketballPlayer():
                         self.haspossession = False
                         return 'miss', 0
                     else:
-                        CommentaryEngine.commentator(self, 'pass', pass_receiver)
-                        CommentaryEngine.commentator(self, 'stolen', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'pass', pass_receiver)
+                        last_event = CommentaryEngine.commentator(self, 'stolen', pass_receiver)
                         self.energy -= (pass_energy_drain + random.randint(1, 4))
                         pass_receiver.defender.interceptionsMade += 1
                         pass_receiver.defender.haspossession = True
@@ -214,13 +216,16 @@ class BasketballPlayer():
                         return 'miss', 0
                     
     def substitution(self):
-
+        global last_event
         global current_player
         
+        if last_event is 'substitution_final':
+            print('\n')
+
         if self.team == user_team:
-            CommentaryEngine.commentator(self, 'substitution_initial', None)
+            last_event = CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
-            CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            last_event = CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
             time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
@@ -234,7 +239,6 @@ class BasketballPlayer():
             else:
                 user_team_list_bench[self.positionnumber-1].haspossession = False
                 user_team_list[self.positionnumber-1].haspossession = True
-
             if user_team_list_bench[self.positionnumber-1].isplayer == False:
                 pass
             else:
@@ -255,9 +259,9 @@ class BasketballPlayer():
             combined_list = user_team_list + opposing_team_list
             return combined_list
         else:
-            CommentaryEngine.commentator(self, 'substitution_initial', None)
+            last_event = CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
-            CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            last_event = CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
             time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
@@ -951,14 +955,15 @@ time.sleep(2)
 #-------------------------------
 
 # TIP OFF
-CommentaryEngine.commentator(user_team_list[4], 'tipoff', opposing_team_list[4])
+last_event = CommentaryEngine.commentator(user_team_list[4], 'tipoff', opposing_team_list[4])
+time.sleep(1.5)
 if random.randint(1, 2) == 1:
     tip_receiver_index = random.randint(0, 3)
-    CommentaryEngine.commentator(user_team_list[4], 'tipoffoutcome', user_team_list[tip_receiver_index])
+    last_event = CommentaryEngine.commentator(user_team_list[4], 'tipoffoutcome', user_team_list[tip_receiver_index])
     user_team_list[tip_receiver_index].haspossession = True
 else:
     tip_receiver_index = random.randint(0, 3)
-    CommentaryEngine.commentator(opposing_team_list[4], 'tipoffoutcome', opposing_team_list[tip_receiver_index])
+    last_event = CommentaryEngine.commentator(opposing_team_list[4], 'tipoffoutcome', opposing_team_list[tip_receiver_index])
     opposing_team_list[tip_receiver_index].haspossession = True
 
 
@@ -968,7 +973,6 @@ while True:
 
     if opposing_team_score >= end_score or user_team_score >= end_score:
         if opposing_team_score >= end_score:
-            print('\n' + '\n' + '\n')
             print('---------------------------------------------------------------------------------------------------------')
             print(opposing_team + ' win! Final score:', opposing_team_score, '-', user_team_score)
             print('---------------------------------------------------------------------------------------------------------')
@@ -978,7 +982,6 @@ while True:
             losing_team_list = user_team_list
             losing_team_list_bench = user_team_list_bench
         else:
-            print('\n' + '\n' + '\n')
             print('---------------------------------------------------------------------------------------------------------')
             print(user_team + ' win! Final score:', user_team_score, '-', opposing_team_score)
             print('---------------------------------------------------------------------------------------------------------')
@@ -1150,11 +1153,12 @@ while True:
 
 
         if player.haspossession is True:
-            
-
-
-            print(player.name, 'has the basketball!')
+            if last_event == 'substitution_final':
+                print('\n')
             print(player.name + "'s energy:", str(player.energy) + '%')
+            if last_event is not 'pass':
+                last_event = CommentaryEngine.commentator(player, 'haspossession', player.defender)
+            time.sleep(0.8)
             time.sleep(0.8)
             if player.isplayer == True:
                 if player.energy != 0:
@@ -1177,10 +1181,7 @@ while True:
                 
                     while True:
                         player_decision = str(input())
-                        if player_decision == str(current_player.positionnumber):
-                            print('Decision not recognized. Please try again')
-                            continue
-                        elif player_decision not in ['1', '2', '3', '4', '5']:
+                        if player_decision not in ['1', '2', '3', '4', '5'] or player_decision == str(current_player.positionnumber):
                             print('Decision not recognized. Please try again')
                             continue
                         else:

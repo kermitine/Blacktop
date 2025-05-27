@@ -15,9 +15,9 @@ last_used_commentary_pass = None
 last_used_commentary_stolen = None
 last_used_commentary_substitution_initial = None
 last_used_commentary_substitution_final = None
+last_used_commentary_haspossession = None
 class CommentaryEngine():
     def commentator(principal_player, event, secondary_player):
-            
             global last_used_commentary_3ptshot
             global last_used_commentary_3ptmake
             global last_used_commentary_3ptmiss
@@ -34,6 +34,7 @@ class CommentaryEngine():
             global last_used_commentary_stolen
             global last_used_commentary_substitution_initial
             global last_used_commentary_substitution_final
+            global last_used_commentary_haspossession
 
             # RANDOMIZES USAGE OF FULL NAME, LAST NAME, OR NICKNAME
             num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
@@ -166,7 +167,7 @@ class CommentaryEngine():
 
 
             elif event == '3ptmiss':
-                cases = 12 # number of commentary variations
+                cases = 11 # number of commentary variations
                 commentary_variation = random.randint(1, cases)  # Increased range for more variations
 
                 while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
@@ -182,24 +183,22 @@ class CommentaryEngine():
                     case 2:
                         print('And the shot is off the mark.')
                     case 3:
-                        print('And he bricks it!', defender_name, 'brings it back up for the', principal_player.defender.team + '.')
-                    case 4:
                         print('And he misfires.', defender_name, 'with the rebound.')
-                    case 5:
+                    case 4:
                         print('SMOTHERED BY', defender_name.upper() + '!')
-                    case 6:
+                    case 5:
                         print('The three-point attempt rattles out. Tough luck for', primary_name + '.')
-                    case 7:
+                    case 6:
                         print('It’s no good from downtown!', defender_name, 'picks it up for the', principal_player.defender.team + '.')
-                    case 8:
+                    case 7:
                         print('Way off target from beyond the arc.')
-                    case 9:
+                    case 8:
                         print('And it’s just short! A strong defensive effort by', defender_name + '.')
-                    case 10:
+                    case 9:
                         print('Off the back iron!', defender_name, 'secures the rebound.')
-                    case 11:
+                    case 10:
                         print('Off the rim, recovered by', defender_name + '!')
-                    case 12:
+                    case 11:
                         print('And that one clanks off the rim, rebounded by', defender_name + '.')
 
 
@@ -575,4 +574,33 @@ class CommentaryEngine():
                         print("And it's tipped to " + secondary_player_name + '!')
                     case 3:
                         print('The ' + principal_player.team + ' win the tip! ' + secondary_player_name + "'s got it!")
+            
+            elif event == 'haspossession':
+                cases = 7 # number of commentary variations
+                commentary_variation = random.randint(1, cases)
+
+                while True: # PREVENTS USING SAME COMMENTARY VARIATION TWICE IN A ROW
+                    if last_used_commentary_haspossession and last_used_commentary_haspossession == commentary_variation:
+                        commentary_variation = random.randint(1, cases)
+                    else:
+                        last_used_commentary_haspossession = commentary_variation
+                        break
+                match commentary_variation:
+                    case 1:
+                        print(primary_name, 'breaks the press!')
+                    case 2:
+                        print(primary_name, 'brings it up!')
+                    case 3:
+                        print(primary_name, 'has it!')
+                    case 4:
+                        print(primary_name, 'brings it up the court!')
+                    case 5:
+                        print(primary_name, 'brings it up the floor!')
+                    case 6:
+                        print(primary_name, 'brings it up the floor for the', principal_player.team + '!')
+                    case 7:
+                        print(primary_name, 'brings it up the court for the', principal_player.team + '!')
+
+            return event
+
                     
