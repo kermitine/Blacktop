@@ -357,24 +357,24 @@ d_jordan_den = BasketballPlayer("DeAndre Jordan", "Center", 5, "Denver Nuggets",
 
 
 # MAVERICKS STARTING UNIT
-l_doncic = BasketballPlayer("Luka Doncic", "Point Guard", 1, "Dallas Mavericks", .382, 0.87, 0.72, 0.15, 0.32, 0.28, 0.14, 0.50, False, None, False, 0, 0, 0, 100, ["Luka", "Luka Magic"])
+d_russell = BasketballPlayer("D'Angelo Russell", "Point Guard", 1, "Dallas Mavericks", .382, 0.87, 0.72, 0.15, 0.32, 0.28, 0.14, 0.50, False, None, False, 0, 0, 0, 100, ["D'Lo"])
 k_irving = BasketballPlayer("Kyrie Irving", "Shooting Guard", 2, "Dallas Mavericks", .395, 0.80, 0.70, 0.12, 0.28, 0.22, 0.12, 0.45, False, None, False, 0, 0, 0, 100, ["Kai", "Kyrie"])
 k_thompson = BasketballPlayer("Klay Thompson", "Small Forward", 3, "Dallas Mavericks", .413, 0.65, 0.60, 0.10, 0.25, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
-p_washington = BasketballPlayer("P.J. Washington", "Power Forward", 4, "Dallas Mavericks", .370, 0.60, 0.65, 0.11, 0.22, 0.20, 0.11, 0.35, False, None, False, 0, 0, 0, 100, None)
+a_davis = BasketballPlayer("Anthony Davis", "Power Forward", 4, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0, 100, ["AD"])
 d_lively = BasketballPlayer("Dereck Lively II", "Center", 5, "Dallas Mavericks", 0.330, 0.40, 0.60, 0.12, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # MAVERICKS BENCH UNIT
 s_dinwiddie = BasketballPlayer("Spencer Dinwiddie", "Point Guard", 1, "Dallas Mavericks", 0.450, 0.80, 0.70, 0.12, 0.25, 0.20, 0.10, 0.35, False, None, False, 0, 0, 0, 100, None)
-q_grimes = BasketballPlayer("Quentin Grimes", "Shooting Guard", 2, "Dallas Mavericks", 0.390, 0.70, 0.68, 0.10, 0.25, 0.20, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
+m_christie = BasketballPlayer("Max Christie", "Shooting Guard", 2, "Dallas Mavericks", 0.390, 0.70, 0.68, 0.10, 0.25, 0.20, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 d_exum = BasketballPlayer("Dante Exum", "Small Forward", 3, "Dallas Mavericks", 0.370, 0.60, 0.60, 0.10, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-m_kleber = BasketballPlayer("Maxi Kleber", "Power Forward", 4, "Dallas Mavericks", 0.390, 0.65, 0.70, 0.11, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
+p_washington = BasketballPlayer("P.J. Washington", "Power Forward", 4, "Dallas Mavericks", .370, 0.60, 0.65, 0.11, 0.22, 0.20, 0.11, 0.35, False, None, False, 0, 0, 0, 100, None)
 d_gafford = BasketballPlayer("Daniel Gafford", "Center", 5, "Dallas Mavericks", 0.000, 0.50, 0.60, 0.12, 0.20, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # MAGIC STARTING UNIT
 j_suggs = BasketballPlayer("Jalen Suggs", "Point Guard", 1, "Orlando Magic", .330, 0.60, 0.65, 0.14, 0.20, 0.18, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
-k_caldwell_pope = BasketballPlayer("Kentavious Caldwell-Pope", "Shooting Guard", 2, "Orlando Magic", 0.400, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["KCP"])
+d_bane = BasketballPlayer("Desmond Bane", "Shooting Guard", 2, "Memphis Grizzlies", 0.430, 0.80, 0.70, 0.10, 0.22, 0.18, 0.11, 0.40, False, None, False, 0, 0, 0, 100, None)
 f_wagner = BasketballPlayer("Franz Wagner", "Small Forward", 3, "Orlando Magic", .360, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 p_banchero = BasketballPlayer("Paolo Banchero", "Power Forward", 4, "Orlando Magic", .340, 0.70, 0.75, 0.13, 0.28, 0.20, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
 w_carter_jr = BasketballPlayer("Wendell Carter Jr.", "Center", 5, "Orlando Magic", .320, 0.60, 0.68, 0.12, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -421,10 +421,10 @@ a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers
 
 
 # SUNS STARTING UNIT
-t_jones = BasketballPlayer("Tyus Jones", "Point Guard", 1, "Phoenix Suns", .360, 0.85, 0.65, 0.09, 0.28, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-d_booker = BasketballPlayer("Devin Booker", "Shooting Guard", 2, "Phoenix Suns", .470, 0.75, 0.70, 0.10, 0.28, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, ["D-Book", "Book"])
-b_beal = BasketballPlayer("Bradley Beal", "Small Forward", 3, "Phoenix Suns", .450, 0.70, 0.68, 0.12, 0.28, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
-k_durant = BasketballPlayer("Kevin Durant", "Power Forward", 4, "Phoenix Suns", .490, 0.80, 0.72, 0.08, 0.35, 0.30, 0.18, 0.40, False, None, False, 0, 0, 0, 100, ["Slim Reaper", "KD", "Durantula"])
+d_booker = BasketballPlayer("Devin Booker", "Point Guard", 1, "Phoenix Suns", .470, 0.75, 0.70, 0.10, 0.28, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, ["D-Book", "Book"])
+j_green = BasketballPlayer("Jalen Green", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.70, 0.65, 0.12, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
+d_brooks = BasketballPlayer("Dillon Brooks", "Small Forward", 3, "Phoenix Suns", .450, 0.70, 0.68, 0.12, 0.28, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
+n_hayes_davis = BasketballPlayer("Nigel Hayes-Davis", "Power Forward", 4, "Phoenix Suns", .490, 0.80, 0.72, 0.08, 0.35, 0.30, 0.18, 0.40, False, None, False, 0, 0, 0, 100, None)
 j_nurkic = BasketballPlayer("Jusuf Nurkic", "Center", 5, "Phoenix Suns", .380, 0.25, 0.65, 0.10, 0.20, 0.18, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
@@ -445,7 +445,7 @@ k_towns = BasketballPlayer("Karl-Anthony Towns", "Center", 5, "New York Knicks",
 
 # KNICKS BENCH UNIT
 c_payne = BasketballPlayer("Cameron Payne", "Point Guard", 1, "New York Knicks", 0.390, 0.65, 0.65, 0.12, 0.25, 0.20, 0.12, 0.32, False, None, False, 0, 0, 0, 100, None)
-m_mcbride = BasketballPlayer("Miles McBride", "Shooting Guard", 2, "New York Knicks", 0.370, 0.60, 0.60, 0.10, 0.22, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
+j_clarkson = BasketballPlayer("Jordan Clarkson", "Shooting Guard", 2, "Utah Jazz", 0.330, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
 j_hart = BasketballPlayer("Josh Hart", "Small Forward", 3, "New York Knicks", 0.400, 0.70, 0.68, 0.11, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 j_sims = BasketballPlayer("Jericho Sims", "Power Forward", 4, "New York Knicks", 0.350, 0.50, 0.62, 0.12, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 m_robinson = BasketballPlayer("Mitchell Robinson", "Center", 5, "New York Knicks", 0.000, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -460,46 +460,46 @@ k_porzingis = BasketballPlayer("Kristaps Porzingis", "Center", 5, "Boston Celtic
 
 # CELTICS BENCH UNIT
 p_pritchard = BasketballPlayer("Payton Pritchard", "Point Guard", 1, "Boston Celtics", 0.375, 0.70, 0.65, 0.10, 0.20, 0.15, 0.10, 0.50, False, None, False, 0, 0, 0, 100, None)
-j_springer = BasketballPlayer("Jaden Springer", "Shooting Guard", 2, "Boston Celtics", 0.218, 0.60, 0.65, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
+b_scheierman = BasketballPlayer("Baylor Scheierman", "Shooting Guard", 2, "Boston Celtics", 0.218, 0.60, 0.65, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
 s_hauser = BasketballPlayer("Sam Hauser", "Small Forward", 3, "Boston Celtics", 0.400, 0.60, 0.55, 0.09, 0.20, 0.12, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_horford = BasketballPlayer("Al Horford", "Power Forward", 4, "Boston Celtics", .470, .380, .820, .130, .180, .100, .060, .140, False, None, False, 0, 0, 0, 100, None)
 l_kornet = BasketballPlayer("Luke Kornet", "Center", 5, "Boston Celtics", 0.000, 0.50, 0.60, 0.12, 0.18, 0.22, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # LAKERS STARTING UNIT
-a_reaves = BasketballPlayer("Austin Reaves", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100, None)
-m_christie = BasketballPlayer("Max Christie", "Shooting Guard", 2, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100, None)
+l_doncic = BasketballPlayer("Luka Doncic", "Point Guard", 1, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100, ["Luka"])
+a_reaves = BasketballPlayer("Austin Reaves", "Shooting Guard", 2, "Los Angeles Lakers", .390, 0.75, 0.60, 0.09, 0.20, 0.18, 0.09, 0.4, False, None, False, 0, 0, 0, 100, ["AR15"])
 l_james = BasketballPlayer("LeBron James", "Small Forward", 3, "Los Angeles Lakers", .450, 0.80, 0.70, 0.12, 0.50, 0.50, 0.20, 0.5, False, None, False, 0, 0, 0, 100, ["King James"])
 r_hachimura = BasketballPlayer("Rui Hachimura", "Power Forward", 4, "Los Angeles Lakers", .370, 0.35, 0.60, 0.10, 0.22, 0.20, 0.10, 0.3, False, None, False, 0, 0, 0, 100, None)
-a_davis = BasketballPlayer("Anthony Davis", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0, 100, ["AD"])
+d_ayton = BasketballPlayer("DeAndre Ayton", "Center", 5, "Los Angeles Lakers", .350, 0.30, 0.72, 0.12, 0.25, 0.28, 0.15, 0.3, False, None, False, 0, 0, 0, 100, None)
 
 
 # LAKERS BENCH UNIT
 g_vincent = BasketballPlayer("Gabe Vincent", "Point Guard", 1, "Los Angeles Lakers", 0.380, 0.80, 0.70, 0.10, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
-d_knecht = BasketballPlayer("Dalton Knecht", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0, 100, None)
-c_reddish = BasketballPlayer("Cam Reddish", "Small Forward", 3, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
-d_finney_smith = BasketballPlayer("Dorian Finney-Smith", "Power Forward", 4, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, ['DFS', 'Dodo'])
+m_smart = BasketballPlayer("Marcus Smart", "Shooting Guard", 2, "Los Angeles Lakers", .481, 0.25, 0.521, 0.143, 0.25, 0.1, 0.04, 0.2, False, None, False, 0, 0, 0, 100, None)
+j_laravia = BasketballPlayer("Jake LaRavia", "Small Forward", 3, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
+j_vanderbilt = BasketballPlayer("Jarred Vanderbilt", "Power Forward", 4, "Los Angeles Lakers", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, ['Vando'])
 j_hayes = BasketballPlayer("Jaxson Hayes", "Center", 5, "Los Angeles Lakers", 0.350, 0.50, 0.70, 0.10, 0.25, 0.22, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # CLIPPERS STARTING UNIT
 j_harden = BasketballPlayer("James Harden", "Point Guard", 1, "LA Clippers", .400, 0.85, 0.65, 0.15, 0.30, 0.25, 0.12, 0.6, False, None, False, 0, 0, 0, 100, ["Uno"])
-a_coffey = BasketballPlayer("Amir Coffey", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 100, ["the Brewmaster", "the Brim Reaper"])
-n_powell = BasketballPlayer("Norman Powell", "Small Forward", 3, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 100, ["Stormin' Norman"])
-k_leonard = BasketballPlayer("Kawhi Leonard", "Power Forward", 4, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 100, ["the Klaw"])
+b_beal = BasketballPlayer("Bradley Beal", "Shooting Guard", 2, "LA Clippers", .381, 0.25, 0.554, 0.071, 0, 0, 0.086, 0.25, False, None, False, 0, 0, 0, 100, ["the Big Panda"])
+k_leonard = BasketballPlayer("Kawhi Leonard", "Small Forward", 3, "LA Clippers", .420, 0.45, 0.64, 0.08, 0.35, 0.45, 0.18, 0.35, False, None, False, 0, 0, 0, 100, ["the Klaw"])
+j_collins = BasketballPlayer("John Collins", "Power Forward", 4, "LA Clippers", .380, 0.40, 0.66, 0.10, 0.20, 0.18, 0.12, 0.3, False, None, False, 0, 0, 0, 100, None)
 i_zubac = BasketballPlayer("Ivica Zubac", "Center", 5, "LA Clippers", 0.000, 0.20, 0.60, 0.10, 0.18, 0.22, 0.14, 0.25, False, None, False, 0, 0, 0, 100, ["Zu"])
 
 
 # CLIPPERS BENCH UNIT 
-k_porter_jr = BasketballPlayer("Kevin Porter Jr.", "Point Guard", 1, "LA Clippers", 0.390, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["KPJ", "Porter Jr."])
-b_hyland = BasketballPlayer("Bones Hyland", "Shooting Guard", 2, "LA Clippers", 0.410, 0.60, 0.68, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0, 100, ["Bones"])
-t_mann = BasketballPlayer("Terance Mann", "Small Forward", 3, "LA Clippers", 0.400, 0.55, 0.65, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
+c_paul = BasketballPlayer("Chris Paul", "Point Guard", 1, "LA Clippers", 0.390, 0.65, 0.70, 0.11, 0.25, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["CP3"])
+k_dunn = BasketballPlayer("Kris Dunn", "Shooting Guard", 2, "LA Clippers", 0.410, 0.60, 0.68, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0, 100, ["the Dunngeon"])
+n_batum = BasketballPlayer("Nico Batum", "Small Forward", 3, "LA Clippers", 0.400, 0.55, 0.65, 0.10, 0.20, 0.18, 0.10, 0.30, False, None, False, 0, 0, 0, 100, None)
 d_jones_jr = BasketballPlayer("Derrick Jones Jr.", "Power Forward", 4, "LA Clippers", 0.350, 0.45, 0.62, 0.10, 0.22, 0.18, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
-m_bamba = BasketballPlayer("Mo Bamba", "Center", 5, "LA Clippers", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
+b_lopez = BasketballPlayer("Brook Lopez", "Center", 5, "LA Clippers", 0.320, 0.40, 0.65, 0.10, 0.22, 0.20, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
 
 
 # '13-'14 CLIPPERS STARTING UNIT
-c_paul = BasketballPlayer("Chris Paul", "Point Guard", 1, "'13-'14 LA Clippers", 0.368, 0.90, 0.70, 0.11, 0.25, 0.20, 0.15, 0.50, False, None, False, 0, 0, 0, 100, ["CP3"])
+ch_paul = BasketballPlayer("Chris Paul", "Point Guard", 1, "'13-'14 LA Clippers", 0.368, 0.90, 0.70, 0.11, 0.25, 0.20, 0.15, 0.50, False, None, False, 0, 0, 0, 100, ["CP3"])
 j_redick = BasketballPlayer("JJ Redick", "Shooting Guard", 2, "'13-'14 LA Clippers", 0.395, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
 j_dudley = BasketballPlayer("Jared Dudley", "Small Forward", 3, "'13-'14 LA Clippers", 0.360, 0.60, 0.55, 0.10, 0.20, 0.15, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 b_griffin = BasketballPlayer("Blake Griffin", "Power Forward", 4, "'13-'14 LA Clippers", 0.276, 0.55, 0.75, 0.12, 0.30, 0.25, 0.10, 0.40, False, None, False, 0, 0, 0, 100, None)
@@ -532,14 +532,14 @@ i_hartenstein = BasketballPlayer("Isaiah Hartenstein", "Center", 5, "Oklahoma Ci
 
 # MEMPHIS GRIZZLIES STARTING UNIT
 j_morant = BasketballPlayer("Ja Morant", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.85, 0.80, 0.13, 0.25, 0.20, 0.12, 0.45, False, None, False, 0, 0, 0, 100, None)
-d_bane = BasketballPlayer("Desmond Bane", "Shooting Guard", 2, "Memphis Grizzlies", 0.430, 0.80, 0.70, 0.10, 0.22, 0.18, 0.11, 0.40, False, None, False, 0, 0, 0, 100, None)
+k_caldwell_pope = BasketballPlayer("Kentavious Caldwell-Pope", "Shooting Guard", 2, "Orlando Magic", 0.400, 0.60, 0.65, 0.10, 0.22, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["KCP"])
 j_jackson_jr = BasketballPlayer("Jaren Jackson Jr.", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.65, 0.65, 0.12, 0.28, 0.25, 0.14, 0.35, False, None, False, 0, 0, 0, 100, ["JJJ"])
 b_clarke = BasketballPlayer("Brandon Clarke", "Power Forward", 4, "Memphis Grizzlies", 0.200, 0.55, 0.70, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 z_edey = BasketballPlayer("Zach Edey", "Center", 5, "Memphis Grizzlies", 0.000, 0.50, 0.75, 0.12, 0.30, 0.28, 0.15, 0.35, False, None, False, 0, 0, 0, 100, None)
 
 
 # MEMPHIS GRIZZLIES BENCH UNIT
-m_smart = BasketballPlayer("Marcus Smart", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.70, 0.65, 0.12, 0.25, 0.22, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
+t_jerome = BasketballPlayer("Ty Jerome", "Point Guard", 1, "Memphis Grizzlies", 0.320, 0.70, 0.65, 0.12, 0.25, 0.22, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
 l_kennard = BasketballPlayer("Luke Kennard", "Shooting Guard", 2, "Memphis Grizzlies", 0.420, 0.65, 0.60, 0.10, 0.20, 0.15, 0.10, 0.35, False, None, False, 0, 0, 0, 100, None)
 s_aldama = BasketballPlayer("Santi Aldama", "Small Forward", 3, "Memphis Grizzlies", 0.350, 0.60, 0.65, 0.11, 0.22, 0.20, 0.12, 0.30, False, None, False, 0, 0, 0, 100, None)
 d_roddy = BasketballPlayer("David Roddy", "Power Forward", 4, "Memphis Grizzlies", 0.300, 0.55, 0.60, 0.10, 0.22, 0.18, 0.11, 0.30, False, None, False, 0, 0, 0, 100, None)
@@ -548,8 +548,8 @@ j_huff = BasketballPlayer("Jay Huff", "Center", 5, "Memphis Grizzlies", 0.300, 0
 
 # HOUSTON ROCKETS STARTING UNIT 
 f_vanvleet = BasketballPlayer("Fred VanVleet", "Point Guard", 1, "Houston Rockets", 0.370, 0.85, 0.70, 0.10, 0.25, 0.22, 0.14, 0.45, False, None, False, 0, 0, 0, 100, None)
-j_green = BasketballPlayer("Jalen Green", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.70, 0.65, 0.12, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
-d_brooks = BasketballPlayer("Dillon Brooks", "Small Forward", 3, "Houston Rockets", 0.320, 0.60, 0.65, 0.12, 0.25, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
+a_thompson = BasketballPlayer("Amen Thompson", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.70, 0.65, 0.12, 0.22, 0.18, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
+k_durant = BasketballPlayer("Kevin Durant", "Small Forward", 3, "Houston Rockets", 0.320, 0.60, 0.65, 0.12, 0.25, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, ["Slim Reaper", "KD", "Durantula"])
 j_smith_jr = BasketballPlayer("Jabari Smith Jr.", "Power Forward", 4, "Houston Rockets", 0.310, 0.55, 0.70, 0.11, 0.28, 0.25, 0.14, 0.40, False, None, False, 0, 0, 0, 100, None)
 a_sengun = BasketballPlayer("Alperen Sengun", "Center", 5, "Houston Rockets", 0.300, 0.60, 0.75, 0.13, 0.30, 0.28, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 
@@ -557,7 +557,7 @@ a_sengun = BasketballPlayer("Alperen Sengun", "Center", 5, "Houston Rockets", 0.
 # HOUSTON ROCKETS BENCH UNIT
 a_holiday = BasketballPlayer("Aaron Holiday", "Point Guard", 1, "Houston Rockets", 0.360, 0.65, 0.60, 0.11, 0.20, 0.18, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 c_whitmore = BasketballPlayer("Cam Whitmore", "Shooting Guard", 2, "Houston Rockets", 0.340, 0.65, 0.65, 0.12, 0.22, 0.18, 0.11, 0.35, False, None, False, 0, 0, 0, 100, None)
-a_thompson = BasketballPlayer("Amen Thompson", "Small Forward", 3, "Houston Rockets", 0.330, 0.60, 0.70, 0.10, 0.25, 0.20, 0.12, 0.40, False, None, False, 0, 0, 0, 100, None)
+d_finney_smith = BasketballPlayer("Dorian Finney-Smith", "Small Forward", 3, "Houston Rockets", 0.400, 0.65, 0.68, 0.12, 0.22, 0.20, 0.11, 0.32, False, None, False, 0, 0, 0, 100, ['DFS', 'Dodo'])
 t_eason = BasketballPlayer("Tari Eason", "Power Forward", 4, "Houston Rockets", 0.300, 0.55, 0.65, 0.12, 0.28, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
 s_adams = BasketballPlayer("Steven Adams", "Center", 5, "Houston Rockets", 0.000, 0.40, 0.70, 0.13, 0.25, 0.28, 0.14, 0.30, False, None, False, 0, 0, 0, 100, None)
 
@@ -598,7 +598,7 @@ e_mobley = BasketballPlayer("Evan Mobley", "Power Forward", 4, "Cleveland Cavali
 j_allen = BasketballPlayer("Jarrett Allen", "Center", 5, "Cleveland Cavaliers", 0.000, 0.60, 0.73, 0.13, 0.28, 0.28, 0.15, 0.50, False, None, False, 0, 0, 0, 100, None)
 
 # CLEVELAND CAVALIERS BENCH UNIT
-t_jerome = BasketballPlayer("Ty Jerome", "Point Guard", 1, "Cleveland Cavaliers", 0.447, 0.75, 0.65, 0.11, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
+l_ball = BasketballPlayer("Lonzo Ball", "Point Guard", 1, "Cleveland Cavaliers", 0.447, 0.75, 0.65, 0.11, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["Zo"])
 s_merrill = BasketballPlayer("Sam Merrill", "Shooting Guard", 2, "Cleveland Cavaliers", 0.333, 0.65, 0.65, 0.10, 0.25, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 d_hunter = BasketballPlayer("De'Andre Hunter", "Small Forward", 3, "Cleveland Cavaliers", 0.350, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
 d_wade = BasketballPlayer("Dean Wade", "Power Forward", 4, "Cleveland Cavaliers", 0.305, 0.60, 0.40, 0.12, 0.28, 0.22, 0.14, 0.35, False, None, False, 0, 0, 0, 100, None)
@@ -622,30 +622,30 @@ o_robinson = BasketballPlayer("Orlando Robinson", "Center", 5, "Toronto Raptors"
 i_collier = BasketballPlayer("Isaiah Collier", "Point Guard", 1, "Utah Jazz", 0.249, 0.63, 0.42, 0.12, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 c_sexton = BasketballPlayer("Collin Sexton", "Shooting Guard", 2, "Utah Jazz", 0.406, 0.42, 0.48, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 l_markkanen = BasketballPlayer("Lauri Markkanen", "Small Forward", 3, "Utah Jazz", 0.346, 0.35, 0.42, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["the Finnisher"])
-j_collins = BasketballPlayer("John Collins", "Power Forward", 4, "Utah Jazz", 0.399, 0.20, 0.52, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0 , 100, None)
+t_hendricks = BasketballPlayer("Taylor Hendricks", "Power Forward", 4, "Utah Jazz", 0.399, 0.20, 0.52, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0 , 100, None)
 w_kessler = BasketballPlayer("Walker Kessler", "Center", 5, "Utah Jazz", 0.176, 0.17, 0.66, 0.12, 0.28, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 
 # UTAH JAZZ BENCH UNIT
 k_george = BasketballPlayer("Keyonte George", "Point Guard", 1, "Utah Jazz", 0.350, 0.70, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
-j_clarkson = BasketballPlayer("Jordan Clarkson", "Shooting Guard", 2, "Utah Jazz", 0.330, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
+j_springer = BasketballPlayer("Jaden Springer", "Shooting Guard", 2, "Utah Jazz", 0.330, 0.65, 0.68, 0.12, 0.28, 0.22, 0.13, 0.40, False, None, False, 0, 0, 0, 100, None)
 c_williams = BasketballPlayer("Cody Williams", "Small Forward", 3, "Utah Jazz", 0.259, 0.32, 0.65, 0.19, 0.25, 0.22, 0.12, 0.35, False, None, False, 0, 0, 0, 100, None)
 t_brown = BasketballPlayer("Trevor Brown", "Power Forward", 4, "Utah Jazz", 0.310, 0.55, 0.65, 0.12, 0.24, 0.22, 0.11, 0.32, False, None, False, 0, 0, 0, 100, None)
 k_filipowski = BasketballPlayer("Kyle Filipowski", "Center", 5, "Utah Jazz", 0.350, 0.65, 0.65, 0.14, 0.28, 0.22, 0.13, 0.35, False, None, False, 0, 0, 0, 100, None)
 
 
-clippers_list = [j_harden, a_coffey, n_powell, k_leonard, i_zubac]
-clippers_bench_list = [k_porter_jr, b_hyland, t_mann, d_jones_jr, m_bamba]
+clippers_list = [j_harden, b_beal, k_leonard, j_collins, i_zubac]
+clippers_bench_list = [c_paul, k_dunn, n_batum, d_jones_jr, b_lopez]
 
-lakers_list = [a_reaves, m_christie, l_james, r_hachimura, a_davis]
-lakers_bench_list = [g_vincent, d_knecht, c_reddish, d_finney_smith, j_hayes]
+lakers_list = [l_doncic, a_reaves, l_james, r_hachimura, d_ayton]
+lakers_bench_list = [g_vincent, m_smart, j_laravia, j_vanderbilt, j_hayes]
 
 celtics_list = [j_holiday, d_white, j_brown, j_tatum, k_porzingis]
-celtics_bench_list = [p_pritchard, j_springer, s_hauser, a_horford, l_kornet]
+celtics_bench_list = [p_pritchard, b_scheierman, s_hauser, a_horford, l_kornet]
 
 knicks_list = [j_brunson, m_bridges, o_anunoby, p_achiuwa, k_towns]
-knicks_bench_list = [c_payne, m_mcbride,j_hart, j_sims, m_robinson]
+knicks_bench_list = [c_payne, j_clarkson, j_hart, j_sims, m_robinson]
 
-suns_list = [t_jones, d_booker, b_beal, k_durant, j_nurkic]
+suns_list = [d_booker, j_green, d_brooks, n_hayes_davis, j_nurkic]
 suns_bench_list = [m_morris, g_allen, r_oneale, r_dunn, m_plumlee]
 
 sixers_list = [t_maxey, k_oubre, p_george, g_yabusele, j_embiid]
@@ -654,11 +654,11 @@ sixers_bench_list = [r_jackson, k_lowry, c_martin, p_nance, a_drummond]
 warriors_list = [s_curry, b_hield, an_wiggins, j_kuminga, d_green]
 warriors_bench_list = [b_podziemski, m_moody, g_payton_ii, k_anderson, k_looney]
 
-magic_list = [j_suggs, k_caldwell_pope, f_wagner, p_banchero, w_carter_jr]
+magic_list = [j_suggs, d_bane, f_wagner, p_banchero, w_carter_jr]
 magic_bench_list = [a_black, c_anthony, g_harris, j_isaac, g_bitadze]
 
-mavericks_list = [l_doncic, k_irving, k_thompson, p_washington, d_lively]
-mavericks_bench_list = [s_dinwiddie, q_grimes, d_exum, m_kleber, d_gafford]
+mavericks_list = [d_russell, k_irving, k_thompson, a_davis, d_lively]
+mavericks_bench_list = [s_dinwiddie, m_christie, d_exum, p_washington, d_gafford]
 
 pelicans_list = [d_murray, c_mccollum, b_ingram, z_williamson, y_missi]
 pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, jav_green, j_robinson_earl]
@@ -666,17 +666,17 @@ pelicans_bench_list = [j_hawkins, t_murphy_iii, b_boston_jr, jav_green, j_robins
 nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
 nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, d_jordan_den]
 
-retro_clippers_list = [c_paul, j_redick, j_dudley, b_griffin, d_jordan_lac]
+retro_clippers_list = [ch_paul, j_redick, j_dudley, b_griffin, d_jordan_lac]
 retro_clippers_bench_list = [d_collison, j_crawford, m_barnes, h_turkoglu, r_hollins]
 
 thunder_list = [s_gilgeous_alexander, c_wallace, l_dort, j_williams, c_holmgren]
 thunder_bench_list = [a_mitchell, i_joe, a_caruso, aa_wiggins, i_hartenstein]
 
-grizzlies_list = [j_morant, d_bane, j_jackson_jr, b_clarke, z_edey]
-grizzlies_bench_list = [m_smart, l_kennard, s_aldama, d_roddy, j_huff]
+grizzlies_list = [j_morant, k_caldwell_pope, j_jackson_jr, b_clarke, z_edey]
+grizzlies_bench_list = [t_jerome, l_kennard, s_aldama, d_roddy, j_huff]
 
-rockets_list = [f_vanvleet, j_green, d_brooks, j_smith_jr, a_sengun]
-rockets_bench_list = [a_holiday, c_whitmore, a_thompson, t_eason, s_adams]
+rockets_list = [f_vanvleet, a_thompson, k_durant, j_smith_jr, a_sengun]
+rockets_bench_list = [a_holiday, c_whitmore, d_finney_smith, t_eason, s_adams]
 
 
 wizards_list = [j_poole, b_carrington, b_coulibaly, k_kuzma, a_sarr]
@@ -686,13 +686,13 @@ pacers_list = [t_haliburton, a_nembhard, a_nesmith, p_siakam, m_turner]
 pacers_bench_list = [t_mcconnell, b_sheppard, b_mathurin, o_toppin, t_bryant]
 
 cavaliers_list = [d_garland, d_mitchell, m_strus, e_mobley, j_allen]
-cavaliers_bench_list = [t_jerome, s_merrill, d_hunter, d_wade, g_niang]
+cavaliers_bench_list = [l_ball, s_merrill, d_hunter, d_wade, g_niang]
 
 raptors_list = [i_quickley, g_dick, r_barrett, s_barnes, j_poeltl]
 raptors_bench_list = [j_shead, j_walter, o_agbaji, j_mogbo, o_robinson]
 
-jazz_list = [i_collier, c_sexton, l_markkanen, j_collins, w_kessler]
-jazz_bench_list = [k_george, j_clarkson, c_williams, t_brown, k_filipowski]
+jazz_list = [i_collier, c_sexton, l_markkanen, t_hendricks, w_kessler]
+jazz_bench_list = [k_george, j_springer, c_williams, t_brown, k_filipowski]
 
 teams_names = ['LA Clippers', 'Los Angeles Lakers', 'Boston Celtics', 'New York Knicks', 'Phoenix Suns', 'Philadelphia 76ers', 'Golden State Warriors', 'Orlando Magic', 'Dallas Mavericks', 'Denver Nuggets', 'New Orleans Pelicans', "'13-'14 LA Clippers", "Oklahoma City Thunder", "Memphis Grizzlies", "Houston Rockets", "Washington Wizards", "Indiana Pacers", "Cleveland Cavaliers", "Toronto Raptors", "Utah Jazz"]
 
