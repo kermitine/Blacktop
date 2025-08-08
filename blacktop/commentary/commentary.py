@@ -1,3 +1,9 @@
+"""
+Copyright (C) 2025 Ayrik Nabirahni. This file
+is apart of the Blacktop project, and licensed under
+the GNU AGPL-3.0-or-later. See LICENSE and README for more details.
+"""
+
 import random
 last_used_commentary_3ptshot = None
 last_used_commentary_3ptmake = None
