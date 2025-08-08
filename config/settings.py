@@ -1,3 +1,9 @@
+"""
+Copyright (C) 2025 Ayrik Nabirahni. This file
+is apart of the Blacktop project, and licensed under
+the GNU AGPL-3.0-or-later. See LICENSE and README for more details.
+"""
+
 version = '2025.8.07.2210.stable'
 
 end_score = 21 # target score to win
