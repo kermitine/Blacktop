@@ -37,40 +37,40 @@ class CommentaryEngine():
             global last_used_commentary_haspossession
 
             # RANDOMIZES USAGE OF FULL NAME, LAST NAME, OR NICKNAME
-            num = random.randint(1, 6) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
-            if num in [1, 2, 3]:
+            num = random.randint(1, 8) # 50% to use last name (if nickname exists, otherwise 75%), 25% for full name, 25% for nickname
+            if num in [1, 2, 3, 4, 5]:
                 primary_name = principal_player.name.split(" ")[1]
-            elif num in [4, 5] and principal_player.nicknames:
+            elif num in [6, 7] and principal_player.nicknames:
                 nicknames_index = random.randint(0, (len(principal_player.nicknames)-1))
                 primary_name = principal_player.nicknames[nicknames_index]
             else:
                 primary_name = principal_player.name
             
             if principal_player.defender:
-                num = random.randint(1, 6)
-                if num in [1, 2, 3]:
+                num = random.randint(1, 8)
+                if num in [1, 2, 3, 4, 5]:
                     defender_name = principal_player.defender.name.split(" ")[1]
-                elif num in [4, 5] and principal_player.defender.nicknames:
+                elif num in [6, 7] and principal_player.defender.nicknames:
                     nicknames_index = random.randint(0, (len(principal_player.defender.nicknames)-1))
                     defender_name = principal_player.defender.nicknames[nicknames_index]
                 else:
                     defender_name = principal_player.defender.name
 
             if secondary_player:
-                num = random.randint(1, 6)
-                if num in [1, 2, 3]:
+                num = random.randint(1, 8)
+                if num in [1, 2, 3, 4, 5]:
                     secondary_player_name = secondary_player.name.split(" ")[1]
-                elif num in [4, 5] and secondary_player.nicknames:
+                elif num in [6, 7] and secondary_player.nicknames:
                     nicknames_index = random.randint(0, (len(secondary_player.nicknames)-1))
                     secondary_player_name = secondary_player.nicknames[nicknames_index]
                 else:
                     secondary_player_name = secondary_player.name
 
                 if secondary_player.defender:
-                    num = random.randint(1, 6)
-                    if num in [1, 2 ,3]:
+                    num = random.randint(1, 8)
+                    if num in [1, 2 ,3, 4, 5]:
                         secondary_player_defender_name = secondary_player.defender.name.split(" ")[1]
-                    elif num in [4, 5] and secondary_player.defender.nicknames:
+                    elif num in [6, 7] and secondary_player.defender.nicknames:
                         nicknames_index = random.randint(0, (len(secondary_player.defender.nicknames)-1))
                         secondary_player_defender_name = secondary_player.defender.nicknames[nicknames_index]
                     else:

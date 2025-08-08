@@ -1,20 +1,9 @@
 import random
 import time
-from KermLib.KermLib import *
-from vars.basketball_ascii import *
-from commentary import *
-version = '2025.5.26.1820.stable'
-
-end_score = 21 # target score to win
-foul_chance = 28 # chance of a foul on a drive in percent
-
-pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
-threept_energy_drain = 28 # this is base chance, plus random number between 1 and 7
-drive_energy_drain = 34 # this is base chance, plus random number between 1 and 7
-
-
-opposing_team_score = 0 # Start score for each team. DO NOT CHANGE
-user_team_score = 0 # Start score for each team. DO NOT CHANGE
+from utils.KermLib.KermLib import KermLib
+from utils.ascii.basketball_ascii import *
+from blacktop.commentary.commentary import *
+from config.settings import *
 
 class Team():
     def __init__(self, team_name, list, bench_list, logo, coach):
@@ -219,7 +208,7 @@ class BasketballPlayer():
         global last_event
         global current_player
         
-        if last_event is 'substitution_final':
+        if last_event == 'substitution_final':
             print('\n')
 
         if self.team == user_team:
@@ -1156,7 +1145,7 @@ while True:
             if last_event == 'substitution_final':
                 print('\n')
             print(player.name + "'s energy:", str(player.energy) + '%')
-            if last_event is not 'pass':
+            if last_event != 'pass':
                 last_event = CommentaryEngine.commentator(player, 'haspossession', player.defender)
             time.sleep(0.8)
             time.sleep(0.8)
