@@ -33,12 +33,16 @@ class Team():
             else:
                 player.threefg_percent = 0
 
-            player.ft_percent = round(player_stats_dict['FT_PCT'], 3)
-            player.twofg_percent = round((player_stats_dict['FGM'] - player_stats_dict['FG3M'])/(player_stats_dict['FGA'] - player_stats_dict['FG3A']), 3)
+            player.ft_percent = round(player_stats_dict['FT_PCT'], 3) # ft percent
+            player.twofg_percent = round((player_stats_dict['FGM'] - player_stats_dict['FG3M'])/(player_stats_dict['FGA'] - player_stats_dict['FG3A']), 3) # finds fg% for 2 pointers
 
             player.turnover_chance = round((player_stats_dict['TOV']/player_stats_dict['MIN']), 3) # Turnovers/minute (each minute is considered a posession)
 
-            time.sleep(0.2)
+            player.interior_defense = round((player_stats_dict['BLK']/player_stats_dict['MIN']), 3) # blocks/minute(posession)
+            player.perimeter_defense = round((player_stats_dict['STL']/player_stats_dict['MIN']), 3) # stls/min
+
+            player.foul_chance = round(((player_stats_dict['FTA']/2)/player_stats_dict['MIN']), 3) # roughly how often they are fouled per possession
+            time.sleep(0.35)
 
 
 def free_throws(player, quantity_of_free_throws):
@@ -69,7 +73,7 @@ def get_player_stats(id):
     career = playercareerstats.PlayerCareerStats(player_id=id)
     career = career.get_dict()
     result_sets = {rs["name"]: rs for rs in career["resultSets"]}
-    career_totals = result_sets["CareerTotalsRegularSeason"]
+    career_totals = result_sets["SeasonTotalsRegularSeason"]
     headers = career_totals["headers"]
     values = career_totals["rowSet"][0]
 
@@ -78,7 +82,7 @@ def get_player_stats(id):
 
 nba_players = players.get_players()
 class BasketballPlayer():
-    def __init__(self, name, position, position_number, team, threefg_percent, ft_percent, twofg_percent, turnover_chance, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
+    def __init__(self, name, position, position_number, team, threefg_percent, ft_percent, twofg_percent, turnover_chance, interior_defense, perimeter_defense, foul_chance, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
         self.name = name
         self.position = position
         self.position_number = position_number
@@ -87,6 +91,9 @@ class BasketballPlayer():
         self.ft_percent = ft_percent
         self.twofg_percent = twofg_percent
         self.turnover_chance = turnover_chance
+        self.interior_defense = interior_defense
+        self.perimeter_defense = perimeter_defense
+        self.foul_chance = foul_chance
         self.haspossession = possession
         self.defender = defender
         self.isplayer = player
@@ -105,9 +112,9 @@ class BasketballPlayer():
         generated_probability = random.randint(1, 100)
         # Point Guards are more likely to pass or shoot a 3pointer than drive
         if self.position == 'Point Guard':
-            generated_probability += 30
+            generated_probability += 25
 
-        if 81 > generated_probability >= 33.3:
+        if 81 > generated_probability >= 50:
             return 'pass'
         elif 150 >= generated_probability >= 81:
             if self.threefg_percent != 0:
@@ -126,7 +133,7 @@ class BasketballPlayer():
             time.sleep(1)
 
             generated_probability = random.randint(1, 1000)
-            if generated_probability <= (self.threefg_percent*1000):
+            if generated_probability <= ((self.threefg_percent*1000) - (self.defender.perimeter_defense*1000)):
                 print(harden_shooting)
                 last_event = CommentaryEngine.commentator(self, '3ptmake', None)
                 self.pointsMade += 3
@@ -148,10 +155,10 @@ class BasketballPlayer():
             generated_probability = random.randint(1, 1000)
             fouled = False
 
-            if random.randint(0, 100) <= foul_chance:
+            if random.randint(0, 1000) <= (self.foul_chance*1000):
                 fouled = True
 
-            if generated_probability <= (self.twofg_percent*1000):
+            if generated_probability <= ((self.twofg_percent*1000) - (self.defender.interior_defense*1000)):
                 self.haspossession = False
                 self.defender.haspossession = True
                 if fouled == True:
@@ -248,7 +255,7 @@ class BasketballPlayer():
                     
     def turnover_check(self):
         generated_probability = random.randint(1, 1000)
-        if generated_probability <= (self.turnover_chance*1000):
+        if generated_probability <= ((self.turnover_chance*1000) + (self.defender.perimeter_defense*1000)):
             return True
         else:
             return False
@@ -326,46 +333,48 @@ class BasketballPlayer():
         return combined_list
     
 
-
+"""
+The stats below are effectively placeholders, as stats are loaded by NBA API when team is selected
+"""
 
 # NUGGETS STARTING UNIT
-j_murray = BasketballPlayer("Jamal Murray", "Point Guard", 1, "Denver Nuggets", .400, 0.85, 0.70, 0, False, None, False, 0, 0, 0, 100, ["The Blue Arrow"])
-c_braun = BasketballPlayer("Christian Braun", "Shooting Guard", 2, "Denver Nuggets", .370, 0.50, 0.65, 0, False, None, False, 0, 0, 0, 100, None)
-m_porter_jr = BasketballPlayer("Michael Porter Jr.", "Small Forward", 3, "Denver Nuggets", .430, 0.60, 0.65, 0, False, None, False, 0, 0, 0, 100, ["MPJ"])
-a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets", .350, 0.50, 0.70, 0, False, None, False, 0, 0, 0, 100,["AG"])
-n_jokic = BasketballPlayer("Nikola Jokić", "Center", 5, "Denver Nuggets", .500, 0.90, 0.75, 0, False, None, False, 0, 0, 0, 100,["the Joker"])
+j_murray = BasketballPlayer("Jamal Murray", "Point Guard", 1, "Denver Nuggets", .400, 0.85, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["The Blue Arrow"])
+c_braun = BasketballPlayer("Christian Braun", "Shooting Guard", 2, "Denver Nuggets", .370, 0.50, 0.65, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+c_johnson = BasketballPlayer("Cameron Johnson", "Small Forward", 3, "Denver Nuggets", .430, 0.60, 0.65, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["Cam Johnson"])
+a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets", .350, 0.50, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100,["AG"])
+n_jokic = BasketballPlayer("Nikola Jokić", "Center", 5, "Denver Nuggets", .500, 0.90, 0.75, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100,["the Joker"])
 
 
 # NUGGETS BENCH UNIT
-r_westbrook = BasketballPlayer("Russell Westbrook", "Point Guard", 1, "Denver Nuggets", 0.430, 0.60, 0.68, 0, False, None, False, 0, 0, 0, 100, ["Brodie"])
-j_strawther = BasketballPlayer("Julian Strawther", "Shooting Guard", 2, "Denver Nuggets", 0.420, 0.65, 0.70, 0, False, None, False, 0, 0, 0, 100, None)
-h_tyson = BasketballPlayer("Hunter Tyson", "Small Forward", 3, "Denver Nuggets", 0.400, 0.60, 0.65, 0, False, None, False, 0, 0, 0, 100, None)
-p_watson = BasketballPlayer("Peyton Watson", "Power Forward", 4, "Denver Nuggets", 0.380, 0.55, 0.62, 0, False, None, False, 0, 0, 0, 100, None)
-j_valanciunas = BasketballPlayer("Jonas Valančiūnas", "Center", 5, "Denver Nuggets", 0.300, 0.60, 0.75, 0, False, None, False, 0, 0, 0, 100, None)
+j_pickett = BasketballPlayer("Jalen Pickett", "Point Guard", 1, "Denver Nuggets", 0.430, 0.60, 0.68, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+b_brown = BasketballPlayer("Bruce Brown", "Shooting Guard", 2, "Denver Nuggets", 0.420, 0.65, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+p_watson = BasketballPlayer("Peyton Watson", "Small Forward", 3, "Denver Nuggets", 0.380, 0.55, 0.62, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+d_holmes = BasketballPlayer("DaRon Holmes II", "Power Forward", 4, "Denver Nuggets", 0.400, 0.60, 0.65, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+j_valanciunas = BasketballPlayer("Jonas Valančiūnas", "Center", 5, "Denver Nuggets", 0.300, 0.60, 0.75, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
 
 
 # 76ers STARTING UNIT
-t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0.420, 0.75, 0.70, 0, False, None, False,0, 0, 0, 100, None)
-k_oubre = BasketballPlayer("Kelly Oubre Jr.", "Shooting Guard", 2, "Philadelphia 76ers", 0.430, 0.55, 0.70, 0, False, None, False, 0, 0, 0, 100, None)
-p_george = BasketballPlayer("Paul George", "Small Forward", 3, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0, False, None, False, 0, 0, 0, 100, ["PG13", "Pandemic-P", "Playoff-P", "Podcast-P", "Wayoff-P", "George Paul"])
-g_yabusele = BasketballPlayer("Guerschon Yabusele", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.50, 0.60, 0, False, None, False, 0, 0, 0, 100, None)
-j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0, False, None, False, 0, 0, 0, 100, ["The Process"])
+t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0.420, 0.75, 0.70, 0, 0, 0, 0, False, None, False,0, 0, 0, 100, None)
+q_grimes = BasketballPlayer("Quentin Grimes", "Shooting Guard", 2, "Philadelphia 76ers", 0.400, 0.80, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+k_oubre = BasketballPlayer("Kelly Oubre Jr.", "Small Forward", 3, "Philadelphia 76ers", 0.430, 0.55, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+p_george = BasketballPlayer("Paul George", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.65, 0.68, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["PG13", "Pandemic-P", "Playoff-P", "Podcast-P", "Wayoff-P", "George Paul"])
+j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0.370, 0.60, 0.75, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["The Process"])
 
 
 # 76ers BENCH UNIT
-r_jackson = BasketballPlayer("Reggie Jackson", "Point Guard", 1, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0, False, None, False, 0, 0, 0, 100, ["the Big Government", "Mr. June"])
-k_lowry = BasketballPlayer("Kyle Lowry", "Shooting Guard", 2, "Philadelphia 76ers", 0.400, 0.80, 0.70, 0, False, None, False, 0, 0, 0, 100, None)
-c_martin = BasketballPlayer("Caleb Martin", "Small Forward", 3, "Philadelphia 76ers", 0.370, 0.55, 0.65, 0, False, None, False, 0, 0, 0, 100, None)
-p_nance = BasketballPlayer("Pete Nance", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.60, 0.65, 0, False, None, False, 0, 0, 0, 100, None)
-a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers", 0.1, 0.20, 0.60, 0, False, None, False, 0, 0, 0, 100, None)
+j_mccain = BasketballPlayer("Jared McCain", "Point Guard", 1, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+k_lowry = BasketballPlayer("Kyle Lowry", "Point Guard", 2, "Philadelphia 76ers", 0.374, 0.60, 0.70, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+t_watford = BasketballPlayer("Trendon Watford", "Small Forward", 3, "Philadelphia 76ers", 0.370, 0.55, 0.65, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+j_walker = BasketballPlayer("Jabari Walker", "Power Forward", 4, "Philadelphia 76ers", 0.380, 0.60, 0.65, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers", 0.1, 0.20, 0.60, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
 
 
-sixers_list = [t_maxey, k_oubre, p_george, g_yabusele, j_embiid]
-sixers_bench_list = [r_jackson, k_lowry, c_martin, p_nance, a_drummond]
+sixers_list = [t_maxey, q_grimes, k_oubre, p_george, j_embiid]
+sixers_bench_list = [j_mccain, k_lowry, t_watford, j_walker, a_drummond]
 
 
-nuggets_list = [j_murray, c_braun, m_porter_jr, a_gordon, n_jokic]
-nuggets_bench_list = [r_westbrook, j_strawther, h_tyson , p_watson, j_valanciunas]
+nuggets_list = [j_murray, c_braun, c_johnson, a_gordon, n_jokic]
+nuggets_bench_list = [j_pickett, b_brown, p_watson, d_holmes, j_valanciunas]
 
 
 teams_names = ['Philadelphia 76ers', 'Denver Nuggets']
@@ -400,10 +409,8 @@ print('\n')
 match user_team_input:
     case 1:
         user_team_object = sixers_team
-        sixers_team.set_stats()
     case 2:
         user_team_object = nuggets_team
-        nuggets_team.set_stats()
 
 
 user_team = user_team_object.team_name
@@ -446,10 +453,8 @@ opposing_team = teams_names[int(user_decision)-1]
 
 if opposing_team == 'Philadelphia 76ers':
     opposing_team_object = sixers_team
-    sixers_team.set_stats()
 elif opposing_team == 'Denver Nuggets':
     opposing_team_object = nuggets_team
-    nuggets_team.set_stats()
 
 opposing_team = opposing_team_object.team_name
 opposing_team_list = opposing_team_object.list
@@ -464,6 +469,10 @@ print('\n' + '\n')
 print('Opposing team selected:', opposing_team)
 
 combined_list = user_team_list + opposing_team_list
+
+opposing_team_object.set_stats()
+user_team_object.set_stats()
+
 
 print('\n' + '\n' + '\n')
 
@@ -538,7 +547,6 @@ print('\n' * 3)
 start_time = time.time()
 
 time.sleep(2)
-
 
 
 #-------------------------------

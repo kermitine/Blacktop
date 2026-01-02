@@ -4,10 +4,9 @@ is apart of the Blacktop project, and licensed under
 the GNU AGPL-3.0-or-later. See LICENSE and README for more details.
 """
 
-version = '2026.1.02.0245.stable'
+version = '2026.1.02.1200.stable'
 
 end_score = 21 # target score to win
-foul_chance = 28 # chance of a foul on a drive in percent
 
 pass_energy_drain = 13 # this is base chance, plus random number between 1 and 4
 threept_energy_drain = 28 # this is base chance, plus random number between 1 and 7
