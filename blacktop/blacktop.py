@@ -321,7 +321,7 @@ def calculate_turnover_chance(passer, receiver_defender):
 # PELICANS STARTING UNIT
 d_murray = BasketballPlayer("Dejounte Murray", "Point Guard", 1, "New Orleans Pelicans", .450, 0.80, 0.72, 0.12, 0.30, 0.25, 0.15, 0.40, False, None, False, 0, 0, 0, 100, None)
 c_mccollum = BasketballPlayer("CJ McCollum", "Shooting Guard", 2, "New Orleans Pelicans", .400, 0.75, 0.68, 0.10, 0.30, 0.20, 0.12, 0.35, False, None, False, 0, 0, 0, 100, ["C.J"])
-b_ingram = BasketballPlayer("Brandon Ingram", "Small Forward", 3, "New Orleans Pelicans", .380, 0.65, 0.70, 0.11, 0.28, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100, ["B.I", "The Sleepy Reaper"])
+b_ingram = BasketballPlayer("Brandon Ingram", "Small Forward", 3, "New Orleans Pelicans", .380, 0.65, 0.70, 0.11, 0.28, 0.25, 0.12, 0.40, False, None, False, 0, 0, 0, 100, ["B.I", "The Sleepy Reaper", "The Notorious B.I.3"])
 z_williamson = BasketballPlayer("Zion Williamson", "Power Forward", 4, "New Orleans Pelicans", .370, 0.40, 0.75, 0.10, 0.35, 0.30, 0.15, 0.30, False, None, False, 0, 0, 0, 100, None)
 y_missi = BasketballPlayer("Yves Missi", "Center", 5, "New Orleans Pelicans", 0.350, 0.45, 0.60, 0.12, 0.25, 0.22, 0.14, 0.32, False, None, False, 0, 0, 0, 100, None)
 
