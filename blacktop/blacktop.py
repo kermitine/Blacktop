@@ -44,10 +44,10 @@ def free_throws(player, quantity_of_free_throws):
 
 
 class BasketballPlayer():
-    def __init__(self, name, position, positionnumber, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
+    def __init__(self, name, position, position_number, team, threept, passing, drivinglay, tov, perd, intd, interception, passpref, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
         self.name = name
         self.position = position
-        self.positionnumber = positionnumber
+        self.position_number = position_number
         self.team = team
         self.threept = threept
         self.passing = passing
@@ -163,11 +163,11 @@ class BasketballPlayer():
             else:
                 while True:
                     pass_receiver_position_number = random.randint(1, 5)
-                    if self.positionnumber != pass_receiver_position_number:
+                    if self.position_number != pass_receiver_position_number:
                         break
                 if active_team == user_team:
                     for pass_receiver in user_team_list:
-                        if pass_receiver.positionnumber == pass_receiver_position_number:
+                        if pass_receiver.position_number == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         print(haliburton)
@@ -190,7 +190,7 @@ class BasketballPlayer():
 
                 else:
                     for pass_receiver in opposing_team_list:
-                        if pass_receiver.positionnumber == pass_receiver_position_number:
+                        if pass_receiver.position_number == pass_receiver_position_number:
                             break
                     if calculate_turnover_chance(self, pass_receiver.defender) is False: 
                         print(haliburton)
@@ -220,31 +220,31 @@ class BasketballPlayer():
         if self.team == user_team:
             last_event = CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
-            last_event = CommentaryEngine.commentator(user_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            last_event = CommentaryEngine.commentator(user_team_list_bench[self.position_number-1], 'substitution_final', self)
             time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
-            user_team_list.insert(self.positionnumber-1, user_team_list_bench[self.positionnumber-1])   #insert bench player into roster
-            user_team_list_bench.insert(self.positionnumber-1, user_team_list[self.positionnumber])   # insert former roster player into bench
-            user_team_list.pop(self.positionnumber) # remove former roster player from roster
-            user_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
+            user_team_list.insert(self.position_number-1, user_team_list_bench[self.position_number-1])   #insert bench player into roster
+            user_team_list_bench.insert(self.position_number-1, user_team_list[self.position_number])   # insert former roster player into bench
+            user_team_list.pop(self.position_number) # remove former roster player from roster
+            user_team_list_bench.pop(self.position_number) # remove former bench player from bench
             
-            if user_team_list_bench[self.positionnumber-1].haspossession == False:
+            if user_team_list_bench[self.position_number-1].haspossession == False:
                 pass
             else:
-                user_team_list_bench[self.positionnumber-1].haspossession = False
-                user_team_list[self.positionnumber-1].haspossession = True
-            if user_team_list_bench[self.positionnumber-1].isplayer == False:
+                user_team_list_bench[self.position_number-1].haspossession = False
+                user_team_list[self.position_number-1].haspossession = True
+            if user_team_list_bench[self.position_number-1].isplayer == False:
                 pass
             else:
-                user_team_list_bench[self.positionnumber-1].isplayer = False
-                user_team_list[self.positionnumber-1].isplayer = True
-                current_player = user_team_list[current_player.positionnumber-1]
+                user_team_list_bench[self.position_number-1].isplayer = False
+                user_team_list[self.position_number-1].isplayer = True
+                current_player = user_team_list[current_player.position_number-1]
                 current_player.haspossession = True
                 current_player.isplayer = True
 
 
-            user_team_list_bench[self.positionnumber-1].energy += 10
+            user_team_list_bench[self.position_number-1].energy += 10
 
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
@@ -256,22 +256,22 @@ class BasketballPlayer():
         else:
             last_event = CommentaryEngine.commentator(self, 'substitution_initial', None)
             time.sleep(3)
-            last_event = CommentaryEngine.commentator(opposing_team_list_bench[self.positionnumber-1], 'substitution_final', self)
+            last_event = CommentaryEngine.commentator(opposing_team_list_bench[self.position_number-1], 'substitution_final', self)
             time.sleep(3)
 
             # hand off (possession given to subbed player, defenders reinitialized, lists swapped)
-            opposing_team_list.insert(self.positionnumber-1, opposing_team_list_bench[self.positionnumber-1])   #insert bench player into roster
-            opposing_team_list_bench.insert(self.positionnumber-1, opposing_team_list[self.positionnumber])   # insert former roster player into bench
-            opposing_team_list.pop(self.positionnumber) # remove former roster player from roster
-            opposing_team_list_bench.pop(self.positionnumber) # remove former bench player from bench
+            opposing_team_list.insert(self.position_number-1, opposing_team_list_bench[self.position_number-1])   #insert bench player into roster
+            opposing_team_list_bench.insert(self.position_number-1, opposing_team_list[self.position_number])   # insert former roster player into bench
+            opposing_team_list.pop(self.position_number) # remove former roster player from roster
+            opposing_team_list_bench.pop(self.position_number) # remove former bench player from bench
             
-            if opposing_team_list_bench[self.positionnumber-1].haspossession == False:
+            if opposing_team_list_bench[self.position_number-1].haspossession == False:
                 pass
             else:
-                opposing_team_list_bench[self.positionnumber-1].haspossession = False
-                opposing_team_list[self.positionnumber-1].haspossession = True
+                opposing_team_list_bench[self.position_number-1].haspossession = False
+                opposing_team_list[self.position_number-1].haspossession = True
 
-            opposing_team_list_bench[self.positionnumber-1].energy += 10
+            opposing_team_list_bench[self.position_number-1].energy += 10
             # RE-INITIALIZE DEFENDERS
             for player in opposing_team_list:
                 defender = KermLib.object_matcher(player, user_team_list, 'positionnumber')
@@ -905,7 +905,7 @@ print('\n' + '\n')
 
 if auto_or_manual in ['m', "M"]:
     for player in user_team_list:
-        if player.positionnumber == player_decision:
+        if player.position_number == player_decision:
             player.isplayer = True
             current_player = player
             print('\n')
@@ -1175,7 +1175,7 @@ while True:
                 
                     while True:
                         player_decision = str(input())
-                        if player_decision not in ['1', '2', '3', '4', '5'] or player_decision == str(current_player.positionnumber):
+                        if player_decision not in ['1', '2', '3', '4', '5'] or player_decision == str(current_player.position_number):
                             print('Decision not recognized. Please try again')
                             continue
                         else:
@@ -1185,7 +1185,7 @@ while True:
 
 
                     for player in user_team_list:
-                        if player.positionnumber == player_decision:
+                        if player.position_number == player_decision:
                             pass_receiver = player
                             break
                     outcome, points = current_player.action_success('pass', 0, 0, pass_receiver, current_player.team)
