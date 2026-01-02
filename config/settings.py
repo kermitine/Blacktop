@@ -4,7 +4,7 @@ is apart of the Blacktop project, and licensed under
 the GNU AGPL-3.0-or-later. See LICENSE and README for more details.
 """
 
-version = '2025.8.07.2210.stable'
+version = '2026.1.02.0245.stable'
 
 end_score = 21 # target score to win
 foul_chance = 28 # chance of a foul on a drive in percent
