@@ -14,11 +14,6 @@ drive_energy_drain = 34 # this is base chance, plus random number between 1 and 
 instant_energy_regen = 10 # instant regen after being subbed
 passive_energy_regen = 18 # passive regen each posession
 
-# BASE WEIGHTS
-pass_weight = 35
-three_weight = 25
-drive_weight = 40
-
 
 opposing_team_score = 0 # Start score for each team. DO NOT CHANGE
 user_team_score = 0 # Start score for each team. DO NOT CHANGE
