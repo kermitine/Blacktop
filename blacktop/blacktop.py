@@ -26,7 +26,7 @@ class Team():
         print(f'Loading {self.team_name} player stats from NBA API')
         print('\n')
         for player in self.list + self.bench_list:
-            print(f"Loading {player.name}'s stats")
+            print(f"Loading {player.name}")
             player_stats_dict = get_player_stats(player.get_player_id())
             # OFFENSIVE STATS
             if player.name not in threefg_exceptions:
@@ -46,6 +46,7 @@ class Team():
 
             player.usage = round((player_stats_dict['FGA']/player_stats_dict['MIN']), 3)
             time.sleep(0.35)
+        print('All stats loaded successfully')
         print('\n')
 
 
@@ -86,7 +87,7 @@ def get_player_stats(id):
 
 nba_players = players.get_players()
 class BasketballPlayer():
-    def __init__(self, name, position, position_number, team, threefg_percent, ft_percent, twofg_percent, turnover_chance, interior_defense, perimeter_defense, foul_chance, usage, possession, defender, player, points_made, passes_made, interceptions_made, energy, nicknames):
+    def __init__(self, name, position, position_number, team, threefg_percent, ft_percent, twofg_percent, turnover_chance, interior_defense, perimeter_defense, foul_chance, usage, possession, defender, player, points_made, passes_made, interceptions_made, energy, attributes, nicknames):
         self.name = name
         self.position = position
         self.position_number = position_number
@@ -106,6 +107,7 @@ class BasketballPlayer():
         self.passesMade = passes_made
         self.interceptionsMade = interceptions_made
         self.energy = energy
+        self.attributes = attributes
         self.nicknames = nicknames
 
 
@@ -352,41 +354,41 @@ The stats below are effectively placeholders, as stats are loaded by NBA API whe
 """
 
 # NUGGETS STARTING UNIT
-j_murray = BasketballPlayer("Jamal Murray", "Point Guard", 1, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["The Blue Arrow"])
-c_braun = BasketballPlayer("Christian Braun", "Shooting Guard", 2, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-c_johnson = BasketballPlayer("Cameron Johnson", "Small Forward", 3, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["Cam Johnson"])
-a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100,["AG"])
-n_jokic = BasketballPlayer("Nikola Jokić", "Center", 5, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100,["the Joker"])
+j_murray = BasketballPlayer("Jamal Murray", "Point Guard", 1, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["The Blue Arrow"])
+c_braun = BasketballPlayer("Christian Braun", "Shooting Guard", 2, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+c_johnson = BasketballPlayer("Cameron Johnson", "Small Forward", 3, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["Cam Johnson"])
+a_gordon = BasketballPlayer("Aaron Gordon", "Power Forward", 4, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["AG"])
+n_jokic = BasketballPlayer("Nikola Jokić", "Center", 5, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["the Joker"])
 # NUGGETS BENCH UNIT
-j_pickett = BasketballPlayer("Jalen Pickett", "Point Guard", 1, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-b_brown = BasketballPlayer("Bruce Brown", "Shooting Guard", 2, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-p_watson = BasketballPlayer("Peyton Watson", "Small Forward", 3, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-d_holmes = BasketballPlayer("DaRon Holmes II", "Power Forward", 4, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-j_valanciunas = BasketballPlayer("Jonas Valančiūnas", "Center", 5, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+j_pickett = BasketballPlayer("Jalen Pickett", "Point Guard", 1, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+b_brown = BasketballPlayer("Bruce Brown", "Shooting Guard", 2, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+p_watson = BasketballPlayer("Peyton Watson", "Small Forward", 3, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+d_holmes = BasketballPlayer("DaRon Holmes II", "Power Forward", 4, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+j_valanciunas = BasketballPlayer("Jonas Valančiūnas", "Center", 5, "Denver Nuggets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
 # 76ers STARTING UNIT
-t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False,0, 0, 0, 100, None)
-q_grimes = BasketballPlayer("Quentin Grimes", "Shooting Guard", 2, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-k_oubre = BasketballPlayer("Kelly Oubre Jr.", "Small Forward", 3, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-p_george = BasketballPlayer("Paul George", "Power Forward", 4, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["PG13", "Pandemic-P", "Playoff-P", "Podcast-P", "Wayoff-P", "George Paul"])
-j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, ["The Process"])
+t_maxey = BasketballPlayer("Tyrese Maxey", "Point Guard", 1, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False,0, 0, 0, 100, None, None)
+q_grimes = BasketballPlayer("Quentin Grimes", "Shooting Guard", 2, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+k_oubre = BasketballPlayer("Kelly Oubre Jr.", "Small Forward", 3, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+p_george = BasketballPlayer("Paul George", "Power Forward", 4, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["PG13", "Pandemic-P", "Playoff-P", "Podcast-P", "Wayoff-P", "George Paul"])
+j_embiid = BasketballPlayer("Joel Embiid", "Center", 5, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, ["The Process"])
 # 76ers BENCH UNIT
-j_mccain = BasketballPlayer("Jared McCain", "Point Guard", 1, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-k_lowry = BasketballPlayer("Kyle Lowry", "Shooting Guard", 2, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-t_watford = BasketballPlayer("Trendon Watford", "Small Forward", 3, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-j_walker = BasketballPlayer("Jabari Walker", "Power Forward", 4, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+j_mccain = BasketballPlayer("Jared McCain", "Point Guard", 1, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+k_lowry = BasketballPlayer("Kyle Lowry", "Shooting Guard", 2, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+t_watford = BasketballPlayer("Trendon Watford", "Small Forward", 3, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+j_walker = BasketballPlayer("Jabari Walker", "Power Forward", 4, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+a_drummond = BasketballPlayer("Andre Drummond", "Center", 5, "Philadelphia 76ers", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
 # NETS STARTING UNIT
-d_melton = BasketballPlayer("De'Anthony Melton", "Point Guard", 1, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-c_thomas = BasketballPlayer("Cam Thomas", "Shooting Guard", 2, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-m_porter = BasketballPlayer("Michael Porter Jr.", "Small Forward", 3, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-n_clowney = BasketballPlayer("Noah Clowney", "Power Forward", 4, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-n_claxton = BasketballPlayer("Nic Claxton", "Center", 5, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+d_melton = BasketballPlayer("De'Anthony Melton", "Point Guard", 1, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+c_thomas = BasketballPlayer("Cam Thomas", "Shooting Guard", 2, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+m_porter = BasketballPlayer("Michael Porter Jr.", "Small Forward", 3, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+n_clowney = BasketballPlayer("Noah Clowney", "Power Forward", 4, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+n_claxton = BasketballPlayer("Nic Claxton", "Center", 5, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
 # NETS BENCH UNIT
-d_russell = BasketballPlayer("D'Angelo Russell", "Point Guard", 1, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-t_mann = BasketballPlayer("Terance Mann", "Shooting Guard", 2, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-z_williams = BasketballPlayer("Ziaire Williams", "Small Forward", 3, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-j_wilson = BasketballPlayer("Jalen Wilson", "Power Forward", 4, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
-d_sharpe = BasketballPlayer("Day'Ron Sharpe", "Center", 5, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None)
+d_russell = BasketballPlayer("D'Angelo Russell", "Point Guard", 1, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+t_mann = BasketballPlayer("Terance Mann", "Shooting Guard", 2, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+z_williams = BasketballPlayer("Ziaire Williams", "Small Forward", 3, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+j_wilson = BasketballPlayer("Jalen Wilson", "Power Forward", 4, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
+d_sharpe = BasketballPlayer("Day'Ron Sharpe", "Center", 5, "Brooklyn Nets", 0, 0, 0, 0, 0, 0, 0, 0, False, None, False, 0, 0, 0, 100, None, None)
 
 sixers_list = [t_maxey, q_grimes, k_oubre, p_george, j_embiid]
 sixers_bench_list = [j_mccain, k_lowry, t_watford, j_walker, a_drummond]
