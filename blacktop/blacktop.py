@@ -45,7 +45,6 @@ class Team():
             player.foul_chance = round(((player_stats_dict['FTA']/2)/player_stats_dict['MIN']), 3) # roughly how often they are fouled per possession
 
             player.usage = round((player_stats_dict['FGA']/player_stats_dict['MIN']), 3)
-            print(player.usage*1000)
             time.sleep(0.35)
         print('\n')
 
@@ -115,20 +114,23 @@ class BasketballPlayer():
         return player_dataframe['id']
 
     def decision(self):
-        generated_probability = random.randint(1, 100)
-        # Point Guards are more likely to pass or shoot a 3pointer than drive
-        if self.position == 'Point Guard':
-            generated_probability += 25
 
-        if 81 > generated_probability >= 50:
-            return 'pass'
-        elif 150 >= generated_probability >= 81:
-            if self.threefg_percent != 0:
-                return '3pt'
-            else:
-                return 'drive'
-        else:
-            return 'drive'
+        if self.position == "Point Guard":
+            pass_weight  += 15
+            three_weight += 10
+            drive_weight -= 25
+
+
+        if self.threefg_percent <= 0:
+            drive_weight += three_weight
+            three_weight = 0
+
+        pass_weight  = max(pass_weight, 0)
+        three_weight = max(three_weight, 0)
+        drive_weight = max(drive_weight, 0)
+
+
+        return random.choices(["pass", "3pt", "drive"], weights=[pass_weight, three_weight, drive_weight], k=1)[0]
     
     def action_success(self, decision, pass_receiver_preset, active_team):
         global last_event
@@ -211,8 +213,9 @@ class BasketballPlayer():
                     return 'miss', 0
             else:
                 while True:
-                    pass_receiver_position_number = random.randint(1, 5)
-                    if self.position_number != pass_receiver_position_number:
+                    receiver = random.choices(user_team_list, weights=[p.usage ** 0.5 for p in user_team_list], k=1)[0]
+                    if self.position_number != receiver.position_number:
+                        pass_receiver_position_number = receiver.position_number
                         break
                 if active_team == user_team:
                     for pass_receiver in user_team_list:
@@ -300,7 +303,7 @@ class BasketballPlayer():
                 current_player.isplayer = True
 
 
-            user_team_list_bench[self.position_number-1].energy += 10
+            user_team_list_bench[self.position_number-1].energy += instant_energy_regen
 
             # RE-INITIALIZE DEFENDERS
             for player in user_team_list:
@@ -327,7 +330,7 @@ class BasketballPlayer():
                 opposing_team_list_bench[self.position_number-1].haspossession = False
                 opposing_team_list[self.position_number-1].haspossession = True
 
-            opposing_team_list_bench[self.position_number-1].energy += 10
+            opposing_team_list_bench[self.position_number-1].energy += instant_energy_regen
             # RE-INITIALIZE DEFENDERS
             for player in opposing_team_list:
                 defender = KermLib.object_matcher(player, user_team_list, 'position_number')
@@ -734,7 +737,7 @@ while True:
 
     for player in user_team_list_bench + opposing_team_list_bench: #RECUPERATE 6 ENERGY TO EACH PLAYER ON THE BENCH PER TURN
         if random.randint(1, 2) != 2:
-            player.energy += 9
+            player.energy += passive_energy_regen
         if player.energy > 100: #CLAMP VALUES BETWEEN 0 AND 100
             player.energy = 100
         elif player.energy < 0:
